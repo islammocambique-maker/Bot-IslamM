@@ -1,8 +1,247 @@
 [
   {
-    "palavras_chave": ["pilares", "islam", "cinco"],
-    "resposta": "O Islam está fundamentado em cinco pilares: 1. O Testemunho de Fé (Shahada); 2. As cinco orações diárias (Salah); 3. O pagamento do Zakat (caridade obrigatória); 4. O jejum no mês de Ramadan (Sawm); 5. A peregrinação a Meca (Hajj), para quem tiver condições.",
-    "fonte": "Sahih al-Bukhari e Sahih Muslim",
+    "palavras_chave": ["islam", "o que é", "definicao"],
+    "resposta": "Islam é a submissão voluntária a Allah e viver segundo os Seus ensinamentos.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["iman", "fé", "crença"],
+    "resposta": "Iman é a fé em Allah, nos Seus anjos, livros, mensageiros, Dia do Juízo e destino.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["muçulmano", "quem é"],
+    "resposta": "Muçulmano é aquele que se submete a Allah e segue o Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["profeta", "muhammad", "quem foi"],
+    "resposta": "Muhammad ﷺ é o último profeta enviado por Allah para toda a humanidade.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["alquran", "o que é"],
+    "resposta": "O Alcorão é o livro sagrado do Islam revelado a Muhammad ﷺ.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["oração", "salat"],
+    "resposta": "A oração é a ligação direta entre o muçulmano e Allah.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["cinco pilares", "islam pilares"],
+    "resposta": "Os cinco pilares do Islam são: Shahada, Salat, Zakat, Sawm e Hajj.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["shahada"],
+    "resposta": "Shahada é o testemunho de que não há deus além de Allah e Muhammad é Seu mensageiro.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["zakat"],
+    "resposta": "Zakat é a caridade obrigatória para ajudar os necessitados.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["jejum", "ramadan"],
+    "resposta": "O jejum no Ramadão é obrigatório para os muçulmanos adultos.",
+    "fonte": "geral",
+    "links": []
+  },
+
+  {
+    "palavras_chave": ["hajj", "peregrinação"],
+    "resposta": "Hajj é a peregrinação a Meca feita uma vez na vida por quem tem condições.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["halal", "significado"],
+    "resposta": "Halal significa tudo o que é permitido no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["haram", "significado"],
+    "resposta": "Haram significa tudo o que é proibido no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["pecado", "sin"],
+    "resposta": "Pecado é qualquer ato que desobedece a Allah.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["arrependimento", "tawbah"],
+    "resposta": "Tawbah é o arrependimento sincero e pedido de perdão a Allah.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["céu", "jannah"],
+    "resposta": "Jannah é o paraíso preparado para os crentes.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["inferno", "jahannam"],
+    "resposta": "Jahannam é o inferno para quem rejeita a fé.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["anjos"],
+    "resposta": "Os anjos são criaturas de Allah que obedecem sempre a Ele.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["jinn"],
+    "resposta": "Os jinn são criaturas criadas de fogo invisível com livre arbítrio.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["shirk"],
+    "resposta": "Shirk é associar parceiros a Allah e é o maior pecado.",
+    "fonte": "geral",
+    "links": []
+  },
+
+  {
+    "palavras_chave": ["oração como fazer", "salat como"],
+    "resposta": "A oração envolve intenção, posições específicas e recitação.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["wudu", "ablução"],
+    "resposta": "Wudu é a purificação antes da oração.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["mesquita"],
+    "resposta": "Mesquita é o local de adoração dos muçulmanos.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["casamento islam"],
+    "resposta": "O casamento no Islam é uma união baseada em respeito e responsabilidade.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["divorcio islam"],
+    "resposta": "O divórcio é permitido no Islam, mas deve ser última opção.",
+    "fonte": "geral",
+    "links": []
+  },
+
+  {
+    "palavras_chave": ["pais", "respeito"],
+    "resposta": "Respeitar os pais é uma obrigação no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["mentira"],
+    "resposta": "Mentir é proibido e considerado um mau caráter no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["honestidade"],
+    "resposta": "A honestidade é uma virtude essencial no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["caridade", "ajudar"],
+    "resposta": "Ajudar os necessitados é altamente recomendado no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["amor a allah"],
+    "resposta": "Amar Allah significa obedecê-Lo e lembrar d’Ele constantemente.",
+    "fonte": "geral",
+    "links": []
+  },
+
+  {
+    "palavras_chave": ["duaa"],
+    "resposta": "Duaa é a súplica direta feita a Allah.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["destino"],
+    "resposta": "Tudo acontece com o decreto de Allah.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["vida propósito"],
+    "resposta": "O propósito da vida é adorar Allah.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["conhecimento islam"],
+    "resposta": "Buscar conhecimento é altamente valorizado no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["hipocrisia"],
+    "resposta": "Hipocrisia é fingir fé enquanto se esconde incredulidade.",
+    "fonte": "geral",
+    "links": []
+  },
+
+  {
+    "palavras_chave": ["comida halal"],
+    "resposta": "Comida halal é aquela permitida para consumo no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["comida haram"],
+    "resposta": "Comida haram é aquela proibida no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["limpeza islam"],
+    "resposta": "A limpeza é parte importante da fé no Islam.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["sexta feira"],
+    "resposta": "A sexta-feira é um dia especial para os muçulmanos.",
+    "fonte": "geral",
+    "links": []
+  },
+  {
+    "palavras_chave": ["calma islam"],
+    "resposta": "O Islam incentiva a paciência e a tranquilidade.",
+    "fonte": "geral",
     "links": []
   }
 ]
