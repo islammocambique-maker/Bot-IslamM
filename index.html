@@ -1,262 +1,370 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Islam M - IA Islâmica Avançada</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islam M - Chat Bot Inteligente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0b6623; /* Verde Islâmico */
+            --secondary-color: #f4fbf7; /* Branco suave de fundo */
+            --text-dark: #222222;
+            --white: #ffffff;
+        }
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:#e8f5e9;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
+        body {
+            background-color: #eef5f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-.chat{
-    width:100%;
-    max-width:600px;
-    height:95vh;
-    background:#fff;
-    display:flex;
-    flex-direction:column;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.2);
-}
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            height: 100vh;
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
 
-.header{
-    background:#0b6623;
-    color:#fff;
-    padding:15px;
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
+        @media (min-width: 601px) {
+            .chat-container {
+                height: 85vh;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+        }
 
-.messages{
-    flex:1;
-    padding:15px;
-    overflow-y:auto;
-    background:#f4fbf7;
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
+        /* Topo do Chat */
+        .chat-header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-.msg{
-    padding:12px;
-    border-radius:12px;
-    max-width:85%;
-    line-height:1.5;
-}
+        .chat-header img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--white);
+            object-fit: cover;
+        }
 
-.user{
-    background:#0b6623;
-    color:#fff;
-    align-self:flex-end;
-}
+        .chat-header h1 {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
 
-.bot{
-    background:#fff;
-    border:1px solid #ddd;
-    align-self:flex-start;
-}
+        .chat-header p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
 
-.input{
-    display:flex;
-    padding:10px;
-    border-top:1px solid #ddd;
-}
+        /* Área de Mensagens */
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-input{
-    flex:1;
-    padding:12px;
-    border-radius:20px;
-    border:1px solid #ccc;
-    outline:none;
-}
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 15px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            animation: fadeIn 0.3s ease-in-out;
+        }
 
-button{
-    margin-left:8px;
-    width:45px;
-    border:none;
-    border-radius:50%;
-    background:#0b6623;
-    color:#fff;
-}
-</style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .bot-message {
+            background-color: var(--white);
+            color: var(--text-dark);
+            align-self: flex-start;
+            border-bottom-left-radius: 2px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .user-message {
+            background-color: var(--primary-color);
+            color: var(--white);
+            align-self: flex-end;
+            border-bottom-right-radius: 2px;
+        }
+
+        .fonte-box {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed #ddd;
+            font-size: 0.8rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        .user-message .fonte-box {
+            color: #e0f2e9;
+            border-top: 1px dashed rgba(255,255,255,0.3);
+        }
+
+        .link-fonte {
+            color: var(--primary-color);
+            text-decoration: underline;
+            display: inline-block;
+            margin-top: 4px;
+        }
+
+        /* Campo de Input */
+        .chat-input-area {
+            padding: 12px;
+            background: var(--white);
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input-area input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            outline: none;
+            font-size: 1rem;
+            transition: 0.2s;
+        }
+
+        .chat-input-area input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .chat-input-area button {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.1rem;
+            transition: 0.2s;
+        }
+
+        .chat-input-area button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Rodapé Informativo / Suporte */
+        .chat-footer {
+            background: #fdfdfd;
+            padding: 8px;
+            font-size: 0.72rem;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #f0f0f0;
+            line-height: 1.4;
+        }
+        .chat-footer a { color: var(--primary-color); text-decoration: none; font-weight: bold;}
+    </style>
 </head>
-
 <body>
 
-<div class="chat">
+<div class="chat-container">
+    <!-- Cabeçalho -->
+    <div class="chat-header">
+        <div style="font-size: 2rem; color: white;"><i class="fa-solid :i fa-mosque"></i></div>
+        <div>
+            <h1>Islam M</h1>
+            <p>Criado por isslam Moz para divulgação do Islam</p>
+        </div>
+    </div>
 
-<div class="header">
-<i class="fa-solid fa-mosque"></i>
-<strong>Islam M - IA Avançada</strong>
-</div>
+    <!-- Mensagens -->
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot-message">
+            Assalamu Alaikum! Eu sou o **Islam M**, seu assistente inteligente sobre o Islam. Como posso te ajudar hoje?
+        </div>
+    </div>
 
-<div class="messages" id="msgs">
-<div class="msg bot">
-Assalamo Alaikum! Pergunte sobre Islam.
-</div>
-</div>
+    <!-- Área de Digitação -->
+    <div class="chat-input-area">
+        <input type="text" id="userInput" placeholder="Pergunte sobre o Islam (Ex: Quem é Allah?, Pilares...)" autocomplete="off">
+        <button id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+    </div>
 
-<div class="input">
-<input id="txt" placeholder="Pergunte aqui...">
-<button onclick="send()"><i class="fa fa-paper-plane"></i></button>
-</div>
-
+    <!-- Suporte e Apoio Financeiro -->
+    <div class="chat-footer">
+        <div>Motor criado por <strong>isslam Moz</strong> | Suporte: 860407269</div>
+        <div><strong>Apoio ao Projeto:</strong> Mpesa: 1228803 (Paga Fácil) / 860407269 | E-mola: 860407269 | BIM NIB: 000100000012473356257</div>
+    </div>
 </div>
 
 <script>
+    const chatMessages = document.getElementById('chatMessages');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
 
-// ======================
-// MEMÓRIA
-// ======================
-let memoria = [];
-let contexto = "";
+    let cérebroCompleto = [];
+    let contextoAnterior = "";
 
-// ======================
-// CÉREBRO
-// ======================
-const brain = [
+    // Dicionário de correção automática básica de escrita
+    const dicionarioCorrecao = {
+        "alcorao": "alcorão", "alcoran": "alcorão", "alcorã": "alcorão",
+        "ala": "allah", "allha": "allah", "alaah": "allah",
+        "radis": "hadith", "hadis": "hadith", "hadit": "hadith",
+        "pelares": "pilares", "pilar": "pilares",
+        "isla": "islam", "islame": "islam"
+    };
 
-{
-keys:["allah","deus","criador"],
-answer:"Allah é o único Deus, Criador de tudo.",
-source:"Alcorão 112"
-},
+    // Carrega o conhecimento dinamicamente (Anti-falha centralizado)
+    async function carregarCerebro() {
+        const caminhos = ['cerebro/alcorao.json', 'cerebro/sunnah.json', 'cerebro/geral.json'];
+        for (const caminho of caminhos) {
+            try {
+                const resposta = await fetch(caminho);
+                if (resposta.ok) {
+                    const dados = await resposta.json();
+                    cérebroCompleto = cérebroCompleto.concat(dados);
+                }
+            } catch (erro) {
+                console.error(`Erro automático tratado ao ler ${caminho}:`, erro);
+            }
+        }
+    }
 
-{
-keys:["quran","alcorao"],
-answer:"O Alcorão é a palavra de Allah revelada a Muhammad ﷺ.",
-source:"Alcorão 2:2"
-},
+    // Normaliza e limpa o texto para busca inteligente
+    function normalizarTexto(texto) {
+        return texto.toLowerCase()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove acentos
+            .replace(/[^\w\s]/gi, ''); // Remove pontuação
+    }
 
-{
-keys:["muhammad","profeta"],
-answer:"Muhammad ﷺ é o último profeta de Allah.",
-source:"Alcorão 33:40"
-},
+    // Corretor automático simples
+    function corrigirTexto(texto) {
+        let palavras = texto.split(" ");
+        let palavrasCorrigidas = palavras.map(palavra => {
+            let termoLimpo = normalizarTexto(palavra);
+            return dicionarioCorrecao[termoLimpo] ? dicionarioCorrecao[termoLimpo] : palavra;
+        });
+        return palavrasCorrigidas.join(" ");
+    }
 
-{
-keys:["salah","reza","oração"],
-answer:"Salah é a oração obrigatória 5 vezes ao dia.",
-source:"Hadith Bukhari"
-}
+    // Mecanismo de Busca Inteligente
+    function procurarResposta(perguntaUsuario) {
+        // Inclui memória de contexto básico se a pergunta atual for muito curta
+        let textoParaBusca = normalizarTexto(perguntaUsuario);
+        if(textoParaBusca.length < 4 && contextoAnterior) {
+            textoParaBusca += " " + contextoAnterior;
+        }
 
-];
+        let melhorCorrespondencia = null;
+        let maiorPontuacao = 0;
 
-// ======================
-// UTIL
-// ======================
-function norm(t){
-return t.toLowerCase()
-.normalize("NFD")
-.replace(/[\u0300-\u036f]/g,"");
-}
+        for (const item of cérebroCompleto) {
+            let pontuacao = 0;
+            for (const chave of item.palavras_chave) {
+                if (textoParaBusca.includes(normalizarTexto(chave))) {
+                    pontuacao += 1;
+                }
+            }
+            if (pontuacao > maiorPontuacao) {
+                maiorPontuacao = pontuacao;
+                melhorCorrespondencia = item;
+            }
+        }
 
-// ======================
-// IA SIMPLES INTELIGENTE
-// ======================
-function think(input){
+        if (melhorCorrespondencia && maiorPontuacao > 0) {
+            // Atualiza memória contextual com uma das palavras-chave encontradas
+            contextoAnterior = melhorCorrespondencia.palavras_chave[0];
+            return melhorCorrespondencia;
+        }
+        return null;
+    }
 
-let text = norm(input);
+    function adicionarMensagem(texto, tipo, fonte = "", links = []) {
+        const msgDiv = document.createElement('div');
+        msgDiv.classList.add('message', tipo === 'user' ? 'user-message' : 'bot-message');
+        msgDiv.innerText = texto;
 
-if(text.length < 4 && contexto){
-text += " " + norm(contexto);
-}
+        if (fonte) {
+            const fonteDiv = document.createElement('div');
+            fonteDiv.classList.add('fonte-box');
+            fonteDiv.innerHTML = `<strong>Fonte:</strong> ${fonte}`;
+            
+            if (links && links.length > 0) {
+                links.forEach(link => {
+                    fonteDiv.innerHTML += `<br><a class="link-fonte" href="${link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver online</a>`;
+                });
+            }
+            msgDiv.appendChild(fonteDiv);
+        }
 
-let best = null;
-let score = 0;
+        chatMessages.appendChild(msgDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
 
-brain.forEach(item=>{
-let s = 0;
+    function processarEnvio() {
+        let texto = userInput.value.trim();
+        if (!texto) return;
 
-item.keys.forEach(k=>{
-if(text.includes(norm(k))){
-s += 2;
-}
-});
+        // Adiciona a pergunta original do usuário na tela
+        adicionarMensagem(texto, 'user');
+        userInput.value = '';
 
-if(s > score){
-score = s;
-best = item;
-}
-});
+        // Processamento inteligente e correção automática interna
+        let textoCorrigido = corrigirTexto(texto);
+        
+        // Simulação de digitação rápida
+        setTimeout(() => {
+            try {
+                const resultado = procurarResposta(textoCorrigido);
 
-return best;
-}
+                if (resultado) {
+                    adicionarMensagem(resultado.resposta, 'bot', resultado.fonte, resultado.links);
+                } else {
+                    adicionarMensagem(
+                        "Desculpe, não consegui encontrar uma resposta específica e segura para essa pergunta nas minhas fontes atuais. Por favor, tente usar outras palavras ou consulte um sábio de confiança. Nunca inventamos Hadiths ou dados sem fontes claras.",
+                        'bot'
+                    );
+                }
+            } catch (e) {
+                // Sistema anti-falha ativo
+                adicionarMensagem("Ocorreu um erro ao processar sua busca. Por favor, tente novamente.", 'bot');
+            }
+        }, 400);
+    }
 
-// ======================
-// MENSAGEM
-// ======================
-function add(msg,type){
+    // Eventos
+    sendBtn.addEventListener('click', processarEnvio);
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') processarEnvio();
+    });
 
-let div = document.createElement("div");
-div.className = "msg " + type;
-div.innerHTML = msg;
-document.getElementById("msgs").appendChild(div);
-
-document.getElementById("msgs")
-.scrollTop = document.getElementById("msgs").scrollHeight;
-
-}
-
-// ======================
-// ENVIAR
-// ======================
-function send(){
-
-let input = document.getElementById("txt");
-let text = input.value.trim();
-if(!text) return;
-
-add(text,"user");
-memoria.push(text);
-input.value = "";
-
-// contexto simples
-contexto = text;
-
-setTimeout(()=>{
-
-let r = think(text);
-
-if(r){
-
-add(`
-${r.answer}
-<br><br><small>Fonte: ${r.source}</small>
-`,"bot");
-
-}else{
-
-add(`
-Não encontrei resposta exata no meu cérebro.
-<br><br>
-Tente perguntar sobre: Alcorão, Salah, Hadith, Profetas.
-`,"bot");
-
-}
-
-},800);
-
-}
-
-document.getElementById("txt")
-.addEventListener("keydown",(e)=>{
-if(e.key==="Enter") send();
-});
-
+    // Inicialização segura
+    carregarCerebro();
 </script>
-
 </body>
 </html>
