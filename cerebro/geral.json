@@ -1,4 +1,33 @@
 [
+  
+    {
+        palavras_chave: ["como me converter", "tornar muçulmano", "entrar no islam", "reverter", "aceitar islam"],
+        resposta: "Para se tornar muçulmano, basta dizer a Shahada com convicção e entendimento: 'Ashhadu an la ilaha illallah, wa ashhadu anna Muhammadan rasulullah.' Não precisa de testemunhas, cerimônia, ou permissão. Allah perdoa todos os pecados anteriores imediatamente.",
+        fonte: "Islam Moçambique",
+        links: ["https://wa.me/258860407269"]
+    },
+
+    {
+        palavras_chave: ["contato", "falar", "apoio", "ajuda", "perguntar", "esclarecer", "islam moçambique", "islam mozambique"],
+        resposta: "Para mais informações, esclarecimentos ou apoio sobre o Islam em Moçambique, entre em contacto com o Islam Moçambique. Eles oferecem aconselhamento religioso, materiais educativos e apoio à comunidade muçulmana.\n\n📱 WhatsApp: +258 860407269\n📧 Email: Islammocambique@gmail.com",
+        fonte: "Islam Moçambique",
+        links: ["https://wa.me/258860407269"]
+    },
+
+    {
+        palavras_chave: ["islam moçambique", "islam mozambique", "muçulmanos moçambique", "islam em moçambique", "comunidade muçulmana moçambique"],
+        resposta: "Islam Moçambique é uma organização dedicada à educação islâmica e ao apoio à comunidade muçulmana em Moçambique. Oferecem recursos para aprendizado do Alcorão, estudos de hadith, e orientação religiosa para novos muçulmanos e estudantes de Islam.\n\n📱 WhatsApp: +258 860407269\n📧 Email: Islammocambique@gmail.com",
+        fonte: "Islam Moçambique",
+        links: ["https://wa.me/258860407269"]
+    },
+
+    {
+        palavras_chave: ["converter em moçambique", "tornar muçulmano moçambique", "shahada moçambique", "aceitar islam moçambique"],
+        resposta: "Se deseja aceitar o Islam em Moçambique, pode contactar o Islam Moçambique para orientação e apoio. Eles ajudam novos muçulmanos com educação, integração na comunidade, e esclarecimento de dúvidas. A Shahada pode ser feita em qualquer lugar, mas ter apoio comunitário é muito benéfico.\n\n📱 WhatsApp: +258 860407269\n📧 Email: Islammocambique@gmail.com",
+        fonte: "Islam Moçambique",
+        links: ["https://wa.me/258860407269"]
+    },
+
   {
     "palavras_chave": ["islam", "o que é", "definicao"],
     "resposta": "Islam é a submissão voluntária a Allah e viver segundo os Seus ensinamentos.",
