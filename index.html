@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0b6623; /* Verde Islâmico */
-            --secondary-color: #f4fbf7; /* Branco suave de fundo */
+            --primary-color: #0b6623;
+            --primary-dark: #094a1a;
+            --secondary-color: #f4fbf7;
             --text-dark: #222222;
             --white: #ffffff;
+            --gray-light: #e8e8e8;
+            --shadow: 0 4px 20px rgba(0,0,0,0.12);
         }
 
         * {
@@ -21,7 +24,7 @@
         }
 
         body {
-            background-color: #eef5f1;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,189 +38,401 @@
             background: var(--white);
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            position: relative;
         }
 
         @media (min-width: 601px) {
             .chat-container {
-                height: 85vh;
-                border-radius: 12px;
+                height: 90vh;
+                border-radius: 16px;
                 overflow: hidden;
             }
         }
 
         /* Topo do Chat */
         .chat-header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: var(--white);
-            padding: 15px;
+            padding: 16px 18px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+            box-shadow: 0 2px 10px rgba(11, 102, 35, 0.3);
+            z-index: 10;
         }
 
-        .chat-header img {
-            width: 45px;
-            height: 45px;
+        .chat-header .header-icon {
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
-            background: var(--white);
-            object-fit: cover;
+            background: rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
         }
 
         .chat-header h1 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .chat-header p {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        .header-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
             opacity: 0.9;
+            margin-top: 3px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
 
         /* Área de Mensagens */
         .chat-messages {
             flex: 1;
-            padding: 20px;
+            padding: 20px 16px;
             overflow-y: auto;
-            background-color: var(--secondary-color);
+            background: linear-gradient(180deg, var(--secondary-color) 0%, #eef5f1 100%);
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
+            scroll-behavior: smooth;
         }
 
         .message {
-            max-width: 85%;
+            max-width: 88%;
             padding: 12px 16px;
-            border-radius: 15px;
+            border-radius: 18px;
             font-size: 0.95rem;
-            line-height: 1.4;
-            animation: fadeIn 0.3s ease-in-out;
+            line-height: 1.5;
+            animation: messageSlide 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+            word-wrap: break-word;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes messageSlide {
+            from { opacity: 0; transform: translateY(15px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .bot-message {
             background-color: var(--white);
             color: var(--text-dark);
             align-self: flex-start;
-            border-bottom-left-radius: 2px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         }
 
         .user-message {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: var(--white);
             align-self: flex-end;
-            border-bottom-right-radius: 2px;
+            border-bottom-right-radius: 4px;
+            box-shadow: 0 2px 10px rgba(11, 102, 35, 0.25);
+        }
+
+        /* Formatação de texto nas mensagens */
+        .message strong {
+            font-weight: 700;
+        }
+
+        .message ul, .message ol {
+            margin: 8px 0 8px 20px;
+        }
+
+        .message li {
+            margin: 4px 0;
+        }
+
+        .message p {
+            margin: 6px 0;
+        }
+
+        .message br {
+            display: block;
+            margin: 4px 0;
         }
 
         .fonte-box {
-            margin-top: 8px;
-            padding-top: 8px;
+            margin-top: 10px;
+            padding-top: 10px;
             border-top: 1px dashed #ddd;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: #555;
             font-style: italic;
         }
 
         .user-message .fonte-box {
-            color: #e0f2e9;
-            border-top: 1px dashed rgba(255,255,255,0.3);
+            color: #c8f0d4;
+            border-top: 1px dashed rgba(255,255,255,0.25);
         }
 
         .link-fonte {
             color: var(--primary-color);
-            text-decoration: underline;
-            display: inline-block;
-            margin-top: 4px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 6px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .link-fonte:hover {
+            opacity: 0.8;
+        }
+
+        .user-message .link-fonte {
+            color: #a3e6b5;
+        }
+
+        /* Indicador de digitação */
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background: var(--white);
+            padding: 14px 18px;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-bottom: 4px;
+        }
+
+        .typing-indicator.active {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: typingBounce 1.4s infinite ease-in-out both;
+        }
+
+        .typing-indicator span:nth-child(1) { animation-delay: -0.32s; }
+        .typing-indicator span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typingBounce {
+            0%, 80%, 100% { transform: scale(0); opacity: 0.3; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Sugestões rápidas */
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0 16px 12px;
+            background: transparent;
+        }
+
+        .suggestion-chip {
+            background: var(--white);
+            border: 1.5px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+
+        .suggestion-chip:hover {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(11, 102, 35, 0.2);
         }
 
         /* Campo de Input */
         .chat-input-area {
-            padding: 12px;
+            padding: 12px 14px;
             background: var(--white);
             display: flex;
-            gap: 8px;
+            gap: 10px;
             border-top: 1px solid #eee;
+            align-items: center;
         }
 
         .chat-input-area input {
             flex: 1;
-            padding: 12px;
-            border: 1px solid #ccc;
+            padding: 12px 18px;
+            border: 2px solid #e0e0e0;
             border-radius: 25px;
             outline: none;
-            font-size: 1rem;
-            transition: 0.2s;
+            font-size: 0.95rem;
+            transition: all 0.25s;
+            background: #fafafa;
         }
 
         .chat-input-area input:focus {
             border-color: var(--primary-color);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(11, 102, 35, 0.1);
+        }
+
+        .chat-input-area input::placeholder {
+            color: #999;
         }
 
         .chat-input-area button {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: var(--white);
             border: none;
-            width: 45px;
-            height: 45px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 1.1rem;
-            transition: 0.2s;
+            transition: all 0.2s;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(11, 102, 35, 0.3);
         }
 
         .chat-input-area button:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
+            box-shadow: 0 4px 15px rgba(11, 102, 35, 0.4);
         }
 
-        /* Rodapé Informativo / Suporte */
+        .chat-input-area button:active {
+            transform: scale(0.95);
+        }
+
+        .chat-input-area button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Rodapé */
         .chat-footer {
-            background: #fdfdfd;
-            padding: 8px;
+            background: linear-gradient(180deg, #fdfdfd 0%, #f5f5f5 100%);
+            padding: 10px 12px;
             font-size: 0.72rem;
             text-align: center;
-            color: #666;
+            color: #777;
             border-top: 1px solid #f0f0f0;
-            line-height: 1.4;
+            line-height: 1.5;
         }
-        .chat-footer a { color: var(--primary-color); text-decoration: none; font-weight: bold;}
+
+        .chat-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .chat-footer strong {
+            color: #555;
+        }
+
+        /* Scrollbar customizada */
+        .chat-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb {
+            background: #c8e6c9;
+            border-radius: 10px;
+        }
+
+        .chat-messages::-webkit-scrollbar-thumb:hover {
+            background: #a5d6a7;
+        }
+
+        /* Animação de entrada do container */
+        @keyframes containerFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-container {
+            animation: containerFade 0.5s ease-out;
+        }
     </style>
+<base target="_blank">
 </head>
 <body>
 
 <div class="chat-container">
     <!-- Cabeçalho -->
     <div class="chat-header">
-        <div style="font-size: 2rem; color: white;"><i class="fa-solid :i fa-mosque"></i></div>
+        <div class="header-icon">
+            <i class="fa-solid fa-mosque"></i>
+        </div>
         <div>
             <h1>Islam M</h1>
-            <p>Criado por isslam Moz para divulgação do Islam</p>
+            <div class="header-status">
+                <span class="status-dot"></span>
+                <span>Online — Criado por isslam Moz</span>
+            </div>
         </div>
     </div>
 
     <!-- Mensagens -->
     <div class="chat-messages" id="chatMessages">
         <div class="message bot-message">
-            Assalamu Alaikum! Eu sou o **Islam M**, seu assistente inteligente sobre o Islam. Como posso te ajudar hoje?
+            <strong>Assalamu Alaikum!</strong> Eu sou o <strong>Islam M</strong>, seu assistente inteligente sobre o Islam. Como posso te ajudar hoje?
         </div>
+    </div>
+
+    <!-- Indicador de digitação -->
+    <div class="typing-indicator" id="typingIndicator">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Sugestões rápidas -->
+    <div class="suggestions" id="suggestions">
+        <button class="suggestion-chip" data-question="Quem é Allah?">Quem é Allah?</button>
+        <button class="suggestion-chip" data-question="Os 5 Pilares do Islam">5 Pilares</button>
+        <button class="suggestion-chip" data-question="O que é o Alcorão?">O Alcorão</button>
+        <button class="suggestion-chip" data-question="Quem foi Muhammad?">Profeta Muhammad</button>
+        <button class="suggestion-chip" data-question="O que é Hadith?">Hadith</button>
+        <button class="suggestion-chip" data-question="Como fazer a Salah?">Como rezar?</button>
     </div>
 
     <!-- Área de Digitação -->
     <div class="chat-input-area">
-        <input type="text" id="userInput" placeholder="Pergunte sobre o Islam (Ex: Quem é Allah?, Pilares...)" autocomplete="off">
+        <input type="text" id="userInput" placeholder="Pergunte sobre o Islam..." autocomplete="off">
         <button id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
 
     <!-- Suporte e Apoio Financeiro -->
     <div class="chat-footer">
-        <div>Motor criado por <strong>isslam Moz</strong> | Suporte: 860407269</div>
+        <div>Motor criado por <strong>isslam Moz</strong> | Suporte: <a href="https://wa.me/258860407269" target="_blank">860407269</a></div>
         <div><strong>Apoio ao Projeto:</strong> Mpesa: 1228803 (Paga Fácil) / 860407269 | E-mola: 860407269 | BIM NIB: 000100000012473356257</div>
     </div>
 </div>
@@ -226,45 +441,161 @@
     const chatMessages = document.getElementById('chatMessages');
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
+    const typingIndicator = document.getElementById('typingIndicator');
+    const suggestions = document.getElementById('suggestions');
 
-    let cérebroCompleto = [];
+    let cerebroCompleto = [];
     let contextoAnterior = "";
+    let estaProcessando = false;
 
-    // Dicionário de correção automática básica de escrita
+    // === CÉREBRO EMBUTIDO (Fallback de segurança) ===
+    const cerebroEmbutido = [
+        {
+            palavras_chave: ["allah", "deus", "quem e allah", "quem e deus", "criador"],
+            resposta: "<strong>Allah</strong> é o nome próprio de Deus em árabe. Ele é o Criador de tudo o que existe, o Único digno de adoração. Allah tem 99 nomes belos (Al-Asmaul Husna) que descrevem Sua perfeição, misericórdia, justiça e poder.\n\n<strong>Allah diz no Alcorão:</strong>\n<i>"Dize: Ele é Allah, o Único! Allah, o Eterno, Absoluto! Não gerou, nem foi gerado. E não há ninguém igual a Ele."</i> — Surah Al-Ikhlas (112:1-4)",
+            fonte: "Alcorão - Surah Al-Ikhlas (112:1-4)",
+            links: ["https://quran.com/112"]
+        },
+        {
+            palavras_chave: ["pilares", "5 pilares", "cinco pilares", "islam pilares", "fundamentos"],
+            resposta: "Os <strong>5 Pilares do Islam</strong> são os fundamentos da fé muçulmana:\n\n<strong>1. Shahada (Testemunho de Fé):</strong> "Não há divindade digna de adoração exceto Allah, e Muhammad é o Mensageiro de Allah."\n\n<strong>2. Salah (Oração):</strong> Realizar 5 orações diárias: Fajr, Dhuhr, Asr, Maghrib e Isha.\n\n<strong>3. Zakat (Caridade obrigatória):</strong> Doar 2,5% da riqueza anual aos necessitados.\n\n<strong>4. Sawm (Jejum):</strong> Jejuar durante o mês de Ramadã, do amanhecer ao pôr do sol.\n\n<strong>5. Hajj (Peregrinação):</strong> Visitar a Kaaba em Makkah pelo menos uma vez na vida, se capaz.",
+            fonte: "Hadith de Umar ibn al-Khattab - Sahih al-Bukhari & Sahih Muslim",
+            links: ["https://sunnah.com/bukhari/1"]
+        },
+        {
+            palavras_chave: ["alcorao", "corao", "quran", "livro sagrado", "revelacao"],
+            resposta: "O <strong>Alcorão</strong> (Qur'an) é o livro sagrado do Islam, a palavra literal de Allah revelada ao Profeta Muhammad (S.A.W.S.) através do Anjo Gabriel (Jibril), ao longo de <strong>23 anos</strong>.\n\n<strong>Características do Alcorão:</strong>\n• É preservado na sua forma original desde o século 7\n• Dividido em 114 Surahs (capítulos)\n• Escrito em árabe clássico, língua da revelação\n• Contém orientações para toda a humanidade: espiritual, moral, social e legal\n\n<i>"Este é o Livro sobre o qual não há dúvida, guia para os que têm temor de Allah."</i> — Surah Al-Baqarah (2:2)",
+            fonte: "Alcorão - Surah Al-Baqarah (2:2)",
+            links: ["https://quran.com/2"]
+        },
+        {
+            palavras_chave: ["muhammad", "profeta", "mensageiro", "rasul", "saws", "sallallahu"],
+            resposta: "<strong>Muhammad ibn Abdullah</strong> (S.A.W.S. — Sallallahu Alayhi wa Sallam) nasceu em Makkah em 570 d.C. e é o último e selo dos profetas enviados por Allah.\n\n<strong>Sua missão:</strong>\n• Recebeu a revelação do Alcorão aos 40 anos (610 d.C.)\n• Ensinou a adoração de Allah Sozinho (Tawhid)\n• Estabeleceu o modelo de vida islâmica perfeito (Sunnah)\n• Unificou a Arábia sob a bandeira do Islam\n\n<i>"Muhammad não é pai de nenhum de vossos homens, mas é o Mensageiro de Allah e o Selo dos Profetas."</i> — Surah Al-Ahzab (33:40)",
+            fonte: "Alcorão - Surah Al-Ahzab (33:40)",
+            links: ["https://quran.com/33"]
+        },
+        {
+            palavras_chave: ["hadith", "hadis", "sunnah", "dizeres", "tradicao", "ditos"],
+            resposta: "<strong>Hadith</strong> (plural: Ahadith) são os relatos das palavras, ações, aprovações e descrições do Profeta Muhammad (S.A.W.S.). Juntamente com o Alcorão, formam a base da legislação islâmica (Shariah).\n\n<strong>As 6 coleções principais (Kutub al-Sittah):</strong>\n1. Sahih al-Bukhari\n2. Sahih Muslim\n3. Sunan Abu Dawud\n4. Jami' al-Tirmidhi\n5. Sunan al-Nasa'i\n6. Sunan Ibn Majah\n\nCada Hadith contém uma cadeia de transmissores (Isnad) para garantir autenticidade.",
+            fonte: "Introdução à Ciência do Hadith - Imam al-Nawawi",
+            links: ["https://sunnah.com"]
+        },
+        {
+            palavras_chave: ["salah", "oracao", "rezar", "namaz", "como rezar", "como fazer salah"],
+            resposta: "A <strong>Salah</strong> (oração) é o pilar central do Islam, realizada 5 vezes ao dia:\n\n<strong>Passos básicos:</strong>\n1. <strong>Takbir:</strong> Dizer "Allahu Akbar" para iniciar\n2. <strong>Qiyam:</strong> Recitar Surah Al-Fatiha + outra Surah em pé\n3. <strong>Ruku':</strong> Inclinar-se dizendo "Subhana Rabbiyal Adheem"\n4. <strong>Sujud:</strong> Prostrar-se dizendo "Subhana Rabbiyal A'la" (2x)\n5. <strong>Juloos:</strong> Sentar entre os dois Sujuds\n6. <strong>Tashahhud:</strong> Testemunho de fé sentado\n7. <strong>Salam:</strong> Virar a cabeça para direita e esquerda dizendo "Assalamu Alaikum"\n\n<strong>As 5 orações:</strong> Fajr (antes do amanhecer), Dhuhr (meio-dia), Asr (tarde), Maghrib (pôr do sol), Isha (noite).",
+            fonte: "Sahih al-Bukhari - Livro da Oração (Kitab al-Salah)",
+            links: ["https://sunnah.com/bukhari/8"]
+        },
+        {
+            palavras_chave: ["jejum", "ramadan", "ramadã", "sawm", "siyam", "messe do jejum"],
+            resposta: "O <strong>Ramadã</strong> é o 9º mês do calendário islâmico lunar, mês em que o Alcorão foi revelado. Durante este mês, os muçulmanos jejuam do amanhecer (Fajr) ao pôr do sol (Maghrib).\n\n<strong>O que é proibido durante o jejum:</strong>\n• Comer e beber\n• Relações conjugais\n• Fofocas, mentiras e más ações\n\n<strong>O que é recomendado:</strong>\n• Ler o Alcorão (completar pelo menos 1 vez)\n• Tarawih (oração noturna especial)\n• Caridade e boas ações\n• I'tikaf (retiro espiritual nos últimos 10 dias)\n\n<i>"Ó vós que credes! O jejum vos foi prescrito, assim como foi prescrito àqueles que vos precederam, para que possais ter temor de Allah."</i> — Surah Al-Baqarah (2:183)",
+            fonte: "Alcorão - Surah Al-Baqarah (2:183)",
+            links: ["https://quran.com/2/183"]
+        },
+        {
+            palavras_chave: ["jannah", "paraiso", "ceu", "paraíso", "recompensa", "firdaus"],
+            resposta: "<strong>Al-Jannah</strong> (o Paraíso) é o destino eterno dos crentes virtuosos em Allah. É descrito no Alcorão como um lugar de felicidade absoluta e perfeita.\n\n<strong>Algumas descrições do Paraíso:</strong>\n• Rios de água pura, leite, vinho e mel\n• Frutas de toda espécie, eternas e à vontade\n• Companhia de cônjuges puros (Hur al-Ayn)\n• Vestes de seda e brocado\n• Nenhuma fadiga, doença, tristeza ou morte\n• Visão direta de Allah (a maior recompensa)\n\n<i>"E dize: "Ó Meus servos que transgrediram contra si mesmos, não desesperem da misericórdia de Allah. Certamente Allah perdoa todos os pecados. Ele é o Perdoador, o Misericordioso."</i> — Surah Az-Zumar (39:53)",
+            fonte: "Alcorão - Surah Az-Zumar (39:53)",
+            links: ["https://quran.com/39/53"]
+        },
+        {
+            palavras_chave: ["jahanam", "inferno", "fogo", "jahannam", "punicao", "castigo"],
+            resposta: "<strong>Jahannam</strong> (o Inferno) é o lugar de punição eterna para os que rejeitaram Allah e Sua mensagem após terem recebido a evidência.\n\n<strong>Descrições no Alcorão:</strong>\n• Fogo cuja intensidade é 70 vezes maior que o fogo terrestre\n• Alimentação com Zaqqum (árvore amarga) e pus\n• Vestes de fogo e ferro fundido\n• Nenhuma saída ou descanso\n\n<i>"Certamente Allah não perdoará que seja associado a Ele, mas perdoa o que for inferior a isso a quem Ele quiser."</i> — Surah An-Nisa (4:48)\n\nO Islam ensina que Allah é o Mais Misericordioso — a punição só é para quem <strong>escolhe conscientemente</strong> rejeitar a verdade.",
+            fonte: "Alcorão - Surah An-Nisa (4:48)",
+            links: ["https://quran.com/4/48"]
+        },
+        {
+            palavras_chave: ["shahada", "testemunho", "crença", "fe", "iman", "islam declaracao"],
+            resposta: "A <strong>Shahada</strong> é a declaração de fé e a porta de entrada no Islam. Sem ela, ninguém é considerado muçulmano.\n\n<strong>Em árabe:</strong>\n<i>"Ashhadu an la ilaha illallah, wa ashhadu anna Muhammadan rasulullah."</i>\n\n<strong>Em português:</strong>\n"Testemunho que não há divindade digna de adoração exceto Allah, e testemunho que Muhammad é o Mensageiro de Allah."\n\n<strong>Significado:</strong>\n• Rejeitar toda forma de idolatria e associação (Shirk)\n• Aceitar Muhammad como o último profeta e modelo de vida\n• Comprometer-se a viver segundo a vontade de Allah\n\nDizer a Shahada com convicção e compreensão faz de alguém um muçulmano.",
+            fonte: "Sahih Muslim - Livro da Fé (Kitab al-Iman)",
+            links: ["https://sunnah.com/muslim/1"]
+        },
+        {
+            palavras_chave: ["zakat", "caridade", "pobres", "obrigatoria", "doacao"],
+            resposta: "<strong>Zakat</strong> é a caridade obrigatória no Islam, um dos 5 Pilares. É um imposto espiritual de <strong>2,5%</strong> sobre a riqueza acumulada (ouro, prata, dinheiro, mercadorias) que excede o mínimo (Nisab) e é mantida por um ano lunar.\n\n<strong>Quem pode receber Zakat (8 categorias — Surah At-Tawbah 9:60):</strong>\n1. Os pobres (Fuqara)\n2. Os necessitados (Masakin)\n3. Os administradores da Zakat (Amilina)\n4. Os de corações a serem reconciliados (Muallafatu Qulubuhum)\n5. Para libertar escravos (Riqab)\n6. Os endividados (Gharimin)\n7. Na causa de Allah (Fi Sabilillah)\n8. O viajante necessitado (Ibn as-Sabil)",
+            fonte: "Alcorão - Surah At-Tawbah (9:60)",
+            links: ["https://quran.com/9/60"]
+        },
+        {
+            palavras_chave: ["hajj", "peregrinacao", "makkah", "meca", "kaaba", "umrah"],
+            resposta: "O <strong>Hajj</strong> é a peregrinação obrigatória à cidade sagrada de Makkah, a ser realizada pelo menos uma vez na vida por todo muçulmano adulto, sadio e financeiramente capaz.\n\n<strong>Ritos principais do Hajj:</strong>\n1. <strong>Ihram:</strong> Vestir roupas simples brancas e fazer a intenção (Niyyah)\n2. <strong>Tawaf:</strong> Circunambular a Kaaba 7 vezes\n3. <strong>Sa'i:</strong> Caminhar 7 vezes entre as colinas de Safa e Marwa\n4. <strong>Wuquf em Arafat:</strong> Permanecer em Arafat no dia 9 de Dhul-Hijjah (o pilar central)\n5. <strong>Ramy al-Jamarat:</strong> Lançar pedras nos pilares simbólicos do diabo\n6. <strong>Qurbani:</strong> Sacrificar animal em comemoração à fé de Ibrahim (Abraão)\n7. <strong>Tahallul:</strong> Raspar ou cortar o cabelo, saindo do estado de Ihram\n\nO Hajj ocorre entre os dias 8 e 12 do mês de Dhul-Hijjah.",
+            fonte: "Sahih al-Bukhari - Livro do Hajj (Kitab al-Hajj)",
+            links: ["https://sunnah.com/bukhari/25"]
+        },
+        {
+            palavras_chave: ["jesus", "isa", "cristo", "messias", "maria", "maryam"],
+            resposta: "No Islam, <strong>Jesus (Isa)</strong> é um dos profetas mais amados e respeitados, considerado o <strong>Messias (Al-Masih)</strong> enviado aos filhos de Israel.\n\n<strong>O que o Islam ensina sobre Jesus:</strong>\n• Nasceu milagrosamente sem pai, da virgem Maria (Maryam)\n• Falou no berço como milagre de Allah\n• Curou os leprosos, cegos e ressuscitou mortos por permissão de Allah\n• Recebeu o Evangelho (Injil) como revelação\n• <strong>NÃO</strong> foi crucificado — Allah o elevou aos céus\n• Voltará no Dia do Juízo Final para derrotar o Anti-Cristo (Dajjal)\n• <strong>NÃO</strong> é filho de Allah nem divino — é humano e servo de Allah\n\n<i>"Certamente a semelhança de Jesus perante Allah é como a de Adão: Ele o criou do pó, depois disse-lhe: 'Se!' e ele foi."</i> — Surah Aal-E-Imran (3:59)",
+            fonte: "Alcorão - Surah Aal-E-Imran (3:59)",
+            links: ["https://quran.com/3/59"]
+        },
+        {
+            palavras_chave: ["anjos", "malaika", "jibril", "gabriel", "mikail", "raqib", "atid"],
+            resposta: "<strong>Al-Mala'ika</strong> (Anjos) no Islam são seres celestiais criados por Allah a partir de luz (Nur). Eles não têm livre-arbítrio — obedecem perfeitamente a Allah e executam Suas ordens.\n\n<strong>Anjos importantes:</strong>\n• <strong>Jibril (Gabriel):</strong> O anjo da revelação, que trouxe o Alcorão a Muhammad\n• <strong>Mikail (Miguel):</strong> Responsável pela chuva, vegetação e provisões\n• <strong>Israfil:</strong> Soprará a trombeta no Dia da Ressurreição\n• <strong>Azrael:</strong> O anjo da morte, que recolhe as almas\n• <strong>Raqib e Atid:</strong> Anjos que registram as boas e más ações de cada pessoa\n• <strong>Munkar e Nakir:</strong> Anjos que interrogam os mortos na sepultura\n\n<i>"Eles não se recusam a executar o que Allah lhes ordena e fazem o que lhes é ordenado."</i> — Surah At-Tahrim (66:6)",
+            fonte: "Alcorão - Surah At-Tahrim (66:6)",
+            links: ["https://quran.com/66/6"]
+        },
+        {
+            palavras_chave: ["diabo", "shaytan", "iblis", "satanas", "mal", "tentacao"],
+            resposta: "<strong>Iblis</strong> (Shaytan/Satanás) no Islam não é um anjo caído — é um <strong>Jinn</strong> (ser criado do fogo sem fumaça) que se rebelou contra Allah quando se recusou a prostrar-se perante Adão.\n\n<strong>Características de Iblis:</strong>\n• Tem livre-arbítrio (ao contrário dos anjos)\n• Foi expulso do Paraíso por arrogância\n• Jurou desviar os humanos do caminho reto\n• Não tem poder sobre os verdadeiros crentes — só pode sugerir e tentar\n\n<strong>Proteção contra Shaytan:</strong>\n• Recitar Surah Al-Falaq e Surah An-Nas (os 2 últimos capítulos do Alcorão)\n• Dizer "A'udhu billahi min ash-shaytan ir-rajim" (Busco refúgio em Allah contra o Shaytan amaldiçoado)\n• Manter a Salah e a leitura do Alcorão\n\n<i>"Certamente ele [Shaytan] não tem autoridade sobre aqueles que creem e confiam em seu Senhor."</i> — Surah An-Nahl (16:99)",
+            fonte: "Alcorão - Surah An-Nahl (16:99)",
+            links: ["https://quran.com/16/99"]
+        }
+    ];
+
+    // Dicionário de correção automática
     const dicionarioCorrecao = {
-        "alcorao": "alcorão", "alcoran": "alcorão", "alcorã": "alcorão",
-        "ala": "allah", "allha": "allah", "alaah": "allah",
-        "radis": "hadith", "hadis": "hadith", "hadit": "hadith",
-        "pelares": "pilares", "pilar": "pilares",
-        "isla": "islam", "islame": "islam"
+        "alcorao": "alcorão", "alcoran": "alcorão", "alcorã": "alcorão", "corao": "alcorão",
+        "ala": "allah", "allha": "allah", "alaah": "allah", "deuz": "deus",
+        "radis": "hadith", "hadis": "hadith", "hadit": "hadith", "hadeeth": "hadith",
+        "pelares": "pilares", "pilar": "pilares", "fundamentos": "pilares",
+        "isla": "islam", "islame": "islam", "islan": "islam",
+        "meca": "makkah", "meca": "makkah", "kaaba": "hajj",
+        "jezu": "jesus", "jesu": "jesus", "cristo": "jesus",
+        "oracao": "salah", "rezar": "salah", "namaz": "salah",
+        "caridade": "zakat", "doacao": "zakat", "pobres": "zakat",
+        "paraiso": "jannah", "ceu": "jannah", "firdaus": "jannah",
+        "inferno": "jahanam", "fogo": "jahanam", "jahannam": "jahanam",
+        "anjos": "anjos", "anjo": "anjos", "gabriel": "anjos", "jibril": "anjos",
+        "diabo": "shaytan", "satanas": "shaytan", "iblis": "shaytan", "tentacao": "shaytan",
+        "ramadan": "ramadan", "ramadã": "ramadan", "messe": "ramadan", "sawm": "ramadan"
     };
 
-    // Carrega o conhecimento dinamicamente (Anti-falha centralizado)
+    // Carrega conhecimento dos arquivos JSON + fallback embutido
     async function carregarCerebro() {
         const caminhos = ['cerebro/alcorao.json', 'cerebro/sunnah.json', 'cerebro/geral.json'];
+        let arquivosCarregados = 0;
+
         for (const caminho of caminhos) {
             try {
                 const resposta = await fetch(caminho);
                 if (resposta.ok) {
                     const dados = await resposta.json();
-                    cérebroCompleto = cérebroCompleto.concat(dados);
+                    if (Array.isArray(dados)) {
+                        cerebroCompleto = cerebroCompleto.concat(dados);
+                        arquivosCarregados++;
+                    }
                 }
             } catch (erro) {
-                console.error(`Erro automático tratado ao ler ${caminho}:`, erro);
+                console.warn(`Não foi possível carregar ${caminho}:`, erro.message);
             }
         }
+
+        // Sempre adiciona o cérebro embutido como fallback/suplemento
+        cerebroCompleto = cerebroCompleto.concat(cerebroEmbutido);
+
+        console.log(`Islam M: ${arquivosCarregados} arquivo(s) JSON carregado(s). Total de ${cerebroCompleto.length} itens de conhecimento.`);
     }
 
-    // Normaliza e limpa o texto para busca inteligente
+    // Normaliza texto para busca
     function normalizarTexto(texto) {
         return texto.toLowerCase()
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove acentos
-            .replace(/[^\w\s]/gi, ''); // Remove pontuação
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^\w\s]/gi, '');
     }
 
-    // Corretor automático simples
+    // Corretor automático
     function corrigirTexto(texto) {
-        let palavras = texto.split(" ");
+        let palavras = texto.split(/\s+/);
         let palavrasCorrigidas = palavras.map(palavra => {
             let termoLimpo = normalizarTexto(palavra);
             return dicionarioCorrecao[termoLimpo] ? dicionarioCorrecao[termoLimpo] : palavra;
@@ -272,22 +603,31 @@
         return palavrasCorrigidas.join(" ");
     }
 
-    // Mecanismo de Busca Inteligente
+    // Busca inteligente com pontuação
     function procurarResposta(perguntaUsuario) {
-        // Inclui memória de contexto básico se a pergunta atual for muito curta
         let textoParaBusca = normalizarTexto(perguntaUsuario);
-        if(textoParaBusca.length < 4 && contextoAnterior) {
-            textoParaBusca += " " + contextoAnterior;
+
+        // Contexto anterior para perguntas curtas
+        if (textoParaBusca.length < 5 && contextoAnterior) {
+            textoParaBusca += " " + normalizarTexto(contextoAnterior);
         }
 
         let melhorCorrespondencia = null;
         let maiorPontuacao = 0;
 
-        for (const item of cérebroCompleto) {
+        for (const item of cerebroCompleto) {
             let pontuacao = 0;
-            for (const chave of item.palavras_chave) {
-                if (textoParaBusca.includes(normalizarTexto(chave))) {
-                    pontuacao += 1;
+            if (item.palavras_chave && Array.isArray(item.palavras_chave)) {
+                for (const chave of item.palavras_chave) {
+                    const chaveNormalizada = normalizarTexto(chave);
+                    if (textoParaBusca.includes(chaveNormalizada)) {
+                        pontuacao += 1;
+                        // Bônus para correspondências exatas de palavras inteiras
+                        const regex = new RegExp('\\b' + chaveNormalizada + '\\b');
+                        if (regex.test(textoParaBusca)) {
+                            pontuacao += 0.5;
+                        }
+                    }
                 }
             }
             if (pontuacao > maiorPontuacao) {
@@ -297,73 +637,140 @@
         }
 
         if (melhorCorrespondencia && maiorPontuacao > 0) {
-            // Atualiza memória contextual com uma das palavras-chave encontradas
-            contextoAnterior = melhorCorrespondencia.palavras_chave[0];
+            contextoAnterior = melhorCorrespondencia.palavras_chave[0] || "";
             return melhorCorrespondencia;
         }
         return null;
     }
 
+    // Converte texto simples em HTML formatado
+    function formatarTexto(texto) {
+        if (!texto) return "";
+        // Preserva quebras de linha como <br>
+        let formatado = texto
+            .replace(/\\n/g, '<br>')
+            .replace(/\n/g, '<br>');
+        return formatado;
+    }
+
+    // Mostra/esconde indicador de digitação
+    function mostrarDigitando(mostrar) {
+        if (mostrar) {
+            typingIndicator.classList.add('active');
+            chatMessages.appendChild(typingIndicator);
+        } else {
+            typingIndicator.classList.remove('active');
+        }
+        scrollSuave();
+    }
+
+    // Scroll suave até ao fim
+    function scrollSuave() {
+        setTimeout(() => {
+            chatMessages.scrollTo({
+                top: chatMessages.scrollHeight,
+                behavior: 'smooth'
+            });
+        }, 50);
+    }
+
+    // Adiciona mensagem ao chat
     function adicionarMensagem(texto, tipo, fonte = "", links = []) {
         const msgDiv = document.createElement('div');
         msgDiv.classList.add('message', tipo === 'user' ? 'user-message' : 'bot-message');
-        msgDiv.innerText = texto;
+        msgDiv.innerHTML = formatarTexto(texto);
 
         if (fonte) {
             const fonteDiv = document.createElement('div');
             fonteDiv.classList.add('fonte-box');
             fonteDiv.innerHTML = `<strong>Fonte:</strong> ${fonte}`;
-            
+
             if (links && links.length > 0) {
                 links.forEach(link => {
-                    fonteDiv.innerHTML += `<br><a class="link-fonte" href="${link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver online</a>`;
+                    fonteDiv.innerHTML += `<br><a class="link-fonte" href="${link}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver online</a>`;
                 });
             }
             msgDiv.appendChild(fonteDiv);
         }
 
         chatMessages.appendChild(msgDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        scrollSuave();
     }
 
-    function processarEnvio() {
-        let texto = userInput.value.trim();
+    // Processa envio de mensagem
+    async function processarEnvio(textoForcado = null) {
+        if (estaProcessando) return;
+
+        let texto = textoForcado !== null ? textoForcado : userInput.value.trim();
         if (!texto) return;
 
-        // Adiciona a pergunta original do usuário na tela
-        adicionarMensagem(texto, 'user');
-        userInput.value = '';
+        estaProcessando = true;
+        sendBtn.disabled = true;
 
-        // Processamento inteligente e correção automática interna
-        let textoCorrigido = corrigirTexto(texto);
-        
-        // Simulação de digitação rápida
+        // Limpa input se não for sugestão
+        if (textoForcado === null) {
+            userInput.value = '';
+        }
+
+        // Adiciona mensagem do usuário
+        adicionarMensagem(texto, 'user');
+
+        // Mostra indicador de digitação
+        mostrarDigitando(true);
+
+        // Simula tempo de processamento realista
+        const delay = Math.max(600, Math.min(1500, texto.length * 40));
+
         setTimeout(() => {
             try {
+                const textoCorrigido = corrigirTexto(texto);
                 const resultado = procurarResposta(textoCorrigido);
+
+                mostrarDigitando(false);
 
                 if (resultado) {
                     adicionarMensagem(resultado.resposta, 'bot', resultado.fonte, resultado.links);
                 } else {
                     adicionarMensagem(
-                        "Desculpe, não consegui encontrar uma resposta específica e segura para essa pergunta nas minhas fontes atuais. Por favor, tente usar outras palavras ou consulte um sábio de confiança. Nunca inventamos Hadiths ou dados sem fontes claras.",
-                        'bot'
+                        "Desculpe, não encontrei uma resposta específica para essa pergunta nas minhas fontes atuais.\n\n<strong>Sugestões:</strong>\n• Tente reformular com outras palavras\n• Use os botões de sugestão acima\n• Consulte um sábio de confiança\n\n<i>Nunca inventamos Hadiths ou dados sem fontes claras.</i>",
+                        'bot',
+                        "Islam M - Base de Conhecimento",
+                        []
                     );
                 }
             } catch (e) {
-                // Sistema anti-falha ativo
-                adicionarMensagem("Ocorreu um erro ao processar sua busca. Por favor, tente novamente.", 'bot');
+                mostrarDigitando(false);
+                adicionarMensagem(
+                    "Ocorreu um erro ao processar sua busca. Por favor, tente novamente.\n\nSe o problema persistir, contacte o suporte: <strong>860407269</strong>",
+                    'bot'
+                );
+                console.error("Erro no processamento:", e);
+            } finally {
+                estaProcessando = false;
+                sendBtn.disabled = false;
+                userInput.focus();
             }
-        }, 400);
+        }, delay);
     }
 
-    // Eventos
-    sendBtn.addEventListener('click', processarEnvio);
+    // Evento dos botões de sugestão
+    document.querySelectorAll('.suggestion-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const pergunta = chip.getAttribute('data-question');
+            processarEnvio(pergunta);
+        });
+    });
+
+    // Eventos principais
+    sendBtn.addEventListener('click', () => processarEnvio());
     userInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') processarEnvio();
     });
 
-    // Inicialização segura
+    // Foco automático no input
+    userInput.focus();
+
+    // Inicialização
     carregarCerebro();
 </script>
 </body>
