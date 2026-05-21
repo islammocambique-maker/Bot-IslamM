@@ -1,351 +1,272 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Islam M - Chat Bot Inteligente</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #0b6623;
-            --secondary-color: #f4fbf7;
-            --text-dark: #222222;
-            --white: #ffffff;
-            --accent-color: #e8f5e9;
-            --beginner-color: #4caf50;
-            --advanced-color: #ff9800;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: #eef5f1; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .chat-container { width: 100%; max-width: 600px; height: 100vh; background: var(--white); display: flex; flex-direction: column; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        @media (min-width: 601px) { .chat-container { height: 85vh; border-radius: 12px; overflow: hidden; } }
-        .chat-header { background-color: var(--primary-color); color: var(--white); padding: 15px; display: flex; align-items: center; gap: 12px; }
-        .chat-header h1 { font-size: 1.2rem; font-weight: 600; }
-        .chat-header p { font-size: 0.8rem; opacity: 0.9; }
-        .chat-messages { flex: 1; padding: 20px; overflow-y: auto; background-color: var(--secondary-color); display: flex; flex-direction: column; gap: 15px; }
-        .message { max-width: 85%; padding: 12px 16px; border-radius: 15px; font-size: 0.95rem; line-height: 1.4; animation: fadeIn 0.3s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .bot-message { background-color: var(--white); color: var(--text-dark); align-self: flex-start; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .user-message { background-color: var(--primary-color); color: var(--white); align-self: flex-end; border-bottom-right-radius: 2px; }
-        .fonte-box { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #ddd; font-size: 0.8rem; color: #555; font-style: italic; }
-        .user-message .fonte-box { color: #e0f2e9; border-top: 1px dashed rgba(255,255,255,0.3); }
-        .link-fonte { color: var(--primary-color); text-decoration: underline; display: inline-block; margin-top: 4px; }
-        .chat-input-area { padding: 12px; background: var(--white); display: flex; gap: 8px; border-top: 1px solid #eee; }
-        .chat-input-area input { flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 25px; outline: none; font-size: 1rem; transition: 0.2s; }
-        .chat-input-area input:focus { border-color: var(--primary-color); }
-        .chat-input-area button { background-color: var(--primary-color); color: var(--white); border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; transition: 0.2s; }
-        .chat-input-area button:hover { transform: scale(1.05); }
-        .chat-footer { background: #fdfdfd; padding: 8px; font-size: 0.72rem; text-align: center; color: #666; border-top: 1px solid #f0f0f0; line-height: 1.4; }
-        .chat-footer a { color: var(--primary-color); text-decoration: none; font-weight: bold; }
-        .context-indicator { font-size: 0.7rem; color: #888; padding: 4px 12px; background: var(--accent-color); border-bottom: 1px solid #e0e0e0; display: none; }
-        .context-indicator.active { display: block; }
-        .level-selector { display: flex; gap: 8px; padding: 8px 12px; background: #f8f8f8; border-bottom: 1px solid #e0e0e0; }
-        .level-btn { flex: 1; padding: 8px 12px; border: 2px solid #ddd; border-radius: 20px; background: white; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.3s; }
-        .level-btn:hover { border-color: var(--primary-color); }
-        .level-btn.active { border-color: var(--primary-color); background: var(--primary-color); color: white; }
-        .level-btn.beginner.active { background: var(--beginner-color); border-color: var(--beginner-color); }
-        .level-btn.advanced.active { background: var(--advanced-color); border-color: var(--advanced-color); }
-        .level-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: bold; margin-left: 8px; }
-        .level-badge.beginner { background: #c8e6c9; color: #2e7d32; }
-        .level-badge.advanced { background: #ffe0b2; color: #ef6c00; }
-        .auto-detect-msg { font-size: 0.75rem; color: #666; text-align: center; padding: 4px; background: #f0f0f0; }
-    </style>
-<base target="_blank">
-</head>
-<body>
-<div class="chat-container">
-    <div class="chat-header">
-        <div style="font-size: 2rem; color: white;"><i class="fa-solid fa-mosque"></i></div>
-        <div><h1>Islam M</h1><p>Criado por isslam Moz para divulgação do Islam</p></div>
-    </div>
-    <div class="level-selector">
-        <button class="level-btn beginner active" onclick="selecionarNivel('iniciante')"><i class="fa-solid fa-seedling"></i> Iniciante</button>
-        <button class="level-btn advanced" onclick="selecionarNivel('avancado')"><i class="fa-solid fa-graduation-cap"></i> Avançado</button>
-        <button class="level-btn" onclick="selecionarNivel('auto')"><i class="fa-solid fa-wand-magic-sparkles"></i> Auto</button>
-    </div>
-    <div class="auto-detect-msg" id="autoDetectMsg" style="display:none;"><i class="fa-solid fa-robot"></i> Detecção automática de nível ativa</div>
-    <div class="context-indicator" id="contextIndicator"><i class="fa-solid fa-brain"></i> Contexto: <span id="contextText"></span></div>
-    <div class="chat-messages" id="chatMessages">
-        <div class="message bot-message">Assalamu Alaikum! Eu sou o <strong>Islam M</strong>, seu assistente inteligente sobre o Islam. Escolha seu nível acima e faça sua pergunta!</div>
-    </div>
-    <div class="chat-input-area">
-        <input type="text" id="userInput" placeholder="Pergunte sobre o Islam..." autocomplete="off">
-        <button id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
-    </div>
-    <div class="chat-footer">
-        <div>Motor criado por <strong>isslam Moz</strong> | Suporte: 860407269</div>
-        <div><strong>Apoio ao Projeto:</strong> Mpesa: 1228803 (Paga Fácil) / 860407269 | E-mola: 860407269 | BIM NIB: 000100000012473356257</div>
-    </div>
-</div>
-
-<script>
-    const chatMessages = document.getElementById('chatMessages');
-    const userInput = document.getElementById('userInput');
-    const sendBtn = document.getElementById('sendBtn');
-    const contextIndicator = document.getElementById('contextIndicator');
-    const contextText = document.getElementById('contextText');
-    const autoDetectMsg = document.getElementById('autoDetectMsg');
-
-    let cerebroCompleto = [];
-    let nivelAtual = 'iniciante';
-    let nivelDetectado = 'iniciante';
-
-    // ===== MEMÓRIA CONTEXTUAL =====
-    const contextoMemoria = {
-        historico: [], topicoAtual: null, categoriaAtual: null, mensagensNoTopico: 0,
-        adicionarInteracao(pergunta, resposta, categoria) {
-            this.historico.push({ pergunta, resposta, categoria, timestamp: Date.now() });
-            if (this.historico.length > 5) this.historico.shift();
-            if (categoria) {
-                if (this.categoriaAtual === categoria) this.mensagensNoTopico++;
-                else { this.categoriaAtual = categoria; this.mensagensNoTopico = 1; }
-            }
-        },
-        obterContextoCombinado(perguntaAtual) {
-            let contexto = perguntaAtual;
-            const palavras = perguntaAtual.trim().split(/\s+/);
-            if (palavras.length < 4 && this.historico.length > 0) {
-                const ultima = this.historico[this.historico.length - 1];
-                if (ultima.resposta && ultima.resposta.palavras_chave) contexto += " " + ultima.resposta.palavras_chave.join(" ");
-            }
-            if (this.mensagensNoTopico > 2 && this.categoriaAtual) contexto += " " + this.categoriaAtual;
-            return contexto;
-        },
-        verificarMudancaAssunto(pergunta) {
-            const termosReset = ["outro assunto", "mudar", "diferente", "novo tópico", "agora fala"];
-            if (termosReset.some(t => pergunta.toLowerCase().includes(t))) {
-                this.historico = []; this.topicoAtual = null; this.categoriaAtual = null; this.mensagensNoTopico = 0;
-                return true;
-            }
-            return false;
-        }
-    };
-
-    // ===== DETECTOR DE NÍVEL =====
-    const detectorNivel = {
-        termosAvancados: ["fiqh","usul","aqeedah","aqida","tafsir","tafseer","hadith","isnad","matn","sahih","daif","hasan","mawdu","bidah","shirk","tawhid","tauhid","qiyas","ijma","ijtihad","madhab","hanafi","maliki","shafi","hanbali","salaf","tazkiyah","tazawwuf","ashari","maturidi","athari","qadar","qadr","jabr","tawakkul","tawassul","istighatha","mubah","mandub","makruh","fard","wajib","rakaat","rakah","sujud","ruku","tashahhud","taslim","takbir","tahajjud","witr","taraweeh","duha","istikhara","janazah","zakat fitr","zakat mal","nisab","haul","ushr","hajj tamattu","hajj qiran","hajj ifrad","miqat","ihram","tawaf","saee","muzdalifah","mina","arafat","jamrat","tahallul","nikah","talaq","khul","iddah","mahr","wali","mahram","riba","gharar","maysir","qimar","mudarabah","musharakah","jizya","kharaj","zimmis","dhimmi","ahl al-kitab","takfir","murtad","apostasia","hudud","qisas","diya","taqiyya","naskh","mansukh","nasikh","sarf","nahw","balagha","seerah","sira","maghazi","tabaqat","rijal","jarh","ta'dil","mufti","qadi","faqih","mujtahid","mujaddid","mahdi","dajjal","yajuj","majuj","barzakh","sirat","mizan","hawd","shafaah","shafa'a","califado","rashidun","umayyad","abbasid","fatimid","ottoman","fitnah","jahiliyya","mushrik","kafir","munafiq","fasiq","tahrif","tashbih","tanzih","sifat","dhat","af'al","kalam","nafy","ithbat"],
-        termosIniciantes: ["o que e","quem e","como fazer","basico","simples","facil","inicio","comecar","primeira vez","novo","novato","iniciante","crianca","explicacao simples","resumo","introducao"],
-        detectarNivel(pergunta) {
-            const perguntaLower = pergunta.toLowerCase();
-            let pontosAvancado = 0, pontosIniciante = 0;
-            for (const termo of this.termosAvancados) if (perguntaLower.includes(termo.toLowerCase())) pontosAvancado += 2;
-            for (const termo of this.termosIniciantes) if (perguntaLower.includes(termo.toLowerCase())) pontosIniciante += 1;
-            if (pontosAvancado >= 2) return 'avancado';
-            if (pontosIniciante >= 1 && pontosAvancado === 0) return 'iniciante';
-            if (pontosAvancado === 1) return 'avancado';
-            return 'iniciante';
-        }
-    };
-
-    // ===== CORREÇÃO E SINÔNIMOS =====
-    const dicionarioCorrecao = {
-        "alcorao": "alcorão", "alcoran": "alcorão", "corão": "alcorão", "ala": "allah", "allha": "allah", "alaah": "allah",
-        "radis": "hadith", "hadis": "hadith", "hadit": "hadith", "pelares": "pilares", "pilar": "pilares",
-        "isla": "islam", "islame": "islam", "profeta": "profeta", "proffeta": "profeta", "mohamed": "muhammad", "muhamad": "muhammad", "mahoma": "muhammad", "maome": "muhammad",
-        "oração": "salat", "oracao": "salat", "salah": "salat", "jejum": "sawm", "siyam": "sawm", "ramadã": "ramadan",
-        "zakat": "zakat", "zakah": "zakat", "esmola": "zakat", "haje": "hajj", "peregrinação": "hajj",
-        "shahada": "shahada", "chahada": "shahada", "quran": "alcorão", "sunnah": "sunnah", "suna": "sunnah", "sunna": "sunnah",
-        "sharia": "sharia", "xaria": "sharia", "jihad": "jihad", "djihad": "jihad", "halal": "halal", "haram": "haram",
-        "mesquita": "mesquita", "makkah": "meca", "madinah": "medina", "anjos": "anjos", "anjo": "anjos",
-        "djinn": "jinns", "jinn": "jinns", "paraíso": "jannah", "jannat": "jannah", "céu": "jannah",
-        "inferno": "jahannam", "jahannam": "jahannam", "dia do juízo": "qiyamah", "qiyama": "qiyamah",
-        "companhos": "sahaba", "sahaba": "sahaba", "sahabas": "sahaba"
-    };
-    const sinonimos = {
-        "allah": ["deus", "criador", "senhor", "divino", "supremo"],
-        "alcorão": ["livro sagrado", "revelação", "escritura", "palavra de deus"],
-        "muhammad": ["mensageiro", "profeta", "último profeta", "rasul"],
-        "salat": ["oração", "reza", "namaz", "cinco orações"],
-        "zakat": ["esmola", "caridade", "doação", "obrigação financeira"],
-        "sawm": ["jejum", "ayuno", "ramadan", "mês de jejum"],
-        "hajj": ["peregrinação", "viagem sagrada", "meca"],
-        "shahada": ["profissão de fé", "testemunho", "crença"],
-        "sunnah": ["tradição", "prática", "exemplo", "hadith"],
-        "hadith": ["dito", "narração", "tradição", "sunnah"],
-        "jannah": ["paraíso", "céu", "jardim", "felicidade eterna"],
-        "jahannam": ["inferno", "fogo", "tormento", "punimento"]
-    };
-
-    function selecionarNivel(nivel) {
-        nivelAtual = nivel;
-        document.querySelectorAll('.level-btn').forEach(btn => btn.classList.remove('active'));
-        if (nivel === 'iniciante') { document.querySelector('.level-btn.beginner').classList.add('active'); autoDetectMsg.style.display = 'none'; }
-        else if (nivel === 'avancado') { document.querySelector('.level-btn.advanced').classList.add('active'); autoDetectMsg.style.display = 'none'; }
-        else { document.querySelector('.level-btn:last-child').classList.add('active'); autoDetectMsg.style.display = 'block'; }
-        let msgNivel = nivel === 'iniciante' ? 'Modo Iniciante ativado!' : nivel === 'avancado' ? 'Modo Avançado ativado!' : 'Modo Auto ativado!';
-        adicionarMensagem(msgNivel, 'bot');
-    }
-
-    // ===== CARREGA APENAS cerebro.json =====
-    async function carregarCerebro() {
-        try {
-            const resposta = await fetch('cerebro.json');
-            if (resposta.ok) { cerebroCompleto = await resposta.json(); console.log(`Cérebro: ${cerebroCompleto.length} itens`); }
-            else console.error('Erro ao carregar cerebro.json');
-        } catch (erro) { console.error('Erro:', erro); }
-    }
-
-    function normalizarTexto(texto) {
-        return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w\s]/gi, '');
-    }
-    function corrigirTexto(texto) {
-        return texto.split(" ").map(p => dicionarioCorrecao[normalizarTexto(p)] || p).join(" ");
-    }
-    function expandirPalavrasChave(palavrasChave) {
-        let expandido = [...palavrasChave];
-        for (const chave of palavrasChave) {
-            const chaveNorm = normalizarTexto(chave);
-            if (sinonimos[chaveNorm]) expandido = expandido.concat(sinonimos[chaveNorm]);
-        }
-        return [...new Set(expandido)];
-    }
-
-    // ===== MOTOR DE BUSCA =====
-    // REGRA: Escolhe a resposta que tem MAIS keys encontradas.
-    // Se empate no número de keys, escolhe aleatório entre os empatados.
-    function procurarResposta(perguntaUsuario) {
-        if (contextoMemoria.verificarMudancaAssunto(perguntaUsuario)) contextIndicator.classList.remove('active');
-
-        let nivelBusca = nivelAtual;
-        if (nivelAtual === 'auto') { nivelDetectado = detectorNivel.detectarNivel(perguntaUsuario); nivelBusca = nivelDetectado; }
-
-        let textoParaBusca = contextoMemoria.obterContextoCombinado(perguntaUsuario);
-        let textoNormalizado = normalizarTexto(textoParaBusca);
-        let textoCorrigido = normalizarTexto(corrigirTexto(textoParaBusca));
-
-        let correspondencias = [];
-
-        for (const item of cerebroCompleto) {
-            let keysEncontradas = 0;
-            let pontuacao = 0;
-            const palavrasExpandidas = expandirPalavrasChave(item.palavras_chave);
-
-            for (const chave of palavrasExpandidas) {
-                const chaveNorm = normalizarTexto(chave);
-                if (textoNormalizado.includes(chaveNorm) || textoCorrigido.includes(chaveNorm)) {
-                    keysEncontradas++;
-                    pontuacao += 2;
-                } else if (chaveNorm.length > 3) {
-                    const palavrasBusca = textoNormalizado.split(/\s+/);
-                    for (const palavra of palavrasBusca) {
-                        if (palavra.length > 3 && (chaveNorm.includes(palavra) || palavra.includes(chaveNorm))) pontuacao += 0.5;
-                    }
-                }
-            }
-
-            // Bônus contexto
-            if (contextoMemoria.categoriaAtual && item.categoria === contextoMemoria.categoriaAtual) pontuacao += 1;
-            if (contextoMemoria.topicoAtual) {
-                const topicosItem = item.palavras_chave.map(k => normalizarTexto(k));
-                if (topicosItem.includes(normalizarTexto(contextoMemoria.topicoAtual))) pontuacao += 1.5;
-            }
-
-            // Filtro nível
-            const nivelItem = item.nivel || 'iniciante';
-            if (nivelBusca === 'iniciante' && nivelItem === 'avancado') continue;
-            if (nivelBusca === 'iniciante' && nivelItem === 'iniciante') pontuacao += 2;
-            else if (nivelBusca === 'avancado' && nivelItem === 'avancado') pontuacao += 3;
-            else if (nivelBusca === 'avancado' && nivelItem === 'iniciante') pontuacao += 0.5;
-
-            if (keysEncontradas > 0) {
-                correspondencias.push({ item, pontuacao, keysEncontradas, categoria: item.categoria || 'geral' });
-            }
-        }
-
-        // Fallback: se modo avançado não achou, tenta iniciante
-        if (correspondencias.length === 0 && nivelBusca === 'avancado') {
-            for (const item of cerebroCompleto) {
-                if ((item.nivel || 'iniciante') !== 'iniciante') continue;
-                let keysEncontradas = 0;
-                const palavrasExpandidas = expandirPalavrasChave(item.palavras_chave);
-                for (const chave of palavrasExpandidas) {
-                    if (textoNormalizado.includes(normalizarTexto(chave))) { keysEncontradas++; }
-                }
-                if (keysEncontradas > 0) correspondencias.push({ item, pontuacao: keysEncontradas * 2, keysEncontradas, categoria: item.categoria || 'geral' });
-            }
-        }
-
-        // Fallback com histórico
-        if (correspondencias.length === 0 && contextoMemoria.historico.length > 0) {
-            const ultima = contextoMemoria.historico[contextoMemoria.historico.length - 1];
-            if (ultima.resposta && ultima.resposta.palavras_chave) {
-                const contextoReforcado = perguntaUsuario + " " + ultima.resposta.palavras_chave.slice(0, 3).join(" ");
-                return procurarResposta(contextoReforcado);
-            }
-        }
-
-        if (correspondencias.length === 0) return null;
-
-        // ===== REGRA DE SELEÇÃO =====
-        // 1. Ordena por keysEncontradas (maior primeiro), depois por pontuacao
-        correspondencias.sort((a, b) => {
-            if (b.keysEncontradas !== a.keysEncontradas) return b.keysEncontradas - a.keysEncontradas;
-            return b.pontuacao - a.pontuacao;
-        });
-
-        // 2. Pega o maior número de keys
-        const maxKeys = correspondencias[0].keysEncontradas;
-
-        // 3. Filtra apenas os que têm esse número de keys
-        const melhores = correspondencias.filter(c => c.keysEncontradas === maxKeys);
-
-        // 4. Se empate, escolhe aleatório
-        const escolhido = melhores.length > 1 ? melhores[Math.floor(Math.random() * melhores.length)] : melhores[0];
-
-        // Atualiza contexto
-        const resultado = escolhido.item;
-        contextoMemoria.topicoAtual = resultado.palavras_chave[0];
-        contextoMemoria.adicionarInteracao(perguntaUsuario, resultado, escolhido.categoria);
-
-        if (contextoMemoria.mensagensNoTopico > 1) {
-            contextText.textContent = `${resultado.palavras_chave[0]} (${escolhido.categoria} | ${resultado.nivel || 'iniciante'})`;
-            contextIndicator.classList.add('active');
-        }
-        return resultado;
-    }
-
-    function adicionarMensagem(texto, tipo, fonte = "", links = [], nivel = "") {
-        const msgDiv = document.createElement('div');
-        msgDiv.classList.add('message', tipo === 'user' ? 'user-message' : 'bot-message');
-        let badgeHtml = '';
-        if (nivel && tipo === 'bot') {
-            const badgeClass = nivel === 'avancado' ? 'advanced' : 'beginner';
-            badgeHtml = `<span class="level-badge ${badgeClass}">${nivel === 'avancado' ? 'Avançado' : 'Iniciante'}</span>`;
-        }
-        msgDiv.innerHTML = texto + badgeHtml;
-        if (fonte) {
-            const fonteDiv = document.createElement('div');
-            fonteDiv.classList.add('fonte-box');
-            fonteDiv.innerHTML = `<strong>Fonte:</strong> ${fonte}`;
-            if (links && links.length > 0) links.forEach(link => { fonteDiv.innerHTML += `<br><a class="link-fonte" href="${link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver online</a>`; });
-            msgDiv.appendChild(fonteDiv);
-        }
-        chatMessages.appendChild(msgDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-
-    function processarEnvio() {
-        let texto = userInput.value.trim();
-        if (!texto) return;
-        adicionarMensagem(texto, 'user');
-        userInput.value = '';
-        setTimeout(() => {
-            try {
-                const resultado = procurarResposta(texto);
-                if (resultado) adicionarMensagem(resultado.resposta, 'bot', resultado.fonte, resultado.links, resultado.nivel || 'iniciante');
-                else {
-                    let msg = "Desculpe, não encontrei uma resposta específica nas minhas fontes. ";
-                    if (contextoMemoria.categoriaAtual) msg += `Estávamos falando sobre ${contextoMemoria.categoriaAtual}. Tente reformular ou digite 'outro assunto'.`;
-                    else msg += "Tente usar outras palavras ou consulte um sábio de confiança.";
-                    adicionarMensagem(msg, 'bot');
-                }
-            } catch (e) { adicionarMensagem("Ocorreu um erro. Tente novamente.", 'bot'); }
-        }, 400);
-    }
-
-    sendBtn.addEventListener('click', processarEnvio);
-    userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') processarEnvio(); });
-    carregarCerebro();
-</script>
-</body>
-</html>
+[
+  {
+    "palavras_chave": [
+      "allah",
+      "deus",
+      "quem é allah",
+      "o que é allah",
+      "criador",
+      "senhor"
+    ],
+    "resposta": "Allah é o nome próprio de Deus em árabe. Ele é Único, não tem parceiros, filhos ou semelhantes. Allah é o Criador de tudo o que existe e tem 99 nomes bonitos como Ar-Rahman (O Misericordioso).",
+    "fonte": "Alcorão - Surah Al-Ikhlas (112)",
+    "categoria": "alcorao",
+    "nivel": "iniciante",
+    "links": [
+      "https://quran.com/112"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "allah",
+      "tawhid",
+      "tauhid",
+      "rububiyyah",
+      "uluhiyyah",
+      "asma wa sifat",
+      "atributos de allah",
+      "nomes de allah"
+    ],
+    "resposta": "O Tawhid (Unificação) é dividido em três categorias: Tawhid ar-Rububiyyah (Lordeza - Allah é o único Criador), Tawhid al-Uluhiyyah (Adoração - toda adoração é para Allah), e Tawhid al-Asma wa-Sifat (Nomes e Atributos - afirmação literal sem semelhança).",
+    "fonte": "Kitab al-Tawhid - Ibn Khuzaymah",
+    "categoria": "alcorao",
+    "nivel": "avancado",
+    "links": [
+      "https://quran.com/112"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "alcorão",
+      "alcorao",
+      "livro sagrado",
+      "revelação",
+      "escritura",
+      "palavra de deus",
+      "quran"
+    ],
+    "resposta": "O Alcorão é o livro sagrado do Islam, revelado ao Profeta Muhammad ao longo de 23 anos. É a palavra de Allah preservada sem alterações há mais de 1400 anos, com 114 capítulos (Surahs).",
+    "fonte": "Alcorão - Surah Al-Baqarah (2:2)",
+    "categoria": "alcorao",
+    "nivel": "iniciante",
+    "links": [
+      "https://quran.com/2/2"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "alcorão",
+      "tafsir",
+      "tafseer",
+      "exegese",
+      "interpretação do alcorão",
+      "ciência do tafsir"
+    ],
+    "resposta": "O Tafsir é a ciência da interpretação do Alcorão. As fontes primárias são: Alcorão explica Alcorão, Sunnah explica Alcorão, dizeres dos Sahaba, e linguística árabe. As melhores obras incluem Tafsir Ibn Kathir e Tafsir al-Tabari.",
+    "fonte": "Al-Itqan fi Ulum al-Qur'an - Al-Suyuti",
+    "categoria": "alcorao",
+    "nivel": "avancado",
+    "links": [
+      "https://quran.com"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "muhammad",
+      "profeta",
+      "mensageiro",
+      "quem é muhammad",
+      "último profeta",
+      "rasul"
+    ],
+    "resposta": "Muhammad (que a paz esteja com ele) é o último profeta e mensageiro de Allah. Nasceu em Meca há 1400 anos, recebeu o Alcorão e é o melhor exemplo de caráter para os muçulmanos.",
+    "fonte": "Alcorão - Surah Al-Ahzab (33:21)",
+    "categoria": "alcorao",
+    "nivel": "iniciante",
+    "links": [
+      "https://quran.com/33/21"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "pilares",
+      "pilares do islam",
+      "5 pilares",
+      "cinco pilares",
+      "shahada",
+      "salat",
+      "zakat",
+      "sawm",
+      "hajj"
+    ],
+    "resposta": "O Islam tem 5 pilares: 1) Shahada (Profissão de Fé), 2) Salat (Oração 5x ao dia), 3) Zakat (Caridade 2,5%), 4) Sawm (Jejum em Ramadan), 5) Hajj (Peregrinação a Meca).",
+    "fonte": "Hadith de Umar - Sahih al-Bukhari 8",
+    "categoria": "alcorao",
+    "nivel": "iniciante",
+    "links": [
+      "https://sunnah.com/bukhari/1/8"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "sunnah",
+      "tradição",
+      "exemplo do profeta",
+      "prática do profeta",
+      "o que é sunnah"
+    ],
+    "resposta": "A Sunnah são as palavras, ações e aprovações do Profeta Muhammad. Explica e complementa o Alcorão, preservada através dos Hadiths em coleções como Sahih al-Bukhari e Sahih Muslim.",
+    "fonte": "Alcorão - Surah An-Nisa (4:59)",
+    "categoria": "sunnah",
+    "nivel": "iniciante",
+    "links": [
+      "https://quran.com/4/59"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "sunnah",
+      "hadith",
+      "usul al-hadith",
+      "ciência do hadith",
+      "isnad",
+      "matn",
+      "sahih",
+      "daif",
+      "hasan"
+    ],
+    "resposta": "Usul al-Hadith é a disciplina de autenticação. Os componentes são: Isnad (cadeia de transmissores avaliados por Adalah e Dabt), Matn (texto compatível com Alcorão), e classificação em Sahih, Hasan, Da'if ou Mawdu. As seis coleções canônicas são: Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai, Ibn Majah.",
+    "fonte": "Nukhbat al-Fikar - Ibn Hajar al-Asqalani",
+    "categoria": "sunnah",
+    "nivel": "avancado",
+    "links": [
+      "https://sunnah.com"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "hadith",
+      "hadis",
+      "ditos do profeta",
+      "narracoes",
+      "coleções de hadith",
+      "bukhari",
+      "muslim"
+    ],
+    "resposta": "Hadith é uma narração do que o Profeta disse, fez ou aprovou. Tem Isnad (cadeia de transmissores) e Matn (texto). Classificado em Sahih (autêntico), Hasan (bom), Da'if (fraco) e Mawdu (fabricado). As melhores coleções são Sahih al-Bukhari e Sahih Muslim.",
+    "fonte": "Introdução à Ciência do Hadith",
+    "categoria": "sunnah",
+    "nivel": "iniciante",
+    "links": [
+      "https://sunnah.com"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "oração",
+      "salat",
+      "rezar",
+      "namaz",
+      "como orar",
+      "cinco orações"
+    ],
+    "resposta": "A Salat é obrigatória 5 vezes ao dia: Fajr (amanhecer), Dhuhr (meio-dia), Asr (tarde), Maghrib (pôr do sol), Isha (noite). Deve ser feita voltado para a Qibla (Meca).",
+    "fonte": "Alcorão - Surah Al-Baqarah (2:238)",
+    "categoria": "sunnah",
+    "nivel": "iniciante",
+    "links": [
+      "https://quran.com/2/238"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "mesquita",
+      "casa de oração",
+      "masjid",
+      "orar na mesquita",
+      "jumuah"
+    ],
+    "resposta": "Mesquita (Masjid) é o local de oração congregacional. Serve para oração em grupo, ensino do Alcorão, encontro comunitário e celebração de festas. A mais sagrada é Masjid al-Haram em Meca.",
+    "fonte": "Alcorão - Surah At-Tawbah (9:18)",
+    "categoria": "geral",
+    "nivel": "iniciante",
+    "links": [
+      "https://quran.com/9/18"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "islam",
+      "o que é islam",
+      "religião",
+      "muçulmano",
+      "ser muçulmano",
+      "submissão"
+    ],
+    "resposta": "Islam significa 'submissão' à vontade de Allah. É uma religião monoteísta que ensina fé em Um Único Deus, obediência aos mandamentos, boa conduta e respeito a todos. Muhammad é o último profeta.",
+    "fonte": "Alcorão - Surah Al-Ma'idah (5:3)",
+    "categoria": "geral",
+    "nivel": "iniciante",
+    "links": [
+      "https://quran.com/5/3"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "sharia",
+      "lei islâmica",
+      "regras",
+      "halal",
+      "haram",
+      "fard",
+      "wajib",
+      "makruh",
+      "mubah"
+    ],
+    "resposta": "A Sharia é a lei islâmica baseada no Alcorão e Sunnah. Classifica ações em: Fard (obrigatório), Mustahabb (recomendado), Mubah (permitido), Makruh (desrecomendado) e Haram (proibido). Halal = permitido, Haram = proibido.",
+    "fonte": "Alcorão - Surah Al-Ma'idah (5:3)",
+    "categoria": "geral",
+    "nivel": "iniciante",
+    "links": [
+      "https://quran.com/5/3"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "aqeedah",
+      "aqida",
+      "crença",
+      "teologia",
+      "iman",
+      "shirk",
+      "tawhid",
+      "seis pilares"
+    ],
+    "resposta": "A Aqeedah é a crença ortodoxa do Islam. Os seis pilares do Iman são: 1) Crença em Allah, 2) Anjos, 3) Livros revelados, 4) Mensageiros, 5) Dia do Juízo, 6) Decreto divino (Qadar).",
+    "fonte": "Sharh al-Aqeedah al-Tahawiyyah",
+    "categoria": "geral",
+    "nivel": "avancado",
+    "links": [
+      "https://quran.com/2/285"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "califado",
+      "khilafah",
+      "rashidun",
+      "governo islâmico",
+      "abu bakr",
+      "umar",
+      "uthman",
+      "ali"
+    ],
+    "resposta": "O Califado (Khilafah) é o governo islâmico. Os quatro califas Rashidun (Bem-Guiados) foram: Abu Bakr (632-634), Umar (634-644), Uthman (644-656) e Ali (656-661). Depois vieram os períodos Umayyad, Abbasid, Fatimid e Ottoman.",
+    "fonte": "Al-Ahkam al-Sultaniyyah - Al-Mawardi",
+    "categoria": "geral",
+    "nivel": "avancado",
+    "links": [
+      "https://quran.com/4/59"
+    ]
+  }
+]
