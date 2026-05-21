@@ -49,6 +49,9 @@
         .level-badge.beginner { background: #c8e6c9; color: #2e7d32; }
         .level-badge.advanced { background: #ffe0b2; color: #ef6c00; }
         .auto-detect-msg { font-size: 0.75rem; color: #666; text-align: center; padding: 4px; background: #f0f0f0; }
+        .status-msg { font-size: 0.75rem; color: #888; text-align: center; padding: 4px; }
+        .status-msg.erro { color: #c62828; background: #ffebee; }
+        .status-msg.ok { color: #2e7d32; background: #e8f5e9; }
     </style>
 <base target="_blank">
 </head>
@@ -64,13 +67,14 @@
         <button class="level-btn" onclick="selecionarNivel('auto')"><i class="fa-solid fa-wand-magic-sparkles"></i> Auto</button>
     </div>
     <div class="auto-detect-msg" id="autoDetectMsg" style="display:none;"><i class="fa-solid fa-robot"></i> Detecção automática de nível ativa</div>
+    <div class="status-msg" id="statusMsg">⏳ Carregando cérebro...</div>
     <div class="context-indicator" id="contextIndicator"><i class="fa-solid fa-brain"></i> Contexto: <span id="contextText"></span></div>
     <div class="chat-messages" id="chatMessages">
-        <div class="message bot-message">Assalamu Alaikum! Eu sou o <strong>Islam M</strong>, seu assistente inteligente sobre o Islam. Escolha seu nível acima e faça sua pergunta!</div>
+        <div class="message bot-message">Assalamu Alaikum! Eu sou o <strong>Islam M</strong>. Aguarde o carregamento do cérebro...</div>
     </div>
     <div class="chat-input-area">
-        <input type="text" id="userInput" placeholder="Pergunte sobre o Islam..." autocomplete="off">
-        <button id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
+        <input type="text" id="userInput" placeholder="Pergunte sobre o Islam..." autocomplete="off" disabled>
+        <button id="sendBtn" disabled><i class="fa-solid fa-paper-plane"></i></button>
     </div>
     <div class="chat-footer">
         <div>Motor criado por <strong>isslam Moz</strong> | Suporte: 860407269</div>
@@ -85,10 +89,12 @@
     const contextIndicator = document.getElementById('contextIndicator');
     const contextText = document.getElementById('contextText');
     const autoDetectMsg = document.getElementById('autoDetectMsg');
+    const statusMsg = document.getElementById('statusMsg');
 
     let cerebroCompleto = [];
     let nivelAtual = 'iniciante';
     let nivelDetectado = 'iniciante';
+    let cerebroCarregado = false;
 
     // ===== MEMÓRIA CONTEXTUAL =====
     const contextoMemoria = {
@@ -176,13 +182,45 @@
         adicionarMensagem(msgNivel, 'bot');
     }
 
-    // ===== CARREGA APENAS cerebro.json =====
+    // ===== CARREGA CÉREBRO COM MÚLTIPLOS CAMINHOS =====
     async function carregarCerebro() {
-        try {
-            const resposta = await fetch('cerebro.json');
-            if (resposta.ok) { cerebroCompleto = await resposta.json(); console.log(`Cérebro: ${cerebroCompleto.length} itens`); }
-            else console.error('Erro ao carregar cerebro.json');
-        } catch (erro) { console.error('Erro:', erro); }
+        const caminhos = [
+            'cerebro.json',
+            './cerebro.json',
+            '../cerebro.json',
+            '/cerebro.json',
+            'data/cerebro.json',
+            'assets/cerebro.json'
+        ];
+
+        for (const caminho of caminhos) {
+            try {
+                console.log('Tentando carregar:', caminho);
+                const resposta = await fetch(caminho, { cache: 'no-cache' });
+                if (resposta.ok) {
+                    const dados = await resposta.json();
+                    if (Array.isArray(dados) && dados.length > 0) {
+                        cerebroCompleto = dados;
+                        cerebroCarregado = true;
+                        statusMsg.textContent = `✅ Cérebro carregado: ${dados.length} itens`;
+                        statusMsg.className = 'status-msg ok';
+                        userInput.disabled = false;
+                        sendBtn.disabled = false;
+                        userInput.placeholder = "Pergunte sobre o Islam...";
+                        console.log(`Sucesso! Carregado ${dados.length} itens de ${caminho}`);
+                        return;
+                    }
+                }
+            } catch (erro) {
+                console.log(`Falha em ${caminho}:`, erro.message);
+            }
+        }
+
+        // Se chegou aqui, não conseguiu carregar
+        statusMsg.textContent = '❌ Erro: Não encontrei cerebro.json. Verifique se o arquivo está na mesma pasta do bot.';
+        statusMsg.className = 'status-msg erro';
+        adicionarMensagem("⚠️ Não consegui carregar o cérebro. Verifique se o arquivo cerebro.json está na mesma pasta deste bot.", 'bot');
+        console.error('Todos os caminhos falharam');
     }
 
     function normalizarTexto(texto) {
@@ -201,9 +239,11 @@
     }
 
     // ===== MOTOR DE BUSCA =====
-    // REGRA: Escolhe a resposta que tem MAIS keys encontradas.
-    // Se empate no número de keys, escolhe aleatório entre os empatados.
     function procurarResposta(perguntaUsuario) {
+        if (!cerebroCarregado || cerebroCompleto.length === 0) {
+            return { resposta: "⚠️ O cérebro ainda não foi carregado. Aguarde ou recarregue a página.", fonte: "", links: [], nivel: "iniciante" };
+        }
+
         if (contextoMemoria.verificarMudancaAssunto(perguntaUsuario)) contextIndicator.classList.remove('active');
 
         let nivelBusca = nivelAtual;
@@ -233,14 +273,12 @@
                 }
             }
 
-            // Bônus contexto
             if (contextoMemoria.categoriaAtual && item.categoria === contextoMemoria.categoriaAtual) pontuacao += 1;
             if (contextoMemoria.topicoAtual) {
                 const topicosItem = item.palavras_chave.map(k => normalizarTexto(k));
                 if (topicosItem.includes(normalizarTexto(contextoMemoria.topicoAtual))) pontuacao += 1.5;
             }
 
-            // Filtro nível
             const nivelItem = item.nivel || 'iniciante';
             if (nivelBusca === 'iniciante' && nivelItem === 'avancado') continue;
             if (nivelBusca === 'iniciante' && nivelItem === 'iniciante') pontuacao += 2;
@@ -252,20 +290,18 @@
             }
         }
 
-        // Fallback: se modo avançado não achou, tenta iniciante
         if (correspondencias.length === 0 && nivelBusca === 'avancado') {
             for (const item of cerebroCompleto) {
                 if ((item.nivel || 'iniciante') !== 'iniciante') continue;
                 let keysEncontradas = 0;
                 const palavrasExpandidas = expandirPalavrasChave(item.palavras_chave);
                 for (const chave of palavrasExpandidas) {
-                    if (textoNormalizado.includes(normalizarTexto(chave))) { keysEncontradas++; }
+                    if (textoNormalizado.includes(normalizarTexto(chave))) keysEncontradas++;
                 }
                 if (keysEncontradas > 0) correspondencias.push({ item, pontuacao: keysEncontradas * 2, keysEncontradas, categoria: item.categoria || 'geral' });
             }
         }
 
-        // Fallback com histórico
         if (correspondencias.length === 0 && contextoMemoria.historico.length > 0) {
             const ultima = contextoMemoria.historico[contextoMemoria.historico.length - 1];
             if (ultima.resposta && ultima.resposta.palavras_chave) {
@@ -276,23 +312,16 @@
 
         if (correspondencias.length === 0) return null;
 
-        // ===== REGRA DE SELEÇÃO =====
-        // 1. Ordena por keysEncontradas (maior primeiro), depois por pontuacao
+        // REGRA: Mais keys primeiro, depois pontuação. Empate = aleatório.
         correspondencias.sort((a, b) => {
             if (b.keysEncontradas !== a.keysEncontradas) return b.keysEncontradas - a.keysEncontradas;
             return b.pontuacao - a.pontuacao;
         });
 
-        // 2. Pega o maior número de keys
         const maxKeys = correspondencias[0].keysEncontradas;
-
-        // 3. Filtra apenas os que têm esse número de keys
         const melhores = correspondencias.filter(c => c.keysEncontradas === maxKeys);
-
-        // 4. Se empate, escolhe aleatório
         const escolhido = melhores.length > 1 ? melhores[Math.floor(Math.random() * melhores.length)] : melhores[0];
 
-        // Atualiza contexto
         const resultado = escolhido.item;
         contextoMemoria.topicoAtual = resultado.palavras_chave[0];
         contextoMemoria.adicionarInteracao(perguntaUsuario, resultado, escolhido.categoria);
@@ -345,6 +374,8 @@
 
     sendBtn.addEventListener('click', processarEnvio);
     userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') processarEnvio(); });
+
+    // Inicia carregamento
     carregarCerebro();
 </script>
 </body>
