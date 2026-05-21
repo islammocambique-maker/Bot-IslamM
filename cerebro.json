@@ -1,5 +1,69 @@
 [
   {
+    "palavras_chave": ["reverter", "islam", "shahada", "converter"],
+    "resposta": "Para reverteres ao Islam, pronuncia a Shahada: 'Não há deus digno de adoração senão Allah, e Muhammad é o Mensageiro de Allah.' Toma banho (Ghusl) e começa a praticar os 5 pilares.",
+    "fonte": "Alcorão e Sunnah",
+    "categoria": "Conversão",
+    "nivel": "iniciante",
+    "links": ["https://www.islamicity.org/"]
+  },
+  {
+    "palavras_chave": ["kalimah", "kalima", "declarações", "fé"],
+    "resposta": "Os Kalimah são as 6 declarações fundamentais da fé islâmica em árabe: Tayyibah, Shahadat, Tamjeed, Tawhid, Istighfar e Radd-e-Kufr.",
+    "fonte": "Tradição islâmica",
+    "categoria": "Crenças",
+    "nivel": "iniciante",
+    "links": [""]
+  },
+  {
+    "palavras_chave": ["muhammad", "profeta", "mensageiro"],
+    "resposta": "Muhammad (PBUH) foi o último Profeta de Allah, nascido em Makkah por volta de 570 d.C. Recebeu o Alcorão e ensinou a adoração de um único Deus.",
+    "fonte": "Alcorão e Sunnah",
+    "categoria": "Profetas",
+    "nivel": "iniciante",
+    "links": ["https://www.biography.com/religious-figure/muhammad"]
+  },
+  {
+    "palavras_chave": ["alcorão", "livro sagrado", "quran"],
+    "resposta": "O Alcorão é a palavra literal de Allah revelada a Muhammad. Contém 114 Suras, aborda fé, lei, moralidade e história de profetas. É preservado em árabe original.",
+    "fonte": "Alcorão",
+    "categoria": "Escrituras",
+    "nivel": "iniciante",
+    "links": ["https://quran.com/"]
+  },
+  {
+    "palavras_chave": ["muçulmanos", "quem são", "seguidores"],
+    "resposta": "Muçulmanos são seguidores do Islam que se submetem à vontade de Allah. Crêem em Allah, Muhammad e praticam os 5 pilares. São ~1.9 bilhões no mundo.",
+    "fonte": "Definição islâmica",
+    "categoria": "Identidade",
+    "nivel": "iniciante",
+    "links": [""]
+  },
+  {
+    "palavras_chave": ["salat", "oração", "hora", "horários"],
+    "resposta": "As 5 orações diárias são Fajr, Dhuhr, Asr, Maghrib e Isha. Os horários variam por localização. Consulte IslamicFinder para horários exatos.",
+    "fonte": "Alcorão e Sunnah",
+    "categoria": "Oração",
+    "nivel": "iniciante",
+    "links": ["https://www.islamicfinder.org/"]
+  },
+  {
+    "palavras_chave": ["wudhu", "ablusão", "purificação", "lavar"],
+    "resposta": "Wudhu é a purificação ritual antes da oração: lavar mãos, boca, nariz, rosto, braços, cabeça e pés com intenção de obediência a Allah.",
+    "fonte": "Alcorão 5:6",
+    "categoria": "Purificação",
+    "nivel": "iniciante",
+    "links": [""]
+  },
+  {
+    "palavras_chave": ["terroristas", "terrorismo", "violência", "extremismo"],
+    "resposta": "Não. O Islam condena o terrorismo. O Alcorão diz que matar um inocente é como matar toda a humanidade. Terroristas deturpam o Islam.",
+    "fonte": "Alcorão 5:32",
+    "categoria": "Esclarecimento",
+    "nivel": "iniciante",
+    "links": [""]
+  },
+  {
     "palavras_chave": [
       "allah",
       "deus",
