@@ -14,6 +14,7 @@
             --accent-color: #e8f5e9;
             --beginner-color: #4caf50;
             --advanced-color: #ff9800;
+            --ai-color: #8e24aa;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: #eef5f1; display: flex; justify-content: center; align-items: center; height: 100vh; }
@@ -27,6 +28,7 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .bot-message { background-color: var(--white); color: var(--text-dark); align-self: flex-start; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         .user-message { background-color: var(--primary-color); color: var(--white); align-self: flex-end; border-bottom-right-radius: 2px; }
+        .ai-message { background-color: #f3e5f5; color: var(--text-dark); align-self: flex-start; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 3px solid var(--ai-color); }
         .fonte-box { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #ddd; font-size: 0.8rem; color: #555; font-style: italic; }
         .user-message .fonte-box { color: #e0f2e9; border-top: 1px dashed rgba(255,255,255,0.3); }
         .link-fonte { color: var(--primary-color); text-decoration: underline; display: inline-block; margin-top: 4px; }
@@ -48,10 +50,19 @@
         .level-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: bold; margin-left: 8px; }
         .level-badge.beginner { background: #c8e6c9; color: #2e7d32; }
         .level-badge.advanced { background: #ffe0b2; color: #ef6c00; }
+        .level-badge.ai { background: #e1bee7; color: #6a1b9a; }
         .auto-detect-msg { font-size: 0.75rem; color: #666; text-align: center; padding: 4px; background: #f0f0f0; }
         .status-msg { font-size: 0.75rem; color: #888; text-align: center; padding: 4px; }
         .status-msg.erro { color: #c62828; background: #ffebee; }
         .status-msg.ok { color: #2e7d32; background: #e8f5e9; }
+        .typing-indicator { display: flex; gap: 4px; padding: 8px 12px; }
+        .typing-indicator span { width: 8px; height: 8px; background: #999; border-radius: 50%; animation: typing 1.4s infinite; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing { 0%, 60%, 100% { transform: translateY(0); } 30% { transform: translateY(-10px); } }
+        .ai-toggle { display: flex; align-items: center; gap: 8px; padding: 4px 12px; background: #f8f8f8; border-bottom: 1px solid #e0e0e0; font-size: 0.8rem; }
+        .ai-toggle input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+        .ai-toggle label { cursor: pointer; color: var(--ai-color); font-weight: 600; }
     </style>
 <base target="_blank">
 </head>
@@ -66,11 +77,15 @@
         <button class="level-btn advanced" onclick="selecionarNivel('avancado')"><i class="fa-solid fa-graduation-cap"></i> Avançado</button>
         <button class="level-btn" onclick="selecionarNivel('auto')"><i class="fa-solid fa-wand-magic-sparkles"></i> Auto</button>
     </div>
+    <div class="ai-toggle">
+        <input type="checkbox" id="aiToggle" checked>
+        <label for="aiToggle"><i class="fa-solid fa-robot"></i> Usar IA Gemini quando não souber responder</label>
+    </div>
     <div class="auto-detect-msg" id="autoDetectMsg" style="display:none;"><i class="fa-solid fa-robot"></i> Detecção automática de nível ativa</div>
     <div class="status-msg" id="statusMsg">⏳ Carregando cérebro...</div>
     <div class="context-indicator" id="contextIndicator"><i class="fa-solid fa-brain"></i> Contexto: <span id="contextText"></span></div>
     <div class="chat-messages" id="chatMessages">
-        <div class="message bot-message">Assalamu Alaikum! Eu sou o <strong>Islam M</strong>. Aguarde o carregamento do cérebro...</div>
+        <div class="message bot-message">Assalamu Alaikum! Eu sou o <strong>Islam M</strong>. Estou aqui para ajudar com suas dúvidas sobre o Islam. Pergunte-me qualquer coisa!</div>
     </div>
     <div class="chat-input-area">
         <input type="text" id="userInput" placeholder="Pergunte sobre o Islam..." autocomplete="off" disabled>
@@ -82,6 +97,7 @@
     </div>
 </div>
 
+<script src="config.js"></script>
 <script>
     const chatMessages = document.getElementById('chatMessages');
     const userInput = document.getElementById('userInput');
@@ -90,11 +106,62 @@
     const contextText = document.getElementById('contextText');
     const autoDetectMsg = document.getElementById('autoDetectMsg');
     const statusMsg = document.getElementById('statusMsg');
+    const aiToggle = document.getElementById('aiToggle');
+
+    // ===== API KEY - Carrega de config.js =====
+    let GEMINI_API_KEY = "";
+    let GEMINI_URL = "";
+    let iaDisponivel = false;
+
+    function configurarAPI() {
+        // Tenta pegar do window.config (definido em config.js)
+        if (typeof window !== 'undefined' && window.ISLAM_M_CONFIG && window.ISLAM_M_CONFIG.geminiApiKey) {
+            GEMINI_API_KEY = window.ISLAM_M_CONFIG.geminiApiKey;
+            GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${GEMINI_API_KEY}`;
+            iaDisponivel = true;
+            console.log("API Key carregada de config.js");
+            return true;
+        }
+        console.warn("config.js não encontrado ou sem API key. IA desativada.");
+        return false;
+    }
 
     let cerebroCompleto = [];
     let nivelAtual = 'iniciante';
     let nivelDetectado = 'iniciante';
     let cerebroCarregado = false;
+    let ultimaRespostaBot = null;
+    let historicoConversa = [];
+
+    // ===== SAUDAÇÕES NATURAIS =====
+    const saudacoes = {
+        "ola": ["Wa Alaikum Assalam! Como posso ajudá-lo hoje?", "Assalamu Alaikum! É um prazer falar com você."],
+        "oi": ["Oi! Assalamu Alaikum! Em que posso ser útil?", "Wa Alaikum Assalam! Como está?"],
+        "bom dia": ["Bom dia! Que Allah abençoe seu dia. Como posso ajudar?", "Wa Alaikum Assalam! Bom dia!"],
+        "boa tarde": ["Boa tarde! Assalamu Alaikum!", "Wa Alaikum Assalam! Boa tarde!"],
+        "boa noite": ["Boa noite! Que Allah proteja sua noite.", "Wa Alaikum Assalam! Boa noite!"],
+        "assalamu alaikum": ["Wa Alaikum Assalam wa Rahmatullahi wa Barakatuh!", "Wa Alaikum Assalam! É uma honra falar com você."],
+        "assalamu aleikum": ["Wa Alaikum Assalam wa Rahmatullahi wa Barakatuh!", "Wa Alaikum Assalam!"],
+        "como esta": ["Estou bem, graças a Allah! E você, como está?", "Alhamdulillah, estou bem! Como posso ajudá-lo hoje?"],
+        "como vai": ["Alhamdulillah, vou bem! E você?", "Estou bem, graças a Allah! Em que posso ajudar?"],
+        "tudo bem": ["Alhamdulillah, tudo bem! E com você?", "Tudo bem, graças a Allah! Como posso ser útil?"],
+        "obrigado": ["De nada! É um prazer ajudar. Allah recompense você.", "Agradeço a Allah por poder ajudar!"],
+        "obrigada": ["De nada! Allah recompense você.", "É um prazer! Allah abençoe você."],
+        "valeu": ["De nada! Que Allah abençoe você.", "Sempre à disposição!"],
+        "adeus": ["Ma'a Assalamah! Que Allah o proteja.", "Allah Hafiz! Até logo!"],
+        "tchau": ["Ma'a Assalamah!", "Allah Hafiz!"],
+        "ate logo": ["Ma'a Assalamah! Que Allah o guie.", "Até logo! Allah Hafiz!"]
+    };
+
+    function detectarSaudacao(texto) {
+        const t = texto.toLowerCase().trim();
+        for (const [key, respostas] of Object.entries(saudacoes)) {
+            if (t.includes(key)) {
+                return respostas[Math.floor(Math.random() * respostas.length)];
+            }
+        }
+        return null;
+    }
 
     // ===== MEMÓRIA CONTEXTUAL =====
     const contextoMemoria = {
@@ -178,49 +245,36 @@
         if (nivel === 'iniciante') { document.querySelector('.level-btn.beginner').classList.add('active'); autoDetectMsg.style.display = 'none'; }
         else if (nivel === 'avancado') { document.querySelector('.level-btn.advanced').classList.add('active'); autoDetectMsg.style.display = 'none'; }
         else { document.querySelector('.level-btn:last-child').classList.add('active'); autoDetectMsg.style.display = 'block'; }
-        let msgNivel = nivel === 'iniciante' ? 'Modo Iniciante ativado!' : nivel === 'avancado' ? 'Modo Avançado ativado!' : 'Modo Auto ativado!';
+        let msgNivel = nivel === 'iniciante' ? 'Modo Iniciante ativado! Vou responder de forma simples e didática.' : nivel === 'avancado' ? 'Modo Avançado ativado! Vou usar terminologia técnica e aprofundar nos detalhes.' : 'Modo Auto ativado! Vou detectar automaticamente seu nível de conhecimento.';
         adicionarMensagem(msgNivel, 'bot');
     }
 
-    // ===== CARREGA CÉREBRO COM MÚLTIPLOS CAMINHOS =====
+    // ===== CARREGA CÉREBRO =====
     async function carregarCerebro() {
-        const caminhos = [
-            'cerebro.json',
-            './cerebro.json',
-            '../cerebro.json',
-            '/cerebro.json',
-            'data/cerebro.json',
-            'assets/cerebro.json'
-        ];
-
+        const caminhos = ['cerebro.json', './cerebro.json', '../cerebro.json', '/cerebro.json', 'data/cerebro.json', 'assets/cerebro.json'];
         for (const caminho of caminhos) {
             try {
-                console.log('Tentando carregar:', caminho);
                 const resposta = await fetch(caminho, { cache: 'no-cache' });
                 if (resposta.ok) {
                     const dados = await resposta.json();
                     if (Array.isArray(dados) && dados.length > 0) {
                         cerebroCompleto = dados;
                         cerebroCarregado = true;
-                        statusMsg.textContent = `✅ Cérebro carregado: ${dados.length} itens`;
+                        statusMsg.textContent = `✅ Cérebro: ${dados.length} itens | IA: ${iaDisponivel ? '✅' : '❌'}`;
                         statusMsg.className = 'status-msg ok';
                         userInput.disabled = false;
                         sendBtn.disabled = false;
                         userInput.placeholder = "Pergunte sobre o Islam...";
-                        console.log(`Sucesso! Carregado ${dados.length} itens de ${caminho}`);
                         return;
                     }
                 }
-            } catch (erro) {
-                console.log(`Falha em ${caminho}:`, erro.message);
-            }
+            } catch (erro) {}
         }
-
-        // Se chegou aqui, não conseguiu carregar
-        statusMsg.textContent = '❌ Erro: Não encontrei cerebro.json. Verifique se o arquivo está na mesma pasta do bot.';
-        statusMsg.className = 'status-msg erro';
-        adicionarMensagem("⚠️ Não consegui carregar o cérebro. Verifique se o arquivo cerebro.json está na mesma pasta deste bot.", 'bot');
-        console.error('Todos os caminhos falharam');
+        statusMsg.textContent = `⚠️ Cérebro não encontrado | IA: ${iaDisponivel ? '✅' : '❌'}`;
+        statusMsg.className = 'status-msg ok';
+        userInput.disabled = false;
+        sendBtn.disabled = false;
+        userInput.placeholder = "Pergunte sobre o Islam...";
     }
 
     function normalizarTexto(texto) {
@@ -238,13 +292,14 @@
         return [...new Set(expandido)];
     }
 
-    // ===== MOTOR DE BUSCA =====
-    function procurarResposta(perguntaUsuario) {
-        if (!cerebroCarregado || cerebroCompleto.length === 0) {
-            return { resposta: "⚠️ O cérebro ainda não foi carregado. Aguarde ou recarregue a página.", fonte: "", links: [], nivel: "iniciante" };
-        }
+    // ===== MOTOR DE BUSCA LOCAL =====
+    function procurarRespostaLocal(perguntaUsuario) {
+        if (!cerebroCarregado || cerebroCompleto.length === 0) return null;
 
-        if (contextoMemoria.verificarMudancaAssunto(perguntaUsuario)) contextIndicator.classList.remove('active');
+        if (contextoMemoria.verificarMudancaAssunto(perguntaUsuario)) {
+            contextIndicator.classList.remove('active');
+            ultimaRespostaBot = null;
+        }
 
         let nivelBusca = nivelAtual;
         if (nivelAtual === 'auto') { nivelDetectado = detectorNivel.detectarNivel(perguntaUsuario); nivelBusca = nivelDetectado; }
@@ -306,13 +361,12 @@
             const ultima = contextoMemoria.historico[contextoMemoria.historico.length - 1];
             if (ultima.resposta && ultima.resposta.palavras_chave) {
                 const contextoReforcado = perguntaUsuario + " " + ultima.resposta.palavras_chave.slice(0, 3).join(" ");
-                return procurarResposta(contextoReforcado);
+                return procurarRespostaLocal(contextoReforcado);
             }
         }
 
         if (correspondencias.length === 0) return null;
 
-        // REGRA: Mais keys primeiro, depois pontuação. Empate = aleatório.
         correspondencias.sort((a, b) => {
             if (b.keysEncontradas !== a.keysEncontradas) return b.keysEncontradas - a.keysEncontradas;
             return b.pontuacao - a.pontuacao;
@@ -330,16 +384,65 @@
             contextText.textContent = `${resultado.palavras_chave[0]} (${escolhido.categoria} | ${resultado.nivel || 'iniciante'})`;
             contextIndicator.classList.add('active');
         }
+
+        ultimaRespostaBot = resultado;
         return resultado;
+    }
+
+    // ===== GEMINI API =====
+    async function perguntarGemini(pergunta) {
+        if (!iaDisponivel || !GEMINI_URL) return null;
+
+        try {
+            const parts = [];
+            parts.push({
+                text: `Voce e o Islam M, um assistente islamico amigavel e respeitoso. Responda em portugues de forma natural, como uma conversa humana. Seja preciso nas informacoes sobre Islam, cite fontes quando possivel (Alcorao, Hadith). Nao invente Hadiths. Se nao souber algo com certeza, admita honestamente. Responda de forma concisa mas completa.`
+            });
+
+            for (const msg of historicoConversa.slice(-6)) {
+                parts.push({ text: `${msg.tipo === 'user' ? 'Usuario' : 'Islam M'}: ${msg.texto}` });
+            }
+
+            parts.push({ text: `Usuario: ${pergunta}` });
+
+            const resposta = await fetch(GEMINI_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    contents: [{ parts: parts }],
+                    generationConfig: {
+                        temperature: 0.7,
+                        maxOutputTokens: 800,
+                        topP: 0.9
+                    }
+                })
+            });
+
+            if (!resposta.ok) {
+                const erro = await resposta.text();
+                console.error('Erro Gemini:', erro);
+                return null;
+            }
+
+            const dados = await resposta.json();
+            if (dados.candidates && dados.candidates[0] && dados.candidates[0].content && dados.candidates[0].content.parts) {
+                return dados.candidates[0].content.parts[0].text;
+            }
+            return null;
+        } catch (erro) {
+            console.error('Erro ao chamar Gemini:', erro);
+            return null;
+        }
     }
 
     function adicionarMensagem(texto, tipo, fonte = "", links = [], nivel = "") {
         const msgDiv = document.createElement('div');
-        msgDiv.classList.add('message', tipo === 'user' ? 'user-message' : 'bot-message');
+        msgDiv.classList.add('message', tipo === 'user' ? 'user-message' : tipo === 'ai' ? 'ai-message' : 'bot-message');
         let badgeHtml = '';
-        if (nivel && tipo === 'bot') {
-            const badgeClass = nivel === 'avancado' ? 'advanced' : 'beginner';
-            badgeHtml = `<span class="level-badge ${badgeClass}">${nivel === 'avancado' ? 'Avançado' : 'Iniciante'}</span>`;
+        if (nivel && (tipo === 'bot' || tipo === 'ai')) {
+            const badgeClass = nivel === 'avancado' ? 'advanced' : nivel === 'ai' ? 'ai' : 'beginner';
+            const badgeText = nivel === 'avancado' ? 'Avancado' : nivel === 'ai' ? 'IA Gemini' : 'Iniciante';
+            badgeHtml = `<span class="level-badge ${badgeClass}">${badgeText}</span>`;
         }
         msgDiv.innerHTML = texto + badgeHtml;
         if (fonte) {
@@ -351,31 +454,82 @@
         }
         chatMessages.appendChild(msgDiv);
         chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        historicoConversa.push({ tipo, texto: texto.replace(/<[^>]*>/g, '') });
+        if (historicoConversa.length > 20) historicoConversa.shift();
     }
 
-    function processarEnvio() {
+    function mostrarDigitando() {
+        const typingDiv = document.createElement('div');
+        typingDiv.classList.add('message', 'bot-message', 'typing-indicator');
+        typingDiv.id = 'typingIndicator';
+        typingDiv.innerHTML = '<span></span><span></span><span></span>';
+        chatMessages.appendChild(typingDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function removerDigitando() {
+        const typing = document.getElementById('typingIndicator');
+        if (typing) typing.remove();
+    }
+
+    async function processarEnvio() {
         let texto = userInput.value.trim();
         if (!texto) return;
         adicionarMensagem(texto, 'user');
         userInput.value = '';
-        setTimeout(() => {
-            try {
-                const resultado = procurarResposta(texto);
-                if (resultado) adicionarMensagem(resultado.resposta, 'bot', resultado.fonte, resultado.links, resultado.nivel || 'iniciante');
-                else {
-                    let msg = "Desculpe, não encontrei uma resposta específica nas minhas fontes. ";
-                    if (contextoMemoria.categoriaAtual) msg += `Estávamos falando sobre ${contextoMemoria.categoriaAtual}. Tente reformular ou digite 'outro assunto'.`;
-                    else msg += "Tente usar outras palavras ou consulte um sábio de confiança.";
-                    adicionarMensagem(msg, 'bot');
+        mostrarDigitando();
+
+        const saudacao = detectarSaudacao(texto);
+        if (saudacao) {
+            setTimeout(() => {
+                removerDigitando();
+                adicionarMensagem(saudacao, 'bot');
+            }, 500 + Math.random() * 300);
+            return;
+        }
+
+        const respostaLocal = procurarRespostaLocal(texto);
+
+        if (respostaLocal) {
+            setTimeout(() => {
+                removerDigitando();
+                adicionarMensagem(respostaLocal.resposta, 'bot', respostaLocal.fonte, respostaLocal.links, respostaLocal.nivel || 'iniciante');
+            }, 600 + Math.random() * 400);
+        } else {
+            if (aiToggle.checked && iaDisponivel) {
+                const respostaGemini = await perguntarGemini(texto);
+                removerDigitando();
+                if (respostaGemini) {
+                    adicionarMensagem(respostaGemini, 'ai', "IA Gemini", [], "ai");
+                } else {
+                    mostrarNaoSei();
                 }
-            } catch (e) { adicionarMensagem("Ocorreu um erro. Tente novamente.", 'bot'); }
-        }, 400);
+            } else {
+                removerDigitando();
+                mostrarNaoSei();
+            }
+        }
+    }
+
+    function mostrarNaoSei() {
+        const respostasNaoSei = [
+            "Desculpe, ainda nao tenho essa informacao no meu cerebro. Estou em constante aprendizado! Pergunte sobre Allah, o Alcorao, os pilares do Islam, ou outros temas que ja estudei.",
+            "Hmm, essa pergunta ainda nao foi adicionada ao meu conhecimento. Mas posso ajudar com temas como: quem e Allah, o que e o Alcorao, os 5 pilares, a Sunnah, e muito mais!",
+            "Ainda nao aprendi sobre isso. Meu cerebro esta sendo atualizado regularmente. Tente perguntar sobre temas islamicos fundamentais que ja domino!",
+            "Essa informacao ainda nao foi atualizada no meu sistema. Mas nao desanime! Posso responder sobre fe, oracao, jejum, zakat, hajj e outros pilares do Islam.",
+            "Nao encontrei essa resposta nas minhas fontes atuais. Estou crescendo a cada dia! Que tal perguntar sobre o Profeta Muhammad, os anjos, ou o Paraiso?"
+        ];
+        const respostaNaoSei = respostasNaoSei[Math.floor(Math.random() * respostasNaoSei.length)];
+        adicionarMensagem(respostaNaoSei, 'bot');
+        ultimaRespostaBot = null;
     }
 
     sendBtn.addEventListener('click', processarEnvio);
     userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') processarEnvio(); });
 
-    // Inicia carregamento
+    // Inicializa
+    configurarAPI();
     carregarCerebro();
 </script>
 </body>
