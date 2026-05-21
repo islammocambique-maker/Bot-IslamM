@@ -15,302 +15,63 @@
             --beginner-color: #4caf50;
             --advanced-color: #ff9800;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #eef5f1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .chat-container {
-            width: 100%;
-            max-width: 600px;
-            height: 100vh;
-            background: var(--white);
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        @media (min-width: 601px) {
-            .chat-container {
-                height: 85vh;
-                border-radius: 12px;
-                overflow: hidden;
-            }
-        }
-
-        .chat-header {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .chat-header img {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--white);
-            object-fit: cover;
-        }
-
-        .chat-header h1 {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .chat-header p {
-            font-size: 0.8rem;
-            opacity: 0.9;
-        }
-
-        .chat-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            background-color: var(--secondary-color);
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .message {
-            max-width: 85%;
-            padding: 12px 16px;
-            border-radius: 15px;
-            font-size: 0.95rem;
-            line-height: 1.4;
-            animation: fadeIn 0.3s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .bot-message {
-            background-color: var(--white);
-            color: var(--text-dark);
-            align-self: flex-start;
-            border-bottom-left-radius: 2px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .user-message {
-            background-color: var(--primary-color);
-            color: var(--white);
-            align-self: flex-end;
-            border-bottom-right-radius: 2px;
-        }
-
-        .fonte-box {
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px dashed #ddd;
-            font-size: 0.8rem;
-            color: #555;
-            font-style: italic;
-        }
-
-        .user-message .fonte-box {
-            color: #e0f2e9;
-            border-top: 1px dashed rgba(255,255,255,0.3);
-        }
-
-        .link-fonte {
-            color: var(--primary-color);
-            text-decoration: underline;
-            display: inline-block;
-            margin-top: 4px;
-        }
-
-        .chat-input-area {
-            padding: 12px;
-            background: var(--white);
-            display: flex;
-            gap: 8px;
-            border-top: 1px solid #eee;
-        }
-
-        .chat-input-area input {
-            flex: 1;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            outline: none;
-            font-size: 1rem;
-            transition: 0.2s;
-        }
-
-        .chat-input-area input:focus {
-            border-color: var(--primary-color);
-        }
-
-        .chat-input-area button {
-            background-color: var(--primary-color);
-            color: var(--white);
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.1rem;
-            transition: 0.2s;
-        }
-
-        .chat-input-area button:hover {
-            transform: scale(1.05);
-        }
-
-        .chat-footer {
-            background: #fdfdfd;
-            padding: 8px;
-            font-size: 0.72rem;
-            text-align: center;
-            color: #666;
-            border-top: 1px solid #f0f0f0;
-            line-height: 1.4;
-        }
-        .chat-footer a { color: var(--primary-color); text-decoration: none; font-weight: bold;}
-
-        .context-indicator {
-            font-size: 0.7rem;
-            color: #888;
-            padding: 4px 12px;
-            background: var(--accent-color);
-            border-bottom: 1px solid #e0e0e0;
-            display: none;
-        }
-        .context-indicator.active {
-            display: block;
-        }
-
-        .level-selector {
-            display: flex;
-            gap: 8px;
-            padding: 8px 12px;
-            background: #f8f8f8;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .level-btn {
-            flex: 1;
-            padding: 8px 12px;
-            border: 2px solid #ddd;
-            border-radius: 20px;
-            background: white;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .level-btn:hover {
-            border-color: var(--primary-color);
-        }
-
-        .level-btn.active {
-            border-color: var(--primary-color);
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .level-btn.beginner.active {
-            background: var(--beginner-color);
-            border-color: var(--beginner-color);
-        }
-
-        .level-btn.advanced.active {
-            background: var(--advanced-color);
-            border-color: var(--advanced-color);
-        }
-
-        .level-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            margin-left: 8px;
-        }
-
-        .level-badge.beginner {
-            background: #c8e6c9;
-            color: #2e7d32;
-        }
-
-        .level-badge.advanced {
-            background: #ffe0b2;
-            color: #ef6c00;
-        }
-
-        .auto-detect-msg {
-            font-size: 0.75rem;
-            color: #666;
-            text-align: center;
-            padding: 4px;
-            background: #f0f0f0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #eef5f1; display: flex; justify-content: center; align-items: center; height: 100vh; }
+        .chat-container { width: 100%; max-width: 600px; height: 100vh; background: var(--white); display: flex; flex-direction: column; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        @media (min-width: 601px) { .chat-container { height: 85vh; border-radius: 12px; overflow: hidden; } }
+        .chat-header { background-color: var(--primary-color); color: var(--white); padding: 15px; display: flex; align-items: center; gap: 12px; }
+        .chat-header h1 { font-size: 1.2rem; font-weight: 600; }
+        .chat-header p { font-size: 0.8rem; opacity: 0.9; }
+        .chat-messages { flex: 1; padding: 20px; overflow-y: auto; background-color: var(--secondary-color); display: flex; flex-direction: column; gap: 15px; }
+        .message { max-width: 85%; padding: 12px 16px; border-radius: 15px; font-size: 0.95rem; line-height: 1.4; animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .bot-message { background-color: var(--white); color: var(--text-dark); align-self: flex-start; border-bottom-left-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .user-message { background-color: var(--primary-color); color: var(--white); align-self: flex-end; border-bottom-right-radius: 2px; }
+        .fonte-box { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #ddd; font-size: 0.8rem; color: #555; font-style: italic; }
+        .user-message .fonte-box { color: #e0f2e9; border-top: 1px dashed rgba(255,255,255,0.3); }
+        .link-fonte { color: var(--primary-color); text-decoration: underline; display: inline-block; margin-top: 4px; }
+        .chat-input-area { padding: 12px; background: var(--white); display: flex; gap: 8px; border-top: 1px solid #eee; }
+        .chat-input-area input { flex: 1; padding: 12px; border: 1px solid #ccc; border-radius: 25px; outline: none; font-size: 1rem; transition: 0.2s; }
+        .chat-input-area input:focus { border-color: var(--primary-color); }
+        .chat-input-area button { background-color: var(--primary-color); color: var(--white); border: none; width: 45px; height: 45px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 1.1rem; transition: 0.2s; }
+        .chat-input-area button:hover { transform: scale(1.05); }
+        .chat-footer { background: #fdfdfd; padding: 8px; font-size: 0.72rem; text-align: center; color: #666; border-top: 1px solid #f0f0f0; line-height: 1.4; }
+        .chat-footer a { color: var(--primary-color); text-decoration: none; font-weight: bold; }
+        .context-indicator { font-size: 0.7rem; color: #888; padding: 4px 12px; background: var(--accent-color); border-bottom: 1px solid #e0e0e0; display: none; }
+        .context-indicator.active { display: block; }
+        .level-selector { display: flex; gap: 8px; padding: 8px 12px; background: #f8f8f8; border-bottom: 1px solid #e0e0e0; }
+        .level-btn { flex: 1; padding: 8px 12px; border: 2px solid #ddd; border-radius: 20px; background: white; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: all 0.3s; }
+        .level-btn:hover { border-color: var(--primary-color); }
+        .level-btn.active { border-color: var(--primary-color); background: var(--primary-color); color: white; }
+        .level-btn.beginner.active { background: var(--beginner-color); border-color: var(--beginner-color); }
+        .level-btn.advanced.active { background: var(--advanced-color); border-color: var(--advanced-color); }
+        .level-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: bold; margin-left: 8px; }
+        .level-badge.beginner { background: #c8e6c9; color: #2e7d32; }
+        .level-badge.advanced { background: #ffe0b2; color: #ef6c00; }
+        .auto-detect-msg { font-size: 0.75rem; color: #666; text-align: center; padding: 4px; background: #f0f0f0; }
     </style>
 <base target="_blank">
 </head>
 <body>
-
 <div class="chat-container">
     <div class="chat-header">
         <div style="font-size: 2rem; color: white;"><i class="fa-solid fa-mosque"></i></div>
-        <div>
-            <h1>Islam M</h1>
-            <p>Criado por isslam Moz para divulgação do Islam</p>
-        </div>
+        <div><h1>Islam M</h1><p>Criado por isslam Moz para divulgação do Islam</p></div>
     </div>
-
     <div class="level-selector">
-        <button class="level-btn beginner active" onclick="selecionarNivel('iniciante')">
-            <i class="fa-solid fa-seedling"></i> Iniciante
-        </button>
-        <button class="level-btn advanced" onclick="selecionarNivel('avancado')">
-            <i class="fa-solid fa-graduation-cap"></i> Avançado
-        </button>
-        <button class="level-btn" onclick="selecionarNivel('auto')">
-            <i class="fa-solid fa-wand-magic-sparkles"></i> Auto
-        </button>
+        <button class="level-btn beginner active" onclick="selecionarNivel('iniciante')"><i class="fa-solid fa-seedling"></i> Iniciante</button>
+        <button class="level-btn advanced" onclick="selecionarNivel('avancado')"><i class="fa-solid fa-graduation-cap"></i> Avançado</button>
+        <button class="level-btn" onclick="selecionarNivel('auto')"><i class="fa-solid fa-wand-magic-sparkles"></i> Auto</button>
     </div>
-    <div class="auto-detect-msg" id="autoDetectMsg" style="display:none;">
-        <i class="fa-solid fa-robot"></i> Detecção automática de nível ativa
-    </div>
-
-    <div class="context-indicator" id="contextIndicator">
-        <i class="fa-solid fa-brain"></i> Contexto: <span id="contextText"></span>
-    </div>
-
+    <div class="auto-detect-msg" id="autoDetectMsg" style="display:none;"><i class="fa-solid fa-robot"></i> Detecção automática de nível ativa</div>
+    <div class="context-indicator" id="contextIndicator"><i class="fa-solid fa-brain"></i> Contexto: <span id="contextText"></span></div>
     <div class="chat-messages" id="chatMessages">
-        <div class="message bot-message">
-            Assalamu Alaikum! Eu sou o <strong>Islam M</strong>, seu assistente inteligente sobre o Islam. 
-            Escolha seu nível acima (Iniciante, Avançado ou Auto) e faça sua pergunta!
-        </div>
+        <div class="message bot-message">Assalamu Alaikum! Eu sou o <strong>Islam M</strong>, seu assistente inteligente sobre o Islam. Escolha seu nível acima e faça sua pergunta!</div>
     </div>
-
     <div class="chat-input-area">
-        <input type="text" id="userInput" placeholder="Pergunte sobre o Islam (Ex: Quem é Allah?, Pilares...)" autocomplete="off">
+        <input type="text" id="userInput" placeholder="Pergunte sobre o Islam..." autocomplete="off">
         <button id="sendBtn"><i class="fa-solid fa-paper-plane"></i></button>
     </div>
-
     <div class="chat-footer">
         <div>Motor criado por <strong>isslam Moz</strong> | Suporte: 860407269</div>
         <div><strong>Apoio ao Projeto:</strong> Mpesa: 1228803 (Paga Fácil) / 860407269 | E-mola: 860407269 | BIM NIB: 000100000012473356257</div>
@@ -326,57 +87,34 @@
     const autoDetectMsg = document.getElementById('autoDetectMsg');
 
     let cerebroCompleto = [];
-    let nivelAtual = 'iniciante'; // iniciante | avancado | auto
+    let nivelAtual = 'iniciante';
     let nivelDetectado = 'iniciante';
 
-    // ===== SISTEMA DE MEMÓRIA CONTEXTUAL =====
+    // ===== MEMÓRIA CONTEXTUAL =====
     const contextoMemoria = {
-        historico: [],
-        topicoAtual: null,
-        categoriaAtual: null,
-        ultimaResposta: null,
-        mensagensNoTopico: 0,
-        nivelUsuario: 'iniciante',
-        contadorMensagens: 0,
-
+        historico: [], topicoAtual: null, categoriaAtual: null, mensagensNoTopico: 0,
         adicionarInteracao(pergunta, resposta, categoria) {
             this.historico.push({ pergunta, resposta, categoria, timestamp: Date.now() });
             if (this.historico.length > 5) this.historico.shift();
-
             if (categoria) {
-                if (this.categoriaAtual === categoria) {
-                    this.mensagensNoTopico++;
-                } else {
-                    this.categoriaAtual = categoria;
-                    this.mensagensNoTopico = 1;
-                }
+                if (this.categoriaAtual === categoria) this.mensagensNoTopico++;
+                else { this.categoriaAtual = categoria; this.mensagensNoTopico = 1; }
             }
-            this.ultimaResposta = resposta;
-            this.contadorMensagens++;
         },
-
         obterContextoCombinado(perguntaAtual) {
             let contexto = perguntaAtual;
             const palavras = perguntaAtual.trim().split(/\s+/);
             if (palavras.length < 4 && this.historico.length > 0) {
                 const ultima = this.historico[this.historico.length - 1];
-                if (ultima.resposta && ultima.resposta.palavras_chave) {
-                    contexto += " " + ultima.resposta.palavras_chave.join(" ");
-                }
+                if (ultima.resposta && ultima.resposta.palavras_chave) contexto += " " + ultima.resposta.palavras_chave.join(" ");
             }
-            if (this.mensagensNoTopico > 2 && this.categoriaAtual) {
-                contexto += " " + this.categoriaAtual;
-            }
+            if (this.mensagensNoTopico > 2 && this.categoriaAtual) contexto += " " + this.categoriaAtual;
             return contexto;
         },
-
         verificarMudancaAssunto(pergunta) {
             const termosReset = ["outro assunto", "mudar", "diferente", "novo tópico", "agora fala"];
             if (termosReset.some(t => pergunta.toLowerCase().includes(t))) {
-                this.historico = [];
-                this.topicoAtual = null;
-                this.categoriaAtual = null;
-                this.mensagensNoTopico = 0;
+                this.historico = []; this.topicoAtual = null; this.categoriaAtual = null; this.mensagensNoTopico = 0;
                 return true;
             }
             return false;
@@ -385,99 +123,34 @@
 
     // ===== DETECTOR DE NÍVEL =====
     const detectorNivel = {
-        // Palavras que indicam nível avançado
-        termosAvancados: [
-            "fiqh", "usul", "aqeedah", "aqida", "tafsir", "tafseer", "hadith", "isnad", 
-            "matn", "sahih", "daif", "hasan", "mawdu", "bidah", "shirk", "tawhid", 
-            "tauhid", "qiyas", "ijma", "ijtihad", "madhab", "hanafi", "maliki", 
-            "shafi", "hanbali", "salaf", "khalaf", "tazkiyah", "ihsan", "tazawwuf",
-            "sufismo", "ashari", "maturidi", "athari", "qadar", "qadr", "jabr",
-            "tawakkul", "tawassul", "istighatha", "mubah", "mandub", "makruh tahrimi",
-            "fard", "wajib", "sunnah muakkadah", "sunnah ghair muakkadah",
-            "rakaat", "rakah", "sujud", "ruku", "tashahhud", "taslim", "takbir",
-            "tahajjud", "witr", "taraweeh", "duha", "istikhara", "janazah",
-            "zakat fitr", "zakat mal", "nisab", "haul", "ushr",
-            "hajj tamattu", "hajj qiran", "hajj ifrad", "miqat", "ihram", "tawaf",
-            "saee", "muzdalifah", "mina", "arafat", "jamrat", "tahallul",
-            "nikah", "talaq", "khul", "iddah", "mahr", "wali", "mahram",
-            "riba", "gharar", "maysir", "qimar", "mudarabah", "musharakah",
-            "jizya", "kharaj", "zimmis", "dhimmi", "ahl al-kitab",
-            "takfir", "murtad", "apostasia", "hudud", "qisas", "diya",
-            "taqiyya", "taqiya", "abrogacao", "naskh", "mansukh", "nasikh",
-            "lingua arabe", "gramatica arabe", "sarf", "nahw", "balagha",
-            "seerah", "sira", "maghazi", "tabaqat", "rijal", "jarh", "ta'dil",
-            "mufti", "qadi", "faqih", "mujtahid", "mujaddid", "mahdi",
-            "dajjal", "yajuj", "majuj", "besta", "anti-cristo",
-            "barzakh", "sirat", "mizan", "hawd", "shafaah", "shafa'a",
-            "califado", "rashidun", "umayyad", "abbasid", "fatimid", "ottoman",
-            "fitnah", "jahiliyya", "mushrik", "kafir", "munafiq", "fasiq",
-            "tahrif", "taqdim", "ta'khir", "taqsim", "tashbih", "tanzih",
-            "sifat", "dhat", "af'al", "kalam", "nafy", "ithbat"
-        ],
-
-        // Palavras que indicam nível iniciante
-        termosIniciantes: [
-            "o que e", "quem e", "como fazer", "basico", "simples", "facil",
-            "inicio", "comecar", "primeira vez", "novo", "novato", "iniciante",
-            "crianca", "criancas", "explicacao simples", "resumo", "introducao"
-        ],
-
+        termosAvancados: ["fiqh","usul","aqeedah","aqida","tafsir","tafseer","hadith","isnad","matn","sahih","daif","hasan","mawdu","bidah","shirk","tawhid","tauhid","qiyas","ijma","ijtihad","madhab","hanafi","maliki","shafi","hanbali","salaf","tazkiyah","tazawwuf","ashari","maturidi","athari","qadar","qadr","jabr","tawakkul","tawassul","istighatha","mubah","mandub","makruh","fard","wajib","rakaat","rakah","sujud","ruku","tashahhud","taslim","takbir","tahajjud","witr","taraweeh","duha","istikhara","janazah","zakat fitr","zakat mal","nisab","haul","ushr","hajj tamattu","hajj qiran","hajj ifrad","miqat","ihram","tawaf","saee","muzdalifah","mina","arafat","jamrat","tahallul","nikah","talaq","khul","iddah","mahr","wali","mahram","riba","gharar","maysir","qimar","mudarabah","musharakah","jizya","kharaj","zimmis","dhimmi","ahl al-kitab","takfir","murtad","apostasia","hudud","qisas","diya","taqiyya","naskh","mansukh","nasikh","sarf","nahw","balagha","seerah","sira","maghazi","tabaqat","rijal","jarh","ta'dil","mufti","qadi","faqih","mujtahid","mujaddid","mahdi","dajjal","yajuj","majuj","barzakh","sirat","mizan","hawd","shafaah","shafa'a","califado","rashidun","umayyad","abbasid","fatimid","ottoman","fitnah","jahiliyya","mushrik","kafir","munafiq","fasiq","tahrif","tashbih","tanzih","sifat","dhat","af'al","kalam","nafy","ithbat"],
+        termosIniciantes: ["o que e","quem e","como fazer","basico","simples","facil","inicio","comecar","primeira vez","novo","novato","iniciante","crianca","explicacao simples","resumo","introducao"],
         detectarNivel(pergunta) {
             const perguntaLower = pergunta.toLowerCase();
-            let pontosAvancado = 0;
-            let pontosIniciante = 0;
-
-            for (const termo of this.termosAvancados) {
-                if (perguntaLower.includes(termo.toLowerCase())) {
-                    pontosAvancado += 2;
-                }
-            }
-
-            for (const termo of this.termosIniciantes) {
-                if (perguntaLower.includes(termo.toLowerCase())) {
-                    pontosIniciante += 1;
-                }
-            }
-
-            // Se tem muitos termos avançados, é avançado
+            let pontosAvancado = 0, pontosIniciante = 0;
+            for (const termo of this.termosAvancados) if (perguntaLower.includes(termo.toLowerCase())) pontosAvancado += 2;
+            for (const termo of this.termosIniciantes) if (perguntaLower.includes(termo.toLowerCase())) pontosIniciante += 1;
             if (pontosAvancado >= 2) return 'avancado';
-            // Se pede coisas básicas explicitamente
             if (pontosIniciante >= 1 && pontosAvancado === 0) return 'iniciante';
-            // Se tem 1 termo avançado, pode ser intermediário, mas tratamos como avançado
             if (pontosAvancado === 1) return 'avancado';
-            // Padrão: iniciante
             return 'iniciante';
         }
     };
 
+    // ===== CORREÇÃO E SINÔNIMOS =====
     const dicionarioCorrecao = {
-        "alcorao": "alcorão", "alcoran": "alcorão", "alcorã": "alcorão", "corão": "alcorão",
-        "ala": "allah", "allha": "allah", "alaah": "allah", "deus": "allah",
-        "radis": "hadith", "hadis": "hadith", "hadit": "hadith", "hades": "hadith",
-        "pelares": "pilares", "pilar": "pilares", "pilares do islam": "pilares",
-        "isla": "islam", "islame": "islam", "islan": "islam",
-        "profeta": "profeta", "proffeta": "profeta", "mohamed": "muhammad", 
-        "muhamad": "muhammad", "mahoma": "muhammad", "maome": "muhammad",
-        "oração": "salat", "oracao": "salat", "salah": "salat", "salat": "salat",
-        "jejum": "sawm", "siyam": "sawm", "ramadan": "ramadan", "ramadã": "ramadan",
-        "zakat": "zakat", "zakah": "zakat", "esmola": "zakat",
-        "hajj": "hajj", "haje": "hajj", "peregrinação": "hajj",
-        "shahada": "shahada", "chahada": "shahada", "profissão": "shahada",
-        "quran": "alcorão", "qur'an": "alcorão",
-        "sunnah": "sunnah", "suna": "sunnah", "sunna": "sunnah",
-        "sharia": "sharia", "xaria": "sharia", "lei islamica": "sharia",
-        "jihad": "jihad", "djihad": "jihad",
-        "halal": "halal", "haram": "haram", "makruh": "makruh",
-        "mesquita": "mesquita", "mosque": "mesquita",
-        "meca": "meca", "medina": "medina", "makkah": "meca", "madinah": "medina",
-        "anjos": "anjos", "anjo": "anjos", "malaika": "anjos",
-        "djinn": "jinns", "jinn": "jinns", "gênio": "jinns",
-        "paraíso": "jannah", "jannat": "jannah", "céu": "jannah",
-        "inferno": "jahannam", "jahannam": "jahannam", "fogo": "jahannam",
-        "dia do juízo": "qiyamah", "qiyama": "qiyamah", "ressurreição": "qiyamah",
+        "alcorao": "alcorão", "alcoran": "alcorão", "corão": "alcorão", "ala": "allah", "allha": "allah", "alaah": "allah",
+        "radis": "hadith", "hadis": "hadith", "hadit": "hadith", "pelares": "pilares", "pilar": "pilares",
+        "isla": "islam", "islame": "islam", "profeta": "profeta", "proffeta": "profeta", "mohamed": "muhammad", "muhamad": "muhammad", "mahoma": "muhammad", "maome": "muhammad",
+        "oração": "salat", "oracao": "salat", "salah": "salat", "jejum": "sawm", "siyam": "sawm", "ramadã": "ramadan",
+        "zakat": "zakat", "zakah": "zakat", "esmola": "zakat", "haje": "hajj", "peregrinação": "hajj",
+        "shahada": "shahada", "chahada": "shahada", "quran": "alcorão", "sunnah": "sunnah", "suna": "sunnah", "sunna": "sunnah",
+        "sharia": "sharia", "xaria": "sharia", "jihad": "jihad", "djihad": "jihad", "halal": "halal", "haram": "haram",
+        "mesquita": "mesquita", "makkah": "meca", "madinah": "medina", "anjos": "anjos", "anjo": "anjos",
+        "djinn": "jinns", "jinn": "jinns", "paraíso": "jannah", "jannat": "jannah", "céu": "jannah",
+        "inferno": "jahannam", "jahannam": "jahannam", "dia do juízo": "qiyamah", "qiyama": "qiyamah",
         "companhos": "sahaba", "sahaba": "sahaba", "sahabas": "sahaba"
     };
-
     const sinonimos = {
         "allah": ["deus", "criador", "senhor", "divino", "supremo"],
         "alcorão": ["livro sagrado", "revelação", "escritura", "palavra de deus"],
@@ -493,259 +166,160 @@
         "jahannam": ["inferno", "fogo", "tormento", "punimento"]
     };
 
-    // ===== SELEÇÃO DE NÍVEL =====
     function selecionarNivel(nivel) {
         nivelAtual = nivel;
-
-        // Atualiza botões visuais
-        document.querySelectorAll('.level-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-
-        if (nivel === 'iniciante') {
-            document.querySelector('.level-btn.beginner').classList.add('active');
-            autoDetectMsg.style.display = 'none';
-        } else if (nivel === 'avancado') {
-            document.querySelector('.level-btn.advanced').classList.add('active');
-            autoDetectMsg.style.display = 'none';
-        } else {
-            document.querySelector('.level-btn:last-child').classList.add('active');
-            autoDetectMsg.style.display = 'block';
-        }
-
-        // Mensagem informativa
-        let msgNivel = '';
-        if (nivel === 'iniciante') {
-            msgNivel = 'Modo Iniciante ativado! Vou responder de forma simples e didática.';
-        } else if (nivel === 'avancado') {
-            msgNivel = 'Modo Avançado ativado! Vou usar terminologia técnica e aprofundar nos detalhes.';
-        } else {
-            msgNivel = 'Modo Auto ativado! Vou detectar automaticamente seu nível de conhecimento.';
-        }
-
+        document.querySelectorAll('.level-btn').forEach(btn => btn.classList.remove('active'));
+        if (nivel === 'iniciante') { document.querySelector('.level-btn.beginner').classList.add('active'); autoDetectMsg.style.display = 'none'; }
+        else if (nivel === 'avancado') { document.querySelector('.level-btn.advanced').classList.add('active'); autoDetectMsg.style.display = 'none'; }
+        else { document.querySelector('.level-btn:last-child').classList.add('active'); autoDetectMsg.style.display = 'block'; }
+        let msgNivel = nivel === 'iniciante' ? 'Modo Iniciante ativado!' : nivel === 'avancado' ? 'Modo Avançado ativado!' : 'Modo Auto ativado!';
         adicionarMensagem(msgNivel, 'bot');
     }
 
+    // ===== CARREGA APENAS cerebro.json =====
     async function carregarCerebro() {
-        // Carrega arquivos organizados por nível
-        const caminhos = [
-            'cerebro/iniciante/alcorao.json',
-            'cerebro/iniciante/sunnah.json', 
-            'cerebro/iniciante/geral.json',
-            'cerebro/avancado/alcorao.json',
-            'cerebro/avancado/sunnah.json',
-            'cerebro/avancado/geral.json',
-            // Fallback para estrutura antiga
-            'cerebro/alcorao.json', 
-            'cerebro/sunnah.json', 
-            'cerebro/geral.json'
-        ];
-
-        for (const caminho of caminhos) {
-            try {
-                const resposta = await fetch(caminho);
-                if (resposta.ok) {
-                    const dados = await resposta.json();
-
-                    // Detecta nível e categoria do caminho
-                    let nivel = 'iniciante';
-                    let categoria = 'geral';
-
-                    if (caminho.includes('/iniciante/')) nivel = 'iniciante';
-                    else if (caminho.includes('/avancado/')) nivel = 'avancado';
-
-                    if (caminho.includes('alcorao')) categoria = 'alcorao';
-                    else if (caminho.includes('sunnah')) categoria = 'sunnah';
-                    else if (caminho.includes('geral')) categoria = 'geral';
-
-                    const dadosComMeta = dados.map(item => ({
-                        ...item, 
-                        categoria,
-                        nivel: item.nivel || nivel // Usa nível do item se existir, senão do arquivo
-                    }));
-
-                    cerebroCompleto = cerebroCompleto.concat(dadosComMeta);
-                }
-            } catch (erro) {
-                console.error(`Erro ao ler ${caminho}:`, erro);
-            }
-        }
-
-        console.log(`Cérebro carregado: ${cerebroCompleto.length} itens`);
+        try {
+            const resposta = await fetch('cerebro.json');
+            if (resposta.ok) { cerebroCompleto = await resposta.json(); console.log(`Cérebro: ${cerebroCompleto.length} itens`); }
+            else console.error('Erro ao carregar cerebro.json');
+        } catch (erro) { console.error('Erro:', erro); }
     }
 
     function normalizarTexto(texto) {
-        return texto.toLowerCase()
-            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-            .replace(/[^\w\s]/gi, '');
+        return texto.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^\w\s]/gi, '');
     }
-
     function corrigirTexto(texto) {
-        let palavras = texto.split(" ");
-        let palavrasCorrigidas = palavras.map(palavra => {
-            let termoLimpo = normalizarTexto(palavra);
-            return dicionarioCorrecao[termoLimpo] ? dicionarioCorrecao[termoLimpo] : palavra;
-        });
-        return palavrasCorrigidas.join(" ");
+        return texto.split(" ").map(p => dicionarioCorrecao[normalizarTexto(p)] || p).join(" ");
     }
-
     function expandirPalavrasChave(palavrasChave) {
         let expandido = [...palavrasChave];
         for (const chave of palavrasChave) {
-            const chaveNormalizada = normalizarTexto(chave);
-            if (sinonimos[chaveNormalizada]) {
-                expandido = expandido.concat(sinonimos[chaveNormalizada]);
-            }
+            const chaveNorm = normalizarTexto(chave);
+            if (sinonimos[chaveNorm]) expandido = expandido.concat(sinonimos[chaveNorm]);
         }
         return [...new Set(expandido)];
     }
 
+    // ===== MOTOR DE BUSCA =====
+    // REGRA: Escolhe a resposta que tem MAIS keys encontradas.
+    // Se empate no número de keys, escolhe aleatório entre os empatados.
     function procurarResposta(perguntaUsuario) {
-        if (contextoMemoria.verificarMudancaAssunto(perguntaUsuario)) {
-            contextIndicator.classList.remove('active');
-        }
+        if (contextoMemoria.verificarMudancaAssunto(perguntaUsuario)) contextIndicator.classList.remove('active');
 
-        // Detecta nível se estiver em modo auto
         let nivelBusca = nivelAtual;
-        if (nivelAtual === 'auto') {
-            nivelDetectado = detectorNivel.detectarNivel(perguntaUsuario);
-            nivelBusca = nivelDetectado;
-        }
+        if (nivelAtual === 'auto') { nivelDetectado = detectorNivel.detectarNivel(perguntaUsuario); nivelBusca = nivelDetectado; }
 
         let textoParaBusca = contextoMemoria.obterContextoCombinado(perguntaUsuario);
         let textoNormalizado = normalizarTexto(textoParaBusca);
         let textoCorrigido = normalizarTexto(corrigirTexto(textoParaBusca));
 
-        let melhorCorrespondencia = null;
-        let maiorPontuacao = 0;
-        let categoriaDetectada = null;
+        let correspondencias = [];
 
         for (const item of cerebroCompleto) {
-            // FILTRO DE NÍVEL
-            const nivelItem = item.nivel || 'iniciante';
-
-            // Se busca é iniciante, mostra apenas iniciante
-            // Se busca é avançado, mostra avançado (e iniciante como fallback se não achar)
-            let pontuacaoNivel = 0;
-            if (nivelBusca === 'iniciante' && nivelItem === 'iniciante') {
-                pontuacaoNivel = 2;
-            } else if (nivelBusca === 'avancado' && nivelItem === 'avancado') {
-                pontuacaoNivel = 3; // Prioridade máxima para avançado
-            } else if (nivelBusca === 'avancado' && nivelItem === 'iniciante') {
-                pontuacaoNivel = 0.5; // Fallback baixo
-            } else if (nivelBusca === 'iniciante' && nivelItem === 'avancado') {
-                continue; // Pula itens avançados se usuário é iniciante
-            }
-
-            let pontuacao = pontuacaoNivel;
+            let keysEncontradas = 0;
+            let pontuacao = 0;
             const palavrasExpandidas = expandirPalavrasChave(item.palavras_chave);
 
             for (const chave of palavrasExpandidas) {
-                const chaveNormalizada = normalizarTexto(chave);
-                if (textoNormalizado.includes(chaveNormalizada) || textoCorrigido.includes(chaveNormalizada)) {
+                const chaveNorm = normalizarTexto(chave);
+                if (textoNormalizado.includes(chaveNorm) || textoCorrigido.includes(chaveNorm)) {
+                    keysEncontradas++;
                     pontuacao += 2;
-                }
-                else if (chaveNormalizada.length > 3) {
+                } else if (chaveNorm.length > 3) {
                     const palavrasBusca = textoNormalizado.split(/\s+/);
                     for (const palavra of palavrasBusca) {
-                        if (palavra.length > 3 && (chaveNormalizada.includes(palavra) || palavra.includes(chaveNormalizada))) {
-                            pontuacao += 0.5;
-                        }
+                        if (palavra.length > 3 && (chaveNorm.includes(palavra) || palavra.includes(chaveNorm))) pontuacao += 0.5;
                     }
                 }
             }
 
-            if (contextoMemoria.categoriaAtual && item.categoria === contextoMemoria.categoriaAtual) {
-                pontuacao += 1;
-            }
-
+            // Bônus contexto
+            if (contextoMemoria.categoriaAtual && item.categoria === contextoMemoria.categoriaAtual) pontuacao += 1;
             if (contextoMemoria.topicoAtual) {
                 const topicosItem = item.palavras_chave.map(k => normalizarTexto(k));
-                if (topicosItem.includes(normalizarTexto(contextoMemoria.topicoAtual))) {
-                    pontuacao += 1.5;
-                }
+                if (topicosItem.includes(normalizarTexto(contextoMemoria.topicoAtual))) pontuacao += 1.5;
             }
 
-            if (pontuacao > maiorPontuacao) {
-                maiorPontuacao = pontuacao;
-                melhorCorrespondencia = item;
-                categoriaDetectada = item.categoria;
+            // Filtro nível
+            const nivelItem = item.nivel || 'iniciante';
+            if (nivelBusca === 'iniciante' && nivelItem === 'avancado') continue;
+            if (nivelBusca === 'iniciante' && nivelItem === 'iniciante') pontuacao += 2;
+            else if (nivelBusca === 'avancado' && nivelItem === 'avancado') pontuacao += 3;
+            else if (nivelBusca === 'avancado' && nivelItem === 'iniciante') pontuacao += 0.5;
+
+            if (keysEncontradas > 0) {
+                correspondencias.push({ item, pontuacao, keysEncontradas, categoria: item.categoria || 'geral' });
             }
         }
 
-        // Se não encontrou nada no nível avançado, tenta iniciante como fallback
-        if (!melhorCorrespondencia && nivelBusca === 'avancado') {
+        // Fallback: se modo avançado não achou, tenta iniciante
+        if (correspondencias.length === 0 && nivelBusca === 'avancado') {
             for (const item of cerebroCompleto) {
                 if ((item.nivel || 'iniciante') !== 'iniciante') continue;
-
-                let pontuacao = 0;
+                let keysEncontradas = 0;
                 const palavrasExpandidas = expandirPalavrasChave(item.palavras_chave);
-
                 for (const chave of palavrasExpandidas) {
-                    const chaveNormalizada = normalizarTexto(chave);
-                    if (textoNormalizado.includes(chaveNormalizada)) {
-                        pontuacao += 2;
-                    }
+                    if (textoNormalizado.includes(normalizarTexto(chave))) { keysEncontradas++; }
                 }
-
-                if (pontuacao > maiorPontuacao) {
-                    maiorPontuacao = pontuacao;
-                    melhorCorrespondencia = item;
-                    categoriaDetectada = item.categoria;
-                }
+                if (keysEncontradas > 0) correspondencias.push({ item, pontuacao: keysEncontradas * 2, keysEncontradas, categoria: item.categoria || 'geral' });
             }
         }
 
-        if (!melhorCorrespondencia && contextoMemoria.historico.length > 0) {
-            const ultimaInteracao = contextoMemoria.historico[contextoMemoria.historico.length - 1];
-            if (ultimaInteracao.resposta && ultimaInteracao.resposta.palavras_chave) {
-                const contextoReforcado = perguntaUsuario + " " + ultimaInteracao.resposta.palavras_chave.slice(0, 3).join(" ");
-                return procurarResposta(contextoReforcado + " " + (ultimaInteracao.categoria || ""));
+        // Fallback com histórico
+        if (correspondencias.length === 0 && contextoMemoria.historico.length > 0) {
+            const ultima = contextoMemoria.historico[contextoMemoria.historico.length - 1];
+            if (ultima.resposta && ultima.resposta.palavras_chave) {
+                const contextoReforcado = perguntaUsuario + " " + ultima.resposta.palavras_chave.slice(0, 3).join(" ");
+                return procurarResposta(contextoReforcado);
             }
         }
 
-        if (melhorCorrespondencia && maiorPontuacao > 0) {
-            contextoMemoria.topicoAtual = melhorCorrespondencia.palavras_chave[0];
-            contextoMemoria.adicionarInteracao(perguntaUsuario, melhorCorrespondencia, categoriaDetectada);
+        if (correspondencias.length === 0) return null;
 
-            if (contextoMemoria.mensagensNoTopico > 1) {
-                const nivelDisplay = melhorCorrespondencia.nivel || 'iniciante';
-                contextText.textContent = `${melhorCorrespondencia.palavras_chave[0]} (${categoriaDetectada} | ${nivelDisplay})`;
-                contextIndicator.classList.add('active');
-            }
+        // ===== REGRA DE SELEÇÃO =====
+        // 1. Ordena por keysEncontradas (maior primeiro), depois por pontuacao
+        correspondencias.sort((a, b) => {
+            if (b.keysEncontradas !== a.keysEncontradas) return b.keysEncontradas - a.keysEncontradas;
+            return b.pontuacao - a.pontuacao;
+        });
 
-            return melhorCorrespondencia;
+        // 2. Pega o maior número de keys
+        const maxKeys = correspondencias[0].keysEncontradas;
+
+        // 3. Filtra apenas os que têm esse número de keys
+        const melhores = correspondencias.filter(c => c.keysEncontradas === maxKeys);
+
+        // 4. Se empate, escolhe aleatório
+        const escolhido = melhores.length > 1 ? melhores[Math.floor(Math.random() * melhores.length)] : melhores[0];
+
+        // Atualiza contexto
+        const resultado = escolhido.item;
+        contextoMemoria.topicoAtual = resultado.palavras_chave[0];
+        contextoMemoria.adicionarInteracao(perguntaUsuario, resultado, escolhido.categoria);
+
+        if (contextoMemoria.mensagensNoTopico > 1) {
+            contextText.textContent = `${resultado.palavras_chave[0]} (${escolhido.categoria} | ${resultado.nivel || 'iniciante'})`;
+            contextIndicator.classList.add('active');
         }
-        return null;
+        return resultado;
     }
 
     function adicionarMensagem(texto, tipo, fonte = "", links = [], nivel = "") {
         const msgDiv = document.createElement('div');
         msgDiv.classList.add('message', tipo === 'user' ? 'user-message' : 'bot-message');
-
-        // Adiciona badge de nível se existir
         let badgeHtml = '';
         if (nivel && tipo === 'bot') {
             const badgeClass = nivel === 'avancado' ? 'advanced' : 'beginner';
-            const badgeText = nivel === 'avancado' ? 'Avançado' : 'Iniciante';
-            badgeHtml = `<span class="level-badge ${badgeClass}">${badgeText}</span>`;
+            badgeHtml = `<span class="level-badge ${badgeClass}">${nivel === 'avancado' ? 'Avançado' : 'Iniciante'}</span>`;
         }
-
         msgDiv.innerHTML = texto + badgeHtml;
-
         if (fonte) {
             const fonteDiv = document.createElement('div');
             fonteDiv.classList.add('fonte-box');
             fonteDiv.innerHTML = `<strong>Fonte:</strong> ${fonte}`;
-
-            if (links && links.length > 0) {
-                links.forEach(link => {
-                    fonteDiv.innerHTML += `<br><a class="link-fonte" href="${link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver online</a>`;
-                });
-            }
+            if (links && links.length > 0) links.forEach(link => { fonteDiv.innerHTML += `<br><a class="link-fonte" href="${link}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver online</a>`; });
             msgDiv.appendChild(fonteDiv);
         }
-
         chatMessages.appendChild(msgDiv);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
@@ -753,47 +327,24 @@
     function processarEnvio() {
         let texto = userInput.value.trim();
         if (!texto) return;
-
         adicionarMensagem(texto, 'user');
         userInput.value = '';
-
         setTimeout(() => {
             try {
                 const resultado = procurarResposta(texto);
-
-                if (resultado) {
-                    const nivelResposta = resultado.nivel || 'iniciante';
-
-                    // Se modo auto, informa qual nível detectou
-                    if (nivelAtual === 'auto') {
-                        const nivelDetectadoTexto = nivelDetectado === 'avancado' ? 'avançado' : 'iniciante';
-                        console.log(`Nível detectado: ${nivelDetectadoTexto}`);
-                    }
-
-                    adicionarMensagem(resultado.resposta, 'bot', resultado.fonte, resultado.links, nivelResposta);
-                } else {
-                    let mensagemPadrao = "Desculpe, não consegui encontrar uma resposta específica e segura para essa pergunta nas minhas fontes atuais. ";
-
-                    if (contextoMemoria.categoriaAtual) {
-                        mensagemPadrao += `Estávamos falando sobre ${contextoMemoria.categoriaAtual}. `;
-                        mensagemPadrao += "Tente reformular sua pergunta sobre esse tema, ou digite 'outro assunto' para mudar de tópico.";
-                    } else {
-                        mensagemPadrao += "Por favor, tente usar outras palavras ou consulte um sábio de confiança. Nunca inventamos Hadiths ou dados sem fontes claras.";
-                    }
-
-                    adicionarMensagem(mensagemPadrao, 'bot');
+                if (resultado) adicionarMensagem(resultado.resposta, 'bot', resultado.fonte, resultado.links, resultado.nivel || 'iniciante');
+                else {
+                    let msg = "Desculpe, não encontrei uma resposta específica nas minhas fontes. ";
+                    if (contextoMemoria.categoriaAtual) msg += `Estávamos falando sobre ${contextoMemoria.categoriaAtual}. Tente reformular ou digite 'outro assunto'.`;
+                    else msg += "Tente usar outras palavras ou consulte um sábio de confiança.";
+                    adicionarMensagem(msg, 'bot');
                 }
-            } catch (e) {
-                adicionarMensagem("Ocorreu um erro ao processar sua busca. Por favor, tente novamente.", 'bot');
-            }
+            } catch (e) { adicionarMensagem("Ocorreu um erro. Tente novamente.", 'bot'); }
         }, 400);
     }
 
     sendBtn.addEventListener('click', processarEnvio);
-    userInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') processarEnvio();
-    });
-
+    userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') processarEnvio(); });
     carregarCerebro();
 </script>
 </body>
