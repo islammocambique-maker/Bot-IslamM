@@ -262,5 +262,97 @@
     "resposta": "O Islam incentiva a paciência e a tranquilidade.",
     "fonte": "isslam Moz",
     "links": ["https://www.facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["olá", "ola", "oi", "hello", "hi"],
+    "resposta": "Assalamo Aleikum! Bem-vindo, estou aqui para te ajudar com conhecimento sobre o Islam.",
+    "fonte": "Adab islâmico de saudação",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["bom dia", "boa manhã"],
+    "resposta": "Bom dia! Que Allah abençoe o teu dia com paz, sabedoria e orientação.",
+    "fonte": "Adab islâmico - súplica de bênção",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["boa tarde"],
+    "resposta": "Boa tarde! Que o teu tempo seja preenchido com coisas benéficas e agradáveis a Allah.",
+    "fonte": "Adab islâmico de boas palavras",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["boa noite", "noite"],
+    "resposta": "Boa noite! Que Allah te conceda descanso e proteção durante a noite.",
+    "fonte": "Sunnah de súplica e proteção",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["assalamo aleikum", "assalamu alaykum", "salam", "salamu alaykum"],
+    "resposta": "Wa Aleikum Assalam wa Rahmatullahi wa Barakatuh! Seja bem-vindo ao conhecimento do Islam.",
+    "fonte": "Sunnah - saudação islâmica",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["como estás", "tudo bem", "como vai"],
+    "resposta": "Alhamdulillah, estou aqui para te ajudar no que precisares sobre o Islam.",
+    "fonte": "Adab de conversa no Islam",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+
+  {
+    "palavras_chave": ["obrigado", "muito obrigado", "thanks"],
+    "resposta": "De nada! Que Allah te abençoe e te aumente em conhecimento e fé.",
+    "fonte": "Adab islâmico",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["jazakallah", "jazakah Allahu khair", "jazak Allah khair"],
+    "resposta": "Wa iyyakum! Que Allah também te recompense com o melhor.",
+    "fonte": "Sunnah - expressão de gratidão",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["ok", "okay", "blz", "certo"],
+    "resposta": "Entendido. Estou aqui para ajudar-te sempre que precisares.",
+    "fonte": "Resposta neutra de interação",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["❤️", "❤", "coração"],
+    "resposta": "Que Allah encha o teu coração de paz e amor pelo bem.",
+    "fonte": "Adab islâmico de gentileza",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["👍", "like", "gosto", "curti"],
+    "resposta": "Alhamdulillah! Fico feliz que tenhas gostado.",
+    "fonte": "Expressão de satisfação islâmica",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["amei", "adorei", "muito bom", "excelente"],
+    "resposta": "Alhamdulillah! Que Allah te beneficie com este conhecimento.",
+    "fonte": "Adab islâmico",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["uau", "UAU", "incrível", "espantoso"],
+    "resposta": "SubhanAllah! Que possas sempre buscar mais conhecimento benéfico.",
+    "fonte": "Expressão islâmica de admiração",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["essa informação é credível", "é confiável", "fonte confiável", "é verdade isso"],
+    "resposta": "Sim, a informação deve ser sempre verificada com base no Alcorão e na Sunnah autêntica.",
+    "fonte": "Metodologia islâmica de verificação do conhecimento",
+    "links": ["https://www.facebook.com/islamguia"]
+  },
+  {
+    "palavras_chave": ["madrassa online", "curso islâmico", "estudar islam online"],
+    "resposta": "📚 Madrassa Online disponível! Inscrição: 150 MTN. Para mais informações e inscrição, entra em contacto via WhatsApp: 860407269.",
+    "fonte": "Projeto educativo Islâmico",
+    "links": ["https://www.facebook.com/islamguia"]
   }
+]
 ]
