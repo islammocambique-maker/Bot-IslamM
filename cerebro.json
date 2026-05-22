@@ -1,7 +1,23 @@
 [
   {
-    "palavras_chave": ["reverter", "conversao", "islam", "shahada", "Shahaddat", "Shahadat", "segundo kalimah", "converter"],
-    "resposta": "Para reverteres ao Islam, pronuncia a Shahada ( o segundo kalimah): 'Não há deus digno de adoração senão Allah, e Muhammad é o Mensageiro de Allah.' Toma banho (Ghusl) e começa a praticar os 5 pilares. para saber sobre o terceiro kalimah, escreva *terceiro kalimah*",
+    "palavras_chave": ["Assalamo Aleikum", "salam", "assalam", "olá", "oi", "bom dia", "boa tarde", "boa noite"],
+    "resposta": "walleikumo Salam Warahmatullahi Wabarakatuh estou aqui para ajudar, em que posso te ajudar?",
+    "fonte": "sunnah de Rassulillah",
+    "categoria": "saudação",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["Madrassa", "online", "islam Moçambique", "WhatsApp"],
+    "resposta": "A islam Moçambique dispõe da Madrassa online, onde você pode aprender sobre o alcorão e a sunnat. \n\n Para se inscrever e mais informações, contacte no WhatsApp o seguinte contacto: 860407269 ou clique no contacto do suporte.",
+    "fonte": "Islam Moçambique",
+    "categoria": "aulas",
+    "nivel": "iniciante",
+    "links": ["https://tinyurl.com/Publicidade-e-cursos"]
+  },
+  {
+    "palavras_chave": ["reverter", "conversao", "islam", "chahadah", "Chahadat", "shahada", "Shahaddat", "Shahadat", "segundo kalimah", "converter"],
+    "resposta": "☪️ A Shahada (Segundo Kalimah) é o testemunho de fé do Islam. Quando uma pessoa pronuncia esta declaração com sinceridade e acredita nela com o coração, entra no Islam.\n\n📖 Em Árabe:\nأشهد أن لا إله إلا الله وأشهد أن محمدًا رسول الله\n\n🔹 Transliteração:\nAshhadu an laa ilaaha illallaah, wa ashhadu anna Muhammadan Rasoolullaah.\n\n🔹 Tradução:\n'Testemunho que não há divindade digna de adoração além de Allah, e testemunho que Muhammad é o Mensageiro de Allah.'\n\n🤲 Depois da Shahada, recomenda-se fazer Ghusl (banho completo), aprender as 5 orações diárias e começar a praticar os 5 pilares do Islam.\n\n📚 Também podes pesquisar:\n• 5 pilares\n• oração\n• wudhu\n• Allah\n• Alcorão\n• Muhammad\n• Sunnah\n• Tawhid\n• Aqeedah\n• mesquita\n\n😊 Estou aqui para te ajudar a aprender mais sobre o Islam.*",
     "fonte": "Alcorão e Sunnah",
     "categoria": "Conversão",
     "nivel": "iniciante",
@@ -57,15 +73,15 @@
   },
   {
     "palavras_chave": ["terroristas", "terrorismo", "violência", "extremismo"],
-    "resposta": "Não. O Islam condena o terrorismo. O Alcorão diz que matar um inocente é como matar toda a humanidade. Terroristas deturpam o Islam.",
+    "resposta": "O Islam condena o terrorismo. \n\n O Alcorão diz que matar um inocente é como matar toda a humanidade. Terroristas deturpam o Islam.",
     "fonte": "Alcorão 5:32",
     "categoria": "Esclarecimento",
     "nivel": "iniciante",
-    "links": [""]
+    "links": ["https://www.Facebook.com/islamguia"]
   },
   {
     "palavras_chave": [
-      "allah",
+      "allah", "alá",
       "deus",
       "quem é allah",
       "o que é allah",
@@ -101,7 +117,7 @@
   },
   {
     "palavras_chave": [
-      "alcorão",
+      "alcorão", "Corão", "curan",
       "alcorao",
       "livro sagrado",
       "revelação",
@@ -120,7 +136,7 @@
   {
     "palavras_chave": [
       "alcorão",
-      "tafsir",
+      "tafsir", "taficir",
       "tafseer",
       "exegese",
       "interpretação do alcorão",
@@ -189,8 +205,8 @@
   },
   {
     "palavras_chave": [
-      "sunnah",
-      "hadith",
+      "sunnah", "sunat", "sunnat",
+      "hadith", "hadice",
       "usul al-hadith",
       "ciência do hadith",
       "isnad",
@@ -227,7 +243,7 @@
   },
   {
     "palavras_chave": [
-      "oração",
+      "oração", "sualat",
       "salat",
       "rezar",
       "namaz",
