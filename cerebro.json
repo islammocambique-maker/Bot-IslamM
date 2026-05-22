@@ -1,7 +1,7 @@
 [
   {
-    "palavras_chave": ["shirk", "idolatria", "associar", "allah", "alá"],
-    "resposta": "É proibido associar parceiros a Allah (Shirk), o maior pecado no Islam.",
+    "palavras_chave": ["o que é shirk", "idolatria", "associar", "associar a allah", "adoração alem de alá"],
+    "resposta": "Shirk é o mesmo que idolatria, associar outros seres a Allah, isso é proibido. é considerando o maior pecado no Islam.",
     "fonte": "Alcorão 4:48",
     "categoria": "aqidah",
     "nivel": "iniciante",
@@ -16,7 +16,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["riba", "juros", "banco"],
+    "palavras_chave": ["riba", "juros", "empréstimo", "banco"],
     "resposta": "É proibido lidar com juros (Riba), seja receber ou pagar.",
     "fonte": "Alcorão 2:275",
     "categoria": "financas",
@@ -32,7 +32,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["roubo", "furtar"],
+    "palavras_chave": ["roubo", "roubar", "é proibido robar", "furtar"],
     "resposta": "É proibido roubar ou tomar bens alheios injustamente.",
     "fonte": "Alcorão 5:38",
     "categoria": "crime",
@@ -56,7 +56,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["idolatria", "estatuas", "estátuas"],
+    "palavras_chave": ["idolatrar", "adorar estátuas", "estatuas", "estátuas"],
     "resposta": "É proibido adorar ídolos ou estátuas.",
     "fonte": "Sahih Muslim",
     "categoria": "aqidah",
@@ -72,7 +72,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["injustica", "opressao", "injustiça", "opressão"],
+    "palavras_chave": ["cometer injustica", "opressao", "injustiça", "opressão"],
     "resposta": "É proibido cometer injustiça contra qualquer pessoa.",
     "fonte": "Alcorão 16:90",
     "categoria": "justica",
@@ -80,7 +80,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["gheebah", "fofoca", "calunia", "calúnia"],
+    "palavras_chave": ["gheebah", "fofoca", "fofocar", "falar na ausência", "calunia", "calúnia"],
     "resposta": "É proibido falar mal de alguém na sua ausência (gheebah).",
     "fonte": "Alcorão 49:12",
     "categoria": "etica",
@@ -96,7 +96,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["suborno", "propina"],
+    "palavras_chave": ["suborno", "subornar", "propina"],
     "resposta": "É proibido dar ou receber suborno.",
     "fonte": "Alcorão 2:188",
     "categoria": "financas",
@@ -104,7 +104,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["desobedecer pais", "pais"],
+    "palavras_chave": ["desobedecer pais", "os pais"],
     "resposta": "É proibido desobedecer ou tratar mal os pais.",
     "fonte": "Alcorão 17:23",
     "categoria": "familia",
@@ -112,7 +112,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["abandonar salat", "oracao", "oração"],
+    "palavras_chave": ["abandonar salat", "não fazer salat", nao fazer salat", "não fazer oracao", "faltar oração"],
     "resposta": "É proibido abandonar as orações obrigatórias.",
     "fonte": "Sahih Muslim",
     "categoria": "ibadah",
@@ -120,7 +120,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["romper parentesco", "familiares"],
+    "palavras_chave": ["romper parentesco", "não falar com", "parar de falar com", "familiares"],
     "resposta": "É proibido cortar laços familiares.",
     "fonte": "Sahih Bukhari",
     "categoria": "familia",
@@ -128,15 +128,15 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["arrogancia", "orgulho", "arrogância"],
-    "resposta": "É proibido ser arrogantee orgulhoso.",
+    "palavras_chave": ["arrogancia", "ser arrogante", "orgulho", "arrogância"],
+    "resposta": "É proibido ser arrogante e orgulhoso.",
     "fonte": "Alcorão 31:18",
     "categoria": "etica",
     "nivel": "iniciante",
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["inveja", "hasad"],
+    "palavras_chave": ["sentir inveja", "ter inveja", "invejoso"],
     "resposta": "É proibido sentir inveja destrutiva.",
     "fonte": "Alcorão 113:5",
     "categoria": "etica",
@@ -144,7 +144,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["corrupcao", "fasaad", "corrupção"],
+    "palavras_chave": ["corrupcao", "corromper", "corrupto", "corrupção"],
     "resposta": "É proibido causar corrupção na terra.",
     "fonte": "Alcorão 5:33",
     "categoria": "sociedade",
@@ -152,7 +152,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["matar inocente"],
+    "palavras_chave": ["matar inocente", "terrorismo", "sao terroristas", "matar cristão", "matar cristãos"],
     "resposta": "É proibido matar uma pessoa inocente.",
     "fonte": "Alcorão 5:32",
     "categoria": "crime",
@@ -160,7 +160,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["magia", "feiticaria", "feitiçaria"],
+    "palavras_chave": ["fazer magia", "praticar magia", "magia negra", "feiticaria", "feitiçaria"],
     "resposta": "É proibido praticar magia ou feitiçaria.",
     "fonte": "Sahih Bukhari",
     "categoria": "aqidah",
@@ -168,7 +168,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["cobica", "ganancia", "cobiça", "ganância"],
+    "palavras_chave": ["cobica", "ganancia", "cobiçar", "cobiça", "ganância"],
     "resposta": "É proibido a ganância excessiva e cobiça.",
     "fonte": "Alcorão 102:1-2",
     "categoria": "etica",
@@ -176,7 +176,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["orgulho religioso falso", "ostentacao", "ostentação"],
+    "palavras_chave": ["orgulho religioso falso", "exibir", "ostentacao", "ostentação"],
     "resposta": "É proibido ostentar religião por orgulho ou hipocrisia.",
     "fonte": "Alcorão 107:4-6",
     "categoria": "etica",
@@ -184,7 +184,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["hipocrisia"],
+    "palavras_chave": ["hipocrisia", "ser hipócrita", "falar mas não"],
     "resposta": "É proibido ser hipócrita na fé.",
     "fonte": "Alcorão 4:145",
     "categoria": "aqidah",
@@ -192,7 +192,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["adulterio visual", "olhar haram", "adultério visual"],
+    "palavras_chave": ["adulterio visual", "olhar com desejo", "olhar haram", "adultério visual"],
     "resposta": "É proibido olhar com desejo para o que é proibido.",
     "fonte": "Alcorão 24:30",
     "categoria": "moral",
@@ -200,7 +200,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["vestimenta indecente", "roupa indecente"],
+    "palavras_chave": ["vestimenta indecente", "roupa curta", "barriga fora", "sainhas", "roupa indecente"],
     "resposta": "É proibido vestir roupas indecentes que exponham o corpo de forma inadequada.",
     "fonte": "Alcorão 24:31",
     "categoria": "modestia",
@@ -208,7 +208,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["discriminacao", "discriminação"],
+    "palavras_chave": ["discriminacao", "racismo", "racista", "discriminação"],
     "resposta": "É proibido discriminar pessoas por raça ou origem.",
     "fonte": "Sahih Muslim",
     "categoria": "justica",
@@ -216,7 +216,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["desperdicio", "desperdício"],
+    "palavras_chave": ["desperdicio", "desperdiçar", "deixar comida", "desperdício"],
     "resposta": "É proibido desperdiçar recursos.",
     "fonte": "Alcorão 7:31",
     "categoria": "etica",
@@ -224,7 +224,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["traicao", "traição"],
+    "palavras_chave": ["traicao", "não cumprir", "não cumpiu", "traição"],
     "resposta": "É proibido trair confiança ou acordos.",
     "fonte": "Alcorão 8:27",
     "categoria": "etica",
@@ -232,7 +232,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["esquecer oracao proposital", "negligenciar oracao"],
+    "palavras_chave": ["esquecer oracao proposital", "não fazer salat", "perder salat", "negligenciar oracao"],
     "resposta": "É proibido negligenciar intencionalmente a oração.",
     "fonte": "Sahih Muslim",
     "categoria": "ibadah",
@@ -240,7 +240,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["chantagem"],
+    "palavras_chave": ["ameaçar", "chantagear","chantagem"],
     "resposta": "É proibido chantagear ou coagir alguém.",
     "fonte": "Alcorão 83:1-3",
     "categoria": "crime",
@@ -248,7 +248,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["julgar injustamente"],
+    "palavras_chave": ["islam é falso", "islamismo é satanismo", "islam não é de Deus", "julgar injustamente"],
     "resposta": "É proibido julgar injustamente entre pessoas.",
     "fonte": "Alcorão 5:8",
     "categoria": "justica",
@@ -288,7 +288,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["reverter", "conversao", "conversão", "islam", "shahada", "shahadat", "segundo kalimah", "converter"],
+    "palavras_chave": ["reverter", "conversao", "conversão", "ao islam", "shahada", "shahadat", "segundo kalimah", "converter"],
     "resposta": "☪️ A Shahada (Segundo Kalimah) é o testemunho de fé do Islam. Quando uma pessoa pronuncia esta declaração com sinceridade e acredita nela com o coração, entra no Islam.\n\n📖 Em Árabe:\nأشهد أن لا إله إلا الله وأشهد أن محمدًا رسول الله\n\n🔹 Transliteração:\nAshhadu an laa ilaaha illallaah, wa ashhadu anna Muhammadan Rasoolullaah.\n\n🔹 Tradução:\n'Testemunho que não há divindade digna de adoração além de Allah, e testemunho que Muhammad é o Mensageiro de Allah.'\n\n🤲 Depois da Shahada, recomenda-se fazer Ghusl (banho completo), aprender as 5 orações diárias e começar a praticar os 5 pilares do Islam.\n\n📚 Também podes pesquisar:\n• 5 pilares\n• oração\n• wudhu\n• Allah\n• Alcorão\n• Muhammad\n• Sunnah\n• Tawhid\n• Aqeedah\n• mesquita\n\n😊 Estou aqui para te ajudar a aprender mais sobre o Islam.*",
     "fonte": "Alcorão e Sunnah",
     "categoria": "Conversão",
@@ -296,7 +296,7 @@
     "links": ["https://www.facebook.com/islamguia"]
   },
   {
-    "palavras_chave": ["kalimah", "kalima", "declaracoes", "declaração de fe", "fé", "declarações"],
+    "palavras_chave": ["quantos kalimah", "os kalimas", "quantos kalimas", "são as declaracoes", "é a declaração de fe", "fé", " as declarações"],
     "resposta": "Os Kalimah são as 6 declarações fundamentais da fé islâmica em árabe: Tayyibah, Shahadat, Tamjeed, Tawhid, Istighfar e Radd-e-Kufr.",
     "fonte": "Tradição islâmica",
     "categoria": "Crenças",
@@ -328,7 +328,7 @@
     "links": [""]
   },
   {
-    "palavras_chave": ["salat", "oracao", "oração", "hora", "horarios", "horários"],
+    "palavras_chave": ["do salat", "oracao", "oração", "hora", "horarios", "5 orações", "5 oracoes", "cinco orações", cinco oracoes", "horários"],
     "resposta": "As 5 orações diárias são Fajr, Dhuhr, Asr, Maghrib e Isha. Os horários variam por localização. Consulte o IslamicFinder para os horários exatos.",
     "fonte": "Alcorão e Sunnah",
     "categoria": "Oração",
@@ -360,7 +360,7 @@
     "links": ["https://quran.com/112"]
   },
   {
-    "palavras_chave": ["allah", "tawhid", "tauhid", "rububiyyah", "uluhiyyah", "asma wa sifat", "atributos de allah", "nomes de allah"],
+    "palavras_chave": ["unicidade de allah", "tawhid", "tauhid", "rububiyyah", "uluhiyyah", "asma wa sifat", "atributos de allah", "nomes de allah"],
     "resposta": "O Tawhid (Unificação) é dividido em três categorias: Tawhid ar-Rububiyyah (Lordeza - Allah é o único Criador), Tawhid al-Uluhiyyah (Adoração - toda adoração é para Allah), e Tawhid al-Asma wa-Sifat (Nomes e Atributos - afirmação literal sem semelhança).",
     "fonte": "Kitab al-Tawhid - Ibn Khuzaymah",
     "categoria": "alcorao",
@@ -376,7 +376,7 @@
     "links": ["https://quran.com/2/2"]
   },
   {
-    "palavras_chave": ["alcorão", "tafsir", "tafseer", "exegese", "interpretacao do alcorao", "interpretacao", "ciencia do tafsir"],
+    "palavras_chave": ["tafsir", "tafseer", "exegese", "interpretacao do alcorao", "interpretacao", "ciencia do tafsir"],
     "resposta": "O Tafsir é a ciência da interpretação do Alcorão. As fontes primárias são: Alcorão explica Alcorão, Sunnah explica Alcorão, dizeres dos Sahaba, e linguística árabe. As melhores obras incluem Tafsir Ibn Kathir e Tafsir al-Tabari.",
     "fonte": "Al-Itqan fi Ulum al-Qur'an - Al-Suyuti",
     "categoria": "alcorao",
@@ -384,7 +384,7 @@
     "links": ["https://quran.com"]
   },
   {
-    "palavras_chave": ["muhammad", "profeta", "mensageiro", "quem e muhammad", "ultimo profeta", "último profeta", "rasul"],
+    "palavras_chave": ["é muhammad", "profeta de Allah", "mensageiro", "quem e muhammad", "ultimo profeta", "último profeta", "rasul"],
     "resposta": "Muhammad (que a paz esteja com ele) é o último profeta e mensageiro de Allah. Nasceu em Meca há 1400 anos, recebeu o Alcorão e é o melhor exemplo de caráter para os muçulmanos.",
     "fonte": "Alcorão - Surah Al-Ahzab (33:21)",
     "categoria": "alcorao",
