@@ -1,2 +1,58 @@
-cd https://github.com/islammocambique-maker/Bot-IslamM/tree/main
-echo config.js >> .gitignore
+# ============================================
+# BOT-ISLAMM - .GITIGNORE
+# ============================================
+
+# ===== VARIÁVEIS DE AMBIENTE =====
+.env
+.env.local
+.env.*.local
+
+# ===== CHAVES E CREDENCIAIS =====
+*.pem
+*.key
+secrets.json
+credentials.json
+serviceAccountKey.json
+config.local.js
+*-local.js
+
+# ===== DEPENDÊNCIAS =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ===== BUILD E DIST =====
+dist/
+build/
+out/
+*.bundle.js
+*.min.js.map
+
+# ===== LOGS =====
+logs/
+*.log
+
+# ===== SISTEMA OPERACIONAL =====
+.DS_Store
+Thumbs.db
+
+# ===== EDITORES =====
+.vscode/
+.idea/
+*.swp
+
+# ===== CACHE =====
+.cache/
+.temp/
+tmp/
+
+# ===== FIREBASE =====
+.firebase/
+firebase-debug.log
+
+# ===== TESTES =====
+coverage/
