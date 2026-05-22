@@ -1,5 +1,273 @@
 [
   {
+    "palavras_chave": ["shirk", "idolatria", "associar", "alá"],
+    "resposta": "É proibido associar parceiros a Allah (Shirk), o maior pecado no Islam.",
+    "fonte": "Alcorão 4:48",
+    "categoria": "aqidah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["alcool", "vinho", "intoxicante"],
+    "resposta": "É proibido consumir álcool e qualquer substância intoxicante.",
+    "fonte": "Alcorão 5:90",
+    "categoria": "halal/haram",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["riba", "juros", "banco"],
+    "resposta": "É proibido lidar com juros (Riba), seja receber ou pagar.",
+    "fonte": "Alcorão 2:275",
+    "categoria": "financas",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["mentira", "falso testemunho"],
+    "resposta": "É proibido mentir e dar falso testemunho.",
+    "fonte": "Sahih Bukhari",
+    "categoria": "etica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["roubo", "furtar"],
+    "resposta": "É proibido roubar ou tomar bens alheios injustamente.",
+    "fonte": "Alcorão 5:38",
+    "categoria": "crime",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["zinah", "adultério"],
+    "resposta": "É proibido cometer adultério ou fornicação.",
+    "fonte": "Alcorão 17:32",
+    "categoria": "moral",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["porco", "carne suína"],
+    "resposta": "É proibido consumir carne de porco.",
+    "fonte": "Alcorão 2:173",
+    "categoria": "alimentacao",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["idolatria", "estatuas"],
+    "resposta": "É proibido adorar ídolos ou estátuas.",
+    "fonte": "Sahih Muslim",
+    "categoria": "aqidah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["suicidio"],
+    "resposta": "É proibido tirar a própria vida.",
+    "fonte": "Alcorão 4:29",
+    "categoria": "vida",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["injustica", "opressao"],
+    "resposta": "É proibido cometer injustiça contra qualquer pessoa.",
+    "fonte": "Alcorão 16:90",
+    "categoria": "justica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+
+  {
+    "palavras_chave": ["gheebah", "fofoca", "calunia"],
+    "resposta": "É proibido falar mal de alguém na ausência (gheebah).",
+    "fonte": "Alcorão 49:12",
+    "categoria": "etica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["insultar", "ofensa"],
+    "resposta": "É proibido insultar ou humilhar outras pessoas.",
+    "fonte": "Sahih Bukhari",
+    "categoria": "etica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["suborno", "propina"],
+    "resposta": "É proibido dar ou receber suborno.",
+    "fonte": "Alcorão 2:188",
+    "categoria": "financas",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["desobedecer pais"],
+    "resposta": "É proibido desobedecer ou tratar mal os pais.",
+    "fonte": "Alcorão 17:23",
+    "categoria": "familia",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["abandonar salat", "oração"],
+    "resposta": "É proibido abandonar as orações obrigatórias.",
+    "fonte": "Sahih Muslim",
+    "categoria": "ibadah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["romper parentesco"],
+    "resposta": "É proibido cortar laços familiares.",
+    "fonte": "Sahih Bukhari",
+    "categoria": "familia",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["arrogancia", "orgulho"],
+    "resposta": "É proibido ser arrogante e orgulhoso.",
+    "fonte": "Alcorão 31:18",
+    "categoria": "etica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["inveja", "hasad"],
+    "resposta": "É proibido sentir inveja destrutiva.",
+    "fonte": "Alcorão 113:5",
+    "categoria": "etica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["corrupcao", "fasaad"],
+    "resposta": "É proibido causar corrupção na terra.",
+    "fonte": "Alcorão 5:33",
+    "categoria": "sociedade",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+
+  {
+    "palavras_chave": ["matar inocente"],
+    "resposta": "É proibido matar uma pessoa inocente.",
+    "fonte": "Alcorão 5:32",
+    "categoria": "crime",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["magia", "feitiçaria"],
+    "resposta": "É proibido praticar magia ou feitiçaria.",
+    "fonte": "Sahih Bukhari",
+    "categoria": "aqidah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["cobica", "ganancia"],
+    "resposta": "É proibido a ganância excessiva e cobiça.",
+    "fonte": "Alcorão 102:1-2",
+    "categoria": "etica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["orgulho religioso falso"],
+    "resposta": "É proibido ostentar religião por orgulho ou hipocrisia.",
+    "fonte": "Alcorão 107:4-6",
+    "categoria": "etica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["hipocrisia"],
+    "resposta": "É proibido ser hipócrita na fé.",
+    "fonte": "Alcorão 4:145",
+    "categoria": "aqidah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+
+  {
+    "palavras_chave": ["adultério visual", "olhar haram"],
+    "resposta": "É proibido olhar com desejo para o que é proibido.",
+    "fonte": "Alcorão 24:30",
+    "categoria": "moral",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["vestimenta indecente"],
+    "resposta": "É proibido vestir roupas indecentes que exponham o corpo de forma inadequada.",
+    "fonte": "Alcorão 24:31",
+    "categoria": "modestia",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["discriminação"],
+    "resposta": "É proibido discriminar pessoas por raça ou origem.",
+    "fonte": "Sahih Muslim",
+    "categoria": "justica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["desperdicio"],
+    "resposta": "É proibido desperdiçar recursos.",
+    "fonte": "Alcorão 7:31",
+    "categoria": "etica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+
+  {
+    "palavras_chave": ["traição"],
+    "resposta": "É proibido trair confiança ou acordos.",
+    "fonte": "Alcorão 8:27",
+    "categoria": "etica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["esquecer oracao proposital"],
+    "resposta": "É proibido negligenciar intencionalmente a oração.",
+    "fonte": "Sahih Muslim",
+    "categoria": "ibadah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["chantagem"],
+    "resposta": "É proibido chantagear ou coagir alguém.",
+    "fonte": "Alcorão 83:1-3",
+    "categoria": "crime",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["julgar injustamente"],
+    "resposta": "É proibido julgar injustamente entre pessoas.",
+    "fonte": "Alcorão 5:8",
+    "categoria": "justica",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["falsidade comercial"],
+    "resposta": "É proibido enganar em vendas e comércio.",
+    "fonte": "Sahih Muslim",
+    "categoria": "financas",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
     "palavras_chave": ["Assalamo Aleikum", "salam", "assalam", "olá", "oi", "bom dia", "boa tarde", "boa noite"],
     "resposta": "walleikumo Salam Warahmatullahi Wabarakatuh estou aqui para ajudar, em que posso te ajudar?",
     "fonte": "sunnah de Rassulillah",
