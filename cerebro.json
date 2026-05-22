@@ -626,11 +626,363 @@
     ]
   },
   {
-  "palavras_chave": ["jejum", "Ramadan", "sawm", "o que é jejum", "como jejuar"],
-  "resposta": "O jejum (Sawm) no Ramadan é o terceiro pilar do Islam. É a abstinência de comida, bebida, relações sexuais e comportamentos ruins desde o amanhecer (Al-Fajr) até o pôr do sol (Al-Maghrib), durante todo o mês de Ramadan (9º mês do calendário islâmico). Não é apenas não comer — é um exercício de autocontrole, empatia com os pobres e aproximação de Allah. Antes do amanhecer faz-se o Suhoor (refeição leve), e ao pôr do sol quebra-se com água e tâmaras (Iftar), seguindo a Sunnah do Profeta Muhammad. Quer saber mais sobre: intenção, exceções, ou o que invalida o jejum?",
-  "fonte": "Alcorão 2:183 - 'Ó vós que credes! O jejum vos foi prescrito, assim como foi prescrito àqueles que vos precederam, para que sejais tementes.'",
-  "categoria": "Fiqh (Prática)",
-  "nivel": "Iniciante",
-  "links": ["https://Facebook.com/Islamguia"]
-}
+      "palavras_chave": ["jejum", "sawm", "o que é jejum", "definicao jejum", "fasting"],
+      "pergunta_usuario": "O que é o jejum no Islam?",
+      "resposta": "O jejum (Sawm) no Islam é abster-se de comer, beber, relações conjugais e comportamentos ruins desde o amanhecer (Fajr) até ao pôr do sol (Maghrib), com intenção sincera (Niyyah) para agradar Allah. É o quarto pilar do Islam e foi prescrito no Ramadan, o nono mês do calendário islâmico. Allah diz no Alcorão: 'Ó vós que credes! O jejum vos foi prescrito, como foi prescrito àqueles que vos precederam, para que possais ser tementes.' (Al-Baqarah 2:183). O jejum não é apenas físico — é espiritual. Desenvolve autodisciplina, empatia pelos pobres, gratidão e proximidade com Allah. Quer saber mais sobre: Ramadan, Niyyah, regras do jejum, ou quem está isento?",
+      "fonte": "Alcorão 2:183; Sahih al-Bukhari 1891",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["ramadan", "mes do ramadan", "quando é ramadan", "calendario islamico"],
+      "pergunta_usuario": "O que é o Ramadan?",
+      "resposta": "Ramadan é o nono mês do calendário islâmico (Hijri) e é o mês sagrado em que o Alcorão foi revelado. É um mês de bênçãos multiplicadas: as boas ações valem o dobro, as portas do Paraíso abrem-se, as do Fogo fecham-se e os demônios são acorrentados. É obrigatório jejuar todo o mês para todo muçulmano adulto, sã de corpo e mente, residente e financeiramente capaz. O Profeta Muhammad (PBUH) disse: 'Quando chega Ramadan, as portas do Paraíso se abrem, as do Fogo se fecham e os demônios são acorrentados.' (Sahih al-Bukhari). O fim do Ramadan celebra-se com a Eid al-Fitr, festa de gratidão e caridade. Quer saber mais sobre: regras do jejum, Taraweeh, Laylat al-Qadr, ou Eid?",
+      "fonte": "Alcorão 2:185; Sahih al-Bukhari 1899",
+      "categoria": "Fiqh - Ramadan",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["niyyah", "intencao", "intencao jejum", "como fazer niyyah", "niyyat"],
+      "pergunta_usuario": "Como fazer a intenção (Niyyah) para o jejum?",
+      "resposta": "A Niyyah (intenção) é obrigatória para cada dia de jejum e deve ser feita antes do amanhecer (Fajr). Não precisa ser pronunciada em voz alta — basta o firme propósito no coração de jejuar para agradar Allah. A intenção formal em árabe é: 'Nawaitu sauma ghadin an adaa'i fardhi shahri Ramadana hazihis-sanati lillahi ta'ala' (Intenciono o jejum de amanhã para cumprir o dever do mês de Ramadan deste ano, por Allah, o Altíssimo). Se dormir sem intenção e acordar ainda antes do Fajr, pode fazer a intenção nesse momento. Sem Niyyah antes do amanhecer, o jejum é inválido. Quer saber mais sobre: Suhoor, Iftar, ou o que invalida o jejum?",
+      "fonte": "Sahih al-Bukhari 1; Sahih Muslim 8",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["suhoor", "sahur", "refeicao antes amanhecer", "comer antes jejum", "hora suhoor"],
+      "pergunta_usuario": "O que é Suhoor?",
+      "resposta": "Suhoor é a refeição leve tomada antes do amanhecer (Fajr) para iniciar o dia de jejum. É uma Sunnah (prática recomendada) do Profeta Muhammad (PBUH), que dizia: 'Tomai Suhoor, pois nele há bênção.' (Sahih al-Bukhari). Deve ser feita mesmo que seja apenas um gole de água ou uma tâmara. O melhor momento é nos últimos minutos antes do Fajr, não no meio da noite. Suhoor diferencia o jejum do muçulmano do jejum de outras religiões e dá energia para o dia. Evite comidas pesadas — prefira frutas, cereais, água e tâmaras. Quer saber mais sobre: Iftar, o que comer, ou regras do jejum?",
+      "fonte": "Sahih al-Bukhari 1923; Sahih Muslim 1095",
+      "categoria": "Fiqh - Ramadan",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["iftar", "quebrar jejum", "fim jejum", "refeicao por do sol", "como quebrar jejum"],
+      "pergunta_usuario": "Como quebrar o jejum (Iftar)?",
+      "resposta": "Iftar é a refeição para quebrar o jejum imediatamente após o pôr do sol (Maghrib), quando o disco solar desaparece completamente no horizonte. O Profeta Muhammad (PBUH) quebrava o jejum com tâmaras frescas e água; se não havia, com tâmaras secas; se não havia, com alguns goles de água. Recomenda-se dizer: 'Allahumma laka sumtu wa ala rizqika aftartu' (Ó Allah, por Ti jejuei e com o Teu sustento quebro o jejum). É Sunnah apressar o Iftar e atrasar o Suhoor. Depois do Iftar, faz-se a oração Maghrib e depois a refeição principal. Quer saber mais sobre: Suhoor, Taraweeh, ou o que invalida o jejum?",
+      "fonte": "Sahih al-Bukhari 1955; Abu Dawud 2358",
+      "categoria": "Fiqh - Ramadan",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["invalida", "quebra jejum", "o que invalida", "quebra o jejum", "invalidar jejum"],
+      "pergunta_usuario": "O que invalida o jejum?",
+      "resposta": "O jejum é invalidado (quebrado) por: 1) Comer ou beber intencionalmente após o Fajr; 2) Relações conjugais durante o dia; 3) Vomitar intencionalmente (vômito involuntário não invalida); 4) Menstruação ou sangramento pós-parto (Nifas); 5) Ejaculação intencional; 6) Apostasia (deixar o Islam). NÃO invalidam: comer/beber por esquecimento (Allah alimentou-o), sonhos molhados, sangue acidental, uso de colírio, injeções não nutritivas, ou escovar os dentes sem engolir pasta. Se quebrar intencionalmente, deve pedir perdão a Allah, fazer o jejum de compensação (Qada) e, se sem desculpa válida, também pagar expiação (Kaffarah: jejumar 60 dias consecutivos ou alimentar 60 pobres). Quer saber mais sobre: compensação, expiação, ou quem está isento de jejuar?",
+      "fonte": "Alcorão 2:187; Sahih al-Bukhari 1933; Sahih Muslim 1114",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["isento", "dispensado", "nao precisa jejuar", "doenca", "gravida", "viagem", "idoso", "quem nao jejua"],
+      "pergunta_usuario": "Quem está isento de jejuar?",
+      "resposta": "Estão isentos de jejuar no Ramadan: 1) Crianças antes da puberdade (encoraja-se a praticar gradualmente); 2) Idosos com fraqueza extrema que não suportam o jejum (devem pagar Fidyah: alimentar 1 pobre por cada dia); 3) Doentes com risco de agravamento (fazem Qada depois); 4) Viajantes em jornada longa (mais de 80km, fazem Qada depois); 5) Mulheres grávidas ou amamentando com risco para si ou bebê (fazem Qada ou Fidyah); 6) Mulheres em menstruação (Nifas) — param de jejuar e fazem Qada depois; 7) Loucos/insanos. Quem está isento por doença temporária ou viagem deve compensar (Qada) em outro momento. Quem está isento permanentemente (idoso fraco) paga Fidyah. Quer saber mais sobre: Qada, Fidyah, Kaffarah, ou regras para mulheres?",
+      "fonte": "Alcorão 2:184-185; Sahih al-Bukhari 1947",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["qada", "compensar", "fazer depois", "jejum perdido", "compensacao jejum"],
+      "pergunta_usuario": "Como compensar o jejum perdido (Qada)?",
+      "resposta": "Qada significa 'compensar' — é obrigatório jejuar os dias perdidos do Ramadan antes do próximo Ramadan, exceto para quem tem desculpa contínua (doença crónica, amamentação). Regras do Qada: 1) Deve ser feito em dias consecutivos ou separados, antes do próximo Ramadan; 2) A intenção (Niyyah) deve ser específica: 'Nawaitu qadhaa' fardhi Ramadan' (Intenciono compensar o dever do Ramadan); 3) Mulheres compensam os dias de menstruação/Nifas; 4) Viajantes compensam os dias de viagem; 5) Quem adoeceu compensa após recuperação. Se não compensar antes do próximo Ramadan sem desculpa válida, deve fazer Qada MAIS Fidyah (alimentar 1 pobre por cada dia de atraso). Quer saber mais sobre: Fidyah, Kaffarah, ou regras específicas para mulheres?",
+      "fonte": "Alcorão 2:184; Sahih al-Bukhari 1953",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["kaffarah", "expiacao", "penitencia", "60 dias", "alimentar pobres", "quebrou jejum intencional"],
+      "pergunta_usuario": "O que é Kaffarah (expiação)?",
+      "resposta": "Kaffarah é a penitência obrigatória para quem quebra intencionalmente o jejum de Ramadan SEM desculpa válida (ex: comeu/bebeu/relacionou-se propositalmente). São 3 opções, em ordem de preferência: 1) Jejuar 60 dias consecutivos (2 meses completos sem interrupção — se falhar 1 dia, recomeça); 2) Alimentar 60 pobres com uma refeição completa cada; 3) Libertar 1 escravo (hoje em dia, equivalente a pagar resgate de cativo ou doação equivalente). Se não conseguir nenhuma das 3 por pobreza extrema, jejua 60 dias. Kaffarah é diferente de Qada: Qada compensa o dia perdido, Kaffarah expia a quebra intencional. Quer saber mais sobre: Qada, Fidyah, ou o que invalida o jejum?",
+      "fonte": "Alcorão 2:196; Sahih al-Bukhari 1936; Sahih Muslim 1111",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Avancado",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["fidyah", "alimentar pobres", "idoso", "doente cronico", "nao pode jejuar", "substituir jejum"],
+      "pergunta_usuario": "O que é Fidyah?",
+      "resposta": "Fidyah é o resgate pago por quem NÃO PODE jejuar permanentemente devido a idade avançada, doença crónica incurável, ou fraqueza extrema que impede o jejum e a recuperação é impossível. Consiste em alimentar 1 pobre necessitado com uma refeição completa (equivalente a meio Saa' de trigo/arroz — aproximadamente 750g) por CADA dia de Ramadan perdido. Também se aplica a quem atrasou o Qada sem desculpa até ao próximo Ramadan. Fidyah NÃO substitui Qada para quem pode jejuar depois — é apenas para quem está permanentemente incapaz. Quem paga Fidyah não precisa fazer Qada. Quer saber mais sobre: Kaffarah, Qada, ou quem está isento?",
+      "fonte": "Alcorão 2:184; Sahih al-Bukhari 1946",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["mulher", "menstruacao", "haid", "nifas", "gravida", "amamentando", "jejum mulher"],
+      "pergunta_usuario": "Como funciona o jejum para mulheres?",
+      "resposta": "Regras específicas para mulheres: 1) MENSTRUAÇÃO (Haid): A mulher em menstruação NÃO jejua — é proibido e inválido. Para imediatamente e compensa (Qada) depois. O Profeta disse: 'Não é isto (menstruação) por ordem de Allah? A mulher menstruada não reza nem jejua.' (Sahih al-Bukhari); 2) PÓS-PARTO (Nifas): Mesma regra da menstruação até 40 dias máximo; 3) GRÁVIDA/AMAMENTANDO: Se o jejum prejudicar a saúde dela ou do bebê, está isenta e faz Qada depois. Se não puder de todo, paga Fidyah; 4) INTENÇÃO: Deve fazer Niyyah antes do Fajr todos os dias válidos. Quando a menstruação termina, faz Ghusl (banho ritual) e retoma o jejum no dia seguinte. Quer saber mais sobre: Qada, Ghusl, ou regras gerais do jejum?",
+      "fonte": "Sahih al-Bukhari 304; Sahih Muslim 333; Alcorão 2:184",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["taraweeh", "tahajjud", "oracao noite", "ramadan noite", "oracao voluntaria"],
+      "pergunta_usuario": "O que é Taraweeh?",
+      "resposta": "Taraweeh é a oração voluntária (Nafl) realizada após a oração Isha durante o Ramadan. Consiste em 8, 12 ou 20 unidades (Raka'at) com descanso a cada 4 (daí o nome 'Taraweeh' = descanso). É Sunnah Mu'akkadah (prática fortemente recomendada) do Profeta Muhammad (PBUH), que a rezava em congregação por 3 noites e depois temia que se tornasse obrigatória, então a rezava em casa. O califa Umar reorganizou-a em congregação na mesquita. É preferível rezar em mesquita para ouvir o Alcorão completo (Khatm) em 30 noites. Quem não pode ir à mesquita pode rezar em casa. Quer saber mais sobre: Laylat al-Qadr, Isha, ou outros atos do Ramadan?",
+      "fonte": "Sahih al-Bukhari 2010; Sahih Muslim 761",
+      "categoria": "Fiqh - Ramadan",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["laylat al qadr", "noite do decreto", "noite poder", "melhor noite", "ultimas 10 noites"],
+      "pergunta_usuario": "O que é Laylat al-Qadr?",
+      "resposta": "Laylat al-Qadr (Noite do Decreto/Poder) é a noite mais sagrada do ano, melhor que 1000 meses de adoração. O Alcorão foi revelado nessa noite. Allah diz: 'Na verdade, enviamos o Alcorão na Noite do Decreto. E o que te fará compreender o que é a Noite do Decreto? A Noite do Decreto é melhor que mil meses. Nela descem os anjos e o Espírito (Gabriel), com permissão de seu Senhor, para todo assunto.' (Alcorão 97:1-4). Está escondida entre as últimas 10 noites do Ramadan, com maior probabilidade nas noites ímpares (21, 23, 25, 27, 29). O Profeto aconselhava: 'Buscai Laylat al-Qadr nas últimas 10 noites.' (Sahih al-Bukhari). Recomenda-se passar a noite em oração, leitura do Alcorão, Dhikr e pedir perdão. Quer saber mais sobre: Taraweeh, I'tikaf, ou Eid al-Fitr?",
+      "fonte": "Alcorão 97; Sahih al-Bukhari 2017",
+      "categoria": "Fiqh - Ramadan",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["itikaf", "retiro espiritual", "ultimos 10 dias", "mesquita", "retiro ramadan"],
+      "pergunta_usuario": "O que é I'tikaf?",
+      "resposta": "I'tikaf é o retiro espiritual na mesquita durante os últimos 10 dias do Ramadan (do pôr do sol do 20º dia até o final do mês). Quem faz I'tikaf permanece na mesquita dedicando-se exclusivamente à adoração: oração, leitura do Alcorão, Dhikr, reflexão e afastamento de conversas mundanas. É Sunnah do Profeta Muhammad (PBUH), que o praticava todos os anos nos últimos 10 dias. Requisitos: ser muçulmano adulto, em estado de pureza ritual (Wudu/Ghusl), e ter permissão/responsabilidades resolvidas (trabalho, família). Mulheres podem fazer I'tikaf em casa designando um cômodo para adoração. Quer saber mais sobre: Laylat al-Qadr, Taraweeh, ou Eid?",
+      "fonte": "Sahih al-Bukhari 2025; Sahih Muslim 1172",
+      "categoria": "Fiqh - Ramadan",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["eid al fitr", "festa jejum", "fim ramadan", "celebracao", "sadaqat al fitr"],
+      "pergunta_usuario": "O que é Eid al-Fitr?",
+      "resposta": "Eid al-Fitr é a festa de gratidão que marca o fim do Ramadan, no 1º dia do mês de Shawwal. Começa após a oração do Fajr e é proibido jejuar nesse dia. Rituais do Eid: 1) Pagar Zakat al-Fitr (caridade obrigatória de aproximadamente 2kg de alimento básico por membro da família) ANTES da oração do Eid; 2) Tomar banho, vestir as melhores roupas limpas, usar perfume; 3) Comer algo doce (tâmaras) antes da oração do Eid; 4) Oração do Eid em congregação ao nascer do sol, com 2 Raka'at e Khutbah (sermão); 5) Cumprimentar os irmãos, visitar familiares, dar presentes às crianças, e comer em família. É dia de alegria permitida, mas sem excessos ou pecados. Quer saber mais sobre: Zakat al-Fitr, Shawwal, ou os 6 jejuns de Shawwal?",
+      "fonte": "Sahih al-Bukhari 2; Sahih Muslim 891",
+      "categoria": "Fiqh - Ramadan",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["shawwal", "6 jejuns", "seis jejuns", "depois ramadan", "jejum voluntario"],
+      "pergunta_usuario": "Quais são os 6 jejuns de Shawwal?",
+      "resposta": "Após o Eid al-Fitr, é altamente recomendado (Sunnah Mu'akkadah) jejuar 6 dias no mês de Shawwal (o mês seguinte ao Ramadan). O Profeta Muhammad (PBUH) disse: 'Quem jejuar Ramadan e depois acrescentar 6 dias de Shawwal, é como se tivesse jejuado o ano inteiro.' (Sahih Muslim). Regras: 1) Não pode jejuar no 1º dia de Shawwal (Eid — é proibido); 2) Os 6 dias podem ser consecutivos ou separados; 3) Pode começar no 2º dia de Shawwal; 4) Quem ainda deve Qada (compensação) do Ramadan deve priorizar o Qada primeiro, mas pode combinar intenções se permitido pelo madhab; 5) Não são obrigatórios, mas trêmenda recompensa. Quer saber mais sobre: Eid, Sunnah de jejum, ou outros meses sagrados?",
+      "fonte": "Sahih Muslim 1164",
+      "categoria": "Fiqh - Ramadan",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["sonho molhado", "wet dream", "ihtilam", "mani", "madhi", "jejum valido"],
+      "pergunta_usuario": "Sonho molhado invalida o jejum?",
+      "resposta": "NÃO. Sonho molhado (Ihtilam) com ejaculação involuntária NÃO invalida o jejum, pois foi fora do controle consciente. O Profeta Muhammad (PBUH) foi perguntado sobre isso e respondeu: 'Não é por escolha dele. É algo que Allah criou nele.' (Sahih al-Bukhari). O que deve fazer: 1) Tomar Ghusl (banho ritual completo) antes do Fajr se acordar a tempo; 2) Se acordar depois do Fajr, o jejum continua válido — apenas toma Ghusl quando possível; 3) Diferenciar: Mani (sêmen grosso, ejaculação) requer Ghusl; Madhi (líquido claro, excitação) requer apenas Wudu. O jejum permanece válido em ambos os casos. Quer saber mais sobre: Ghusl, Wudu, ou o que invalida o jejum?",
+      "fonte": "Sahih al-Bukhari 1933; Sahih Muslim 1113",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["escovar dentes", "pasta dentes", "miswak", "siwak", "higiene jejum"],
+      "pergunta_usuario": "Posso escovar os dentes durante o jejum?",
+      "resposta": "SIM, pode e deve escovar os dentes durante o jejum, preferencialmente com Miswak (graveto de Salvador persica) — é Sunnah do Profeta. Com pasta de dentes: 1) Pode usar desde que NÃO engula pasta, água ou saliva com sabor forte; 2) Use pouca pasta, escove suavemente, enxágue bem; 3) Se engolar intencionalmente pasta, invalida o jejum; 4) Se engolar sem querer, não invalida (por esquecimento). O Profeta usava Miswak constantemente, mesmo em jejum. Alguns estudiosos preferem evitar pasta forte antes do meio-dia por precaução. Quer saber mais sobre: o que invalida, Miswak, ou regras gerais do jejum?",
+      "fonte": "Sahih al-Bukhari 1933; Sahih Muslim 1158",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["injetavel", "remedio", "medicamento", "vacina", "gotas", "colirio", "jejum"],
+      "pergunta_usuario": "Remédios/injeções invalidam o jejum?",
+      "resposta": "Regras sobre medicamentos no jejum: 1) INJEÇÕES intramusculares, intravenosas ou vacinas NÃO invalidam o jejum (não entram pelo canal digestivo); 2) GOTAS no nariz/ouvidos: se alcançarem a garganta intencionalmente, invalidam; se não, não invalidam; 3) COLÍRIO/ gotas nos olhos NÃO invalidam (canal separado); 4) SUPOSITÓRIOS (anal/vaginal): maioria dos estudiosos diz que NÃO invalidam; 5) INALAÇÃO/ spray para asma: se chegar à garganta com sabor/sensação, há divergência — melhor evitar ou consultar sheikh; 6) COMPRIMIDOS engolidos: SIM, invalidam (entram pelo canal digestivo). Quem precisa de medicamentos contínuos para sobreviver está isento e faz Qada/Fidyah. Quer saber mais sobre: isenções, Qada, ou o que invalida?",
+      "fonte": "Fiqh dos 4 madhahib; Resolução do Conselho de Fiqh Islâmico",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Avancado",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["fumar", "cigarro", "vape", "narguile", "tabaco", "maconha", "jejum"],
+      "pergunta_usuario": "Fumar invalida o jejum?",
+      "resposta": "SIM, fumar (cigarro, narguile, vape, cigarro eletrônico) invalida o jejum. O fumo entra no corpo como substância ingerida/injetada e é prejudicial à saúde — algo que o Islam proíbe. O Profeta disse: 'Não causem dano nem sejam danificados.' (Ibn Majah). Além disso, o fumo deixa resíduos na garganta que são deglutidos. Quem fuma durante o jejum deve: 1) Parar imediatamente; 2) Pedir perdão a Allah; 3) Fazer Qada (compensar o dia); 4) Se quebrou intencionalmente sem desculpa, também Kaffarah (60 dias ou alimentar 60 pobres). O Islam encoraja a cessação do tabaco, especialmente no Ramadan. Quer saber mais sobre: Kaffarah, Qada, ou como parar de fumar?",
+      "fonte": "Hadith Ibn Majah 2341; Resolução do Conselho de Fiqh Islâmico",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["masturbacao", "manipulacao", "tocar-se", "jejum", "sexo solo"],
+      "pergunta_usuario": "Masturbação invalida o jejum?",
+      "resposta": "SIM, a masturbação (Istimna') invalida o jejum. É considerada ejaculação intencional, que quebra o jejum segundo consenso dos estudiosos. O Profeta Muhammad (PBUH) disse: 'Allah não aceita a oração de quem comeu alho, cebola ou alho-porro até que o cheiro desapareça, nem de quem manejou esperma com a mão até que lave.' (Sahih Muslim). Quem praticar masturbação em jejum deve: 1) Parar imediatamente e pedir perdão sincero a Allah (Tawbah); 2) Fazer Ghusl (banho ritual) antes da próxima oração; 3) Compensar o dia (Qada); 4) Se foi intencional sem desculpa, também Kaffarah (60 dias ou alimentar 60 pobres). Recomenda-se jejum dos olhos (evitar olhares proibidos), jejum da língua e ocupar-se com Dhikr e Alcorão. Quer saber mais sobre: Tawbah, Kaffarah, ou controle da concupiscência?",
+      "fonte": "Sahih Muslim 558; Fiqh dos 4 madhahib",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["mentira", "falsidade", "calunia", "fofoca", "gossip", "palavra ruim", "jejum espiritual"],
+      "pergunta_usuario": "Mentir ou fofocar invalida o jejum?",
+      "resposta": "Mentir, fofocar (Ghibah), caluniar (Buhtan) e usar palavras obscenas NÃO invalidam o jejum fisicamente (o dia ainda conta como cumprido), mas DESTROEM a recompensa espiritual. O Profeta Muhammad (PBUH) disse: 'Quem não abandona a falsidade em palavras e ações, Allah não necessita que abandone a comida e a bebida.' (Sahih al-Bukhari). O jejum é escudo — se alguém insultar ou provocar quem jejua, diga: 'Estou em jejum, estou em jejum.' (Sahih al-Bukhari). O jejum completo envolve: olhos (não olhar proibido), ouvidos (não ouvir música/fofoca), língua (não mentir/insultar), mãos (não bater/roubar), pés (não ir a lugares proibidos). Quer saber mais sobre: Dhikr, controle da língua, ou recompensas do jejum?",
+      "fonte": "Sahih al-Bukhari 1903; Sahih Muslim 1151",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["recompensa", "premio", "ajr", "sawab", "beneficio jejum", "paraíso", "porta rayyan"],
+      "pergunta_usuario": "Quais as recompensas do jejum?",
+      "resposta": "O jejum tem recompensas únicas no Islam: 1) PORTA DE RAYYAN: No Dia do Juízo, haverá uma porta do Paraíso chamada Rayyan exclusiva para quem jejuou. O Profeta disse: 'No Paraíso há uma porta chamada Rayyan, por onde entrarão os jejuantes no Dia da Ressurreição. Ninguém mais entrará por ela.' (Sahih al-Bukhari); 2) PERDÃO DOS PECADOS: 'Quem jejuar em Ramadan com fé e esperando recompensa, terá seus pecados anteriores perdoados.' (Sahih al-Bukhari); 3) DUPLA RECOMPENSA: Allah disse: 'Toda ação do filho de Adão é multiplicada... exceto o jejum, que é para Mim e Eu recompenso.' (Sahih al-Bukhari); 4) SAÚDE FÍSICA E ESPIRITUAL: Autodisciplina, empatia pelos pobres, controle dos desejos, fortalecimento da vontade; 5) ACEITAÇÃO DAS ORAÇÕES: O jejum e o Alcorão intercedem pelo servo no Dia do Juízo. Quer saber mais sobre: Ramadan, Laylat al-Qadr, ou como maximizar recompensas?",
+      "fonte": "Sahih al-Bukhari 1896-1904; Sahih Muslim 1151",
+      "categoria": "Aqeedah - Recompensas",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["duvida", "nao sei se quebrei", "esqueci", "dúvida jejum", "incerteza", "o que fazer"],
+      "pergunta_usuario": "Tenho dúvida se quebrei o jejum, o que fazer?",
+      "resposta": "Regras para dúvidas no jejum: 1) ESQUECIMENTO: Se comeu/bebeu POR ESQUECIMENTO e lembrou depois, o jejum é VÁLIDO. Complete o dia normalmente. O Profeta disse: 'Se alguém comer ou beber por esquecimento, complete o jejum, pois foi Allah quem o alimentou/bebeu.' (Sahih al-Bukhari); 2) DÚVIDA ANTES DE COMER: Se não tem certeza se já amanheceu (Fajr) ou se já pôs do sol (Maghrib), PODE comer/beber por precaução até ter certeza absoluta; 3) DÚVIDA DEPOIS DE COMER: Se comeu achando que já era Maghrib e depois descobriu que ainda era dia, o jejum é INVÁLIDO — compensa (Qada); 4) DÚVIDA SE ENGOLIU ALGO: Se não tem certeza se engoliu pasta/resíduo, presume-se que NÃO engoliu e o jejum permanece válido. O princípio fiqh é: 'A certeza não é anulada pela dúvida.' Quer saber mais sobre: Qada, o que invalida, ou regras gerais?",
+      "fonte": "Sahih al-Bukhari 6669; Qawaid al-Fiqh",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["viajante", "viagem", "musalaf", "safar", "jejum viagem", "distante"],
+      "pergunta_usuario": "Posso não jejuar se estiver viajando?",
+      "resposta": "SIM, o viajante em jornada legítima (mais de 80km/48 milhas de distância, fora da cidade) tem PERMISSÃO de não jejuar e compensar depois (Qada). Allah diz: 'Se estiverdes doentes ou em viagem, completei o número em outros dias.' (Alcorão 2:184). Regras: 1) NÃO é obrigatório quebrar o jejum — pode jejuar se preferir e não sentir dificuldade; 2) Se a viagem é curta (menos de 80km) ou dentro da cidade, NÃO está isento; 3) Se a viagem é para pecar (ex: ir a casino), NÃO há isenção; 4) Deve fazer Qada (compensar) antes do próximo Ramadan; 5) Piloto, motorista, trabalhador de longa distância: se a distância é >80km e a jornada é contínua, aplica-se a isenção. O Profeta jejuava e quebrava em viagem, mostrando flexibilidade. Quer saber mais sobre: Qada, isenções, ou regras do trabalho?",
+      "fonte": "Alcorão 2:184; Sahih al-Bukhari 1944; Sahih Muslim 1117",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["trabalho", "emprego", "fome", "sede", "dificuldade", "operario", "construcao", "jejum trabalho"],
+      "pergunta_usuario": "Trabalho pesado invalida o jejum?",
+      "resposta": "Trabalho pesado NÃO isenta do jejum, mas se causar dano real à saúde (desmaio, doença grave, impossibilidade de trabalhar), pode quebrar e compensar depois (Qada). Regras: 1) DIFICULDADE NORMAL: Fome, sede, cansaço são esperados no jejum — não são desculpas para quebrar. O Profeta trabalhava e jejuava normalmente; 2) RISCO À SAÚDE: Se o médico atesta que o jejum + trabalho causará dano permanente, está isento e faz Qada; 3) AJUSTE DE HORÁRIO: Tente negociar horário flexível, pausas para descanso, trabalho noturno; 4) SUHOOR FORTE: Tome Suhoor com proteínas, frutas e muita água; 5) IFTAR IMEDIATO: Quebre imediatamente no Maghrib — não espere. Se o trabalho é temporariamente insuportável, pode quebrar o jejum, fazer Qada em outro dia, e pedir perdão a Allah. Quer saber mais sobre: Suhoor, isenções, ou Qada?",
+      "fonte": "Alcorão 2:185; Fiqh dos 4 madhahib",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["crianca", "criancas", "menor", "adolescente", "puberdade", "ensinar jejum", "crianca jejuar"],
+      "pergunta_usuario": "Crianças devem jejuar?",
+      "resposta": "Crianças MENORES de idade (antes da puberdade) NÃO são obrigadas a jejuar, mas é encorajado treiná-las gradualmente para se prepararem. Etapas de ensino: 1) IDADE 6-8: Explicar o conceito, jejuar meio dia ou pular uma refeição por semana; 2) IDADE 9-11: Jejuar fins de semana ou metade do Ramadan, com supervisão; 3) IDADE 12+: Tentar jejuar o Ramadan completo se fisicamente capaz; 4) PUBERDADE: A partir da puberdade (menstruação para meninas, esperma/voz grossa/barba para meninos), o jejum torna-se FARD (obrigatório). O Profeta disse: 'Ordenai as crianças a orar aos 7 anos, e batei-lhes (levemente) se deixarem aos 10.' (Abu Dawud). Mesma lógica para o jejum — ensinar gradualmente. NUNCA force uma criança além de sua capacidade física. Quer saber mais sobre: puberdade, regras gerais, ou como ensinar Islam às crianças?",
+      "fonte": "Abu Dawud 495; Fiqh dos 4 madhahib",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["sangue", "acidente", "corte", "nosebleed", "sangramento", "dente sangrando", "jejum sangue"],
+      "pergunta_usuario": "Sangramento acidental invalida o jejum?",
+      "resposta": "NÃO. Sangramento acidental (corte, hemorragia nasal, sangramento gengival, ferida) NÃO invalida o jejum. O jejum é quebrado apenas por sangue uterino (menstruação/Nifas). Regras: 1) SANGUE ACIDENTAL: Continue o jejum normalmente, faça Wudu se necessário para oração; 2) SANGUE GINGIVAL: Se engolir sem querer, não invalida; se engolir intencionalmente, invalida; 3) DOAÇÃO DE SANGUE: Maioria dos estudiosos diz que NÃO invalida, mas é desencorajada em jejum por fraqueza; 4) EXAME DE SANGUE: Tirar sangue para exame NÃO invalida o jejum; 5) CUPPING (Hijama): Divergência entre estudiosos — Hanafis dizem que invalida, Malikis/Shafi'is/Hanbalis dizem que não. Por precaução, evite cupping em jejum. Quer saber mais sobre: o que invalida, Wudu, ou regras médicas?",
+      "fonte": "Sahih al-Bukhari 1933; Fiqh dos 4 madhahib",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["vomito", "vomitar", "enjoo", "nausea", "vomito involuntario", "vomito intencional"],
+      "pergunta_usuario": "Vômito invalida o jejum?",
+      "resposta": "Depende da intenção: 1) VÔMITO INVOLUNTÁRIO (enjoo, doença, refluxo, cheiro forte): NÃO invalida o jejum. Continue normalmente. O Profeta disse: 'Quem vomitar involuntariamente não precisa compensar, mas quem vomitar intencionalmente deve compensar.' (Abu Dawud); 2) VÔMITO INTENCIONAL (induzir vômito com dedo na garganta, medicamento para vomitar): INVALIDA o jejum — deve fazer Qada; 3) VÔMITO MISTO: Se sentir náusea e 'deixar sair' sem forçar, é considerado involuntário; 4) ENGOLIR VÔMITO: Se vomitou na boca e engoliu de volta intencionalmente, invalida; se engoliu sem querer, não invalida. Recomendação: se sentir náusea, tente segurar ou cuspa fora. Não force o vômito. Quer saber mais sobre: Qada, doença, ou o que invalida?",
+      "fonte": "Abu Dawud 2380; Tirmidhi 720; Fiqh dos 4 madhahib",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["seco", "swallow", "saliva", "cuspe", "muco", "engolir", "garganta", "jejum"],
+      "pergunta_usuario": "Engolir saliva ou muco invalida o jejum?",
+      "resposta": "NÃO. Engolir saliva própria (Saliva), muco nasal, ou catarro natural NÃO invalida o jejum. Isso é algo natural e inevitável do corpo humano. Regras: 1) SALIVA PRÓPRIA: Engolir saliva é natural e permitido — o Profeta engolia saliva em jejum; 2) MUCO/CATARRO: Se vem da garganta/nariz naturalmente, pode engolir; 3) MUCO EXTERNO: Se tirou muco do nariz/garganta e depois engoliu de volta, há divergência — melhor cuspir fora; 4) SANGUE NA SALIVA: Se há sangue gengival e a saliva está tingida, evite engolir em grande quantidade; 5) ÁGUA EM BANHO/WUDU: Se entrou água na boca durante Wudu e engoliu sem querer, não invalida; se engoliu intencionalmente, invalida. O princípio é: o que é natural e involuntário do corpo não quebra o jejum. Quer saber mais sobre: Wudu, o que invalida, ou regras gerais?",
+      "fonte": "Fiqh dos 4 madhahib; Reliance of the Traveller",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["wudu", "ablucao", "banho", "ghusl", "agua boca", "agua nariz", "jejum wudu"],
+      "pergunta_usuario": "Fazer Wudu ou Ghusl invalida o jejum?",
+      "resposta": "NÃO. Fazer Wudu (ablusão) ou Ghusl (banho ritual completo) NÃO invalida o jejum — são atos de purificação recomendados e necessários. Regras: 1) WUDU NORMAL: Enxaguar boca e nariz em Wudu é permitido, desde que NÃO engula água intencionalmente; 2) GHUSL: Banho completo é permitido e recomendado, especialmente sexta-feira e para Jumu'ah; 3) ÁGUA NA BOCA: Se entrar água na boca durante Wudu/Ghusl e engolir SEM QUERER, não invalida; se engolir INTENCIONALMENTE, invalida; 4) EXAGERO: Não exagere no enxágue da boca/nariz em jejum — faça o mínimo necessário para validade do Wudu; 5) WUDU COM ÁGUA FRIA: Recomendável em jejum para refrescar. O Profeta fazia Wudu e Ghusl normalmente em jejum. Quer saber mais sobre: Wudu, Ghusl, ou o que invalida?",
+      "fonte": "Sahih al-Bukhari 1933; Sahih Muslim 1111; Fiqh dos 4 madhahib",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["sono", "dormir", "cochilo", "jejum dormir", "jejum dia todo", "dormir tarde"],
+      "pergunta_usuario": "Posso dormir durante o jejum?",
+      "resposta": "SIM, pode e deve dormir durante o jejum. Dormir é natural e não afeta a validade do jejum. Na verdade, o Profeta Muhammad (PBUH) recomendava cochilar durante o dia em Ramadan para facilitar a vigília noturna (Qiyam/Taraweeh). Regras: 1) DORMIR DE DIA: Totalmente permitido e recomendado, especialmente para quem trabalha à noite ou reza Taraweeh; 2) DORMIR SEM SUHOOR: Se dormiu e perdeu Suhoor, o jejum continua válido desde que fez Niyyah antes; 3) DORMIR ATÉ MAGHRIB: Pode dormir a tarde toda e acordar para Iftar — o jejum é válido; 4) SONHO MOLHADO: Se ocorrer durante o sono, não invalida o jejum (veja tópico específico). Aproveite o sono para descansar o corpo e fortalecer-se para adoração noturna. Quer saber mais sobre: Suhoor, Taraweeh, ou sonho molhado?",
+      "fonte": "Sahih al-Bukhari 1145; Sahih Muslim 1174",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["namoro", "relacionamento", "beijo", "abraço", "carinho", "esposa", "marido", "conjuge", "jejum casal"],
+      "pergunta_usuario": "Posso ter contato físico com meu cônjuge em jejum?",
+      "resposta": "Contato físico leve (beijo, abraço, carinho) entre cônjuges é PERMITIDO em jejum, desde que NÃO leve a ejaculação ou relação completa. O Profeta Muhammad (PBUH) beijava suas esposas em jejum. Regras: 1) BEIJO/ABRAÇO: Permitido se há controle dos desejos; 2) TOQUE COM DESEJO: Se há medo de perder controle e ejacular ou ter relação, é proibido (Makruh) por precaução; 3) RELAÇÃO COMPLETA: PROIBIDA e INVALIDA o jejum — deve fazer Qada + Kaffarah (60 dias ou alimentar 60 pobres); 4) EJACULAÇÃO SEM RELAÇÃO: Se ocorrer por toque/beijo intenso, invalida o jejum (Qada obrigatório, Kaffarah se intencional); 5) JOVENS RECÉM-CASADOS: Recomenda-se evitar contato intenso em jejum por precaução. Quer saber mais sobre: Kaffarah, Qada, ou controle da concupiscência?",
+      "fonte": "Sahih al-Bukhari 1927; Sahih Muslim 1106; Fiqh dos 4 madhahib",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["orelha", "ouvido", "agua ouvido", "cera", "limpar ouvido", "jejum ouvido"],
+      "pergunta_usuario": "Água no ouvido ou limpar cera invalida o jejum?",
+      "resposta": "NÃO. Água entrar no ouvido durante Wudu/Ghusl ou limpar cera do ouvido NÃO invalida o jejum. O canal auditivo não é considerado entrada para o canal digestivo no Fiqh. Regras: 1) ÁGUA NO OUVIDO: Durante Wudu, se água entrar no ouvido, não invalida o jejum; 2) COTONETE/CERA: Limpar o ouvido com cotonete ou remover cera é permitido; 3) GOTAS MEDICINAIS: Gotas no ouvido não invalidam o jejum (canal separado); 4) PERFURAÇÃO NO TÍMPANO: Se há perfuração no tímpano e gotas alcançam a garganta, há divergência — consulte um estudioso local. De forma geral, o ouvido é tratado como canal externo e não afeta o jejum. Quer saber mais sobre: Wudu, medicamentos, ou o que invalida?",
+      "fonte": "Fiqh dos 4 madhahib; Reliance of the Traveller",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["unha", "cabelo", "barba", "cortar", "depilar", "higiene", "banho", "jejum corte"],
+      "pergunta_usuario": "Posso cortar cabelo, unhas ou barba em jejum?",
+      "resposta": "SIM, pode cortar cabelo, unhas, barba, depilar, fazer higiene pessoal completa em jejum. Nada disso invalida o jejum. Regras: 1) CORTAR UNHAS/CABELO: Totalmente permitido e não afeta o jejum; 2) BARBA/CABELO: Cortar ou aparar é permitido — não há relação com validade do jejum; 3) DEPILAÇÃO: Remover pelos do corpo é permitido; 4) BANHO/GHUSL: Banho é recomendado e não invalida; 5) PERFUME: Usar perfume é permitido em jejum, desde que não seja inalado de forma excessiva que chegue à garganta. Mito comum: 'não cortar unhas/cabelo nos últimos 10 dias de Ramadan' — isso é recomendação para quem faz I'tikaf, não regra geral do jejum. Quer saber mais sobre: Ghusl, higiene em jejum, ou I'tikaf?",
+      "fonte": "Fiqh dos 4 madhahib; Sahih al-Bukhari",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["perfume", "incenso", "cheiro", "aroma", "oud", "musk", "jejum perfume"],
+      "pergunta_usuario": "Usar perfume ou incenso invalida o jejum?",
+      "resposta": "Usar perfume no CORPO (pele, roupa) NÃO invalida o jejum. Inalar INCENSO/fumaça de forma intencional e excessiva que chegue à garganta pode invalidar segundo alguns estudiosos. Regras: 1) PERFUME NA PELE/ROUPA: Totalmente permitido — o Profeta usava perfume e incentivava em Ramadan e sextas-feiras; 2) DESODORANTE/ANTITRANSPIRANTE: Permitido; 3) INCENSO/BAKHOUR: Inalar fumaça intencionalmente e em grande quantidade é Makruh (desencorajado) e alguns estudiosos dizem que invalida se a fumaça é 'engolida' intencionalmente; 4) CIGARRO/VAPE: INVALIDA (veja tópico específico); 5) ARSENAL DE COZINHA: Cheirar comida não invalida, mas inalar vapor intencionalmente em grande quantidade é desencorajado. Use perfume moderadamente e evite inalar fumaça de qualquer tipo. Quer saber mais sobre: o que invalida, higiene, ou regras gerais?",
+      "fonte": "Sahih al-Bukhari 886; Fiqh dos 4 madhahib",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["esporte", "exercicio", "ginastica", "futebol", "musculacao", "treino", "jejum exercicio"],
+      "pergunta_usuario": "Posso fazer exercício físico em jejum?",
+      "resposta": "SIM, pode fazer exercício moderado em jejum. Exercício intenso que cause desmaio, desidratação grave ou risco à saúde deve ser evitado ou ajustado. Regras: 1) EXERCÍCIO MODERADO: Caminhada, ioga leve, alongamento — totalmente permitido e benéfico; 2) EXERCÍCIO INTENSO: Musculação pesada, futebol, corrida longa — permitido se o corpo aguenta, mas hidrate-se bem em Iftar e Suhoor; 3) RISCO À SAÚDE: Se o médico proibiu ou você sente tonturas, desmaio, dor de cabeça intensa — PARE e consulte; 4) HORÁRIO: Melhor após Maghrib (Iftar) ou antes de Suhoor; 5) DESIDRATAÇÃO: Beba MUITA água entre Maghrib e Fajr. Se o exercício tornar o jejum perigoso para sua saúde, está isento e faz Qada depois. Quer saber mais sobre: Suhoor, Iftar, ou isenções médicas?",
+      "fonte": "Fiqh dos 4 madhahib; orientações médicas islâmicas",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["nadando", "piscina", "mar", "agua boca", "mergulho", "banho", "jejum nadar"],
+      "pergunta_usuario": "Posso nadar ou mergulhar em jejum?",
+      "resposta": "SIM, pode nadar em jejum, mas com cuidado para NÃO engolir água intencionalmente. Mergulho repetido que leva água à garganta pode invalidar. Regras: 1) NATAÇÃO SUPERFICIAL: Nadar de cabeça fora d'água, sem engolir — permitido; 2) MERGULHO: Mergulhar de cabeça pode levar água ao nariz/boca — se engolir intencionalmente, invalida; se entrar sem querer, não invalida; 3) WUDU ANTES: Faça Wudu antes de nadar para manter pureza; 4) RISCO: Se a água é imprópria (suja, mar poluído), evite engolir; 5) PÓS-NATAÇÃO: Tome Ghusl se necessário antes de oração. Recomendação: nade moderadamente e evite mergulhos profundos repetidos. Se engolir água sem querer, o jejum continua válido. Quer saber mais sobre: Wudu, Ghusl, ou o que invalida?",
+      "fonte": "Fiqh dos 4 madhahib; Reliance of the Traveller",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Intermediario",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["acidental", "engoli", "sem querer", "esqueci", "gato", "inseto", "poeira", "jejum acidente"],
+      "pergunta_usuario": "Engoli algo sem querer, o jejum continua válido?",
+      "resposta": "SIM, se engoliu algo SEM QUERER (por esquecimento, acidente, poeira, inseto que entrou na boca, fumo de passagem), o jejum continua VÁLIDO. Allah é Misericordioso e não castiga o involuntário. Regras: 1) ESQUECIMENTO: Comer/beber por esquecimento — jejum válido, complete o dia. O Profeta disse: 'Se alguém comer ou beber por esquecimento, complete o jejum, pois foi Allah quem o alimentou.' (Sahih al-Bukhari); 2) POEIRA/FUMO AMBIENTAL: Entrar na boca/nariz sem intenção — não invalida; 3) INSETO NA BOCA: Se engoliu sem perceber, não invalida; se viu e engoliu intencionalmente, invalida; 4) RESÍDUO DE PASTA/ESCOVA: Se engoliu sem querer, não invalida; 5) SANGUE NA BOCA: Se engoliu sangue gengival sem querer, não invalida. O princípio é: 'A certeza não é anulada pela dúvida' e 'Allah perdoou o meu povo por erros, esquecimentos e coações.' Quer saber mais sobre: dúvidas, o que invalida, ou regras gerais?",
+      "fonte": "Sahih al-Bukhari 6669; Sahih Muslim 681; Qawaid al-Fiqh",
+      "categoria": "Fiqh - Jejum",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    },
+    {
+      "palavras_chave": ["zakat al fitr", "sadaqat al fitr", "fitrana", "caridade fim ramadan", "doacao eid", "quanto pagar fitr"],
+      "pergunta_usuario": "O que é Zakat al-Fitr?",
+      "resposta": "Zakat al-Fitr (ou Sadaqat al-Fitr) é a caridade obrigatória paga por TODO muçulmano (rico ou pobre) ao final do Ramadan, antes da oração do Eid al-Fitr. Serve para purificar o jejum de palavrões/erros e ajudar os pobres a celebrarem o Eid. Regras: 1) QUEM PAGA: Todo muçulmano com comida extra do dia-a-dia; o pai paga para dependentes (esposa, filhos, empregados); 2) QUANTO: Aproximadamente 2,5kg (meio Saa') de alimento básico (trigo, arroz, tâmaras, cevada, etc.) por pessoa; 3) QUANDO: Idealmente 1-2 dias antes do Eid, mas pode ser no próprio dia antes da oração do Eid. Depois da oração do Eid é considerado Sadaqah comum, não Zakat al-Fitr; 4) PARA QUEM: Pobres e necessitados da comunidade; 5) VALOR EM DINHEIRO: Permissível segundo maioria dos estudiosos modernos, desde que converta em alimento. Quer saber mais sobre: Eid al-Fitr, caridade, ou outros tipos de Zakat?",
+      "fonte": "Sahih al-Bukhari 1503; Sahih Muslim 984; Abu Dawud 1609",
+      "categoria": "Fiqh - Ramadan",
+      "nivel": "Iniciante",
+      "links": ["https://Facebook.com/Islamguia"]
+    }
 ]
