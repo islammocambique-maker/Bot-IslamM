@@ -1,30 +1,30 @@
 [
   {
-    "palavras_chave": ["reverter", "conversao", "islam", "shahada", "Shahaddat" Shahadat"converter"],
-    "resposta": "Para reverteres ao Islam, pronuncia a Shahada: 'Não há deus digno de adoração senão Allah, e Muhammad é o Mensageiro de Allah.' Toma banho (Ghusl) e começa a praticar os 5 pilares.",
+    "palavras_chave": ["reverter", "conversao", "islam", "shahada", "Shahaddat", "Shahadat", "segundo kalimah", "converter"],
+    "resposta": "Para reverteres ao Islam, pronuncia a Shahada ( o segundo kalimah): 'Não há deus digno de adoração senão Allah, e Muhammad é o Mensageiro de Allah.' Toma banho (Ghusl) e começa a praticar os 5 pilares. para saber sobre o terceiro kalimah, escreva *terceiro kalimah*",
     "fonte": "Alcorão e Sunnah",
     "categoria": "Conversão",
     "nivel": "iniciante",
     "links": ["https://www.facebook.com/islamguia"]
   },
   {
-    "palavras_chave": ["kalimah", "kalima", "declarações", "fé"],
+    "palavras_chave": ["kalimah", "kalima", "declarações", "declaração de fe", "fé"],
     "resposta": "Os Kalimah são as 6 declarações fundamentais da fé islâmica em árabe: Tayyibah, Shahadat, Tamjeed, Tawhid, Istighfar e Radd-e-Kufr.",
     "fonte": "Tradição islâmica",
     "categoria": "Crenças",
     "nivel": "iniciante",
-    "links": [""]
+    "links": ["https://www.facebook.com/islamguia"]
   },
   {
-    "palavras_chave": ["muhammad", "profeta", "mensageiro"],
-    "resposta": "Muhammad (PBUH) foi o último Profeta de Allah, nascido em Makkah por volta de 570 d.C. Recebeu o Alcorão e ensinou a adoração de um único Deus.",
+    "palavras_chave": ["muhammad", "mahomed", "mahomede", "maomé", "muhamad", "muhamed", "profeta", "mensageiro"],
+    "resposta": "Muhammad (PBUH) foi o último Profeta de Allah, nascido em Makkah por volta de 570 d.C. Recebeu o Alcorão e ensinou a adoração de um único Deus. para saber sobre o Alcorão, basta perguntar, estou aqui para ajudar...😊",
     "fonte": "Alcorão e Sunnah",
     "categoria": "Profetas",
     "nivel": "iniciante",
     "links": ["https://www.biography.com/religious-figure/muhammad"]
   },
   {
-    "palavras_chave": ["alcorão", "livro sagrado", "quran"],
+    "palavras_chave": ["alcorão", "livro sagrado", "Corão", "alcorao", "quran"],
     "resposta": "O Alcorão é a palavra literal de Allah revelada a Muhammad. Contém 114 Suras, aborda fé, lei, moralidade e história de profetas. É preservado em árabe original.",
     "fonte": "Alcorão",
     "categoria": "Escrituras",
@@ -32,8 +32,8 @@
     "links": ["https://quran.com/"]
   },
   {
-    "palavras_chave": ["muçulmanos", "quem são", "seguidores"],
-    "resposta": "Muçulmanos são seguidores do Islam que se submetem à vontade de Allah. Crêem em Allah, Muhammad e praticam os 5 pilares. São ~1.9 bilhões no mundo.",
+    "palavras_chave": ["muçulmanos", "muculmano", "quem são", "seguidores"],
+    "resposta": "Muçulmanos são seguidores do Islam que se submetem à vontade de Allah. Crêem em Allah, Muhammad e praticam os 5 pilares. São ~2 bilhões no mundo. para saber mais sobre os 5 pilares, basta perguntar estou aqui para ajudar...😊",
     "fonte": "Definição islâmica",
     "categoria": "Identidade",
     "nivel": "iniciante",
