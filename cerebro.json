@@ -846,5 +846,166 @@
     "categoria": "Fiqh - Jejum",
     "nivel": "Avancado",
     "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["sunnah", "sunnat","significado de sunnah", "definição de sunnah", "o que e sunnah", "o que é sunnat", "o que é sunnah"],
+    "resposta": "📖 Sunnah (السنة)\n🔹 Transliteração: Sunnah\n🔹 Significado: Caminho e tradição do Profeta ﷺ.\n🔹 Explicação: Inclui palavras, ações e aprovações do Profeta Muhammad ﷺ.",
+    "fonte": "Sahih Bukhari 7280",
+    "categoria": "sunnah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["hadith", "hadice", "significado de hadith", "definição de hadith", "o que é hadith"],
+    "resposta": "📖 Hadith (الحديث)\n🔹 Transliteração: Hadith\n🔹 Significado: Narração.\n🔹 Explicação: Relatos sobre palavras, ações e aprovações do Profeta ﷺ.",
+    "fonte": "Introdução de Sahih Muslim",
+    "categoria": "conhecimento",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["fiqh", "significado de fiqh", "definição de fiqh", "jurisprudencia islamica"],
+    "resposta": "📖 Fiqh (الفقه)\n🔹 Transliteração: Fiqh\n🔹 Significado: Compreensão profunda.\n🔹 Explicação: Ciência da jurisprudência islâmica.",
+    "fonte": "Sahih Bukhari 71",
+    "categoria": "conhecimento",
+    "nivel": "intermediario",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["taqwa", "significado de taqwa", "temor de allah", "definição de taqwa"],
+    "resposta": "📖 Taqwa (التقوى)\n🔹 Transliteração: Taqwa\n🔹 Significado: Temor e consciência de Allah.\n🔹 Explicação: Proteger-se do pecado obedecendo Allah.",
+    "fonte": "Alcorão 2:197",
+    "categoria": "espiritualidade",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["sabr", "significado de sabr", "paciencia no islam", "definição de sabr"],
+    "resposta": "📖 Sabr (الصبر)\n🔹 Transliteração: Sabr\n🔹 Significado: Paciência.\n🔹 Explicação: Permanecer firme na obediência e suportar dificuldades.",
+    "fonte": "Alcorão 2:153",
+    "categoria": "carater",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["ikhlas", "significado de ikhlas", "sinceridade", "definição de ikhlas"],
+    "resposta": "📖 Ikhlas (الإخلاص)\n🔹 Transliteração: Ikhlas\n🔹 Significado: Sinceridade.\n🔹 Explicação: Fazer atos apenas pela causa de Allah.",
+    "fonte": "Sahih Bukhari 1",
+    "categoria": "espiritualidade",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["dua", "duã", "duá" "duaa", "significado de dua", "suplicar a allah"],
+    "resposta": "📖 دعاء\n🔹 Transliteração: Du'a\n🔹 Significado: Súplica.\n🔹 Explicação: Invocar Allah pedindo ajuda, perdão ou bênçãos.",
+    "fonte": "Sunan At-Tirmidhi 3371",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["dhikr", "zikr", "significado de dhikr", "recordacao de allah", "definição de dhikr"],
+    "resposta": "📖 ذكر\n🔹 Transliteração: Dhikr\n🔹 Significado: Recordação de Allah.\n🔹 Explicação: Mencionar Allah através de frases e glorificações.",
+    "fonte": "Alcorão 13:28",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["halal", "hallal", "significado de halal", "permitido no islam", "definição de halal"],
+    "resposta": "📖 حلال\n🔹 Transliteração: Halal\n🔹 Significado: Permitido.\n🔹 Explicação: Tudo aquilo permitido pela Shariah.",
+    "fonte": "Alcorão 2:168",
+    "categoria": "fiqh",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["haram", "significado de haram", "proibido no islam", "definição de haram"],
+    "resposta": "📖 حرام\n🔹 Transliteração: Haram\n🔹 Significado: Proibido.\n🔹 Explicação: Tudo aquilo proibido pela Shariah.",
+    "fonte": "Alcorão 7:33",
+    "categoria": "fiqh",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["barakah", "baraka", "significado de barakah", "bencao", "definição de barakah"],
+    "resposta": "📖 بركة\n🔹 Transliteração: Barakah\n🔹 Significado: Bênção.\n🔹 Explicação: Bem abundante concedido por Allah.",
+    "fonte": "Alcorão 7:96",
+    "categoria": "espiritualidade",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["rizq", "rizk", "significado de rizq", "sustento", "definição de rizq"],
+    "resposta": "📖 رزق\n🔹 Transliteração: Rizq\n🔹 Significado: Sustento.\n🔹 Explicação: Toda provisão concedida por Allah.",
+    "fonte": "Alcorão 11:6",
+    "categoria": "aqidah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["ummah", "ummat", "significado de ummah", "comunidade islamica", "definição de ummah"],
+    "resposta": "📖 أمة\n🔹 Transliteração: Ummah\n🔹 Significado: Comunidade.\n🔹 Explicação: A comunidade dos muçulmanos.",
+    "fonte": "Alcorão 21:92",
+    "categoria": "sociedade",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["akhirah", "akhirat", "significado de akhirah", "vida futura", "definição de akhirah"],
+    "resposta": "📖 الآخرة\n🔹 Transliteração: Akhirah\n🔹 Significado: Vida futura.\n🔹 Explicação: A vida após a morte.",
+    "fonte": "Alcorão 87:16-17",
+    "categoria": "aqidah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["jannah", "jannat", "significado de jannah", "paraiso", "definição de jannah"],
+    "resposta": "📖 الجنة\n🔹 Transliteração: Jannah\n🔹 Significado: Paraíso.\n🔹 Explicação: Morada eterna dos crentes obedientes.",
+    "fonte": "Alcorão 3:133",
+    "categoria": "akhirah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["jahannam", "jahanamo", "significado de jahannam", "inferno", "definição de jahannam"],
+    "resposta": "📖 جهنم\n🔹 Transliteração: Jahannam\n🔹 Significado: Inferno.\n🔹 Explicação: Lugar de punição para os descrentes e pecadores.",
+    "fonte": "Alcorão 4:56",
+    "categoria": "akhirah",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["qadr", "significado de qadr", "decreto divino", "definição de qadr"],
+    "resposta": "📖 القدر\n🔹 Transliteração: Qadr\n🔹 Significado: Decreto divino.\n🔹 Explicação: Tudo ocorre pela vontade e conhecimento de Allah.",
+    "fonte": "Sahih Muslim 8",
+    "categoria": "aqidah",
+    "nivel": "intermediario",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["wudu", "wuzu", "significado de wudu", "ablucao", "purificacao islamica"],
+    "resposta": "📖 وضوء\n🔹 Transliteração: Wudu\n🔹 Significado: Ablução.\n🔹 Explicação: Purificação feita antes da oração.",
+    "fonte": "Alcorão 5:6",
+    "categoria": "purificacao",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["ghusl", "significado de ghusl", "banho ritual", "purificacao maior"],
+    "resposta": "📖 غسل\n🔹 Transliteração: Ghusl\n🔹 Significado: Banho ritual.\n🔹 Explicação: Purificação completa obrigatória em certas situações.",
+    "fonte": "Sahih Bukhari 248",
+    "categoria": "purificacao",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["adhan", "azan" "significado de adhan", "chamado para oracao", "definição de adhan"],
+    "resposta": "📖 أذان\n🔹 Transliteração: Adhan\n🔹 Significado: Chamado para oração.\n🔹 Explicação: Convocação anunciando o horário da Salah.",
+    "fonte": "Sahih Bukhari 604",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": ["https://Facebook.com/Islamguia"]
   }
 ]
+
