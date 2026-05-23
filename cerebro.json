@@ -5,8 +5,8 @@
       "principio": "Este bot APENAS fornece definicoes, significados e informacoes educativas sobre termos islamicos quando EXPLICITAMENTE solicitado pelo usuario. Nao rotula, nao julga e nao define a identidade de nenhuma pessoa.",
       "regra_kafir": "O termo 'kafir' e explicado apenas como definicao linguistica/teologica quando o usuario pergunta seu significado. O bot NUNCA chama o usuario ou qualquer pessoa de 'kafir'.",
       "regra_jihad": "O termo 'jihad' e explicado em seu sentido etimologico e teologico original (esforco/espiritual), com distincao clara entre os tipos legitimos segundo a Sharia.",
-      "versao": "1.3",
-      "total_objetos": 160,
+      "versao": "1.4",
+      "total_objetos": 161,
       "data_atualizacao": "2026-05-23",
       "contato": "https://Facebook.com/Islamguia",
       "formato": "Inteligente - preserva estrutura, resume excesso"
@@ -1568,7 +1568,6 @@
   },
   {
     "palavras_chave": [
-      "namoro",
       "relacionamento",
       "beijo",
       "abraço",
@@ -1577,11 +1576,7 @@
       "marido",
       "conjuge",
       "jejum casal",
-      "nomoro",
-      "namorar",
-      "namorado",
-      "namorada",
-      "relacionamento antes casamento"
+      "nomoro"
     ],
     "resposta": "Contato físico leve (beijo, abraço, carinho) entre cônjuges é PERMITIDO em jejum, desde que NÃO leve a ejaculação ou relação completa. O Profeta Muhammad (PBUH) beijava suas esposas em jejum. Regras: 1) BEIJO/ABRAÇO: Permitido se há controle dos desejos; 2) TOQUE COM DESEJO: Se há medo de perder controle e ejacular ou ter relação, é proibido (Makruh) por precaução; 3) RELAÇÃO COMPLETA: PROIBIDA...",
     "fonte": "Sahih al-Bukhari 1927; Sahih Muslim 1106; Fiqh dos 4 madhahib",
@@ -2753,6 +2748,38 @@
     "resposta": "🕌 RESUMO DA SALAT (5 passos):\n\n1️⃣ Niyyah + Wudu + Qibla\n2️⃣ Takbir 'Allahu Akbar' + Al-Fatiha + Surah\n3️⃣ Ruku' + levantar + 2x Sujud\n4️⃣ Repita para todas as Rak'at necessárias\n5️⃣ Tashahhud + Salam (direita e esquerda)\n\n📊 Rak'at: Fajr=2 | Dhuhr=4 | Asr=4 | Maghrib=3 | Isha=4\n\n💡 Quer aprender passo a passo? Digite 'salat parte 1'",
     "fonte": "Sahih al-Bukhari 757; Sahih Muslim 396",
     "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "namoro",
+      "nomoro",
+      "namorar",
+      "namorado",
+      "namorada",
+      "relacionamento antes casamento",
+      "relacionamento antes do casamento",
+      "boyfriend",
+      "girlfriend",
+      "paquera",
+      "ficar",
+      "ficante",
+      "relacionamento amoroso",
+      "amor antes casamento",
+      "namorar no islam",
+      "namoro no islam",
+      "pode namorar",
+      "pode namorar no islam",
+      "relacionamento haram",
+      "namoro haram",
+      "namoro halal"
+    ],
+    "resposta": "📖 Namoro no Islam\n\n❌ O namoro ocidental (relacionamento amoroso antes do casamento com contato físico, privacidade a sós, etc.) é PROIBIDO (Haram).\n\n✅ O Islam permite o **Nikah** (casamento) como única forma legítima de relacionamento entre homem e mulher.\n\n📌 O que é proibido antes do casamento:\n• Estar a sós (Khalwa)\n• Toque físico (beijo, abraço, mão) \n• Conversas românticas privadas\n• Encontros sem supervisão\n\n📌 O que é permitido:\n• Conhecer alguém com intenção de casamento (com supervisão)\n• Conversar em ambiente público/familiar\n• Ver a pessoa antes do casamento (com modéstia)\n\n💡 O Profeta (ﷺ) disse: 'Não se encontrem a sós, pois o terceiro é o Shaytan.' (Ahmad).",
+    "fonte": "Ahmad; Alcorão 17:32; Alcorão 24:30-31",
+    "categoria": "fiqh",
     "nivel": "iniciante",
     "links": [
       "https://Facebook.com/Islamguia"
