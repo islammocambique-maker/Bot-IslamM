@@ -376,7 +376,7 @@
     "links": ["https://quran.com/2/2"]
   },
   {
-    "palavras_chave": ["tafsir", "tafseer", "exegese", "interpretacao do alcorao", "interpretacao", "ciencia do tafsir"],
+    "palavras_chave": ["tafsir", "tafseer", "exegese", "interpretacao do alcorao", "interpretacao", "explicação do"],
     "resposta": "O Tafsir é a ciência da interpretação do Alcorão. As fontes primárias são: Alcorão explica Alcorão, Sunnah explica Alcorão, dizeres dos Sahaba, e linguística árabe. As melhores obras incluem Tafsir Ibn Kathir e Tafsir al-Tabari.",
     "fonte": "Al-Itqan fi Ulum al-Qur'an - Al-Suyuti",
     "categoria": "alcorao",
@@ -392,7 +392,7 @@
     "links": ["https://quran.com/33/21"]
   },
   {
-    "palavras_chave": ["pilares", "pilares do islam", "5 pilares", "cinco pilares", "shahada", "salat", "zakat", "sawm", "hajj"],
+    "palavras_chave": ["pilares", "pilares do islam", "5 pilares", "cinco pilares", "fé islâmica", "salat pilares do Islam", "zakat pilar do Islam", "sawm", "hajj"],
     "resposta": "O Islam tem 5 pilares: 1) Shahada (Profissão de Fé), 2) Salat (Oração 5x ao dia), 3) Zakat (Caridade 2,5%), 4) Sawm (Jejum em Ramadan), 5) Hajj (Peregrinação a Meca).",
     "fonte": "Hadith de Umar - Sahih al-Bukhari 8",
     "categoria": "alcorao",
@@ -400,7 +400,7 @@
     "links": ["https://sunnah.com/bukhari/1/8"]
   },
   {
-    "palavras_chave": ["sunnah", "tradicao", "tradição", "exemplo do profeta", "pratica do profeta", "o que e sunnah"],
+    "palavras_chave": ["sunnah", "tradicao islamica", "tradição islâmica", "exemplo do profeta", "pratica do profeta", "o que e sunnah"],
     "resposta": "A Sunnah são as palavras, ações e aprovações do Profeta Muhammad. Explica e complementa o Alcorão, preservada através dos Hadiths em coleções como Sahih al-Bukhari e Sahih Muslim.",
     "fonte": "Alcorão - Surah An-Nisa (4:59)",
     "categoria": "sunnah",
@@ -408,7 +408,7 @@
     "links": ["https://quran.com/4/59"]
   },
   {
-    "palavras_chave": ["sunnah", "sunat", "sunnat", "hadith", "hadice", "usul al-hadith", "ciencia do hadith", "isnad", "matn", "sahih", "daif", "hasan"],
+    "palavras_chave": ["estuda sunnah", " a sunat", "sobre sunnat", "disciplina da sunnat", "hadith autêntico", "estudo dos hadice", "usul al-hadith", "ciencia do hadith", "isnad", "matn", "sahih", "daif", "hasan"],
     "resposta": "Usul al-Hadith é a disciplina de autenticação. Os componentes são: Isnad (cadeia de transmissores avaliados por Adalah e Dabt), Matn (texto compatível com Alcorão), e classificação em Sahih, Hasan, Da'if ou Mawdu. As seis coleções canônicas são: Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai, Ibn Majah.",
     "fonte": "Nukhbat al-Fikar - Ibn Hajar al-Asqalani",
     "categoria": "sunnah",
@@ -432,7 +432,7 @@
     "links": ["https://quran.com/2/238"]
   },
   {
-    "palavras_chave": ["mesquita", "casa de oracao", "casa de oração", "masjid", "orar na mesquita", "jumuah"],
+    "palavras_chave": ["mesquita", "casa de oracao", "casa de oração", "masjid", "orar na mesquita", "onde reza", "jumuah"],
     "resposta": "Mesquita (Masjid) é o local de oração congregacional. Serve para oração em grupo, ensino do Alcorão, encontro comunitário e celebração de festas. A mais sagrada é Masjid al-Haram em Meca.",
     "fonte": "Alcorão - Surah At-Tawbah (9:18)",
     "categoria": "geral",
@@ -440,7 +440,7 @@
     "links": ["https://quran.com/9/18"]
   },
   {
-    "palavras_chave": ["islam", "o que e islam", "religiao", "religião", "muculmano", "muçulmano", "ser muculmano", "submissao"],
+    "palavras_chave": ["islam", "o que e islam", "religiao dos Muculmanos", "religião dos Muçulmanos", "muculmano", "seguido por muçulmano", "que seguem muculmano", "submissao"],
     "resposta": "Islam significa 'submissão' à vontade de Allah. É uma religião monoteísta que ensina fé em Um Único Deus, obediência aos mandamentos, boa conduta e respeito a todos. Muhammad é o último profeta.",
     "fonte": "Alcorão - Surah Al-Ma'idah (5:3)",
     "categoria": "geral",
@@ -456,7 +456,7 @@
     "links": ["https://quran.com/5/3"]
   },
   {
-    "palavras_chave": ["aqeedah", "aqida", "crenca", "crença", "teologia", "iman", "shirk", "tawhid", "seis pilares"],
+    "palavras_chave": ["aqeedah", "aqida", "crenca islamica", "crença islâmica", "teologia", "iman", "crença em Allah", "tawhid", "seis pilares"],
     "resposta": "A Aqeedah é a crença ortodoxa do Islam. Os seis pilares do Iman são: 1) Crença em Allah, 2) Anjos, 3) Livros revelados, 4) Mensageiros, 5) Dia do Juízo, 6) Decreto divino (Qadar).",
     "fonte": "Sharh al-Aqeedah al-Tahawiyyah",
     "categoria": "geral",
@@ -464,7 +464,7 @@
     "links": ["https://quran.com/2/285"]
   },
   {
-    "palavras_chave": ["califado", "khilafah", "rashidun", "governo islamico", "abu bakr", "umar", "uthman", "ali"],
+    "palavras_chave": ["califado", "khilafah", "rashidun", "governo islamico", "quatro khalifas", "os kalifas", "os khalifas", "sao khalifas"],
     "resposta": "O Califado (Khilafah) é o governo islâmico. Os quatro califas Rashidun (Bem-Guiados) foram: Abu Bakr (632-634), Umar (634-644), Uthman (644-656) e Ali (656-661). Depois vieram os períodos Umayyad, Abbasid, Fatimid e Ottoman.",
     "fonte": "Al-Ahkam al-Sultaniyyah - Al-Mawardi",
     "categoria": "geral",
@@ -472,7 +472,7 @@
     "links": ["https://quran.com/4/59"]
   },
   {
-    "palavras_chave": ["jejum", "sawm", "o que e jejum", "definicao jejum", "fasting"],
+    "palavras_chave": ["jejum", "sawm", "o que e jejum", "definicao jejum", "define jejum", "definição jejum"],
     "resposta": "O jejum (Sawm) no Islam é abster-se de comer, beber, relações conjugais e comportamentos ruins desde o amanhecer (Fajr) até ao pôr do sol (Maghrib), com intenção sincera (Niyyah) para agradar Allah. É o quarto pilar do Islam e foi prescrito no Ramadan, o nono mês do calendário islâmico. Allah diz no Alcorão: 'Ó vós que credes! O jejum vos foi prescrito, como foi prescrito àqueles que vos precederam, para que possais ser tementes.' (Al-Baqarah 2:183). O jejum não é apenas físico — é espiritual. Desenvolve autodisciplina, empatia pelos pobres, gratidão e proximidade com Allah. Quer saber mais sobre: Ramadan, Niyyah, regras do jejum, ou quem está isento?",
     "fonte": "Alcorão 2:183; Sahih al-Bukhari 1891",
     "categoria": "Fiqh - Jejum",
@@ -480,7 +480,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["ramadan", "mes do ramadan", "mês do ramadan", "quando e ramadan", "calendario islamico", "calendário islâmico"],
+    "palavras_chave": ["ramadan", "mes do ramadan", "mês do ramadan", "quando e ramadan", "mês de jejum", "mês da misericórdia", "ramadão"],
     "resposta": "Ramadan é o nono mês do calendário islâmico (Hijri) e é o mês sagrado em que o Alcorão foi revelado. É um mês de bênçãos multiplicadas: as boas ações valem o dobro, as portas do Paraíso abrem-se, as do Fogo fecham-se e os demônios são acorrentados. É obrigatório jejuar todo o mês para todo muçulmano adulto, são de corpo e mente, residente e financeiramente capaz. O Profeta Muhammad (PBUH) disse: 'Quando chega Ramadan, as portas do Paraíso se abrem, as do Fogo se fecham e os demônios são acorrentados.' (Sahih al-Bukhari). O fim do Ramadan celebra-se com a Eid al-Fitr, festa de gratidão e caridade. Quer saber mais sobre: regras do jejum, Taraweeh, Laylat al-Qadr, ou Eid?",
     "fonte": "Alcorão 2:185; Sahih al-Bukhari 1899",
     "categoria": "Fiqh - Ramadan",
@@ -488,7 +488,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["niyyah", "intencao", "intenção", "intencao jejum", "como fazer niyyah", "niyyat"],
+    "palavras_chave": ["niyyah", "fazer antes de jejum", "antes de jejuar", "intencao", "intenção", "intencao jejum", "como fazer niyyah", "niyyat"],
     "resposta": "A Niyyah (intenção) é obrigatória para cada dia de jejum e deve ser feita antes do amanhecer (Fajr). Não precisa ser pronunciada em voz alta — basta o firme propósito no coração de jejuar para agradar Allah. A intenção formal em árabe é: 'Nawaitu sauma ghadin an adaa'i fardhi shahri Ramadana hazihis-sanati lillahi ta'ala' (Intenciono o jejum de amanhã para cumprir o dever do mês de Ramadan deste ano, por Allah, o Altíssimo). Se dormir sem intenção e acordar ainda antes do Fajr, pode fazer a intenção nesse momento. Sem Niyyah antes do amanhecer, o jejum é inválido. Quer saber mais sobre: Suhoor, Iftar, ou o que invalida o jejum?",
     "fonte": "Sahih al-Bukhari 1; Sahih Muslim 8",
     "categoria": "Fiqh - Jejum",
@@ -496,7 +496,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["suhoor", "sahur", "refeicao antes amanhecer", "comer antes jejum", "hora suhoor"],
+    "palavras_chave": ["suhoor", "comer de madrugada", "sahur", "refeicao antes amanhecer", "comer antes jejum", "hora suhoor"],
     "resposta": "Suhoor é a refeição leve tomada antes do amanhecer (Fajr) para iniciar o dia de jejum. É uma Sunnah (prática recomendada) do Profeta Muhammad (PBUH), que dizia: 'Tomai Suhoor, pois nele há bênção.' (Sahih al-Bukhari). Deve ser feita mesmo que seja apenas um gole de água ou uma tâmara. O melhor momento é nos últimos minutos antes do Fajr, não no meio da noite. Suhoor diferencia o jejum do muçulmano do jejum de outras religiões e dá energia para o dia. Evite comidas pesadas — prefira frutas, cereais, água e tâmaras. Quer saber mais sobre: Iftar, o que comer, ou regras do jejum?",
     "fonte": "Sahih al-Bukhari 1923; Sahih Muslim 1095",
     "categoria": "Fiqh - Ramadan",
@@ -512,7 +512,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["invalida", "quebra jejum", "o que invalida", "quebra o jejum", "invalidar jejum"],
+    "palavras_chave": ["invalida jejum", "que quebra jejum", "o que invalida o jejum", "quebra o jejum", "invalidar jejum"],
     "resposta": "O jejum é invalidado (quebrado) por: 1) Comer ou beber intencionalmente após o Fajr; 2) Relações conjugais durante o dia; 3) Vomitar intencionalmente (vômito involuntário não invalida); 4) Menstruação ou sangramento pós-parto (Nifas); 5) Ejaculação intencional; 6) Apostasia (deixar o Islam). NÃO invalidam: comer/beber por esquecimento (Allah alimentou-o), sonhos molhados, sangue acidental, uso de colírio, injeções não nutritivas, ou escovar os dentes sem engolir pasta. Se quebrar intencionalmente, deve pedir perdão a Allah, fazer o jejum de compensação (Qada) e, se sem desculpa válida, também pagar expiação (Kaffarah: jejumar 60 dias consecutivos ou alimentar 60 pobres). Quer saber mais sobre: compensação, expiação, ou quem está isento de jejuar?",
     "fonte": "Alcorão 2:187; Sahih al-Bukhari 1933; Sahih Muslim 1114",
     "categoria": "Fiqh - Jejum",
@@ -520,7 +520,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["isento", "dispensado", "nao precisa jejuar", "doenca", "gravida", "viagem", "idoso", "quem nao jejua"],
+    "palavras_chave": ["isento de jejuar", "não pode jejuar", "nao pode jejuar ", "crianças jejuar", "crianca Jejuar", "nao precisa jejuar", "estando doente", "gravida", "viagem", "idoso", "quem nao jejua"],
     "resposta": "Estão isentos de jejuar no Ramadan: 1) Crianças antes da puberdade (encoraja-se a praticar gradualmente); 2) Idosos com fraqueza extrema que não suportam o jejum (devem pagar Fidyah: alimentar 1 pobre por cada dia); 3) Doentes com risco de agravamento (fazem Qada depois); 4) Viajantes em jornada longa (mais de 80km, fazem Qada depois); 5) Mulheres grávidas ou amamentando com risco para si ou bebê (fazem Qada ou Fidyah); 6) Mulheres em menstruação ou pós-parto (Nifas) — param de jejuar e fazem Qada depois; 7) Pessoas com condições mentais severas. Quem está isento por doença temporária ou viagem deve compensar (Qada) em outro momento. Quer saber mais sobre: Qada, Fidyah, Kaffarah, ou regras para mulheres?",
     "fonte": "Alcorão 2:184-185; Sahih al-Bukhari 1947",
     "categoria": "Fiqh - Jejum",
@@ -528,7 +528,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["qada", "compensar", "fazer depois", "jejum perdido", "compensacao jejum"],
+    "palavras_chave": ["qada", "compensar", "fazer depois", "jejum perdido", "pagar depois", "Jejum em falta", "compensacao jejum"],
     "resposta": "Qada significa 'compensar' — é obrigatório jejuar os dias perdidos do Ramadan antes do próximo Ramadan, exceto para quem tem desculpa contínua (doença crónica, amamentação). Regras do Qada: 1) Deve ser feito em dias consecutivos ou separados, antes do próximo Ramadan; 2) A intenção (Niyyah) deve ser específica; 3) Mulheres compensam os dias de menstruação/Nifas; 4) Viajantes compensam os dias de viagem; 5) Quem adoeceu compensa após recuperação. Se não compensar antes do próximo Ramadan sem desculpa válida, deve fazer Qada MAIS Fidyah (alimentar 1 pobre por cada dia de atraso). Quer saber mais sobre: Fidyah, Kaffarah, ou regras específicas para mulheres?",
     "fonte": "Alcorão 2:184; Sahih al-Bukhari 1953",
     "categoria": "Fiqh - Jejum",
@@ -560,7 +560,7 @@
     "links": ["https://facebook.com/Islamguia"]
   },
 {
-    "palavras_chave": ["qada", "compensar", "pagar dias", "devo dias", "recuperar jejum", "jejum atrasado"],
+    "palavras_chave": ["qada", "pagar jejum", "jejum perdido","pagar dias", "devo dias", "recuperar jejum", "jejum atrasado"],
     "resposta": "Qada é a compensação dos dias obrigatórios de jejum que foram perdidos no Ramadan devido a desculpas legítimas (doença, viagem, menstruação). Regras: 1) PRAZO: Deve ser feito antes do início do próximo Ramadan. É recomendável compensar o quanto antes; 2) ORDEM: Os dias podem ser compensados consecutivamente ou separados, conforme a capacidade da pessoa; 3) INTENÇÃO: A Niyyah (intenção) para o jejum de Qada deve ser feita obrigatoriamente antes do Fajr; 4) ATRASO INJUSTIFICADO: Se o próximo Ramadan chegar e a pessoa não fez o Qada sem justificativa real, ela deve jejuar o Ramadan atual, fazer o Qada depois e, segundo alguns madhahib, pagar uma Fidyah (alimentar um pobre) por dia atrasado. Quer saber mais sobre: Fidyah, isenções, ou jejum voluntário?",
     "fonte": "Alcorão 2:184; Sahih al-Bukhari 1950; Sahih Muslim 1146",
     "categoria": "Fiqh - Jejum",
@@ -576,7 +576,7 @@
     "links": ["https://Facebook.com/Islamguia"]
   },
   {
-    "palavras_chave": ["kaffarah", "expiacao", "quebrou de proposito", "penalidade", "jejum punicao"],
+    "palavras_chave": ["kaffarah", "quebrar de proposito", "quebrou de proposito", "quebrar de", "jejum punicao"],
     "resposta": "Kaffarah é a expiação pesada imposta a quem quebra o jejum do Ramadan intencionalmente de forma grave (especialmente por relação sexual diurna). Regras de gradação (em ordem): 1) Libertar um escravo (não aplicável hoje); 2) Jejuar 60 dias CONSECUTIVOS. Se quebrar um único dia no meio (sem desculpa como doença/menstruação), deve reiniciar a contagem do zero; 3) Se for fisicamente incapaz de jejuar os 60 dias, deve alimentar 60 necessitados. Nota: Para quem quebra o jejum comendo ou bebendo de propósito sem desculpa, há divergência entre os madhahib; a escola Hanafi e Maliki exigem Kaffarah, enquanto Shafi'i e Hanbali exigem o Qada (reposição do dia) acompanhado de um arrependimento sincero (Tawbah) profundo. Quer saber mais sobre: Tawbah, Qada, ou regras de casal?",
     "fonte": "Sahih al-Bukhari 1936; Sahih Muslim 1111",
     "categoria": "Fiqh - Jejum",
