@@ -111,6 +111,11 @@
             margin-bottom: 4px;
         }
 
+        .message.bot.pensando {
+            opacity: 0.7;
+            font-style: italic;
+        }
+
         .loading-dots {
             display: inline-flex;
             gap: 4px;
@@ -197,7 +202,6 @@
             text-decoration: none;
         }
 
-        /* Scrollbar customizada */
         .chat-messages::-webkit-scrollbar {
             width: 6px;
         }
@@ -211,7 +215,6 @@
             border-radius: 3px;
         }
 
-        /* Responsivo */
         @media (max-width: 480px) {
             .chat-container {
                 height: 100vh;
@@ -222,17 +225,17 @@
             }
         }
     </style>
+<base target="_blank">
 </head>
 <body>
     <div class="chat-container">
         <div class="chat-header">
             <h1>🕌 Islam M</h1>
             <p>Chat Bot Inteligente sobre o Islam</p>
-            <div class="status" id="status">⏳ Carregando cérebro...</div>
+            <div class="status" id="status">⏳ Carregando cerebro...</div>
         </div>
 
         <div class="chat-messages" id="chatMessages">
-            <!-- Mensagens aparecem aqui -->
         </div>
 
         <div class="chat-input-area">
@@ -252,10 +255,25 @@
         </div>
     </div>
 
-    <!-- Carrega o config.js primeiro -->
-    <script src="config.js"></script>
-
     <script>
+        // ============================================
+        // CONFIGURAÇÃO
+        // ============================================
+        const CONFIG = {
+            GEMINI_API_KEY: 'SUA_CHAVE_AQUI',
+            MENSAGENS: {
+                BOAS_VINDAS: 'Assalamu Alaikum! Sou Islam M, seu guia sobre o Islam. Pergunte sobre: Shahada, Oração, Jejum, Alcorão, Profetas, e muito mais!',
+                SEM_RESPOSTA: 'Ainda não sei responder isso. Tente perguntar sobre outros temas do Islam!',
+                ERRO: 'Desculpe, ocorreu um erro. Tente novamente.',
+                SUGESTAO: '💡 Tente perguntar: o que é Islam? | como rezar? | 5 pilares? | shahada?'
+            }
+        };
+
+        // ============================================
+        // CÉREBRO DO BOT (JSON embutido)
+        // ============================================
+        let cerebro = [];
+
         // ============================================
         // VARIÁVEIS GLOBAIS
         // ============================================
@@ -267,51 +285,135 @@
         let cerebroPronto = false;
 
         // ============================================
-        // INICIALIZAÇÃO
+        // FUNÇÕES DE NORMALIZAÇÃO E BUSCA FUZZY
         // ============================================
-        async function iniciarBot() {
-            // Mostra mensagem de boas-vindas
-            adicionarMensagemBot(getBoasVindas());
 
-            // Tenta carregar o cérebro
-            const sucesso = await carregarCerebro();
+        function normalizarTexto(texto) {
+            if (!texto) return '';
+            return texto
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[̀-̏̐-̟]/g, '')
+                .replace(/[çÇ]/g, 'c')
+                .replace(/[ñÑ]/g, 'n')
+                .replace(/[^a-z0-9\s]/g, '')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
 
-            if (sucesso) {
-                cerebroPronto = true;
-                statusDiv.textContent = `✅ Online! ${cerebro.length} conhecimentos carregados`;
-                statusDiv.style.background = 'rgba(46, 139, 87, 0.3)';
-                habilitarInput();
-            } else {
-                // Se falhar carregar cérebro, tenta usar Gemini direto
-                statusDiv.textContent = '⚠️ Cérebro offline - Usando IA Gemini';
-                statusDiv.style.background = 'rgba(255, 165, 0, 0.3)';
-                cerebroPronto = false;
-                habilitarInput();
+        function distanciaLevenshtein(str1, str2) {
+            const m = str1.length, n = str2.length;
+            const dp = Array.from({length: m + 1}, () => new Array(n + 1).fill(0));
+            for (let i = 0; i <= m; i++) dp[i][0] = i;
+            for (let j = 0; j <= n; j++) dp[0][j] = j;
+            for (let i = 1; i <= m; i++) {
+                for (let j = 1; j <= n; j++) {
+                    if (str1[i - 1] === str2[j - 1]) dp[i][j] = dp[i - 1][j - 1];
+                    else dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+                }
             }
+            return dp[m][n];
+        }
+
+        function similaridade(str1, str2) {
+            const maxLen = Math.max(str1.length, str2.length);
+            if (maxLen === 0) return 1;
+            return 1 - (distanciaLevenshtein(str1, str2) / maxLen);
+        }
+
+        function buscarNoCerebro(pergunta) {
+            const perguntaNorm = normalizarTexto(pergunta);
+            const palavrasPergunta = perguntaNorm.split(' ').filter(p => p.length > 2);
+            let melhorMatch = null;
+            let melhorPontuacao = 0;
+            const LIMIAR = 0.75;
+
+            for (const conhecimento of cerebro) {
+                if (!conhecimento.palavras_chave || !Array.isArray(conhecimento.palavras_chave)) continue;
+                let pontuacao = 0, matchesExatos = 0, matchesParciais = 0;
+
+                for (const keyword of conhecimento.palavras_chave) {
+                    const keywordNorm = normalizarTexto(keyword);
+                    if (perguntaNorm === keywordNorm) { pontuacao += 100; matchesExatos++; continue; }
+                    if (perguntaNorm.includes(keywordNorm) || keywordNorm.includes(perguntaNorm)) { pontuacao += 50; matchesParciais++; continue; }
+                    for (const palavra of palavrasPergunta) {
+                        if (palavra === keywordNorm) { pontuacao += 40; matchesExatos++; }
+                        else if (keywordNorm.includes(palavra) || palavra.includes(keywordNorm)) { pontuacao += 20; matchesParciais++; }
+                        else {
+                            const sim = similaridade(palavra, keywordNorm);
+                            if (sim >= LIMIAR) pontuacao += sim * 30;
+                        }
+                    }
+                }
+                if (matchesExatos > 1) pontuacao *= 1.5;
+                if (matchesParciais > 2) pontuacao *= 1.2;
+                if (pontuacao > melhorPontuacao) { melhorPontuacao = pontuacao; melhorMatch = conhecimento; }
+            }
+            return melhorPontuacao >= 20 ? melhorMatch : null;
+        }
+
+        // ============================================
+        // EFEITO DE DIGITAÇÃO E DELAY
+        // ============================================
+
+        const FRASES_TRANSICAO = [
+            "Deixa-me ver...", "Hmm, interessante pergunta...", "Vou procurar no meu conhecimento...",
+            "Deixa-me confirmar isso...", "Bom ponto! Vejamos...", "Estou a consultar...",
+            "Vamos lá...", "Deixa-me pensar nisso...", "Interessante! Deixa-me verificar...",
+            "Vou buscar a melhor resposta..."
+        ];
+
+        function getFraseTransicao() {
+            return FRASES_TRANSICAO[Math.floor(Math.random() * FRASES_TRANSICAO.length)];
+        }
+
+        function simularPensamento() {
+            const delay = Math.floor(Math.random() * 2000) + 3000;
+            return new Promise((resolve) => {
+                const div = document.createElement('div');
+                div.className = 'message bot pensando';
+                div.id = 'msgPensando';
+                div.innerHTML = `<div class="sender">🕌 Islam M está a escrever...</div><div class="loading-dots"><span></span><span></span><span></span></div>`;
+                chatMessages.appendChild(div);
+                scrollToBottom();
+                setTimeout(() => { const msg = document.getElementById('msgPensando'); if (msg) msg.remove(); resolve(); }, delay);
+            });
+        }
+
+        function adicionarMensagemBotDigitando(texto, velocidade = 25) {
+            const div = document.createElement('div');
+            div.className = 'message bot';
+            div.innerHTML = `<div class="sender">🕌 Islam M</div><div class="texto-digitando"></div>`;
+            chatMessages.appendChild(div);
+            scrollToBottom();
+            const elementoTexto = div.querySelector('.texto-digitando');
+            let i = 0;
+            return new Promise((resolve) => {
+                const intervalo = setInterval(() => {
+                    if (i < texto.length) {
+                        elementoTexto.innerHTML = formatarTexto(texto.substring(0, i + 1));
+                        i++;
+                        if (i % 3 === 0) scrollToBottom();
+                    } else {
+                        clearInterval(intervalo);
+                        elementoTexto.innerHTML = formatarTexto(texto);
+                        resolve(div);
+                    }
+                }, velocidade);
+            });
         }
 
         // ============================================
         // FUNÇÕES DA UI
         // ============================================
 
-        function habilitarInput() {
-            userInput.disabled = false;
-            sendBtn.disabled = false;
-            userInput.focus();
-        }
-
-        function desabilitarInput() {
-            userInput.disabled = true;
-            sendBtn.disabled = true;
-        }
+        function habilitarInput() { userInput.disabled = false; sendBtn.disabled = false; userInput.focus(); }
+        function desabilitarInput() { userInput.disabled = true; sendBtn.disabled = true; }
 
         function adicionarMensagemBot(texto) {
             const div = document.createElement('div');
             div.className = 'message bot';
-            div.innerHTML = `
-                <div class="sender">🕌 Islam M</div>
-                <div>${formatarTexto(texto)}</div>
-            `;
+            div.innerHTML = `<div class="sender">🕌 Islam M</div><div>${formatarTexto(texto)}</div>`;
             chatMessages.appendChild(div);
             scrollToBottom();
         }
@@ -319,103 +421,91 @@
         function adicionarMensagemUser(texto) {
             const div = document.createElement('div');
             div.className = 'message user';
-            div.innerHTML = `
-                <div class="sender">Você</div>
-                <div>${formatarTexto(texto)}</div>
-            `;
+            div.innerHTML = `<div class="sender">Você</div><div>${formatarTexto(texto)}</div>`;
             chatMessages.appendChild(div);
             scrollToBottom();
-        }
-
-        function adicionarMensagemCarregando() {
-            const div = document.createElement('div');
-            div.className = 'message bot';
-            div.id = 'msgCarregando';
-            div.innerHTML = `
-                <div class="sender">🕌 Islam M</div>
-                <div class="loading-dots">
-                    <span></span><span></span><span></span>
-                </div>
-            `;
-            chatMessages.appendChild(div);
-            scrollToBottom();
-        }
-
-        function removerMensagemCarregando() {
-            const msg = document.getElementById('msgCarregando');
-            if (msg) msg.remove();
         }
 
         function formatarTexto(texto) {
-            // Converte URLs em links clicáveis
-            const urlRegex = /(https?:\/\/[^\s]+)/g;
-            return texto
-                .replace(urlRegex, '<a href="$1" target="_blank" style="color:#2e8b57;">$1</a>')
-                .replace(/\n/g, '<br>');
+            return texto.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank" style="color:#2e8b57;">$1</a>').replace(/
+/g, '<br>');
         }
 
-        function scrollToBottom() {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
+        function scrollToBottom() { chatMessages.scrollTop = chatMessages.scrollHeight; }
 
         function mostrarApoio() {
-            adicionarMensagemBot(getInfoApoio());
+            adicionarMensagemBot('💚 Para apoiar o projeto Islam M, contacte-nos no WhatsApp 860407269 ou visite https://Facebook.com/Islamguia');
         }
 
         // ============================================
         // LÓGICA DO CHAT
         // ============================================
 
+        async function processarPergunta(pergunta) {
+            const match = buscarNoCerebro(pergunta);
+            if (match) {
+                const frase = getFraseTransicao();
+                return { origem: 'cerebro', resposta: frase + "\n\n" + match.resposta };
+            }
+            return { origem: 'padrao', resposta: CONFIG.MENSAGENS.SEM_RESPOSTA + "\n\n" + CONFIG.MENSAGENS.SUGESTAO };
+        }
+
         async function enviarPergunta() {
             const pergunta = userInput.value.trim();
             if (!pergunta) return;
-
-            // Limpa input e mostra pergunta do usuário
             userInput.value = '';
             adicionarMensagemUser(pergunta);
-
-            // Mostra indicador de carregamento
-            adicionarMensagemCarregando();
             desabilitarInput();
-
             try {
-                // Processa a pergunta
+                await simularPensamento();
                 const resultado = await processarPergunta(pergunta);
-
-                // Remove carregando e mostra resposta
-                removerMensagemCarregando();
-
-                if (resultado.origem === 'cerebro') {
-                    adicionarMensagemBot(resultado.resposta);
-                } else if (resultado.origem === 'gemini') {
-                    adicionarMensagemBot('🤖 ' + resultado.resposta);
-                } else {
-                    adicionarMensagemBot(resultado.resposta);
-                }
-
+                await adicionarMensagemBotDigitando(resultado.resposta);
             } catch (erro) {
-                removerMensagemCarregando();
                 adicionarMensagemBot('❌ ' + CONFIG.MENSAGENS.ERRO);
                 console.error(erro);
             }
-
             habilitarInput();
             userInput.focus();
         }
 
         // ============================================
-        // EVENT LISTENERS
+        // CARREGAR CÉREBRO
         // ============================================
+
+        async function carregarCerebro() {
+            try {
+                const resposta = await fetch('islam_chatbot_data_v1.4.json');
+                if (!resposta.ok) throw new Error('Arquivo não encontrado');
+                const dados = await resposta.json();
+                cerebro = dados.filter(item => !item._meta);
+                return true;
+            } catch (erro) {
+                console.error('Erro ao carregar cerebro:', erro);
+                return false;
+            }
+        }
+
+        // ============================================
+        // INICIALIZAÇÃO
+        // ============================================
+
+        async function iniciarBot() {
+            adicionarMensagemBot(CONFIG.MENSAGENS.BOAS_VINDAS);
+            const sucesso = await carregarCerebro();
+            if (sucesso) {
+                cerebroPronto = true;
+                statusDiv.textContent = `✅ Online! ${cerebro.length} conhecimentos carregados`;
+                statusDiv.style.background = 'rgba(46, 139, 87, 0.3)';
+            } else {
+                statusDiv.textContent = '⚠️ Cérebro offline - Verifique o arquivo JSON';
+                statusDiv.style.background = 'rgba(255, 165, 0, 0.3)';
+            }
+            habilitarInput();
+        }
 
         sendBtn.addEventListener('click', enviarPergunta);
+        userInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') enviarPergunta(); });
 
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') enviarPergunta();
-        });
-
-        // ============================================
-        // INICIAR
-        // ============================================
         iniciarBot();
     </script>
 </body>
