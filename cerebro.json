@@ -1,5 +1,18 @@
 [
   {
+    "_meta": {
+      "descricao": "Islam M - Chatbot de orientacao islamica",
+      "principio": "Este bot APENAS fornece definicoes, significados e informacoes educativas sobre termos islamicos quando EXPLICITAMENTE solicitado pelo usuario. Nao rotula, nao julga e nao define a identidade de nenhuma pessoa.",
+      "regra_kafir": "O termo 'kafir' e explicado apenas como definicao linguistica/teologica quando o usuario pergunta seu significado. O bot NUNCA chama o usuario ou qualquer pessoa de 'kafir'.",
+      "regra_jihad": "O termo 'jihad' e explicado em seu sentido etimologico e teologico original (esforco/espiritual), com distincao clara entre os tipos legitimos segundo a Sharia.",
+      "versao": "1.2-strict",
+      "total_objetos": 153,
+      "data_atualizacao": "2026-05-23",
+      "contato": "https://Facebook.com/Islamguia",
+      "formato": "Strict max 300 chars - ideal para chatbot mobile"
+    }
+  },
+  {
     "palavras_chave": [
       "o que é shirk",
       "idolatria",
@@ -515,7 +528,7 @@
       "islam moçambique",
       "whatsapp"
     ],
-    "resposta": "A Islam Moçambique dispõe da Madrassa online, onde você pode aprender sobre o Alcorão e a Sunnah. Para se inscrever e obter mais informações, contacte-nos no WhatsApp pelo número 860407269 ou clique no contacto do suporte.",
+    "resposta": "A Islam Moçambique dispõe da Madrassa online, onde você pode aprender sobre o Alcorão e a Sunnah.",
     "fonte": "Islam Moçambique",
     "categoria": "aulas",
     "nivel": "iniciante",
@@ -549,7 +562,7 @@
       "segundo kalimah",
       "converter"
     ],
-    "resposta": "☪️ A Shahada (Segundo Kalimah) é o testemunho de fé do Islam. Quando uma pessoa pronuncia esta declaração com sinceridade e acredita nela com o coração, entra no Islam.\n\n📖 Em Árabe:\nأشهد أن لا إله إلا الله وأشهد أن محمدًا رسول الله\n\n🔹 Transliteração:\nAshhadu an laa ilaaha illallaah, wa ashhadu anna Muhammadan Rasoolullaah.\n\n🔹 Tradução:\n'Testemunho que não há divindade digna de adoração além de Allah, e testemunho que Muhammad é o Mensageiro de Allah.'\n\n🤲 Depois da Shahada, recomenda-se fazer Ghusl (banho completo), aprender as 5 orações diárias e começar a praticar os 5 pilares do Islam.\n\n📚 Também podes pesquisar:\n• 5 pilares\n• oração\n• wudhu\n• Allah\n• Alcorão\n• Muhammad\n• Sunnah\n• Tawhid\n• Aqeedah\n• mesquita\n\n😊 Estou aqui para te ajudar a aprender mais sobre o Islam.*",
+    "resposta": "📖 Em Árabe:\n🔹 Transliteração:",
     "fonte": "Alcorão e Sunnah",
     "categoria": "Conversão",
     "nivel": "iniciante",
@@ -587,7 +600,7 @@
       "profeta",
       "mensageiro"
     ],
-    "resposta": "Muhammad (PBUH) foi o último Profeta de Allah, nascido em Makkah por volta de 570 d.C. Recebeu o Alcorão e ensinou a adoração de um único Deus. Para saber sobre o Alcorão, basta perguntar, estou aqui para ajudar...😊",
+    "resposta": "Muhammad (PBUH) foi o último Profeta de Allah, nascido em Makkah por volta de 570 d.C.",
     "fonte": "Alcorão e Sunnah",
     "categoria": "Profetas",
     "nivel": "iniciante",
@@ -620,7 +633,7 @@
       "quem sao",
       "seguidores"
     ],
-    "resposta": "Muçulmanos são seguidores do Islam que se submetem à vontade de Allah. Crêem em Allah, Muhammad e praticam os 5 pilares. São ~2 bilhões no mundo. Para saber mais sobre os 5 pilares, basta perguntar, estou aqui para ajudar...😊",
+    "resposta": "Muçulmanos são seguidores do Islam que se submetem à vontade de Allah.",
     "fonte": "Definição islâmica",
     "categoria": "Identidade",
     "nivel": "iniciante",
@@ -692,7 +705,7 @@
       "criador",
       "senhor"
     ],
-    "resposta": "Allah é o nome próprio de Deus em árabe. Ele é Único, não tem parceiros, filhos ou semelhantes. Allah é o Criador de tudo o que existe e tem 99 nomes bonitos como Ar-Rahman (O Misericordioso).",
+    "resposta": "Allah é o nome próprio de Deus em árabe.",
     "fonte": "Alcorão - Surah Al-Ikhlas (112)",
     "categoria": "alcorao",
     "nivel": "iniciante",
@@ -711,7 +724,7 @@
       "atributos de allah",
       "nomes de allah"
     ],
-    "resposta": "O Tawhid (Unificação) é dividido em três categorias: Tawhid ar-Rububiyyah (Lordeza - Allah é o único Criador), Tawhid al-Uluhiyyah (Adoração - toda adoração é para Allah), e Tawhid al-Asma wa-Sifat (Nomes e Atributos - afirmação literal sem semelhança).",
+    "resposta": "O Tawhid (Unificação) é dividido em três categorias: Tawhid ar-Rububiyyah (Lordeza - Allah é o único Criador), Tawhid al-Uluhiyyah (Adoração - toda adoração é para Allah), e Tawhid al-Asma wa-Sifat (Nomes e Atributos - afirmação literal sem semelhança)..",
     "fonte": "Kitab al-Tawhid - Ibn Khuzaymah",
     "categoria": "alcorao",
     "nivel": "avancado",
@@ -732,7 +745,7 @@
       "escritura",
       "palavra de deus"
     ],
-    "resposta": "O Alcorão é o livro sagrado do Islam, revelado ao Profeta Muhammad ao longo de 23 anos. É a palavra de Allah preservada sem alterações há mais de 1400 anos, com 114 capítulos (Surahs).",
+    "resposta": "O Alcorão é o livro sagrado do Islam, revelado ao Profeta Muhammad ao longo de 23 anos.",
     "fonte": "Alcorão - Surah Al-Baqarah (2:2)",
     "categoria": "alcorao",
     "nivel": "iniciante",
@@ -749,7 +762,7 @@
       "interpretacao",
       "explicação do"
     ],
-    "resposta": "O Tafsir é a ciência da interpretação do Alcorão. As fontes primárias são: Alcorão explica Alcorão, Sunnah explica Alcorão, dizeres dos Sahaba, e linguística árabe. As melhores obras incluem Tafsir Ibn Kathir e Tafsir al-Tabari.",
+    "resposta": "O Tafsir é a ciência da interpretação do Alcorão.",
     "fonte": "Al-Itqan fi Ulum al-Qur'an - Al-Suyuti",
     "categoria": "alcorao",
     "nivel": "avancado",
@@ -828,7 +841,7 @@
       "daif",
       "hasan"
     ],
-    "resposta": "Usul al-Hadith é a disciplina de autenticação. Os componentes são: Isnad (cadeia de transmissores avaliados por Adalah e Dabt), Matn (texto compatível com Alcorão), e classificação em Sahih, Hasan, Da'if ou Mawdu. As seis coleções canônicas são: Bukhari, Muslim, Abu Dawud, Tirmidhi, Nasai, Ibn Majah.",
+    "resposta": "Usul al-Hadith é a disciplina de autenticação.",
     "fonte": "Nukhbat al-Fikar - Ibn Hajar al-Asqalani",
     "categoria": "sunnah",
     "nivel": "avancado",
@@ -847,7 +860,7 @@
       "bukhari",
       "muslim"
     ],
-    "resposta": "Hadith é uma narração do que o Profeta disse, fez ou aprovou. Tem Isnad (cadeia de transmissores) e Matn (texto). Classificado em Sahih (autêntico), Hasan (bom), Da'if (fraco) e Mawdu (fabricado). As melhores coleções são Sahih al-Bukhari e Sahih Muslim.",
+    "resposta": "Hadith é uma narração do que o Profeta disse, fez ou aprovou.",
     "fonte": "Introdução à Ciência do Hadith",
     "categoria": "sunnah",
     "nivel": "iniciante",
@@ -883,7 +896,7 @@
       "onde reza",
       "jumuah"
     ],
-    "resposta": "Mesquita (Masjid) é o local de oração congregacional. Serve para oração em grupo, ensino do Alcorão, encontro comunitário e celebração de festas. A mais sagrada é Masjid al-Haram em Meca.",
+    "resposta": "Mesquita (Masjid) é o local de oração congregacional.",
     "fonte": "Alcorão - Surah At-Tawbah (9:18)",
     "categoria": "geral",
     "nivel": "iniciante",
@@ -902,7 +915,7 @@
       "que seguem muculmano",
       "submissao"
     ],
-    "resposta": "Islam significa 'submissão' à vontade de Allah. É uma religião monoteísta que ensina fé em Um Único Deus, obediência aos mandamentos, boa conduta e respeito a todos. Muhammad é o último profeta.",
+    "resposta": "Islam significa 'submissão' à vontade de Allah.",
     "fonte": "Alcorão - Surah Al-Ma'idah (5:3)",
     "categoria": "geral",
     "nivel": "iniciante",
@@ -923,7 +936,7 @@
       "makruh",
       "mubah"
     ],
-    "resposta": "A Sharia é a lei islâmica baseada no Alcorão e Sunnah. Classifica ações em: Fard (obrigatório), Mustahabb (reconhecido), Mubah (permitido), Makruh (desaconselhado) e Haram (proibido). Halal = permitido, Haram = proibido.",
+    "resposta": "A Sharia é a lei islâmica baseada no Alcorão e Sunnah.",
     "fonte": "Alcorão - Surah Al-Ma'idah (5:3)",
     "categoria": "geral",
     "nivel": "iniciante",
@@ -979,7 +992,7 @@
       "define jejum",
       "definição jejum"
     ],
-    "resposta": "O jejum (Sawm) no Islam é abster-se de comer, beber, relações conjugais e comportamentos ruins desde o amanhecer (Fajr) até ao pôr do sol (Maghrib), com intenção sincera (Niyyah) para agradar Allah. É o quarto pilar do Islam e foi prescrito no Ramadan, o nono mês do calendário islâmico. Allah diz no Alcorão: 'Ó vós que credes! O jejum vos foi prescrito, como foi prescrito àqueles que vos precederam, para que possais ser tementes.' (Al-Baqarah 2:183). O jejum não é apenas físico — é espiritual. Desenvolve autodisciplina, empatia pelos pobres, gratidão e proximidade com Allah. Quer saber mais sobre: Ramadan, Niyyah, regras do jejum, ou quem está isento?",
+    "resposta": "O jejum (Sawm) no Islam é abster-se de comer, beber, relações conjugais e comportamentos ruins desde o amanhecer (Fajr) até ao pôr do sol (Maghrib), com intenção sincera (Niyyah) para agradar Allah.",
     "fonte": "Alcorão 2:183; Sahih al-Bukhari 1891",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -997,7 +1010,7 @@
       "mês da misericórdia",
       "ramadão"
     ],
-    "resposta": "Ramadan é o nono mês do calendário islâmico (Hijri) e é o mês sagrado em que o Alcorão foi revelado. É um mês de bênçãos multiplicadas: as boas ações valem o dobro, as portas do Paraíso abrem-se, as do Fogo fecham-se e os demônios são acorrentados. É obrigatório jejuar todo o mês para todo muçulmano adulto, são de corpo e mente, residente e financeiramente capaz. O Profeta Muhammad (PBUH) disse: 'Quando chega Ramadan, as portas do Paraíso se abrem, as do Fogo se fecham e os demônios são acorrentados.' (Sahih al-Bukhari). O fim do Ramadan celebra-se com a Eid al-Fitr, festa de gratidão e caridade. Quer saber mais sobre: regras do jejum, Taraweeh, Laylat al-Qadr, ou Eid?",
+    "resposta": "Ramadan é o nono mês do calendário islâmico (Hijri) e é o mês sagrado em que o Alcorão foi revelado.",
     "fonte": "Alcorão 2:185; Sahih al-Bukhari 1899",
     "categoria": "Fiqh - Ramadan",
     "nivel": "Iniciante",
@@ -1016,7 +1029,7 @@
       "como fazer niyyah",
       "niyyat"
     ],
-    "resposta": "A Niyyah (intenção) é obrigatória para cada dia de jejum e deve ser feita antes do amanhecer (Fajr). Não precisa ser pronunciada em voz alta — basta o firme propósito no coração de jejuar para agradar Allah. A intenção formal em árabe é: 'Nawaitu sauma ghadin an adaa'i fardhi shahri Ramadana hazihis-sanati lillahi ta'ala' (Intenciono o jejum de amanhã para cumprir o dever do mês de Ramadan deste ano, por Allah, o Altíssimo). Se dormir sem intenção e acordar ainda antes do Fajr, pode fazer a intenção nesse momento. Sem Niyyah antes do amanhecer, o jejum é inválido. Quer saber mais sobre: Suhoor, Iftar, ou o que invalida o jejum?",
+    "resposta": "A Niyyah (intenção) é obrigatória para cada dia de jejum e deve ser feita antes do amanhecer (Fajr).",
     "fonte": "Sahih al-Bukhari 1; Sahih Muslim 8",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1033,7 +1046,7 @@
       "comer antes jejum",
       "hora suhoor"
     ],
-    "resposta": "Suhoor é a refeição leve tomada antes do amanhecer (Fajr) para iniciar o dia de jejum. É uma Sunnah (prática recomendada) do Profeta Muhammad (PBUH), que dizia: 'Tomai Suhoor, pois nele há bênção.' (Sahih al-Bukhari). Deve ser feita mesmo que seja apenas um gole de água ou uma tâmara. O melhor momento é nos últimos minutos antes do Fajr, não no meio da noite. Suhoor diferencia o jejum do muçulmano do jejum de outras religiões e dá energia para o dia. Evite comidas pesadas — prefira frutas, cereais, água e tâmaras. Quer saber mais sobre: Iftar, o que comer, ou regras do jejum?",
+    "resposta": "Suhoor é a refeição leve tomada antes do amanhecer (Fajr) para iniciar o dia de jejum.",
     "fonte": "Sahih al-Bukhari 1923; Sahih Muslim 1095",
     "categoria": "Fiqh - Ramadan",
     "nivel": "Iniciante",
@@ -1049,7 +1062,7 @@
       "refeicao por do sol",
       "como quebrar jejum"
     ],
-    "resposta": "Iftar é a refeição para quebrar o jejum imediatamente após o pôr do sol (Maghrib), quando o disco solar desaparece completamente no horizonte. O Profeta Muhammad (PBUH) quebrava o jejum com tâmaras frescas e água; se não havia, com tâmaras secas; se não havia, com alguns goles de água. Recomenda-se dizer: 'Allahumma laka sumtu wa ala rizqika aftartu' (Ó Allah, por Ti jejuei e com o Teu sustento quebro o jejum). É Sunnah apressar o Iftar e atrasar o Suhoor. Depois do Iftar, faz-se a oração Maghrib e depois a refeição principal. Quer saber mais sobre: Suhoor, Taraweeh, ou o que invalida o jejum?",
+    "resposta": "Iftar é a refeição para quebrar o jejum imediatamente após o pôr do sol (Maghrib), quando o disco solar desaparece completamente no horizonte.",
     "fonte": "Sahih al-Bukhari 1955; Abu Dawud 2358",
     "categoria": "Fiqh - Ramadan",
     "nivel": "Iniciante",
@@ -1065,7 +1078,7 @@
       "quebra o jejum",
       "invalidar jejum"
     ],
-    "resposta": "O jejum é invalidado (quebrado) por: 1) Comer ou beber intencionalmente após o Fajr; 2) Relações conjugais durante o dia; 3) Vomitar intencionalmente (vômito involuntário não invalida); 4) Menstruação ou sangramento pós-parto (Nifas); 5) Ejaculação intencional; 6) Apostasia (deixar o Islam). NÃO invalidam: comer/beber por esquecimento (Allah alimentou-o), sonhos molhados, sangue acidental, uso de colírio, injeções não nutritivas, ou escovar os dentes sem engolir pasta. Se quebrar intencionalmente, deve pedir perdão a Allah, fazer o jejum de compensação (Qada) e, se sem desculpa válida, também pagar expiação (Kaffarah: jejumar 60 dias consecutivos ou alimentar 60 pobres). Quer saber mais sobre: compensação, expiação, ou quem está isento de jejuar?",
+    "resposta": "O jejum é invalidado (quebrado) por: 1) Comer ou beber intencionalmente após o Fajr; 2) Relações conjugais durante o dia; 3) Vomitar intencionalmente (vômito involuntário não invalida); 4) Menstruação ou sangramento pós-parto (Nifas); 5) Ejaculação intencional; 6) Apostasia (deixar o Islam). NÃO ...",
     "fonte": "Alcorão 2:187; Sahih al-Bukhari 1933; Sahih Muslim 1114",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1087,7 +1100,7 @@
       "idoso",
       "quem nao jejua"
     ],
-    "resposta": "Estão isentos de jejuar no Ramadan: 1) Crianças antes da puberdade (encoraja-se a praticar gradualmente); 2) Idosos com fraqueza extrema que não suportam o jejum (devem pagar Fidyah: alimentar 1 pobre por cada dia); 3) Doentes com risco de agravamento (fazem Qada depois); 4) Viajantes em jornada longa (mais de 80km, fazem Qada depois); 5) Mulheres grávidas ou amamentando com risco para si ou bebê (fazem Qada ou Fidyah); 6) Mulheres em menstruação ou pós-parto (Nifas) — param de jejuar e fazem Qada depois; 7) Pessoas com condições mentais severas. Quem está isento por doença temporária ou viagem deve compensar (Qada) em outro momento. Quer saber mais sobre: Qada, Fidyah, Kaffarah, ou regras para mulheres?",
+    "resposta": "Estão isentos de jejuar no Ramadan: 1) Crianças antes da puberdade (encoraja-se a praticar gradualmente); 2) Idosos com fraqueza extrema que não suportam o jejum (devem pagar Fidyah: alimentar 1 pobre por cada dia); 3) Doentes com risco de agravamento (fazem Qada depois); 4) Viajantes em jornada ...",
     "fonte": "Alcorão 2:184-185; Sahih al-Bukhari 1947",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1105,7 +1118,7 @@
       "Jejum em falta",
       "compensacao jejum"
     ],
-    "resposta": "Qada significa 'compensar' — é obrigatório jejuar os dias perdidos do Ramadan antes do próximo Ramadan, exceto para quem tem desculpa contínua (doença crónica, amamentação). Regras do Qada: 1) Deve ser feito em dias consecutivos ou separados, antes do próximo Ramadan; 2) A intenção (Niyyah) deve ser específica; 3) Mulheres compensam os dias de menstruação/Nifas; 4) Viajantes compensam os dias de viagem; 5) Quem adoeceu compensa após recuperação. Se não compensar antes do próximo Ramadan sem desculpa válida, deve fazer Qada MAIS Fidyah (alimentar 1 pobre por cada dia de atraso). Quer saber mais sobre: Fidyah, Kaffarah, ou regras específicas para mulheres?",
+    "resposta": "Qada significa 'compensar' — é obrigatório jejuar os dias perdidos do Ramadan antes do próximo Ramadan, exceto para quem tem desculpa contínua (doença crónica, amamentação). Regras do Qada: 1) Deve ser feito em dias consecutivos ou separados, antes do próximo Ramadan; 2) A intenção (Niyyah) deve ...",
     "fonte": "Alcorão 2:184; Sahih al-Bukhari 1953",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1122,7 +1135,7 @@
       "alimentar pores",
       "quebrou jejum intencional"
     ],
-    "resposta": "Kaffarah é a penitência obrigatória para quem quebra intencionalmente o jejum de Ramadan SEM desculpa válida (ex: comeu/bebeu/relacionou-se propositalmente). São 3 opções, em ordem de preferência: 1) Jejuar 60 dias consecutivos (2 meses completos sem interrupção — se falhar 1 dia, recomeça); 2) Alimentar 60 pobres com uma refeição completa cada; 3) Libertar 1 escravo (hoje em dia, equivalente a doar para libertar cativos). Se não conseguir nenhuma das 3 por pobreza extrema, jejua 60 dias. Kaffarah é diferente de Qada: Qada compensa o dia perdido, Kaffarah expia a quebra intencional. Quer saber mais sobre: Qada, Fidyah, ou o que invalida o jejum?",
+    "resposta": "Kaffarah é a penitência obrigatória para quem quebra intencionalmente o jejum de Ramadan SEM desculpa válida (ex: comeu/bebeu/relacionou-se propositalmente). São 3 opções, em ordem de preferência: 1) Jejuar 60 dias consecutivos (2 meses completos sem interrupção — se falhar 1 dia, recomeça); 2) A...",
     "fonte": "Alcorão 2:196; Sahih al-Bukhari 1936; Sahih Muslim 1111",
     "categoria": "Fiqh - Jejum",
     "nivel": "Avancado",
@@ -1139,7 +1152,7 @@
       "nao pode jejuar",
       "substituir jejum"
     ],
-    "resposta": "Fidyah é o resgate pago por quem NÃO POKE jejuar permanentemente devido a idade avançada, doença crónica incurável, ou fraqueza extrema que impede o jejum e a recuperação é impossível. Consiste em alimentar 1 pobre necessitado com uma refeição completa (aproximadamente 750g de trigo/arroz) por CADA dia de Ramadan perdido. Também se aplica a quem atrasou o Qada sem desculpa até ao próximo Ramadan. Fidyah NÃO substitui Qada para quem pode jejuar depois. Quer saber mais sobre: Kaffarah, Qada, ou quem está isento?",
+    "resposta": "Fidyah é o resgate pago por quem NÃO POKE jejuar permanentemente devido a idade avançada, doença crónica incurável, ou fraqueza extrema que impede o jejum e a recuperação é impossível.",
     "fonte": "Alcorão 2:184; Sahih al-Bukhari 1946",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1159,7 +1172,7 @@
       "amamentando",
       "jejum mulher"
     ],
-    "resposta": "Regras específicas para mulheres: 1) MENSTRUAÇÃO (Haid) e PÓS-PARTO (Nifas): É proibido jejuar nesses períodos. O jejum é inválido se o sangramento começar mesmo segundos antes do pôr do sol. É obrigatório fazer a compensação (Qada) desses dias mais tarde. 2) GRÁVIDAS E LACTANTES: Se houver receio real pela saúde da mãe ou do bebé, a mulher está isenta de jejuar, devendo compensar os dias perdidos através do Qada quando tiver condições.",
+    "resposta": "Regras específicas para mulheres: 1) MENSTRUAÇÃO (Haid) e PÓS-PARTO (Nifas): É proibido jejuar nesses períodos. O jejum é inválido se o sangramento começar mesmo segundos antes do pôr do sol. É obrigatório fazer a compensação (Qada) desses dias mais tarde. 2) GRÁVIDAS E LACTANTES: Se houver recei...",
     "fonte": "Alcorão 2:184; Sahih al-Bukhari 1947",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1177,7 +1190,7 @@
       "recuperar jejum",
       "jejum atrasado"
     ],
-    "resposta": "Qada é a compensação dos dias obrigatórios de jejum que foram perdidos no Ramadan devido a desculpas legítimas (doença, viagem, menstruação). Regras: 1) PRAZO: Deve ser feito antes do início do próximo Ramadan. É recomendável compensar o quanto antes; 2) ORDEM: Os dias podem ser compensados consecutivamente ou separados, conforme a capacidade da pessoa; 3) INTENÇÃO: A Niyyah (intenção) para o jejum de Qada deve ser feita obrigatoriamente antes do Fajr; 4) ATRASO INJUSTIFICADO: Se o próximo Ramadan chegar e a pessoa não fez o Qada sem justificativa real, ela deve jejuar o Ramadan atual, fazer o Qada depois e, segundo alguns madhahib, pagar uma Fidyah (alimentar um pobre) por dia atrasado. Quer saber mais sobre: Fidyah, isenções, ou jejum voluntário?",
+    "resposta": "Qada é a compensação dos dias obrigatórios de jejum que foram perdidos no Ramadan devido a desculpas legítimas (doença, viagem, menstruação). Regras: 1) PRAZO: Deve ser feito antes do início do próximo Ramadan. É recomendável compensar o quanto antes; 2) ORDEM: Os dias podem ser compensados conse...",
     "fonte": "Alcorão 2:184; Sahih al-Bukhari 1950; Sahih Muslim 1146",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1194,7 +1207,7 @@
       "idoso",
       "doenca cronica"
     ],
-    "resposta": "Fidyah é a compensação financeira ou em alimentos para quem não pode jejuar de forma permanente devido à velhice avançada ou doença crônica incurável. Allah diz: 'E para aqueles que só com grande dificuldade o podem fazer, há uma compensação: alimentar um necessitado.' (Alcorão 2:184). Regras: 1) QUEM PAGA: Idosos debilitados e doentes sem perspectiva de cura; 2) VALOR/QUANTIDADE: Equivale a alimentar um necessitado com duas refeições completas ou doar cerca de 1,5 kg de alimento básico (arroz, trigo) por cada dia perdido; 3) MOMENTO: Pode ser paga dia a dia, tudo no início ou tudo no fim do Ramadan; 4) SE CURADO DEPOIS: Se uma pessoa paga Fidyah por doença crônica e, anos depois, se cura milagrosamente, não precisa repor o passado, mas deve jejuar dali em diante. Quer saber mais sobre: Qada, isenções médicas, ou Zakat?",
+    "resposta": "Fidyah é a compensação financeira ou em alimentos para quem não pode jejuar de forma permanente devido à velhice avançada ou doença crônica incurável. Allah diz: 'E para aqueles que só com grande dificuldade o podem fazer, há uma compensação: alimentar um necessitado.' (Alcorão 2:184). Regras: 1)...",
     "fonte": "Alcorão 2:184; Sahih al-Bukhari 4505",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1210,7 +1223,7 @@
       "quebrar de",
       "jejum punicao"
     ],
-    "resposta": "Kaffarah é a expiação pesada imposta a quem quebra o jejum do Ramadan intencionalmente de forma grave (especialmente por relação sexual diurna). Regras de gradação (em ordem): 1) Libertar um escravo (não aplicável hoje); 2) Jejuar 60 dias CONSECUTIVOS. Se quebrar um único dia no meio (sem desculpa como doença/menstruação), deve reiniciar a contagem do zero; 3) Se for fisicamente incapaz de jejuar os 60 dias, deve alimentar 60 necessitados. Nota: Para quem quebra o jejum comendo ou bebendo de propósito sem desculpa, há divergência entre os madhahib; a escola Hanafi e Maliki exigem Kaffarah, enquanto Shafi'i e Hanbali exigem o Qada (reposição do dia) acompanhado de um arrependimento sincero (Tawbah) profundo. Quer saber mais sobre: Tawbah, Qada, ou regras de casal?",
+    "resposta": "Kaffarah é a expiação pesada imposta a quem quebra o jejum do Ramadan intencionalmente de forma grave (especialmente por relação sexual diurna). Regras de gradação (em ordem): 1) Libertar um escravo (não aplicável hoje); 2) Jejuar 60 dias CONSECUTIVOS. Se quebrar um único dia no meio (sem desculp...",
     "fonte": "Sahih al-Bukhari 1936; Sahih Muslim 1111",
     "categoria": "Fiqh - Jejum",
     "nivel": "Avancado",
@@ -1228,7 +1241,7 @@
       "medico",
       "jejum doente"
     ],
-    "resposta": "A pessoa doente tem permissão divina para não jejuar se o jejum agravar a doença, retardar a cura ou causar dor insuportável. Allah diz: 'E quem quer que esteja doente ou em viagem, que jejue o mesmo número de dias mais tarde.' (Alcorão 2:185). Regras: 1) DOENÇA TEMPORÁRIA (gripe forte, infecção, cirurgia): Não jejua e faz Qada (compensa) após a recuperação; 2) DOENÇA LEVE (dor de cabeça leve, coriza): Se não houver impacto real na saúde, o jejum continua obrigatório; 3) CRITÉRIO: A decisão deve se basear na experiência própria anterior ou na recomendação de um médico confiável; 4) QUEBRAR POR EMERGÊNCIA: Se a pessoa começou o dia jejuando e passou muito mal, deve quebrar imediatamente para proteger a vida. Quer saber mais sobre: Medicamentos, Qada, ou Fidyah?",
+    "resposta": "A pessoa doente tem permissão divina para não jejuar se o jejum agravar a doença, retardar a cura ou causar dor insuportável. Allah diz: 'E quem quer que esteja doente ou em viagem, que jejue o mesmo número de dias mais tarde.' (Alcorão 2:185). Regras: 1) DOENÇA TEMPORÁRIA (gripe forte, infecção,...",
     "fonte": "Alcorão 2:185; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1245,7 +1258,7 @@
       "antes acordar",
       "bencao suhoor"
     ],
-    "resposta": "Suhoor é a refeição matinal feita antes do amanhecer (Fajr) por quem vai jejuar. É uma Sunnah altamente recomendada. O Profeta Muhammad (PBUH) disse: 'Tomai o Suhoor, pois certamente no Suhoor há bênção.' (Sahih al-Bukhari). Regras: 1) MOMENTO: O melhor horário é retardá-lo até o mais próximo possível do Fajr (cerca de 15 a 20 minutos antes); 2) MESMO QUE POUCO: Se não tiver apetite, tome nem que seja um gole de água ou algumas tâmaras para obter a bênção espiritual; 3) DISTINÇÃO: O Profeta explicou que o Suhoor é o que diferencia o nosso jejum do jejum do Povo do Livro (judeus e cristãos); 4) PERDA DO SUHOOR: Se você acordar após o Fajr, não coma nada, o jejum continua válido se a intenção geral já existia. Quer saber mais sobre: Iftar, Niyyah, ou horários de oração?",
+    "resposta": "Suhoor é a refeição matinal feita antes do amanhecer (Fajr) por quem vai jejuar. É uma Sunnah altamente recomendada. O Profeta Muhammad (PBUH) disse: 'Tomai o Suhoor, pois certamente no Suhoor há bênção.' (Sahih al-Bukhari). Regras: 1) MOMENTO: O melhor horário é retardá-lo até o mais próximo pos...",
     "fonte": "Sahih al-Bukhari 1923; Sahih Muslim 1095",
     "categoria": "Fiqh - Ramadan",
     "nivel": "Iniciante",
@@ -1262,7 +1275,7 @@
       "tamara",
       "comer fim dia"
     ],
-    "resposta": "Iftar é a refeição de quebra do jejum realizada exatamente ao pôr do sol, no início do horário da oração de Maghrib. Regras: 1) APRESSAR O IFTAR: É Sunnah pressupor e fazer o Iftar imediatamente ao ouvir o Adhan ou confirmar o pôr do sol. O Profeta disse: 'As pessoas permanecerão na bondade enquanto apressarem o Iftar.' (Sahih al-Bukhari); 2) COM O QUE QUEBRAR: É recomendável quebrar com tâmaras frescas (Rutab), tâmaras secas (Tamr) ou, se não houver, com água; 3) SÚPLICA (Dua): O momento do Iftar é um dos momentos em que a súplica não é rejeitada por Allah. O Profeta costumava dizer: 'Dhahaba adh-dhama'u wabtallatil-'urooqu wa thabatal-ajru in sha' Allah' (A sede se foi, as veias se umedeceram e a recompensa está garantida, se Allah quiser). Quer saber mais sobre: Suhoor, recompensas, ou oração de Maghrib?",
+    "resposta": "Iftar é a refeição de quebra do jejum realizada exatamente ao pôr do sol, no início do horário da oração de Maghrib. Regras: 1) APRESSAR O IFTAR: É Sunnah pressupor e fazer o Iftar imediatamente ao ouvir o Adhan ou confirmar o pôr do sol. O Profeta disse: 'As pessoas permanecerão na bondade enqua...",
     "fonte": "Sahih al-Bukhari 1957; Sahih Muslim 1098; Abu Dawud 2357",
     "categoria": "Fiqh - Ramadan",
     "nivel": "Iniciante",
@@ -1278,7 +1291,7 @@
       "coracao",
       "declarar jejum"
     ],
-    "resposta": "A Niyyah (intenção) é um pilar (Rukn) indispensável para a validade do jejum. O Profeta disse: 'As ações são julgadas pelas intenções.' (Sahih al-Bukhari). Regras: 1) LUGAR DA INTENÇÃO: O lugar da intenção é o coração; pronunciá-la em voz alta não é obrigatório e não era prática comum do Profeta; 2) JEJUM OBRIGATÓRIO (Ramadan/Qada): A intenção deve ser firmada no coração obrigatoriamente ANTES do Fajr (durante a noite). O Profeta disse: 'Quem não determinar o jejum antes do Fajr, não tem jejum.' (Abu Dawud); 3) JEJUM VOLUNTÁRIO (Nafl): Pode ser feita durante o dia (até antes do meio-dia), desde que a pessoa não tenha ingerido nada desde o amanhecer; 4) CONTINUIDADE: No Ramadan, a maioria dos juristas aceita uma intenção única no início do mês para todos os 30 dias, mas é excelente renová-la mentalmente todas as noites. Quer saber mais sobre: Suhoor, regras gerais, ou o que invalida?",
+    "resposta": "A Niyyah (intenção) é um pilar (Rukn) indispensável para a validade do jejum. O Profeta disse: 'As ações são julgadas pelas intenções.' (Sahih al-Bukhari). Regras: 1) LUGAR DA INTENÇÃO: O lugar da intenção é o coração; pronunciá-la em voz alta não é obrigatório e não era prática comum do Profeta;...",
     "fonte": "Sahih al-Bukhari 1; Abu Dawud 2454; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1294,7 +1307,7 @@
       "siwak",
       "higiene jejum"
     ],
-    "resposta": "durante o jejum você pode e deve escovar os dentes, preferencialmente com Miswak (graveto de Salvador persica) — é Sunnah do Profeta. Com pasta de dentes: 1) Pode usar desde que NÃO engula pasta, água ou saliva com sabor forte; 2) Use pouca pasta, escove suavemente, enxágue bem; 3) Se engolar intencionalmente pasta, invalida o jejum; 4) Se engolar sem querer, não invalida (por esquecimento). O Profeta usava Miswak constantemente, mesmo em jejum. Alguns estudiosos preferem evitar pasta forte antes do meio-dia por precaução. Quer saber mais sobre: o que invalida, Miswak, ou regras gerais do jejum?",
+    "resposta": "durante o jejum você pode e deve escovar os dentes, preferencialmente com Miswak (graveto de Salvador persica) — é Sunnah do Profeta. Com pasta de dentes: 1) Pode usar desde que NÃO engula pasta, água ou saliva com sabor forte; 2) Use pouca pasta, escove suavemente, enxágue bem; 3) Se engolar int...",
     "fonte": "Sahih al-Bukhari 1933; Sahih Muslim 1158",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1312,7 +1325,7 @@
       "colirio",
       "jejum"
     ],
-    "resposta": "Regras sobre medicamentos no jejum: 1) INJEÇÕES intramusculares, intravenosas ou vacinas NÃO invalidam o jejum (não entram pelo canal digestivo); 2) GOTAS no nariz/ouvidos: se alcançarem a garganta intencionalmente, invalidam; se não, não invalidam; 3) COLÍRIO/ gotas nos olhos NÃO invalidam (canal separado); 4) SUPOSITÓRIOS (anal/vaginal): maioria dos estudiosos diz que NÃO invalidam; 5) INALAÇÃO/ spray para asma: se chegar à garganta com sabor/sensação, há divergência — melhor evitar ou consultar sheikh; 6) COMPRIMIDOS engolidos: SIM, invalida (entram pelo canal digestivo). Quem precisa de medicamentos contínuos para sobreviver está isento e faz Qada/Fidyah. Quer saber mais sobre: isenções, Qada, ou o que invalida?",
+    "resposta": "Regras sobre medicamentos no jejum: 1) INJEÇÕES intramusculares, intravenosas ou vacinas NÃO invalidam o jejum (não entram pelo canal digestivo); 2) GOTAS no nariz/ouvidos: se alcançarem a garganta intencionalmente, invalidam; se não, não invalidam; 3) COLÍRIO/ gotas nos olhos NÃO invalidam (cana...",
     "fonte": "Fiqh dos 4 madhahib; Resolução do Conselho de Fiqh Islâmico",
     "categoria": "Fiqh - Jejum",
     "nivel": "Avancado",
@@ -1330,7 +1343,7 @@
       "maconha",
       "jejum"
     ],
-    "resposta": "fumar (cigarro, narguile, vape, cigarro eletrônico) invalida o jejum. O fumo entra no corpo como substância ingerida/injetada e é prejudicial à saúde — algo que o Islam proíbe. O Profeta disse: 'Não causem dano nem sejam danificados.' (Ibn Majah). Além disso, o fumo deixa resíduos na garganta que são deglutidos. Quem fuma durante o jejum deve: 1) Parar imediatamente; 2) Pedir perdão a Allah; 3) Fazer Qada (compensar o dia); 4) Se quebrou intencionalmente sem desculpa, também Kaffarah (60 dias ou alimentar 60 pobres). O Islam encoraja a cessação do tabaco, especialmente no Ramadan. Quer saber mais sobre: Kaffarah, Qada, ou como parar de fumar?",
+    "resposta": "fumar (cigarro, narguile, vape, cigarro eletrônico) invalida o jejum. O fumo entra no corpo como substância ingerida/injetada e é prejudicial à saúde — algo que o Islam proíbe. O Profeta disse: 'Não causem dano nem sejam danificados.' (Ibn Majah). Além disso, o fumo deixa resíduos na garganta que...",
     "fonte": "Hadith Ibn Majah 2341; Resolução do Conselho de Fiqh Islâmico",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1346,7 +1359,7 @@
       "jejum",
       "sexo solo"
     ],
-    "resposta": "A masturbação (Istimna') invalida o jejum. É considerada ejaculação intencional, que quebra o jejum segundo consenso dos estudiosos. O Profeta Muhammad (PBUH) disse: 'Allah não aceita a oração de quem comeu alho, cebola ou alho-porro até que o cheiro desapareça, nem de quem manejou esperma com a mão até que lave.' (Sahih Muslim). Quem praticar masturbação em jejum deve: 1) Parar imediatamente e pedir perdão sincero a Allah (Tawbah); 2) Fazer Ghusl (banho ritual) antes da próxima oração; 3) Compensar o dia (Qada); 4) Se foi intencional sem desculpa, também Kaffarah (60 dias ou alimentar 60 pobres). Recomenda-se jejum dos olhos (evitar olhares proibidos), jejum da língua e ocupar-se com Dhikr e Alcorão. Quer saber mais sobre: Tawbah, Kaffarah, ou controle da concupiscência?",
+    "resposta": "A masturbação (Istimna') invalida o jejum. É considerada ejaculação intencional, que quebra o jejum segundo consenso dos estudiosos. O Profeta Muhammad (PBUH) disse: 'Allah não aceita a oração de quem comeu alho, cebola ou alho-porro até que o cheiro desapareça, nem de quem manejou esperma com a ...",
     "fonte": "Sahih Muslim 558; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1364,7 +1377,7 @@
       "palavra ruim",
       "jejum espiritual"
     ],
-    "resposta": "Mentir, fofocar (Ghibah), caluniar (Buhtan) e usar palavras obscenas NÃO invalidam o jejum fisicamente (o dia ainda conta como cumprido), mas DESTROEM a recompensa espiritual. O Profeta Muhammad (PBUH) disse: 'Quem não abandona a falsidade em palavras e ações, Allah não necessita que abandone a comida e a bebida.' (Sahih al-Bukhari). O jejum é escudo — se alguém insultar ou provocar quem jejua, diga: 'Estou em jejum, estou em jejum.' (Sahih al-Bukhari). O jejum completo envolve: olhos (não olhar proibido), ouvidos (não ouvir música/fofoca), língua (não mentir/insultar), mãos (não bater/roubar), pés (não ir a lugares proibidos). Quer saber mais sobre: Dhikr, controle da língua, ou recompensas do jejum?",
+    "resposta": "Mentir, fofocar (Ghibah), caluniar (Buhtan) e usar palavras obscenas NÃO invalidam o jejum fisicamente (o dia ainda conta como cumprido), mas DESTROEM a recompensa espiritual.",
     "fonte": "Sahih al-Bukhari 1903; Sahih Muslim 1151",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1382,7 +1395,7 @@
       "paraíso",
       "porta rayyan"
     ],
-    "resposta": "O jejum tem recompensas únicas no Islam: 1) PORTA DE RAYYAN: No Dia do Juízo, haverá uma porta do Paraíso chamada Rayyan exclusive para quem jejuou. O Profeta disse: 'No Paraíso há uma porta chamada Rayyan, por onde entrarão os jejuantes no Dia da Ressurreição. Ninguém mais entrará por ela.' (Sahih al-Bukhari); 2) PERDÃO DOS PECADOS: 'Quem jejuar em Ramadan com fé e esperando recompensa, terá seus pecados anteriores perdoados.' (Sahih al-Bukhari); 3) DUPLA RECOMPENSA: Allah disse: 'Toda ação do filho de Adão é multiplicada... exceto o jejum, que é para Mim e Eu recompenso.' (Sahih al-Bukhari); 4) SAÚDE FÍSICA E ESPIRITUAL: Autodisciplina, empatia pelos pobres, controle dos desejos, fortalecimento da vontade; 5) ACEITAÇÃO DAS ORAÇÕES: O jejum e o Alcorão intercedem pelo servo no Dia do Juízo. Quer saber mais sobre: Ramadan, Laylat al-Qadr, ou como maximizar recompensas?",
+    "resposta": "O jejum tem recompensas únicas no Islam: 1) PORTA DE RAYYAN: No Dia do Juízo, haverá uma porta do Paraíso chamada Rayyan exclusive para quem jejuou. O Profeta disse: 'No Paraíso há uma porta chamada Rayyan, por onde entrarão os jejuantes no Dia da Ressurreição. Ninguém mais entrará por ela.' (Sah...",
     "fonte": "Sahih al-Bukhari 1896-1904; Sahih Muslim 1151",
     "categoria": "Aqeedah - Recompensas",
     "nivel": "Iniciante",
@@ -1399,7 +1412,7 @@
       "incerteza",
       "o que fazer"
     ],
-    "resposta": "Regras para dúvidas no jejum: 1) ESQUECIMENTO: Se comeu/bebeu POR ESQUECIMENTO e lembrou depois, o jejum é VÁLIDO. Complete o dia normalmente. O Profeta disse: 'Se alguém comer ou beber por esquecimento, complete o jejum, pois foi Allah quem o alimentou/bebeu.' (Sahih al-Bukhari); 2) DÚVIDA ANTES DE COMER: Se não tem certeza se já amanheceu (Fajr) ou se já pôs do sol (Maghrib), PODE comer/beber por precaução até ter certeza absoluta; 3) DÚVIDA DEPOIS DE COMER: Se comeu achando que já era Maghrib e depois descobriu que ainda era dia, o jejum é INVÁLIDO — compensa (Qada); 4) DÚVIDA SE ENGOLIU ALGO: Se não tem certeza se engoliu pasta/resíduo, presume-se que NÃO engoliu e o jejum permanece válido. O princípio fiqh é: 'A certeza não é anulada pela dúvida.' Quer saber mais sobre: Qada, o que invalida, ou regras gerais?",
+    "resposta": "Regras para dúvidas no jejum: 1) ESQUECIMENTO: Se comeu/bebeu POR ESQUECIMENTO e lembrou depois, o jejum é VÁLIDO. Complete o dia normalmente. O Profeta disse: 'Se alguém comer ou beber por esquecimento, complete o jejum, pois foi Allah quem o alimentou/bebeu.' (Sahih al-Bukhari); 2) DÚVIDA ANTES...",
     "fonte": "Sahih al-Bukhari 6669; Qawaid al-Fiqh",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1416,7 +1429,7 @@
       "jejum viagem",
       "distante"
     ],
-    "resposta": "O viajante em jornada legítima (mais de 80km/48 milhas de distância, fora da cidade) tem PERMISSÃO de não jejuar e compensar depois (Qada). Allah diz: 'Se estiverdes doentes ou em viagem, completei o número em outros dias.' (Alcorão 2:184). Regras: 1) NÃO é obrigatório quebrar o jejum — pode jejuar se preferir e não sentir dificuldade; 2) Se a viagem é curta (menos de 80km) ou dentro da cidade, NÃO está isento; 3) Se a viagem é para pecar (ex: ir a casino), NÃO há isenção; 4) Deve fazer Qada (compensar) antes do próximo Ramadan; 5) Piloto, motorista, trabalhador de longa distância: se a distância é >80km e a jornada é contínua, aplica-se a isenção. O Profeta jejuava e quebrava em viagem, mostrando flexibilidade. Quer saber mais sobre: Qada, isenções, ou regras do trabalho?",
+    "resposta": "O viajante em jornada legítima (mais de 80km/48 milhas de distância, fora da cidade) tem PERMISSÃO de não jejuar e compensar depois (Qada). Allah diz: 'Se estiverdes doentes ou em viagem, completei o número em outros dias.' (Alcorão 2:184). Regras: 1) NÃO é obrigatório quebrar o jejum — pode jeju...",
     "fonte": "Alcorão 2:184; Sahih al-Bukhari 1944; Sahih Muslim 1117",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1436,7 +1449,7 @@
       "construcao",
       "jejum trabalho"
     ],
-    "resposta": "Trabalho pesado NÃO isenta do jejum, mas se causar dano real à saúde (desmaio, doença grave, impossibilidade de trabalhar), pode quebrar e compensar depois (Qada). Regras: 1) DIFICULDADE NORMAL: Fome, sede, cansaço são esperados no jejum — não são desculpas para quebrar. O Profeta trabalhava e jejuava normalmente; 2) RISCO À SAÚDE: Se o médico atesta que o jejum + trabalho causará dano permanente, está isento e faz Qada; 3) AJUSTE DE HORÁRIO: Tente negociar horário flexível, pausas para descanso, trabalho noturno; 4) SUHOOR FORTE: Tome Suhoor com proteínas, frutas e muita água; 5) IFTAR IMEDIATO: Quebre imediatamente no Maghrib — não espere. Se o trabalho é temporariamente insuportável, pode quebrar o jejum, fazer Qada em outro dia, e pedir perdão a Allah. Quer saber mais sobre: Suhoor, isenções, ou Qada?",
+    "resposta": "Trabalho pesado NÃO isenta do jejum, mas se causar dano real à saúde (desmaio, doença grave, impossibilidade de trabalhar), pode quebrar e compensar depois (Qada). Regras: 1) DIFICULDADE NORMAL: Fome, sede, cansaço são esperados no jejum — não são desculpas para quebrar. O Profeta trabalhava e je...",
     "fonte": "Alcorão 2:185; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1454,7 +1467,7 @@
       "ensinar jejum",
       "crianca jejuar"
     ],
-    "resposta": "Crianças MENORES de idade (antes da puberdade) NÃO são obrigadas a jejuar, mas é encorajado treiná-las gradualmente para se prepararem. Etapas de ensino: 1) IDADE 6-8: Explicar o conceito, jejuar meio dia ou pular uma refeição por semana; 2) IDADE 9-11: Jejuar fins de semana ou metade do Ramadan, com supervisão; 3) IDADE 12+: Tentar jejuar o Ramadan completo se fisicamente capaz; 4) PUBERDADE: A partir da puberdade (menstruação para meninas, esperma/voz grossa/barba para meninos), o jejum torna-se FARD (obrigatório). O Profeta disse: 'Ordenai as crianças a orar aos 7 anos, e batei-lhes (levemente) se deixarem aos 10.' (Abu Dawud). Mesma lógica para o jejum — ensinar gradualmente. NUNCA force uma criança além de sua capacidade física. Quer saber mais sobre: puberdade, regras gerais, ou como ensinar Islam às crianças?",
+    "resposta": "Crianças MENORES de idade (antes da puberdade) NÃO são obrigadas a jejuar, mas é encorajado treiná-las gradualmente para se prepararem. Etapas de ensino: 1) IDADE 6-8: Explicar o conceito, jejuar meio dia ou pular uma refeição por semana; 2) IDADE 9-11: Jejuar fins de semana ou metade do Ramadan,...",
     "fonte": "Abu Dawud 495; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1472,7 +1485,7 @@
       "dente sangrando",
       "jejum sangue"
     ],
-    "resposta": "O Sangramento acidental (corte, hemorragia nasal, sangramento gengival, ferida) NÃO invalida o jejum. O jejum é quebrado apenas por sangue uterino (menstruação/Nifas). Regras: 1) SANGUE ACIDENTAL: Continue o jejum normalmente, faça Wudu se necessário para oração; 2) SANGUE GINGIVAL: Se engolir sem querer, não invalida; se engolir intencionalmente, invalida; 3) DOAÇÃO DE SANGUE: Maioria dos estudiosos diz que NÃO invalida, mas é desencorajada em jejum por fraqueza; 4) EXAME DE SANGUE: Tirar sangue para exame NÃO invalida o jejum; 5) CUPPING (Hijama): Divergência entre estudiosos — Hanafis dizem que invalida, Malikis/Shafi'is/Hanbalis dizem que não. Por precaução, evite cupping em jejum. Quer saber mais sobre: o que invalida, Wudu, ou regras médicas?",
+    "resposta": "O Sangramento acidental (corte, hemorragia nasal, sangramento gengival, ferida) NÃO invalida o jejum. O jejum é quebrado apenas por sangue uterino (menstruação/Nifas). Regras: 1) SANGUE ACIDENTAL: Continue o jejum normalmente, faça Wudu se necessário para oração; 2) SANGUE GINGIVAL: Se engolir se...",
     "fonte": "Sahih al-Bukhari 1933; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1489,7 +1502,7 @@
       "vomito involuntario",
       "vomito intencional"
     ],
-    "resposta": "Depende da intenção: 1) VÔMITO INVOLUNTÁRIO (enjoo, doença, refluxo, cheiro forte): NÃO invalida o jejum. Continue normalmente. O Profeta disse: 'Quem vomitar involuntariamente não precisa compensar, mas quem vomitar intencionalmente deve compensar.' (Abu Dawud); 2) VÔMITO INTENCIONAL (induzir vômito com dedo na garganta, medicamento para vomitar): INVALIDA o jejum — deve fazer Qada; 3) VÔMITO MISTO: Se sentir náusea e 'deixar sair' sem forçar, é considerado involuntário; 4) ENGOLIR VÔMITO: Se vomitou na boca e engoliu de volta intencionalmente, invalida; se engoliu sem querer, não invalida. Recomendação: se sentir náusea, tente segurar ou cuspa fora. Não force o vômito. Quer saber mais sobre: Qada, doença, ou o que invalida?",
+    "resposta": "Depende da intenção: 1) VÔMITO INVOLUNTÁRIO (enjoo, doença, refluxo, cheiro forte): NÃO invalida o jejum. Continue normalmente. O Profeta disse: 'Quem vomitar involuntariamente não precisa compensar, mas quem vomitar intencionalmente deve compensar.' (Abu Dawud); 2) VÔMITO INTENCIONAL (induzir vô...",
     "fonte": "Abu Dawud 2380; Tirmidhi 720; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1508,7 +1521,7 @@
       "garganta",
       "jejum"
     ],
-    "resposta": "Engolir saliva própria (Saliva), muco nasal, ou catarro natural NÃO invalida o jejum. Isso é algo natural e inevitável do corpo humano. \n\n Regras: 1) SALIVA PRÓPRIA: Engolir saliva é natural e permitido — o Profeta engolia saliva em jejum; \n\n 2) MUCO/CATARRO: Se vem da garganta/nariz naturalmente, pode engolir; \n\n 3) MUCO EXTERNO: Se tirou muco do nariz/garganta e depois engoliu de volta, há divergência — melhor cuspir fora; \n\n 4) SANGUE NA SALIVA: Se há sangue gengival e a saliva está tingida, evite engolir em grande quantidade; \n\n 5) ÁGUA EM BANHO/WUDU: Se entrou água na boca durante Wudu e engoliu sem querer, não invalida; se engoliu intencionalmente, invalida. O princípio é: o que é natural e involuntário do corpo não quebra o jejum. Quer saber mais sobre: Wudu, o que invalida, ou regras gerais?",
+    "resposta": "Engolir saliva própria (Saliva), muco nasal, ou catarro natural NÃO invalida o jejum. Isso é algo natural e inevitável do corpo humano. \n 2) MUCO/CATARRO: Se vem da garganta/nariz naturalmente, pode engolir; \n 3) MUCO EXTERNO: Se tirou muco do nariz/garganta e depois engoliu de volta, há divergên...",
     "fonte": "Fiqh dos 4 madhahib; Reliance of the Traveller",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1528,7 +1541,7 @@
       "agua nariz",
       "jejum wudu"
     ],
-    "resposta": "Fazer Wudu (ablusão) ou Ghusl (banho ritual completo) NÃO invalida o jejum — são atos de purificação recomendados e necessários. Regras: 1) WUDU NORMAL: Enxaguar boca e nariz em Wudu é permitido, desde que NÃO engula água intencionalmente; 2) GHUSL: Banho completo é permitido e recomendado, especialmente sexta-feira e para Jumu'ah; 3) ÁGUA NA BOCA: Se entrar água na boca durante Wudu/Ghusl e engolir SEM QUERER, não invalida; se engolir INTENCIONALMENTE, invalida; 4) EXAGERO: Não exagere no enxágue da boca/nariz em jejum — faça o mínimo necessário para validade do Wudu; 5) WUDU COM ÁGUA FRIA: Recomendável em jejum para refrescar. O Profeta fazia Wudu e Ghusl normalmente em jejum. Quer saber mais sobre: Wudu, Ghusl, ou o que invalida?",
+    "resposta": "Fazer Wudu (ablusão) ou Ghusl (banho ritual completo) NÃO invalida o jejum — são atos de purificação recomendados e necessários. Regras: 1) WUDU NORMAL: Enxaguar boca e nariz em Wudu é permitido, desde que NÃO engula água intencionalmente; 2) GHUSL: Banho completo é permitido e recomendado, espec...",
     "fonte": "Sahih al-Bukhari 1933; Sahih Muslim 1111; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1545,7 +1558,7 @@
       "jejum dia todo",
       "dormir tarde"
     ],
-    "resposta": "durante o jejum você pode dormir. Dormir é natural e não afeta a validade do jejum. Na verdade, o Profeta Muhammad (PBUH) recomendava cochilar durante o dia em Ramadan para facilitar a vigília noturna (Qiyam/Taraweeh). Regras: 1) DORMIR DE DIA: Totalmente permitido e recomendado, especialmente para quem trabalha à noite ou reza Taraweeh; 2) DORMIR SEM SUHOOR: Se dormiu e perdeu Suhoor, o jejum continua válido desde que fez Niyyah antes; 3) DORMIR ATÉ MAGHRIB: Pode dormir a tarde toda e acordar para Iftar — o jejum é válido; 4) SONHO MOLHADO: Se ocorrer durante o sono, não invalida o jejum (veja tópico específico). Aproveite o sono para descansar o corpo e fortalecer-se para adoração noturna. Quer saber mais sobre: Suhoor, Taraweeh, ou sonho molhado?",
+    "resposta": "durante o jejum você pode dormir. Dormir é natural e não afeta a validade do jejum. Na verdade, o Profeta Muhammad (PBUH) recomendava cochilar durante o dia em Ramadan para facilitar a vigília noturna (Qiyam/Taraweeh). Regras: 1) DORMIR DE DIA: Totalmente permitido e recomendado, especialmente pa...",
     "fonte": "Sahih al-Bukhari 1145; Sahih Muslim 1174",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1565,7 +1578,7 @@
       "conjuge",
       "jejum casal"
     ],
-    "resposta": "Contato físico leve (beijo, abraço, carinho) entre cônjuges é PERMITIDO em jejum, desde que NÃO leve a ejaculação ou relação completa. O Profeta Muhammad (PBUH) beijava suas esposas em jejum. Regras: 1) BEIJO/ABRAÇO: Permitido se há controle dos desejos; 2) TOQUE COM DESEJO: Se há medo de perder controle e ejacular ou ter relação, é proibido (Makruh) por precaução; 3) RELAÇÃO COMPLETA: PROIBIDA e INVALIDA o jejum — deve fazer Qada + Kaffarah (60 dias ou alimentar 60 pobres); 4) EJACULAÇÃO SEM RELAÇÃO: Se ocorrer por toque/beijo intenso, invalida o jejum (Qada obrigatório, Kaffarah se intencional); 5) JOVENS RECÉM-CASADOS: Recomenda-se evitar contato intenso em jejum por precaução. Quer saber mais sobre: Kaffarah, Qada, ou controle da concupiscência?",
+    "resposta": "Contato físico leve (beijo, abraço, carinho) entre cônjuges é PERMITIDO em jejum, desde que NÃO leve a ejaculação ou relação completa. O Profeta Muhammad (PBUH) beijava suas esposas em jejum. Regras: 1) BEIJO/ABRAÇO: Permitido se há controle dos desejos; 2) TOQUE COM DESEJO: Se há medo de perder ...",
     "fonte": "Sahih al-Bukhari 1927; Sahih Muslim 1106; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1582,7 +1595,7 @@
       "limpar ouvido",
       "jejum ouvido"
     ],
-    "resposta": "A Água entrar no ouvido durante Wudu/Ghusl ou limpar cera do ouvido NÃO invalida o jejum. O canal auditivo não é considerado entrada para o canal digestivo no Fiqh. Regras: 1) ÁGUA NO OUVIDO: Durante Wudu, se água entrar no ouvido, não invalida o jejum; 2) COTONETE/CERA: Limpar o ouvido com cotonete ou remover cera é permitido; 3) GOTAS MEDICINAIS: Gotas no ouvido não invalidam o jejum (canal separado); 4) PERFURAÇÃO NO TÍMPANO: Se há perfuração no tímpano e gotas alcançam a garganta, há divergência — consulte um estudioso local. De forma geral, o ouvido é tratado como canal externo e não afeta o jejum. Quer saber mais sobre: Wudu, medicamentos, ou o que invalida?",
+    "resposta": "A Água entrar no ouvido durante Wudu/Ghusl ou limpar cera do ouvido NÃO invalida o jejum. O canal auditivo não é considerado entrada para o canal digestivo no Fiqh. Regras: 1) ÁGUA NO OUVIDO: Durante Wudu, se água entrar no ouvido, não invalida o jejum; 2) COTONETE/CERA: Limpar o ouvido com coton...",
     "fonte": "Fiqh dos 4 madhahib; Reliance of the Traveller",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1602,7 +1615,7 @@
       "banho",
       "jejum corte"
     ],
-    "resposta": "em jejum você pode cortar cabelo, unhas, barba, depilar, fazer higiene pessoal completa. Nada disso invalida o jejum. Regras: 1) CORTAR UNHAS/CABELO: Totalmente permitido e não afeta o jejum; 2) BARBA/CABELO: Cortar ou aparar é permitido — não há relação com validade do jejum; 3) DEPILAÇÃO: Remover pelos do corpo é permitido; 4) BANHO/GHUSL: Banho é recomendado e não invalida; 5) PERFUME: Usar perfume é permitido em jejum, desde que não seja inalado de forma excessiva que chegue à garganta. Mito comum: 'não cortar unhas/cabelo nos últimos 10 dias de Ramadan' — isso é recomendação para quem faz I'tikaf, não regra geral do jejum. Quer saber mais sobre: Ghusl, higiene em jejum, ou I'tikaf?",
+    "resposta": "em jejum você pode cortar cabelo, unhas, barba, depilar, fazer higiene pessoal completa. Nada disso invalida o jejum. Regras: 1) CORTAR UNHAS/CABELO: Totalmente permitido e não afeta o jejum; 2) BARBA/CABELO: Cortar ou aparar é permitido — não há relação com validade do jejum; 3) DEPILAÇÃO: Remov...",
     "fonte": "Fiqh dos 4 madhahib; Sahih al-Bukhari",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1620,7 +1633,7 @@
       "musk",
       "jejum perfume"
     ],
-    "resposta": "Usar perfume no CORPO (pele, roupa) NÃO invalida o jejum. Inalar INCENSO/fumaça de forma intencional e excessiva que chegue à garganta pode invalidar segundo alguns estudiosos. Regras: 1) PERFUME NA PELE/ROUPA: Totalmente permitido — o Profeta usava perfume e incentivava em Ramadan e sextas-feiras; 2) DESODORANTE/ANTITRANSPIRANTE: Permitido; 3) INCENSO/BAKHOUR: Inalar fumaça intencionalmente e em grande quantidade é Makruh (desencorajado) e alguns estudiosos dizem que invalida se a fumaça é 'engolida' intencionalmente; 4) CIGARRO/VAPE: INVALIDA (veja tópico específico); 5) ARSENAL DE COZINHA: Cheirar comida não invalida, mas inalar vapor intencionalmente em grande quantidade é desencorajado. Use perfume moderadamente e evite inalar fumaça de qualquer tipo. Quer saber mais sobre: o que invalida, higiene, ou regras gerais?",
+    "resposta": "Usar perfume no CORPO (pele, roupa) NÃO invalida o jejum. Inalar INCENSO/fumaça de forma intencional e excessiva que chegue à garganta pode invalidar segundo alguns estudiosos. Regras: 1) PERFUME NA PELE/ROUPA: Totalmente permitido — o Profeta usava perfume e incentivava em Ramadan e sextas-feira...",
     "fonte": "Sahih al-Bukhari 886; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1640,7 +1653,7 @@
       "treino",
       "jejum exercicio"
     ],
-    "resposta": "pode fazer exercício moderado em jejum. Exercício intenso que cause desmaio, desidratação grave ou risco à saúde deve ser evitado ou ajustado. Regras: 1) EXERCÍCIO MODERADO: Caminhada, ioga leve, alongamento — totalmente permitido e benéfico; 2) EXERCÍCIO INTENSO: Musculação pesada, futebol, corrida longa — permitido se o corpo aguenta, mas hidrate-se bem em Iftar e Suhoor; 3) RISCO À SAÚDE: Se o médico proibiu ou você sente tonturas, desmaio, dor de cabeça intensa — PARE e consulte; 4) HORÁRIO: Melhor após Maghrib (Iftar) ou antes de Suhoor; 5) DESIDRATAÇÃO: Beba MUITA água entre Maghrib e Fajr. Se o exercício tornar o jejum perigoso para sua saúde, está isento e faz Qada depois. Quer saber mais sobre: Suhoor, Iftar, ou isenções médicas?",
+    "resposta": "pode fazer exercício moderado em jejum. Exercício intenso que cause desmaio, desidratação grave ou risco à saúde deve ser evitado ou ajustado. Regras: 1) EXERCÍCIO MODERADO: Caminhada, ioga leve, alongamento — totalmente permitido e benéfico; 2) EXERCÍCIO INTENSO: Musculação pesada, futebol, corr...",
     "fonte": "Fiqh dos 4 madhahib; orientações médicas islâmicas",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1658,7 +1671,7 @@
       "banho",
       "jejum nadar"
     ],
-    "resposta": "em jejum você pode nadar, mas com cuidado para NÃO engolir água intencionalmente. Mergulho repetido que leva água à garganta pode invalidar. Regras: 1) NATAÇÃO SUPERFICIAL: Nadar de cabeça fora d'água, sem engolir — permitido; 2) MERGULHO: Mergulhar de cabeça pode levar água ao nariz/boca — se engolir intencionalmente, invalida; se entrar sem querer, não invalida; 3) WUDU ANTES: Faça Wudu antes de nadar para manter pureza; 4) RISCO: Se a água é imprópria (suja, mar poluído), evite engolir; 5) PÓS-NATAÇÃO: Tome Ghusl se necessário antes de oração. Recomendação: nade moderadamente e evite mergulhos profundos repetidos. Se engolir água sem querer, o jejum continua válido. Quer saber mais sobre: Wudu, Ghusl, ou o que invalida?",
+    "resposta": "em jejum você pode nadar, mas com cuidado para NÃO engolir água intencionalmente. Mergulho repetido que leva água à garganta pode invalidar. Regras: 1) NATAÇÃO SUPERFICIAL: Nadar de cabeça fora d'água, sem engolir — permitido; 2) MERGULHO: Mergulhar de cabeça pode levar água ao nariz/boca — se en...",
     "fonte": "Fiqh dos 4 madhahib; Reliance of the Traveller",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1677,7 +1690,7 @@
       "poeira",
       "jejum acidente"
     ],
-    "resposta": "se engoliu algo SEM QUERER (por esquecimento, acidente, poeira, inseto que entrou na boca, fumo de passagem), o jejum continua VÁLIDO. Allah é Misericordioso e não castiga o involuntário. Regras: 1) ESQUECIMENTO: Comer/beber por esquecimento — jejum válido, complete o dia. O Profeta disse: 'Se alguém comer ou beber por esquecimento, complete o jejum, pois foi Allah quem o alimentou.' (Sahih al-Bukhari); 2) POEIRA/FUMO AMBIENTAL: Entrar na boca/nariz sem intenção — não invalida; 3) INSETO NA BOCA: Se engoliu sem perceber, não invalida; se viu e engoliu intencionalmente, invalida; 4) RESÍDUO DE PASTA/ESCOVA: Se engoliu sem querer, não invalida; 5) SANGUE NA BOCA: Se engoliu sangue gengival sem querer, não invalida. O princípio é: 'A certeza não é anulada pela dúvida' e 'Allah perdoou o meu povo por erros, esquecimentos e coações.' Quer saber mais sobre: dúvidas, o que invalida, ou regras gerais?",
+    "resposta": "se engoliu algo SEM QUERER (por esquecimento, acidente, poeira, inseto que entrou na boca, fumo de passagem), o jejum continua VÁLIDO. Allah é Misericordioso e não castiga o involuntário. Regras: 1) ESQUECIMENTO: Comer/beber por esquecimento — jejum válido, complete o dia. O Profeta disse: 'Se al...",
     "fonte": "Sahih al-Bukhari 6669; Sahih Muslim 681; Qawaid al-Fiqh",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1694,7 +1707,7 @@
       "doacao eid",
       "quanto pagar fitr"
     ],
-    "resposta": "Zakat al-Fitr (ou Sadaqat al-Fitr) é a caridade obrigatória paga por TODO muçulmano (rico ou pobre) ao final do Ramadan, antes da oração do Eid al-Fitr. Serve para purificar o jejum de palavrões/erros e ajudar os pobres a celebrarem o Eid. Regras: 1) QUEM PAGA: Todo muçulmano com comida extra do dia-a-dia; o pai paga para dependentes (esposa, filhos, empregados); 2) QUANTO: Aproximadamente 2,5kg (meio Saa') de alimento básico (trigo, arroz, tâmaras, cevada, etc.) por pessoa; 3) QUANDO: Idealmente 1-2 dias antes do Eid, mas pode ser no próprio dia antes da oração do Eid. Depois da oração do Eid é considerado Sadaqah comum, não Zakat al-Fitr; 4) PARA QUEM: Pobres e necessitados da comunidade; 5) VALOR EM DINHEIRO: Permissível segundo maioria dos estudiosos modernos, desde que converta em alimento. Quer saber mais sobre: Eid al-Fitr, caridade, ou outros tipos de Zakat?",
+    "resposta": "Zakat al-Fitr (ou Sadaqat al-Fitr) é a caridade obrigatória paga por TODO muçulmano (rico ou pobre) ao final do Ramadan, antes da oração do Eid al-Fitr. Serve para purificar o jejum de palavrões/erros e ajudar os pobres a celebrarem o Eid. Regras: 1) QUEM PAGA: Todo muçulmano com comida extra do ...",
     "fonte": "Sahih al-Bukhari 1503; Sahih Muslim 984; Abu Dawud 1609",
     "categoria": "Fiqh - Ramadan",
     "nivel": "Iniciante",
@@ -1712,7 +1725,7 @@
       "leite materno",
       "jejum gravida"
     ],
-    "resposta": "Mulheres grávidas ou lactantes têm permissão para não jejuar se temerem por sua própria saúde ou pela saúde do bebê. Regras: 1) CRITÉRIO: A decisão deve ser baseada em recomendação médica confiável ou experiência anterior de fraqueza extrema; 2) COMPENSAÇÃO (Divergência): A escola Shafi'i e Hanbali determinam que se o medo for apenas pelo bebê, ela faz Qada (repõe o dia) e paga Fidyah (alimenta um pobre). Se o medo for pela saúde dela, faz apenas Qada. As escolas Hanafi e Maliki estipulam apenas o Qada (reposição dos dias) após o término da gestação ou amamentação, sem necessidade de Fidyah. Quer saber mais sobre: Qada, Fidyah, ou menstruação?",
+    "resposta": "Mulheres grávidas ou lactantes têm permissão para não jejuar se temerem por sua própria saúde ou pela saúde do bebê. Regras: 1) CRITÉRIO: A decisão deve ser baseada em recomendação médica confiável ou experiência anterior de fraqueza extrema; 2) COMPENSAÇÃO (Divergência): A escola Shafi'i e Hanba...",
     "fonte": "Alcorão 2:185; Abu Dawud 2308; Fiqh dos 4 madhahib",
     "categoria": "Fiqh - Jejum",
     "nivel": "Intermediario",
@@ -1729,7 +1742,7 @@
       "vova",
       "fraqueza idoso"
     ],
-    "resposta": "Idosos que atingiram uma idade avançada e cuja fragilidade física tornou-se permanente estão permanentemente isentos do jejum. Regras: 1) ISENÇÃO TOTAL: Não há pecado ou obrigação de jejuar para quem a velhice causa exaustão severa ou risco de vida; 2) COMPENSAÇÃO: Como a fraqueza é contínua e irreversível, o idoso não faz Qada (não repõe os dias depois). Em vez disso, deve pagar a Fidyah (alimentar um necessitado por cada dia do Ramadan); 3) DEMÊNCIA/ALZHEIMER: Se o idoso perdeu a lucidez ou a capacidade mental devido à idade avançada, a obrigação do jejum e da oração é totalmente suspensa, e a família não precisa pagar Fidyah por ele. Quer saber mais sobre: Fidyah, doação de alimentos, ou doenças crônicas?",
+    "resposta": "Idosos que atingiram uma idade avançada e cuja fragilidade física tornou-se permanente estão permanentemente isentos do jejum. Regras: 1) ISENÇÃO TOTAL: Não há pecado ou obrigação de jejuar para quem a velhice causa exaustão severa ou risco de vida; 2) COMPENSAÇÃO: Como a fraqueza é contínua e ir...",
     "fonte": "Alcorão 2:184; Sahih al-Bukhari 4505",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1748,7 +1761,7 @@
       "henna",
       "jejum maquiagem"
     ],
-    "resposta": "O uso de maquiagem, cremes hidratantes, protetores solares ou óleos na pele NÃO invalida o jejum, pois essas substâncias são absorvidas pelos poros da pele e não entram pelo canal digestivo. Regras: 1) CREMES E PROTETOR: Totalmente permitidos para hidratação ou proteção; 2) BATOM/PROTETOR LABIAL: Permitido, mas exige cuidado extremo para que o sabor não seja engolido com a saliva; se sentir o sabor na garganta por negligência, invalida; 3) HENNA/PINTURA: Permitido no cabelo ou pele; 4) KOHL/DELINEADOR: A maioria dos juristas afirma que não invalida, mesmo se traços forem detectados na saliva. Nota: Embora permitido, recomenda-se moderação na estética durante o dia para focar no espírito de simplicidade do Ramadan. Quer saber mais sobre: escovar os dentes, perfume, ou o que invalida?",
+    "resposta": "O uso de maquiagem, cremes hidratantes, protetores solares ou óleos na pele NÃO invalida o jejum, pois essas substâncias são absorvidas pelos poros da pele e não entram pelo canal digestivo. Regras: 1) CREMES E PROTETOR: Totalmente permitidos para hidratação ou proteção; 2) BATOM/PROTETOR LABIAL:...",
     "fonte": "Fiqh dos 4 madhahib; Resoluções de Jurisprudência Contemporânea",
     "categoria": "Fiqh - Jejum",
     "nivel": "Iniciante",
@@ -1765,7 +1778,7 @@
       "hajj",
       "perdao dois anos"
     ],
-    "resposta": "O jejum no Dia de 'Arafah (9º dia do mês de Dhul-Hijjah) é um dos jejuns voluntários (Nafl) mais importantes do Islam. Regras e Virtudes: 1) RECOMPENSA: O Profeta Muhammad (PBUH) disse que este jejum expia os pecados do ano anterior e do ano seguinte; 2) PARA QUEM: É recomendado estritamente para quem NÃO está realizando a peregrinação (Hajj). Para os peregrinos que estão em 'Arafah, é Sunnah não jejuar para manter a força para as súplicas; 3) INTENÇÃO: Sendo um jejum voluntário, a intenção pode ser firmada na mesma manhã, desde que a pessoa não tenha ingerido nada desde o Fajr. Quer saber mais sobre: Ashura, os 6 dias de Shawwal, ou intenção (Niyyah)?",
+    "resposta": "O jejum no Dia de 'Arafah (9º dia do mês de Dhul-Hijjah) é um dos jejuns voluntários (Nafl) mais importantes do Islam. Regras e Virtudes: 1) RECOMPENSA: O Profeta Muhammad (PBUH) disse que este jejum expia os pecados do ano anterior e do ano seguinte; 2) PARA QUEM: É recomendado estritamente para...",
     "fonte": "Sahih Muslim 1162; Abu Dawud 2425",
     "categoria": "Fiqh - Jejum Voluntario",
     "nivel": "Intermediario",
@@ -1781,7 +1794,7 @@
       "jejum moses",
       "jejum moises"
     ],
-    "resposta": "O jejum de 'Ashura ocorre no 10º dia do mês sagrado de Muharram. Ele celebra o dia em que Allah salvou o Profeta Musa (Moisés) e o Povo de Israel do Faraó. Regras e Virtudes: 1) RECOMPENSA: O Profeta disse que este jejum expia os pecados do ano anterior; 2) COMO JEJUAR: É altamente recomendável jejuar o 10º dia acompanhado do 9º dia (ou do 11º dia) de Muharram, para diferenciar a prática islâmica da tradição estritamente judaica; 3) STATUS: Já foi obrigatório antes da revelação do Ramadan, tornando-se uma Sunnah confirmada e voluntária posteriormente. Quer saber mais sobre: Dia de 'Arafah, calendário islâmico, ou pecados perdoados?",
+    "resposta": "O jejum de 'Ashura ocorre no 10º dia do mês sagrado de Muharram. Ele celebra o dia em que Allah salvou o Profeta Musa (Moisés) e o Povo de Israel do Faraó. Regras e Virtudes: 1) RECOMPENSA: O Profeta disse que este jejum expia os pecados do ano anterior; 2) COMO JEJUAR: É altamente recomendável j...",
     "fonte": "Sahih al-Bukhari 2002; Sahih Muslim 1130",
     "categoria": "Fiqh - Jejum Voluntario",
     "nivel": "Intermediario",
@@ -1798,7 +1811,7 @@
       "jejum aviao",
       "quando quebrar aviao"
     ],
-    "resposta": "Para quem está jejuando a bordo de um avião em movimento, as regras de horários dependem estritamente da localização visual atual da aeronave, e não do horário do país de partida ou de destino. Regras: 1) IFTAR NO AR: Você só pode quebrar o jejum quando vir o sol se pôr completamente além do horizonte da janela do avião, mesmo que o relógio acuse que no solo já é noite; 2) SUHOOR NO AR: O jejum começa assim que a alvorada (Fajr) se tornar visível na rota do voo; 3) ISENÇÃO: Lembre-se que por estar em voo, você se enquadra como viajante (Musaafir) e tem o direito legal de não jejuar e repor o dia depois (Qada). Quer saber mais sobre: regras para viajantes, Qada, ou cálculo de horários?",
+    "resposta": "Para quem está jejuando a bordo de um avião em movimento, as regras de horários dependem estritamente da localização visual atual da aeronave, e não do horário do país de partida ou de destino. Regras: 1) IFTAR NO AR: Você só pode quebrar o jejum quando vir o sol se pôr completamente além do hori...",
     "fonte": "Resolução do Conselho de Grandes Sábios; Fiqh Contemporâneo",
     "categoria": "Fiqh - Jejum",
     "nivel": "Avancado",
@@ -2120,6 +2133,497 @@
     "nivel": "iniciante",
     "links": [
       "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "salam",
+      "assalamu aleikum",
+      "assalamo aleikum",
+      "waleikum salam",
+      "warahmatullahi",
+      "wabarakatuh",
+      "saudação islâmica",
+      "cumprimento muçulmano",
+      "paz"
+    ],
+    "resposta": "📖 السلام عليكم ورحمة الله وبركاته\n🔹 Transliteração: Assalamu 'Alaikum Warahmatullahi Wabarakatuh\n🔹 Significado: 'A paz esteja convosco, assim como a misericórdia de Allah e as Suas bênçãos.'\n🔹 É a saudação islâmica obrigatória entre muçulmanos.",
+    "fonte": "Alcorão 4:86; Sahih Muslim 54",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "kitab",
+      "kitabu",
+      "livro sagrado",
+      "escritura",
+      "livro de allah",
+      "revelação escrita"
+    ],
+    "resposta": "📖 كتاب\n🔹 Transliteração: Kitab / Kitabu\n🔹 Significado: Livro / Escritura.\n🔹 No Islam, 'Kitab' refere-se aos livros sagrados revelados por Allah aos Seus mensageiros.",
+    "fonte": "Alcorão 2:2; Alcorão 3:3; Alcorão 5:44-47",
+    "categoria": "Escrituras",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "jihad",
+      "mujahid",
+      "mujahideen",
+      "esforço",
+      "luta",
+      "struggle",
+      "jihad espiritual",
+      "jihad maior",
+      "jihad menor"
+    ],
+    "resposta": "📖 جهاد / مجاهد\n🔹 Transliteração: Jihad / Mujahid\n🔹 Significado: Esforço / Lutador no caminho de Allah.\n🔹 Jihad significa 'esforço' ou 'luta' no caminho de Allah, NÃO 'guerra santa' como a mídia ocidental distorce.",
+    "fonte": "Alcorão 29:69; Sahih al-Bukhari; Sahih Muslim 1189",
+    "categoria": "aqidah",
+    "nivel": "intermediario",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "kafir",
+      "kafirun",
+      "kafiroun",
+      "incredulo",
+      "descrente",
+      "negador",
+      "não muçulmano",
+      "não crente"
+    ],
+    "resposta": "📖 كافر / كافرون\n🔹 Transliteração: Kafir / Kafirun (plural)\n🔹 Significado: Negador / Incrédulos.\n🔹 'Kafir' deriva da raiz 'k-f-r' que significa 'cobrir' ou 'negar'.",
+    "fonte": "Alcorão 60:8; Alcorão 2:6-7; Alcorão 98:1-6",
+    "categoria": "aqidah",
+    "nivel": "intermediario",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "kabur",
+      "qabr",
+      "tumulo",
+      "sepultura",
+      "cova",
+      "morte",
+      "enterro",
+      "jazigo"
+    ],
+    "resposta": "📖 قبر\n🔹 Transliteração: Qabr / Kabur (em alguns dialetos)\n🔹 Significado: Túmulo / Sepultura.\n🔹 No Islam, a sepultura (Qabr) é o primeiro estágio da vida após a morte (Akhirah).",
+    "fonte": "Sahih Muslim 977; Tirmidhi 2308; Alcorão 36:12",
+    "categoria": "akhirah",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "tasbih",
+      "tasbihat",
+      "subhanallah",
+      "subhan allah",
+      "glorificação",
+      "gloria a allah",
+      "exaltação"
+    ],
+    "resposta": "📖 تسبيح / تسبيحات\n🔹 Transliteração: Tasbih / Tasbihat (plural)\n🔹 Significado: Glorificação / Glorificações de Allah.\n🔹 Tasbih é a prática de glorificar Allah afirmando Sua perfeição e pureza.",
+    "fonte": "Alcorão 33:41-42; Sahih Muslim 597; Sahih al-Bukhari 6405",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "allahu akbar",
+      "allahu akbar significado",
+      "allah é maior",
+      "takbir",
+      "grandeza de allah",
+      "deus é grande"
+    ],
+    "resposta": "📖 الله أكبر\n🔹 Transliteração: Allahu Akbar\n🔹 Significado: Allah é o Maior / Allah é Maior (do que tudo).\n🔹 'Allahu Akbar' é a declaração mais importante do Islam.",
+    "fonte": "Sahih al-Bukhari; Sahih Muslim; Alcorão 17:111",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "salat significado",
+      "significado de salat",
+      "definição de salat",
+      "oração islâmica",
+      "salat definicao",
+      "salah"
+    ],
+    "resposta": "📖 صلاة\n🔹 Transliteração: Salat / Salah\n🔹 Significado: Oração / Invocação / Ligação com Allah.\n🔹 Salat é o segundo pilar do Islam e a base da vida espiritual do muçulmano.",
+    "fonte": "Alcorão 29:45; Sahih al-Bukhari; Ahmad; Abu Dawud 859",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "ghusl",
+      "banho ritual",
+      "banho completo",
+      "purificacao maior",
+      "janabah",
+      "impureza maior"
+    ],
+    "resposta": "📖 غسل\n🔹 Transliteração: Ghusl\n🔹 Significado: Banho ritual completo.\n🔹 Ghusl é a purificação total do corpo com água, obrigatória em situações específicas: 1) Após relação sexual ou ejacul...",
+    "fonte": "Sahih Muslim 316; Sahih al-Bukhari 248; Alcorão 5:6",
+    "categoria": "purificacao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "zakat",
+      "zakah",
+      "caridade obrigatoria",
+      "2.5 por cento",
+      "pobreza",
+      "limosna obrigatoria"
+    ],
+    "resposta": "📖 زكاة\n🔹 Transliteração: Zakat / Zakah\n🔹 Significado: Purificação / Caridade obrigatória.\n🔹 Zakat é o 3º pilar do Islam.",
+    "fonte": "Alcorão 9:60; Sahih al-Bukhari 1403; Sahih Muslim 982",
+    "categoria": "fiqh",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "hajj",
+      "peregrinacao",
+      "peregrinação",
+      "meca",
+      "kaaba",
+      "casa de allah",
+      "haji"
+    ],
+    "resposta": "📖 حج\n🔹 Transliteração: Hajj\n🔹 Significado: Peregrinação.\n🔹 Hajj é o 5º pilar do Islam, obrigatório uma vez na vida para todo muçulmano adulto, financeiramente capaz e fisicamen...",
+    "fonte": "Alcorão 3:97; Sahih al-Bukhari 1521; Sahih Muslim 1350",
+    "categoria": "fiqh",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "qibla",
+      "direcao meca",
+      "onde rezar",
+      "orientacao oracao",
+      "kaaba direcao",
+      "bussola oracao"
+    ],
+    "resposta": "📖 قبلة\n🔹 Transliteração: Qibla\n🔹 Significado: Direção (para onde se volta na oração).\n🔹 A Qibla é a direção sagrada que todo muçulmano deve enfrentar ao realizar a oração (Salat).",
+    "fonte": "Alcorão 2:144; Sahih al-Bukhari 40; Sahih Muslim 526",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "jumuah",
+      "jumua",
+      "sexta feira",
+      "oracao sexta",
+      "khutbah",
+      "sermao sexta",
+      "melhor dia"
+    ],
+    "resposta": "📖 جمعة\n🔹 Transliteração: Jumu'ah / Jumua\n🔹 Significado: Congregação / Reunião.\n🔹 Jumu'ah é a oração congregacional obrigatória toda sexta-feira ao meio-dia (horário de Dhuhr), substituindo a oração ...",
+    "fonte": "Alcorão 62:9-10; Sahih Muslim 854; Sahih al-Bukhari 876",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "eid al fitr",
+      "eid al-fitr",
+      "festa fim ramadan",
+      "aid el fitr",
+      "celebracao ramadan",
+      "festa quebra jejum"
+    ],
+    "resposta": "📖 عيد الفطر\n🔹 Transliteração: Eid al-Fitr\n🔹 Significado: Festa da Quebra do Jejum.\n🔹 Eid al-Fitr é a primeira das duas grandes festas do Islam, celebrada no 1º dia do mês de Shawwal (após o Ramadan).",
+    "fonte": "Sahih al-Bukhari 952; Sahih Muslim 892; Alcorão 2:185",
+    "categoria": "fiqh",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "eid al adha",
+      "eid al-adha",
+      "festa sacrificio",
+      "aid el adha",
+      "bakrid",
+      "cordeiro",
+      "sacrificio abraham"
+    ],
+    "resposta": "📖 عيد الأضحى\n🔹 Transliteração: Eid al-Adha\n🔹 Significado: Festa do Sacrifício.\n🔹 Eid al-Adha é a segunda grande festa do Islam, celebrada nos dias 10-13 de Dhul-Hijjah.",
+    "fonte": "Alcorão 37:99-111; Tirmidhi 1493; Sahih al-Bukhari 5545",
+    "categoria": "fiqh",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "sadaqah",
+      "sadaqa",
+      "caridade voluntaria",
+      "doacao",
+      "esmola",
+      "ajuda pobre",
+      "voluntaria"
+    ],
+    "resposta": "📖 صدقة\n🔹 Transliteração: Sadaqah / Sadaqa\n🔹 Significado: Caridade voluntária / Boa ação.\n🔹 Sadaqah é qualquer ato de bondade ou doação feita voluntariamente, diferente da Zakat (obrigatória).",
+    "fonte": "Sahih Muslim 2588; Sahih al-Bukhari 1417; Alcorão 2:261-274",
+    "categoria": "fiqh",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "anjos",
+      "anjos islam",
+      "malaika",
+      "mala'ika",
+      "gabriel",
+      "jibril",
+      "mikail",
+      "israfil",
+      "azrael"
+    ],
+    "resposta": "📖 ملائكة\n🔹 Transliteração: Mala'ika / Malaika\n🔹 Significado: Anjos / Mensageiros celestiais.\n🔹 A crença nos anjos é o 2º pilar do Iman (fé).",
+    "fonte": "Alcorão 2:285; Alcorão 35:1; Sahih Muslim 8",
+    "categoria": "aqidah",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "jinn",
+      "djinn",
+      "genio",
+      "genios",
+      "seres invisiveis",
+      "iblis",
+      "shaytan",
+      "diabo islam"
+    ],
+    "resposta": "📖 جن\n🔹 Transliteração: Jinn / Djinn\n🔹 Significado: Seres invisíveis / Criaturas do fogo.\n🔹 Os Jinn são seres criados por Allah a partir de fogo sem fumaça (Alcorão 55:15), invisíveis aos olhos humanos na maio...",
+    "fonte": "Alcorão 51:56; Alcorão 55:15; Sahih Muslim 2713",
+    "categoria": "aqidah",
+    "nivel": "intermediario",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "tawbah",
+      "arrependimento",
+      "repender",
+      "pedir perdao",
+      "volta allah",
+      "sinceridade"
+    ],
+    "resposta": "📖 توبة\n🔹 Transliteração: Tawbah\n🔹 Significado: Arrependimento / Retorno a Allah.\n🔹 Tawbah é voltar-se para Allah com sinceridade, abandonando o pecado e prometendo não voltar a cometê-lo.",
+    "fonte": "Alcorão 39:53; Sahih al-Bukhari 6309; Sahih Muslim 2744",
+    "categoria": "espiritualidade",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "istighfar",
+      "astaghfirullah",
+      "pedir perdao allah",
+      "perdao divino",
+      "maghfirah",
+      "perdoar"
+    ],
+    "resposta": "📖 استغفار\n🔹 Transliteração: Istighfar\n🔹 Significado: Buscar perdão de Allah.\n🔹 Istighfar é a prática de pedir perdão a Allah, geralmente dizendo 'Astaghfirullah' (أستغفر الله) — 'Peço perdão a All...",
+    "fonte": "Alcorão 47:19; Abu Dawud 1518; Sahih Muslim 2702",
+    "categoria": "espiritualidade",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "jesus islam",
+      "isa",
+      "isa islam",
+      "jesus no islam",
+      "cristo islam",
+      "messias islam",
+      "filho de maria"
+    ],
+    "resposta": "📖 عيسى عليه السلام\n🔹 Transliteração: Isa (Jesus) Alayhi as-Salam\n🔹 Significado: Jesus, a paz esteja com ele.\n🔹 No Islam, Jesus (Isa) é um dos maiores profetas de Allah, nascido milagrosamente de Maria (Maryam) sem pai.",
+    "fonte": "Alcorão 4:157; Alcorão 5:75; Alcorão 3:45-59; Sahih al-Bukhari 3448",
+    "categoria": "Profetas",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "maria islam",
+      "maryam",
+      "mae de jesus islam",
+      "virgem maria",
+      "maria corao",
+      "mae isa"
+    ],
+    "resposta": "📖 مريم عليها السلام\n🔹 Transliteração: Maryam Alayha as-Salam\n🔹 Significado: Maria, a paz esteja com ela.\n🔹 Maria (Maryam) é a mulher mais honrada no Islam.",
+    "fonte": "Alcorão 3:42-47; Alcorão 19:16-34; Alcorão 66:12; Sahih al-Bukhari 3436",
+    "categoria": "Profetas",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "como rezar",
+      "como fazer salat",
+      "passo a passo oracao",
+      "tutorial oracao",
+      "guia oracao",
+      "aprender rezar"
+    ],
+    "resposta": "📖 Como Fazer a Salat (Oração) — Guia Passo a Passo\n1️⃣ INTENÇÃO (Niyyah): No coração, decidir qual oração e para quantas Rak'at.\n2️⃣ TAKBIR: Levantar as mãos aos ombros e dizer 'Allahu Akbar' (mãos cruzadas sobre o peito — homens\n... (mais info)",
+    "fonte": "Sahih al-Bukhari 757; Sahih Muslim 396; Fiqh dos 4 madhahib",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "rakah",
+      "rak'at",
+      "rakaat",
+      "unidade oracao",
+      "quantas rakah",
+      "fajr rakah",
+      "dhuhr rakah",
+      "asr rakah",
+      "maghrib rakah",
+      "isha rakah"
+    ],
+    "resposta": "📖 ركعة / ركعات\n🔹 Transliteração: Rak'ah / Rak'at (plural)\n🔹 Significado: Unidade de oração / Ciclo de posturas.\n🔹 Uma Rak'ah é um ciclo completo de posturas na oração islâmica, composto por: 1) Qiyam (em pé, recitando Al-Fatiha + S...",
+    "fonte": "Sahih al-Bukhari 757; Sahih Muslim 396; Abu Dawud 858",
+    "categoria": "adoracao",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "hijab",
+      "veu",
+      "veu islam",
+      "cobrir cabeca",
+      "modestia mulher",
+      "cobertura",
+      "aurah mulher",
+      "roupa modesta"
+    ],
+    "resposta": "📖 حجاب\n🔹 Transliteração: Hijab\n🔹 Significado: Véu / Cortina / Barreira / Modéstia.\n🔹 Hijab é a cobertura modesta obrigatória para mulheres muçulmanas adultas na presença de homens não-mahram (não parent...",
+    "fonte": "Alcorão 24:31; Alcorão 33:59; Ahmad; Abu Dawud 4092",
+    "categoria": "modestia",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "casamento islam",
+      "nikah",
+      "niquah",
+      "casamento muçulmano",
+      "noivado islam",
+      "dote",
+      "mahr",
+      "poligamia",
+      "poligamia islam"
+    ],
+    "resposta": "📖 نكاح\n🔹 Transliteração: Nikah\n🔹 Significado: Casamento / União conjugal.\n🔹 Nikah é o contrato de casamento islâmico, um ato de adoração e Sunnah do Profeta.",
+    "fonte": "Alcorão 4:3; Alcorão 4:4; Sahih al-Bukhari 5066; Sahih Muslim 1400",
+    "categoria": "familia",
+    "nivel": "intermediario",
+    "links": [
+      "https://Facebook.com/Islamguia"
+    ]
+  },
+  {
+    "palavras_chave": [
+      "como se tornar muçulmano",
+      "converter islam",
+      "passos conversao",
+      "processo shahada",
+      "entrar islam",
+      "aceitar islam",
+      "tornar muçulmano"
+    ],
+    "resposta": "📖 Como Se Tornar Muçulmano — Passo a Passo\n1️⃣ APRENDER OS PILARES: Entender os 5 pilares do Islam (Shahada, Salat, Zakat, Sawm, Hajj) e os 6 p\n2️⃣ CONHECER ALLAH: Aprender sobre Tawhid (Unicidade de Allah), Seus 99 nomes, e que Ele não tem par\n... (mais info)",
+    "fonte": "Alcorão 3:19; Sahih al-Bukhari 8; Islam Moçambique",
+    "categoria": "Conversão",
+    "nivel": "iniciante",
+    "links": [
+      "https://Facebook.com/Islamguia",
+      "https://tinyurl.com/Publicidade-e-cursos"
     ]
   }
 ]
