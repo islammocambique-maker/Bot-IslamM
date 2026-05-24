@@ -5,15 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Islam M Bot</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(180deg, #0d3b2e 0%, #1a5f4a 100%);
             color: #fff;
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
@@ -22,17 +26,27 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         header {
             text-align: center;
             padding: 15px 0;
             flex-shrink: 0;
         }
-        
-        .logo { font-size: 2.5rem; }
-        h1 { font-size: 1.5rem; margin: 5px 0; }
-        .status { color: #10b981; font-size: 0.85rem; }
-        
+
+        .logo {
+            font-size: 2.5rem;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+
+        .status {
+            color: #10b981;
+            font-size: 0.85rem;
+        }
+
         .chat-box {
             flex: 1;
             background: rgba(255,255,255,0.08);
@@ -41,7 +55,7 @@
             overflow-y: auto;
             margin: 10px 0;
         }
-        
+
         .message {
             margin: 12px 0;
             padding: 12px 15px;
@@ -51,67 +65,57 @@
             font-size: 0.95rem;
             animation: fadeIn 0.3s ease;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         .message.bot {
             background: rgba(16, 185, 129, 0.2);
             border-left: 3px solid #10b981;
             margin-right: auto;
         }
-        
+
         .message.user {
             background: rgba(59, 130, 246, 0.2);
             border-right: 3px solid #3b82f6;
             margin-left: auto;
             text-align: right;
         }
-        
+
         .message .time {
             font-size: 0.7rem;
             color: #a8e6cf;
             margin-top: 5px;
         }
-        
+
         .verse-arabic {
-            font-family: 'Traditional Arabic', 'Scheherazade', serif;
-            font-size: 1.4rem;
+            font-family: 'Traditional Arabic', 'Scheherazade', 'Arial', sans-serif;
+            font-size: 1.5rem;
             line-height: 2;
             text-align: right;
             direction: rtl;
             margin: 10px 0;
-            padding: 10px;
+            padding: 15px;
             background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            color: #f0fdf4;
+        }
+
+        .verse-translation {
+            margin: 5px 0 20px 0;
+            padding-left: 12px;
+            border-left: 3px solid #10b981;
+        }
+
+        .surah-info {
+            background: rgba(16, 185, 129, 0.15);
+            padding: 10px 15px;
             border-radius: 8px;
+            margin-bottom: 15px;
         }
-        
-        .prayer-time {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin: 10px 0;
-        }
-        
-        .prayer-item {
-            background: rgba(255,255,255,0.1);
-            padding: 10px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        
-        .prayer-name { color: #a8e6cf; font-size: 0.85rem; }
-        .prayer-hour { font-size: 1.2rem; font-weight: bold; }
-        
-        code {
-            background: rgba(0,0,0,0.3);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.9em;
-        }
-        
+
         .quick-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -119,7 +123,7 @@
             margin: 10px 0;
             flex-shrink: 0;
         }
-        
+
         .quick-btn {
             padding: 8px 16px;
             border: 1px solid rgba(16, 185, 129, 0.4);
@@ -130,19 +134,19 @@
             font-size: 0.85rem;
             transition: all 0.2s;
         }
-        
+
         .quick-btn:hover {
             background: rgba(16, 185, 129, 0.3);
             color: #fff;
         }
-        
+
         .input-area {
             display: flex;
             gap: 10px;
             padding: 10px 0;
             flex-shrink: 0;
         }
-        
+
         .input-area input {
             flex: 1;
             padding: 14px 18px;
@@ -153,9 +157,11 @@
             font-size: 1rem;
             outline: none;
         }
-        
-        .input-area input::placeholder { color: #a8e6cf; }
-        
+
+        .input-area input::placeholder {
+            color: #a8e6cf;
+        }
+
         .input-area button {
             width: 50px;
             height: 50px;
@@ -167,27 +173,56 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        
-        .input-area button:hover { background: #059669; transform: scale(1.05); }
-        .input-area button:disabled { background: #6b7280; cursor: not-allowed; transform: none; }
-        
+
+        .input-area button:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .input-area button:disabled {
+            background: #6b7280;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         .loading {
             display: none;
             text-align: center;
             color: #a8e6cf;
             padding: 10px;
         }
-        
-        .loading.show { display: block; }
-        
-        .chat-box::-webkit-scrollbar { width: 6px; }
-        .chat-box::-webkit-scrollbar-track { background: transparent; }
-        .chat-box::-webkit-scrollbar-thumb { background: #10b981; border-radius: 3px; }
-        
+
+        .loading.show {
+            display: block;
+        }
+
+        .chat-box::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .chat-box::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-box::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 3px;
+        }
+
         @media (max-width: 600px) {
-            .container { padding: 10px; }
-            h1 { font-size: 1.2rem; }
-            .message { max-width: 95%; font-size: 0.9rem; }
+            .container {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.2rem;
+            }
+            .message {
+                max-width: 95%;
+                font-size: 0.9rem;
+            }
+            .verse-arabic {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -196,30 +231,33 @@
         <header>
             <div class="logo">🌙</div>
             <h1>Islam M Bot</h1>
-            <p class="status">● Carregando conhecimento...</p>
+            <p class="status" id="status">● Online</p>
         </header>
 
         <div class="chat-box" id="chatBox"></div>
 
-        <div class="loading" id="loading">🌙 Buscando resposta...</div>
+        <div class="loading" id="loading">🌙 Buscando na web...</div>
 
         <div class="quick-buttons">
-            <button class="quick-btn" onclick="App.sendQuick('/quran 2:255')">📖 Alcorão</button>
-            <button class="quick-btn" onclick="App.sendQuick('/salat')">🕌 Salat</button>
-            <button class="quick-btn" onclick="App.sendQuick('/hadith')">📜 Hadith</button>
-            <button class="quick-btn" onclick="App.sendQuick('/dua')">🤲 Duã</button>
-            <button class="quick-btn" onclick="App.sendQuick('/wudhu')">💧 Wudhu</button>
+            <button class="quick-btn" onclick="App.sendQuick('alcorão 1:1')">📖 Al-Fatiha</button>
+            <button class="quick-btn" onclick="App.sendQuick('alcorão 2:255')">🕌 Ayat al-Kursi</button>
+            <button class="quick-btn" onclick="App.sendQuick('alcorão 112:1-4')">☝️ Al-Ikhlas</button>
+            <button class="quick-btn" onclick="App.sendQuick('alcorão 36:1-5')">💚 Ya-Sin</button>
+            <button class="quick-btn" onclick="App.sendQuick('/salat')">🕋 Salat</button>
             <button class="quick-btn" onclick="App.sendQuick('/ajuda')">❓ Ajuda</button>
         </div>
 
         <div class="input-area">
-            <input type="text" id="userInput" placeholder="Digite sua pergunta..." onkeypress="if(event.key==='Enter') App.sendMessage()">
+            <input 
+                type="text" 
+                id="userInput" 
+                placeholder="Ex: alcorão 2:255 ou surata 36"
+                onkeypress="if(event.key==='Enter') App.sendMessage()"
+            >
             <button onclick="App.sendMessage()" id="sendBtn">➤</button>
         </div>
     </div>
 
-    <!-- Scripts: ORDEM IMPORTANTE -->
-    <script src="js/loader.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
