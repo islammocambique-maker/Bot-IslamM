@@ -12,13 +12,21 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        body {
+        html, body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #f0f2f5;
-            height: 100vh;
+            height: 100%;
             overflow: hidden;
+        }
+
+        /* Container principal - ocupa tela toda */
+        .app {
             display: flex;
             flex-direction: column;
+            height: 100vh;
+            height: 100dvh; /* Dynamic viewport height para mobile */
+            width: 100%;
+            overflow: hidden;
         }
 
         /* Header */
@@ -28,6 +36,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-shrink: 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12);
             z-index: 10;
         }
@@ -86,6 +95,7 @@
             overflow-y: auto;
             padding: 16px;
             position: relative;
+            min-height: 0; /* Importante para flex */
         }
 
         .date-label {
@@ -105,7 +115,7 @@
         /* Botão flutuante Alcorão */
         .floating-btn {
             position: absolute;
-            bottom: 80px;
+            bottom: 20px;
             left: 16px;
             background: #1b5e20;
             color: white;
@@ -199,7 +209,7 @@
         }
 
         /* ============================================
-           INPUT AREA - SIMPLIFICADO IGUAL AO PRINT
+           INPUT AREA - FIXADA NA PARTE INFERIOR
            ============================================ */
         .input-area {
             background: #f0f2f5;
@@ -208,6 +218,9 @@
             align-items: center;
             gap: 8px;
             border-top: 1px solid #e0e0e0;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 10;
         }
 
         .input-wrapper {
@@ -219,6 +232,7 @@
             padding: 8px 14px;
             gap: 10px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            min-width: 0;
         }
 
         .emoji-btn {
@@ -244,7 +258,7 @@
             color: #8696a0;
         }
 
-        /* Botão ENVIAR verde - separado, depois do texto */
+        /* Botão ENVIAR verde */
         .send-btn {
             width: 48px;
             height: 48px;
@@ -324,55 +338,52 @@
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <a href="#" class="back-btn">←</a>
-            <div class="bot-avatar">🤖</div>
-            <div class="bot-info">
-                <h1>ISLAM M Bot</h1>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <a href="#" class="back-btn">←</a>
+                <div class="bot-avatar">🤖</div>
+                <div class="bot-info">
+                    <h1>ISLAM M Bot</h1>
+                </div>
             </div>
-        </div>
-        <div class="header-right">
-            <span class="header-icon">⋮⋮⋮</span>
-            <span class="header-icon">↓</span>
-            <span class="header-icon">↑</span>
-        </div>
-    </header>
+            <div class="header-right">
+                <span class="header-icon">⋮⋮⋮</span>
+                <span class="header-icon">↓</span>
+                <span class="header-icon">↑</span>
+            </div>
+        </header>
 
-    <!-- Chat Area -->
-    <div class="chat-container" id="chatBox">
-        <div class="date-label">
-            <span>Hoje</span>
-        </div>
-        
-        <!-- Botão flutuante Alcorão -->
-        <button class="floating-btn" onclick="App.sendQuick('alcorão 1:1')">Alcorão</button>
-
-        <!-- Loading -->
-        <div class="loading" id="loading">🌙 Buscando na web...</div>
-    </div>
-
-    <!-- ============================================
-         INPUT AREA - SIMPLIFICADO: EMOJI + TEXTO + ENVIAR
-         ============================================ -->
-    <div class="input-area">
-        <div class="input-wrapper">
-            <!-- Emoji à esquerda -->
-            <span class="emoji-btn" onclick="App.toggleEmoji()">☺</span>
+        <!-- Chat Area -->
+        <div class="chat-container" id="chatBox">
+            <div class="date-label">
+                <span>Hoje</span>
+            </div>
             
-            <!-- Campo de texto -->
-            <input 
-                type="text" 
-                id="userInput" 
-                class="message-input" 
-                placeholder="Mensagem"
-                onkeypress="if(event.key==='Enter') App.sendMessage()"
-            >
+            <!-- Botão flutuante Alcorão -->
+            <button class="floating-btn" onclick="App.sendQuick('alcorão 1:1')">Alcorão</button>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">🌙 Buscando na web...</div>
         </div>
-        
-        <!-- Botão ENVIAR verde - depois do texto -->
-        <button class="send-btn" onclick="App.sendMessage()" id="sendBtn">↑</button>
+
+        <!-- ============================================
+             INPUT AREA - FIXADA E SEMPRE VISÍVEL
+             ============================================ -->
+        <div class="input-area">
+            <div class="input-wrapper">
+                <span class="emoji-btn" onclick="App.toggleEmoji()">☺</span>
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    class="message-input" 
+                    placeholder="Mensagem"
+                    onkeypress="if(event.key==='Enter') App.sendMessage()"
+                >
+            </div>
+            <button class="send-btn" onclick="App.sendMessage()" id="sendBtn">↑</button>
+        </div>
     </div>
 
     <script>
