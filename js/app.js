@@ -1,11 +1,125 @@
-// ===== MOTOR DO ISLAM M BOT =====
-// Não precisa mexer aqui. Edite os arquivos JSON em knowledge/
-
 const App = {
     chatBox: null,
     userInput: null,
     loading: null,
     sendBtn: null,
+    
+    surahNames: {
+        1: "Al-Fatiha (A Abertura)",
+        2: "Al-Baqarah (A Vaca)",
+        3: "Ali 'Imran",
+        4: "An-Nisa",
+        5: "Al-Ma'idah",
+        6: "Al-An'am",
+        7: "Al-A'raf",
+        8: "Al-Anfal",
+        9: "At-Tawbah",
+        10: "Yunus",
+        11: "Hud",
+        12: "Yusuf",
+        13: "Ar-Ra'd",
+        14: "Ibrahim",
+        15: "Al-Hijr",
+        16: "An-Nahl",
+        17: "Al-Isra",
+        18: "Al-Kahf",
+        19: "Maryam",
+        20: "Taha",
+        21: "Al-Anbiya",
+        22: "Al-Hajj",
+        23: "Al-Mu'minun",
+        24: "An-Nur",
+        25: "Al-Furqan",
+        26: "Ash-Shu'ara",
+        27: "An-Naml",
+        28: "Al-Qasas",
+        29: "Al-'Ankabut",
+        30: "Ar-Rum",
+        31: "Luqman",
+        32: "As-Sajdah",
+        33: "Al-Ahzab",
+        34: "Saba",
+        35: "Fatir",
+        36: "Ya-Sin",
+        37: "As-Saffat",
+        38: "Sad",
+        39: "Az-Zumar",
+        40: "Ghafir",
+        41: "Fussilat",
+        42: "Ash-Shura",
+        43: "Az-Zukhruf",
+        44: "Ad-Dukhan",
+        45: "Al-Jathiyah",
+        46: "Al-Ahqaf",
+        47: "Muhammad",
+        48: "Al-Fath",
+        49: "Al-Hujurat",
+        50: "Qaf",
+        51: "Adh-Dhariyat",
+        52: "At-Tur",
+        53: "An-Najm",
+        54: "Al-Qamar",
+        55: "Ar-Rahman",
+        56: "Al-Waqi'ah",
+        57: "Al-Hadid",
+        58: "Al-Mujadilah",
+        59: "Al-Hashr",
+        60: "Al-Mumtahanah",
+        61: "As-Saff",
+        62: "Al-Jumu'ah",
+        63: "Al-Munafiqun",
+        64: "At-Taghabun",
+        65: "At-Talaq",
+        66: "At-Tahrim",
+        67: "Al-Mulk",
+        68: "Al-Qalam",
+        69: "Al-Haqqah",
+        70: "Al-Ma'arij",
+        71: "Nuh",
+        72: "Al-Jinn",
+        73: "Al-Muzzammil",
+        74: "Al-Muddaththir",
+        75: "Al-Qiyamah",
+        76: "Al-Insan",
+        77: "Al-Mursalat",
+        78: "An-Naba'",
+        79: "An-Nazi'at",
+        80: "'Abasa",
+        81: "At-Takwir",
+        82: "Al-Infitar",
+        83: "Al-Mutaffifin",
+        84: "Al-Inshiqaq",
+        85: "Al-Buruj",
+        86: "At-Tariq",
+        87: "Al-A'la",
+        88: "Al-Ghashiyah",
+        89: "Al-Fajr",
+        90: "Al-Balad",
+        91: "Ash-Shams",
+        92: "Al-Layl",
+        93: "Ad-Duha",
+        94: "Ash-Sharh",
+        95: "At-Tin",
+        96: "Al-'Alaq",
+        97: "Al-Qadr",
+        98: "Al-Bayyinah",
+        99: "Az-Zalzalah",
+        100: "Al-'Adiyat",
+        101: "Al-Qari'ah",
+        102: "At-Takathur",
+        103: "Al-'Asr",
+        104: "Al-Humazah",
+        105: "Al-Fil",
+        106: "Quraysh",
+        107: "Al-Ma'un",
+        108: "Al-Kawthar",
+        109: "Al-Kafirun",
+        110: "An-Nasr",
+        111: "Al-Masad",
+        112: "Al-Ikhlas",
+        113: "Al-Falaq",
+        114: "An-Nas"
+    },
     
     init() {
         this.chatBox = document.getElementById('chatBox');
@@ -13,31 +127,20 @@ const App = {
         this.loading = document.getElementById('loading');
         this.sendBtn = document.getElementById('sendBtn');
         
-        // Carrega conhecimento e inicia
-        KnowledgeBase.loadAll().then(() => {
-            this.addMessage(this.getWelcomeMessage(), true);
-        });
-        
-        // Eventos
-        this.userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') this.sendMessage();
-        });
+        this.addMessage(this.getWelcomeMessage(), true);
     },
     
     getWelcomeMessage() {
         return `<strong>Assalamu Alaikum! 👋</strong><br><br>
-        Sou seu assistente sobre Islam. Conhecimento carregado: 
-        <strong>${KnowledgeBase.faq.entries?.length || 0}</strong> FAQs, 
-        <strong>${KnowledgeBase.hadiths.entries?.length || 0}</strong> Hadiths, 
-        <strong>${KnowledgeBase.duas.entries?.length || 0}</strong> Duãs.<br><br>
-        Use os botões rápidos ou digite sua pergunta!`;
+        Digite qualquer versículo do Alcorão:<br>
+        • <code>alcorão 1:1</code><br>
+        • <code>alcorão 2:255</code><br>
+        • <code>alcorão 112:1-4</code><br>
+        • <code>surata 36</code>`;
     },
     
     getTime() {
-        return new Date().toLocaleTimeString('pt-BR', {
-            hour: '2-digit', 
-            minute: '2-digit'
-        });
+        return new Date().toLocaleTimeString('pt-BR', {hour: '2-digit', minute: '2-digit'});
     },
     
     addMessage(text, isBot) {
@@ -54,186 +157,161 @@ const App = {
         this.sendBtn.disabled = show;
     },
     
-    // ===== PROCESSADOR DE COMANDOS =====
+    toArabicNumber(num) {
+        const digits = ['٠','١','٢','٣','٤','٥','٦','٧','٨','٩'];
+        return num.toString().split('').map(d => digits[parseInt(d)] || d).join('');
+    },
+    
+    // ========== BUSCA ALCORÃO NA WEB ==========
+    
+    async fetchQuranVerse(surah, ayah) {
+        try {
+            // Busca árabe
+            const arabicRes = await fetch(
+                `https://api.quran.com/api/v4/quran/verses/uthmani?verse_key=${surah}:${ayah}`
+            );
+            const arabicData = await arabicRes.json();
+            const arabic = arabicData.verses?.[0]?.text_uthmani || '';
+            
+            // Busca tradução português
+            let translation = '';
+            try {
+                const ptRes = await fetch(
+                    `https://api.quran.com/api/v4/quran/translations/92?verse_key=${surah}:${ayah}`
+                );
+                const ptData = await ptRes.json();
+                translation = ptData.translations?.[0]?.text?.replace(/<[^>]*>/g, '').trim() || '';
+            } catch(e) {
+                // Fallback inglês
+                const enRes = await fetch(
+                    `https://api.quran.com/api/v4/quran/translations/131?verse_key=${surah}:${ayah}`
+                );
+                const enData = await enRes.json();
+                translation = enData.translations?.[0]?.text?.replace(/<[^>]*>/g, '').trim() || '';
+            }
+            
+            return { arabic, translation: translation || '[Tradução não disponível]' };
+            
+        } catch(e) {
+            return null;
+        }
+    },
+    
+    async fetchSurahInfo(surah) {
+        try {
+            const res = await fetch(`https://api.quran.com/api/v4/chapters/${surah}`);
+            const data = await res.json();
+            return data.chapter;
+        } catch(e) {
+            return null;
+        }
+    },
+    
+    // ========== PROCESSADOR ==========
     
     async processCommand(text) {
         const cmd = text.toLowerCase().trim();
-        const lower = cmd;
         
-        // Comandos diretos de tópicos
-        if (cmd.startsWith('/')) {
-            const topic = KnowledgeBase.findTopic(cmd);
-            if (topic) {
-                return `<strong>${topic.title}</strong><br><br>${topic.content}`;
-            }
-        }
+        // Detecta: alcorão X:Y, alcorão X:Y-Z, surata X, X:Y
+        const match = cmd.match(/(?:alcor[ãa]o|cor[ãa]o|quran|sur[áa]ta?)\s*(\d+)(?::(\d+))?(?:-(\d+))?/i) 
+                   || cmd.match(/^(\d+):(\d+)(?:-(\d+))?$/);
         
-        // Alcorão (API online)
-        if (cmd.startsWith('/quran')) {
-            return await this.handleQuran(cmd);
-        }
-        
-        // Salat (API online)
-        if (cmd.startsWith('/salat')) {
-            return await this.handleSalat(cmd);
-        }
-        
-        // Hadith
-        if (cmd === '/hadith') {
-            const h = KnowledgeBase.getRandomHadith();
-            return `📜 <strong>HADITH</strong><br><br>
-            📝 <em>${h.narrador}</em><br>
-            📚 ${h.fonte}<br><br>
-            ❝ ${h.texto} ❞`;
-        }
-        
-        // Duã
-        if (cmd === '/dua') {
-            const d = KnowledgeBase.getRandomDua();
-            return `🤲 <strong>${d.nome.toUpperCase()}</strong><br>
-            📌 ${d.contexto}<br><br>
-            <div class="verse-arabic">${d.arabe}</div>
-            <em>${d.transliteracao}</em><br><br>
-            🇧🇷 ${d.portugues}`;
-        }
-        
-        // Ajuda
-        if (cmd === '/ajuda' || cmd === '/help') {
-            return this.getHelp();
-        }
-        
-        // Busca em FAQ
-        const faq = KnowledgeBase.findFAQ(lower);
-        if (faq) {
-            return `<strong>${faq.response.title}</strong><br><br>
-            ${faq.response.content}
-            ${faq.response.source ? `<br><br><em>📖 ${faq.response.source}</em>` : ''}`;
-        }
-        
-        // Busca em custom
-        const custom = KnowledgeBase.findCustom(lower);
-        if (custom) {
-            return `<strong>${custom.title}</strong><br><br>${custom.content}`;
-        }
-        
-        // Não encontrou
-        return `🤔 Não entendi bem. Tente:<br><br>
-        • <code>/ajuda</code> para ver comandos<br>
-        • Perguntar "O que é o Islam?"<br>
-        • <code>/quran 2:255</code> para ler o Alcorão`;
-    },
-    
-    async handleQuran(cmd) {
-        const parts = cmd.split(' ');
-        if (parts.length < 2) {
-            return `📖 <strong>ALCORÃO</strong><br><br>
-            Use: <code>/quran [surata:versículo]</code><br>
-            Exemplos: <code>/quran 2:255</code>, <code>/quran 1:1</code>`;
-        }
-        
-        const [surah, ayah] = parts[1].split(':').map(Number);
-        if (!surah || !ayah) {
-            return '❌ Formato inválido. Use: <code>/quran 2:255</code>';
-        }
-        
-        this.showLoading(true);
-        const result = await this.fetchQuranAPI(surah, ayah);
-        this.showLoading(false);
-        
-        return result;
-    },
-    
-    async fetchQuranAPI(surah, ayah) {
-        try {
-            const r = await fetch(
-                `https://api.quran.com/api/v4/quran/verses/uthmani?verse_key=${surah}:${ayah}`
-            );
-            const data = await r.json();
-            const arabic = data.verses[0]?.text_uthmani || '';
+        if (match) {
+            const surah = parseInt(match[1]);
+            let start = match[2] ? parseInt(match[2]) : 1;
+            let end = match[3] ? parseInt(match[3]) : (match[2] ? start : 10);
             
-            // Tenta tradução
-            let trans = '';
-            for (const tid of [92, 131]) {
-                try {
-                    const tr = await fetch(
-                        `https://api.quran.com/api/v4/quran/translations/${tid}?verse_key=${surah}:${ayah}`
-                    );
-                    const td = await tr.json();
-                    trans = td.translations[0]?.text?.replace(/<[^>]*>/g, '') || '';
-                    if (trans) break;
-                } catch(e) {}
+            if (surah < 1 || surah > 114) return '❌ Surata deve ser entre 1 e 114.';
+            if (start < 1) start = 1;
+            if (end - start > 19) end = start + 19; // Máximo 20 versículos
+            
+            this.showLoading(true);
+            
+            const chapterInfo = await this.fetchSurahInfo(surah);
+            const verses = [];
+            
+            for (let a = start; a <= end; a++) {
+                const v = await this.fetchQuranVerse(surah, a);
+                if (v) verses.push({ayah: a, ...v});
             }
             
-            return `📖 <strong>Alcorão ${surah}:${ayah}</strong><br><br>
-            <div class="verse-arabic">${arabic}</div>
-            <strong>🇧🇷 Tradução:</strong><br>${trans || 'Não disponível'}<br><br>
-            <em>🌐 quran.com</em>`;
+            this.showLoading(false);
             
-        } catch(e) {
-            return '⚠️ Erro ao buscar versículo. Verifique sua conexão.';
+            if (verses.length === 0) {
+                return '⚠️ Erro ao buscar. Verifique sua conexão.';
+            }
+            
+            // Formata resposta
+            const name = this.surahNames[surah] || `Surata ${surah}`;
+            const total = chapterInfo?.verses_count || '';
+            
+            let html = `<div style="background:rgba(16,185,129,0.15);padding:10px 15px;border-radius:8px;margin-bottom:15px;">`;
+            html += `📖 <strong>ALCORÃO ${surah}</strong><br>`;
+            html += `<strong>${name}</strong>${total ? ` <em>(${total} versículos)</em>` : ''}`;
+            html += `</div>`;
+            
+            for (const v of verses) {
+                const numAr = this.toArabicNumber(v.ayah);
+                html += `<div class="verse-arabic" style="font-family:'Traditional Arabic',serif;font-size:1.5rem;line-height:2;text-align:right;direction:rtl;margin:10px 0;padding:15px;background:rgba(0,0,0,0.2);border-radius:10px;">`;
+                html += `<span style="color:#10b981;">﴿${numAr}﴾</span> ${v.arabic}`;
+                html += `</div>`;
+                html += `<div style="margin:5px 0 20px 0;padding-left:12px;border-left:3px solid #10b981;">`;
+                html += `<strong>[${v.ayah}]</strong> ${v.translation}`;
+                html += `</div>`;
+            }
+            
+            html += `<em style="color:#a8e6cf;font-size:0.85rem;">🌐 quran.com</em>`;
+            return html;
         }
+        
+        // Outros comandos (mantenha os que você já tem)
+        if (cmd === '/salat') return await this.handleSalat('Sao Paulo');
+        if (cmd.startsWith('/salat ')) return await this.handleSalat(cmd.slice(7));
+        if (cmd === '/hadith') return this.handleHadith();
+        if (cmd === '/dua') return this.handleDua();
+        if (cmd === '/ajuda') return this.getHelp();
+        
+        return `🤔 Tente: <code>alcorão 1:1</code> ou <code>alcorão 2:255</code>`;
     },
     
-    async handleSalat(cmd) {
-        const parts = cmd.split(' ');
-        const city = parts.length > 1 ? parts.slice(1).join(' ') : 'Sao Paulo';
-        
+    async handleSalat(city) {
         this.showLoading(true);
-        const result = await this.fetchSalatAPI(city);
-        this.showLoading(false);
-        
-        return result;
-    },
-    
-    async fetchSalatAPI(city) {
         try {
-            const r = await fetch(
-                `https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(city)}&country=Brazil&method=2`
-            );
-            const data = await r.json();
-            
-            if (data.code !== 200) throw new Error();
-            
+            const res = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(city)}&country=Brazil&method=2`);
+            const data = await res.json();
             const t = data.data.timings;
-            return `🕌 <strong>HORÁRIOS DE ORAÇÃO</strong><br>
-            📍 ${city}<br><br>
-            <div class="prayer-time">
-                <div class="prayer-item"><div class="prayer-name">🌅 Fajr</div><div class="prayer-hour">${t.Fajr}</div></div>
-                <div class="prayer-item"><div class="prayer-name">☀️ Dhuhr</div><div class="prayer-hour">${t.Dhuhr}</div></div>
-                <div class="prayer-item"><div class="prayer-name">🌤️ Asr</div><div class="prayer-hour">${t.Asr}</div></div>
-                <div class="prayer-item"><div class="prayer-name">🌇 Maghrib</div><div class="prayer-hour">${t.Maghrib}</div></div>
-                <div class="prayer-item"><div class="prayer-name">🌙 Isha</div><div class="prayer-hour">${t.Isha}</div></div>
-            </div>
-            <em>🌐 aladhan.com</em>`;
-            
+            this.showLoading(false);
+            return `🕌 <strong>Salat - ${city}</strong><br>🌅 ${t.Fajr} | ☀️ ${t.Dhuhr} | 🌤️ ${t.Asr} | 🌇 ${t.Maghrib} | 🌙 ${t.Isha}`;
         } catch(e) {
-            return '⚠️ Erro ao buscar horários. Tente novamente.';
+            this.showLoading(false);
+            return '⚠️ Erro ao buscar horários.';
         }
+    },
+    
+    handleHadith() {
+        const h = [
+            {n: 'Umar ibn al-Khattab', f: 'Sahih al-Bukhari', t: 'Um homem perguntou: "Informe-me sobre o Islam." O Profeta ﷺ respondeu: "Testemunhes que não há divindade exceto Allah e que Muhammad é o Mensageiro de Allah..."'},
+            {n: 'Abu Hurairah', f: 'Sahih Muslim', t: 'O Mensageiro de Allah ﷺ disse: "Não sereis verdadeiros crentes até que tenhais misericórdia uns dos outros."'}
+        ];
+        const r = h[Math.floor(Math.random() * h.length)];
+        return `📜 <strong>HADITH</strong><br>📝 ${r.n}<br>📚 ${r.f}<br><br>❝ ${r.t} ❞`;
+    },
+    
+    handleDua() {
+        return `🤲 <strong>DUÃ</strong><br><div style="font-family:serif;font-size:1.4rem;text-align:right;direction:rtl;margin:10px 0;">رَبِّ زِدْنِي عِلْمًا</div><em>Rabbi zidni 'ilma</em><br>🇧🇷 Meu Senhor, aumenta-me em conhecimento.`;
     },
     
     getHelp() {
-        const topics = KnowledgeBase.topics.entries || [];
-        const topicCommands = topics.map(t => `• <code>${t.command}</code> — ${t.title.replace(/<[^>]*>/g, '')}`).join('<br>');
-        
-        return `📋 <strong>COMANDOS DISPONÍVEIS</strong><br><br>
-        <strong>📖 Alcorão (online):</strong><br>
-        • <code>/quran 2:255</code> — Versículo<br><br>
-        <strong>🕌 Oração (online):</strong><br>
-        • <code>/salat [cidade]</code> — Horários<br><br>
-        <strong>📚 Conhecimento:</strong><br>
-        • <code>/hadith</code> — Hadith aleatório<br>
-        • <code>/dua</code> — Súplica com árabe<br><br>
-        <strong>📂 Tópicos:</strong><br>
-        ${topicCommands}<br><br>
-        <strong>💬 FAQ:</strong><br>
-        • "O que é o Islam?"<br>
-        • "Quem é o profeta?"<br>
-        • "Os muçulmanos creem em Jesus?"<br>
-        • "O Islam manda matar?"<br>
-        • "Os 5 pilares"`;
+        return `📋 <strong>COMANDOS</strong><br><br>
+        📖 <code>alcorão X:Y</code> — Versículo<br>
+        📖 <code>alcorão X:Y-Z</code> — Intervalo<br>
+        📖 <code>surata X</code> — Primeiros 10<br>
+        🕌 <code>/salat [cidade]</code><br>
+        📜 <code>/hadith</code><br>
+        🤲 <code>/dua</code>`;
     },
     
-    // ===== INTERFACE =====
+    // ========== INTERFACE ==========
     
     async sendMessage() {
         const text = this.userInput.value.trim();
@@ -252,5 +330,4 @@ const App = {
     }
 };
 
-// Inicia quando DOM carregar
 document.addEventListener('DOMContentLoaded', () => App.init());
