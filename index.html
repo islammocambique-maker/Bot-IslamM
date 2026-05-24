@@ -19,12 +19,11 @@
             overflow: hidden;
         }
 
-        /* Container principal - ocupa tela toda */
         .app {
             display: flex;
             flex-direction: column;
             height: 100vh;
-            height: 100dvh; /* Dynamic viewport height para mobile */
+            height: 100dvh;
             width: 100%;
             overflow: hidden;
         }
@@ -95,7 +94,7 @@
             overflow-y: auto;
             padding: 16px;
             position: relative;
-            min-height: 0; /* Importante para flex */
+            min-height: 0;
         }
 
         .date-label {
@@ -112,33 +111,6 @@
             font-weight: 500;
         }
 
-        /* Botão flutuante Alcorão */
-        .floating-btn {
-            position: absolute;
-            bottom: 20px;
-            left: 16px;
-            background: #1b5e20;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-            border: none;
-            z-index: 5;
-            transition: all 0.2s;
-        }
-
-        .floating-btn:hover {
-            background: #2e7d32;
-            transform: scale(1.05);
-        }
-
-        .floating-btn:active {
-            transform: scale(0.95);
-        }
-
         /* Mensagens */
         .message {
             margin: 8px 0;
@@ -148,6 +120,8 @@
             line-height: 1.5;
             font-size: 0.95rem;
             animation: fadeIn 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
 
         @keyframes fadeIn {
@@ -208,9 +182,56 @@
             font-weight: 500;
         }
 
-        /* ============================================
-           INPUT AREA - FIXADA NA PARTE INFERIOR
-           ============================================ */
+        /* Botão flutuante Alcorão */
+        .floating-btn-container {
+            position: sticky;
+            bottom: 10px;
+            left: 16px;
+            z-index: 5;
+            margin-top: 20px;
+            pointer-events: none;
+        }
+
+        .floating-btn-container button {
+            pointer-events: auto;
+        }
+
+        .floating-btn {
+            background: #1b5e20;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .floating-btn:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
+        }
+
+        .floating-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            text-align: center;
+            color: #667781;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        /* Input Area */
         .input-area {
             background: #f0f2f5;
             padding: 8px 12px;
@@ -258,7 +279,6 @@
             color: #8696a0;
         }
 
-        /* Botão ENVIAR verde */
         .send-btn {
             width: 48px;
             height: 48px;
@@ -287,19 +307,6 @@
         .send-btn:disabled {
             background: #6b7280;
             cursor: not-allowed;
-        }
-
-        /* Loading */
-        .loading {
-            display: none;
-            text-align: center;
-            color: #667781;
-            padding: 10px;
-            font-size: 14px;
-        }
-
-        .loading.show {
-            display: block;
         }
 
         /* Scrollbar */
@@ -361,16 +368,16 @@
                 <span>Hoje</span>
             </div>
             
-            <!-- Botão flutuante Alcorão -->
-            <button class="floating-btn" onclick="App.sendQuick('alcorão 1:1')">Alcorão</button>
-
             <!-- Loading -->
             <div class="loading" id="loading">🌙 Buscando na web...</div>
+
+            <!-- Botão flutuante Alcorão -->
+            <div class="floating-btn-container">
+                <button class="floating-btn" onclick="App.sendQuick('alcorão 1:1')">Alcorão</button>
+            </div>
         </div>
 
-        <!-- ============================================
-             INPUT AREA - FIXADA E SEMPRE VISÍVEL
-             ============================================ -->
+        <!-- Input Area -->
         <div class="input-area">
             <div class="input-wrapper">
                 <span class="emoji-btn" onclick="App.toggleEmoji()">☺</span>
@@ -387,14 +394,30 @@
     </div>
 
     <script>
+        // ============================================
+        // APP - INTEGRADO COM ESTRUTURA DO PROJETO
+        // ============================================
         const App = {
             chatBox: document.getElementById('chatBox'),
             userInput: document.getElementById('userInput'),
             sendBtn: document.getElementById('sendBtn'),
             loading: document.getElementById('loading'),
+            
+            // Cache de conhecimento
+            knowledge: {
+                faq: null,
+                hadiths: null,
+                duas: null,
+                topics: null
+            },
 
             init() {
                 this.userInput.focus();
+                this.loadAllKnowledge();
+                // Mensagem de boas-vindas
+                setTimeout(() => {
+                    this.addMessage('🌙 Assalamu Alaikum! Sou o Islam M Bot.<br><br>Posso ajudar com:<br>📖 Alcorão<br>🕌 Horários de Salat<br>📜 Hadiths<br>🤲 Duãs<br>💧 Wudu<br>🙏 Como Orar<br><br>O que deseja saber?');
+                }, 500);
             },
 
             getTime() {
@@ -407,7 +430,9 @@
                 const div = document.createElement('div');
                 div.className = `message ${isUser ? 'user' : 'bot'}`;
                 div.innerHTML = text + `<div class="time">${this.getTime()}</div>` + extraHTML;
-                this.chatBox.insertBefore(div, this.loading);
+                // Inserir antes do floating-btn-container
+                const floatingContainer = this.chatBox.querySelector('.floating-btn-container');
+                this.chatBox.insertBefore(div, floatingContainer);
                 this.scrollToBottom();
             },
 
@@ -415,6 +440,26 @@
                 this.chatBox.scrollTop = this.chatBox.scrollHeight;
             },
 
+            // ============================================
+            // CARREGAR CONHECIMENTO DOS JSONs
+            // ============================================
+            async loadAllKnowledge() {
+                const files = ['faq', 'hadiths', 'duas', 'topics'];
+                for (const file of files) {
+                    try {
+                        const response = await fetch(`knowledge/${file}.json`);
+                        if (response.ok) {
+                            this.knowledge[file] = await response.json();
+                        }
+                    } catch (e) {
+                        console.log(`Não foi possível carregar ${file}.json`);
+                    }
+                }
+            },
+
+            // ============================================
+            // PROCESSAR MENSAGEM DO USUÁRIO
+            // ============================================
             async sendMessage() {
                 const text = this.userInput.value.trim();
                 if (!text) return;
@@ -424,20 +469,311 @@
                 this.sendBtn.disabled = true;
                 this.loading.classList.add('show');
 
-                setTimeout(() => {
-                    this.loading.classList.remove('show');
-                    this.sendBtn.disabled = false;
-                    
-                    if (text.toLowerCase().includes('alcorão') || text.toLowerCase().includes('surat')) {
-                        this.addMessage(
-                            '<div class="surah-info">📖 Surata Al-Fatiha (1:1-7)</div>' +
-                            '<div class="verse-arabic" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>' +
-                            '<div class="verse-translation">Em nome de Allah, o Clemente, o Misericordioso.</div>'
-                        );
-                    } else {
-                        this.addMessage('🌙 Assalamu Alaikum! Como posso ajudar você hoje?<br><br>• Versículos do Alcorão (ex: alcorão 2:255)<br>• Suratas completas<br>• Orações e Duãs');
+                // Processar comando
+                const response = await this.processCommand(text);
+
+                this.loading.classList.remove('show');
+                this.sendBtn.disabled = false;
+                this.addMessage(response);
+            },
+
+            async processCommand(text) {
+                const lower = text.toLowerCase();
+                
+                // ALCORÃO - via API Quran.com
+                if (lower.includes('alcorão') || lower.includes('surat') || lower.includes('surah') || lower.includes('quran')) {
+                    return await this.getQuran(text);
+                }
+                
+                // HORÁRIOS DE SALAT
+                if (lower.includes('salat') || lower.includes('oração') || lower.includes('horário') || lower.includes('horario')) {
+                    return await this.getPrayerTimes(text);
+                }
+                
+                // HADITHS
+                if (lower.includes('hadith') || lower.includes('hadis')) {
+                    return this.getHadith(text);
+                }
+                
+                // DUÃS
+                if (lower.includes('dua') || lower.includes('súplica') || lower.includes('supplica')) {
+                    return this.getDua(text);
+                }
+                
+                // WUDU
+                if (lower.includes('wudu') || lower.includes('ablusão') || lower.includes('ablucao')) {
+                    return this.getWudu();
+                }
+                
+                // COMO ORAR
+                if (lower.includes('como orar') || lower.includes('rezar') || lower.includes('oração passo')) {
+                    return this.getHowToPray();
+                }
+                
+                // AJUDA
+                if (lower.includes('ajuda') || lower.includes('help') || lower.includes('/')) {
+                    return this.getHelp();
+                }
+                
+                // Buscar em FAQ
+                const faqResponse = this.searchFAQ(text);
+                if (faqResponse) return faqResponse;
+                
+                // Buscar em tópicos
+                const topicResponse = this.searchTopics(text);
+                if (topicResponse) return topicResponse;
+                
+                // Resposta padrão
+                return 'Desculpe, não entendi bem. Tente:<br><br>• "alcorão 2:255"<br>• "hadith amor"<br>• "dua proteção"<br>• "salat Maputo"<br>• "wudu"<br>• "como orar"<br><br>Ou digite "ajuda" para ver todas as opções.';
+            },
+
+            // ============================================
+            // ALCORÃO - API Quran.com
+            // ============================================
+            async getQuran(text) {
+                try {
+                    // Extrair referência (ex: "alcorão 2:255" ou "surat 1")
+                    const match = text.match(/(\d+)(?::(\d+))?/);
+                    if (!match) {
+                        return 'Use o formato: "alcorão 2:255" ou "surat 1"';
                     }
-                }, 1500);
+                    
+                    const surah = match[1];
+                    const ayah = match[2] || '1';
+                    
+                    const response = await fetch(`https://api.quran.com/api/v4/verses/by_key/${surah}:${ayah}?translations=131&words=true`);
+                    const data = await response.json();
+                    
+                    if (data.verse) {
+                        const verse = data.verse;
+                        return `
+                            <div class="surah-info">📖 Surata ${surah}:${ayah}</div>
+                            <div class="verse-arabic" dir="rtl">${verse.text_uthmani || ''}</div>
+                            <div class="verse-translation">${verse.translations?.[0]?.text || 'Tradução não disponível'}</div>
+                        `;
+                    }
+                } catch (e) {
+                    return '❌ Erro ao buscar Alcorão. Tente novamente mais tarde.';
+                }
+                return '❌ Versículo não encontrado.';
+            },
+
+            // ============================================
+            // HORÁRIOS DE SALAT - API Aladhan
+            // ============================================
+            async getPrayerTimes(text) {
+                try {
+                    // Extrair cidade ou usar padrão
+                    const city = text.replace(/salat|hora|horário|horario|oração|oracao/gi, '').trim() || 'Maputo';
+                    
+                    const response = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(city)}&country=Mozambique&method=3`);
+                    const data = await response.json();
+                    
+                    if (data.data && data.data.timings) {
+                        const t = data.data.timings;
+                        return `
+                            🕌 <b>Horários de Salat - ${city}</b><br><br>
+                            🌅 Fajr: ${t.Fajr}<br>
+                            ☀️ Dhuhr: ${t.Dhuhr}<br>
+                            🌤️ Asr: ${t.Asr}<br>
+                            🌇 Maghrib: ${t.Maghrib}<br>
+                            🌙 Isha: ${t.Isha}<br><br>
+                            📅 Data Islâmica: ${data.data.date.hijri.date}
+                        `;
+                    }
+                } catch (e) {
+                    return '❌ Erro ao buscar horários. Tente: "salat Maputo"';
+                }
+                return '❌ Cidade não encontrada.';
+            },
+
+            // ============================================
+            // HADITHS - do knowledge/hadiths.json
+            // ============================================
+            getHadith(text) {
+                if (!this.knowledge.hadiths || !this.knowledge.hadiths.hadiths) {
+                    return '⏳ Carregando hadiths... Tente novamente em instantes.';
+                }
+                
+                const search = text.replace(/hadith|hadis/gi, '').trim();
+                const hadiths = this.knowledge.hadiths.hadiths;
+                
+                // Buscar por tema
+                const found = hadiths.filter(h => 
+                    h.tema?.toLowerCase().includes(search) ||
+                    h.texto?.toLowerCase().includes(search) ||
+                    h.narrador?.toLowerCase().includes(search)
+                );
+                
+                if (found.length > 0) {
+                    const h = found[0];
+                    return `
+                        📜 <b>${h.livro || 'Hadith'}</b><br>
+                        <i>${h.narrador || ''}</i><br><br>
+                        "${h.texto}"<<br><br>
+                        📚 ${h.referencia || ''}
+                    `;
+                }
+                
+                return 'Nenhum hadith encontrado para "' + search + '". Tente temas como: amor, paz, caridade, sabedoria.';
+            },
+
+            // ============================================
+            // DUÃS - do knowledge/duas.json
+            // ============================================
+            getDua(text) {
+                if (!this.knowledge.duas || !this.knowledge.duas.duas) {
+                    return '⏳ Carregando duãs... Tente novamente em instantes.';
+                }
+                
+                const search = text.replace(/dua|súplica|supplica/gi, '').trim();
+                const duas = this.knowledge.duas.duas;
+                
+                const found = duas.filter(d => 
+                    d.titulo?.toLowerCase().includes(search) ||
+                    d.categoria?.toLowerCase().includes(search) ||
+                    d.arabe?.includes(search)
+                );
+                
+                if (found.length > 0) {
+                    const d = found[0];
+                    return `
+                        🤲 <b>${d.titulo}</b><br>
+                        <i>${d.categoria || ''}</i><br><br>
+                        <div class="verse-arabic" dir="rtl">${d.arabe || ''}</div>
+                        <div class="verse-translation">${d.transliteracao || ''}</div>
+                        <div class="verse-translation">${d.traducao || ''}</div>
+                    `;
+                }
+                
+                return 'Nenhuma duã encontrada para "' + search + '". Tente: proteção, manhã, viagem, doença.';
+            },
+
+            // ============================================
+            // WUDU - do knowledge/topics.json ou padrão
+            // ============================================
+            getWudu() {
+                return `
+                    💧 <b>Como Fazer Wudu (Ablução)</b><br><br>
+                    1️⃣ <b>Niyyah (Intenção)</b> - Intencione purificar-se<br><br>
+                    2️⃣ <b>Lavar as mãos</b> - 3 vezes até os punhos<br><br>
+                    3️⃣ <b>Enxaguar a boca</b> - 3 vezes<br><br>
+                    4️⃣ <b>Lavar o nariz</b> - 3 vezes (inspirar água e expirar)<br><br>
+                    5️⃣ <b>Lavar o rosto</b> - 3 vezes (da testa ao queixo, de orelha a orelha)<br><br>
+                    6️⃣ <b>Lavar os braços</b> - 3 vezes, primeiro direito depois esquerdo, até os cotovelos<br><br>
+                    7️⃣ <b>Passar as mãos molhadas na cabeça</b> - 1 vez, da frente para trás<br><br>
+                    8️⃣ <b>Lavar os ouvidos</b> - com água nova, dentro e fora<br><br>
+                    9️⃣ <b>Lavar os pés</b> - 3 vezes, primeiro direito depois esquerdo, até os tornozelos<br><br>
+                    ✅ <b>Duã após Wudu:</b><br>
+                    "Ash-hadu an la ilaha illal-lahu wahdahu la sharika lahu, wa ash-hadu anna Muhammadan 'abduhu wa rasuluh"<br><br>
+                    <i>"Testemunho que não há deidade exceto Allah, Único, sem associados, e que Muhammad é Seu servo e Mensageiro."</i>
+                `;
+            },
+
+            // ============================================
+            // COMO ORAR
+            // ============================================
+            getHowToPray() {
+                return `
+                    🙏 <b>Como Orar (Salat)</b><br><br>
+                    <b>Requisitos:</b><br>
+                    • Wudu (ablusão)<br>
+                    • Vestes limpas e que cubram o awrah<br>
+                    • Lugar limpo<br>
+                    • Qibla (direção de Makkah)<br><br>
+                    
+                    <b>Passos de cada Raka'ah:</b><br><br>
+                    1️⃣ <b>Takbir</b> - "Allahu Akbar" (levantar as mãos)<br><br>
+                    2️⃣ <b>Qiyam</b> - Recitar Al-Fatiha + outra surata<br><br>
+                    3️⃣ <b>Ruku'</b> - Inclinar-se, mãos nos joelhos, 3x "Subhana Rabbiyal Adheem"<br><br>
+                    4️⃣ <b>Qawm</b> - Levantar: "Sami'Allahu liman hamidah"<br><br>
+                    5️⃣ <b>Sujud</b> - Prostrar-se: testa, nariz, mãos, joelhos e pés no chão<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;3x "Subhana Rabbiyal A'la"<br><br>
+                    6️⃣ <b>Julús</b> - Sentar entre os dois sujud<br><br>
+                    7️⃣ <b>Segundo Sujud</b> - Repetir passo 5<br><br>
+                    8️⃣ <b>Tashahhud</b> - Na última raka'ah, sentar e recitar:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;"At-tahiyyatu lillahi..."<<br><br>
+                    9️⃣ <b>Salam</b> - "Assalamu alaikum wa rahmatullah" (virar para direita e esquerda)<br><br>
+                    
+                    <b>Salats obrigatórias:</b><br>
+                    🌅 Fajr - 2 raka'ahs<br>
+                    ☀️ Dhuhr - 4 raka'ahs<br>
+                    🌤️ Asr - 4 raka'ahs<br>
+                    🌇 Maghrib - 3 raka'ahs<br>
+                    🌙 Isha - 4 raka'ahs
+                `;
+            },
+
+            // ============================================
+            // AJUDA
+            // ============================================
+            getHelp() {
+                return `
+                    🌙 <b>Islam M Bot - Comandos Disponíveis</b><br><br>
+                    
+                    📖 <b>Alcorão:</b><br>
+                    • "alcorão 2:255" - Versículo específico<br>
+                    • "surat 1" - Surata completa<br><br>
+                    
+                    🕌 <b>Salat:</b><br>
+                    • "salat" - Horários padrão (Maputo)<br>
+                    • "salat Beira" - Horários de outra cidade<br><br>
+                    
+                    📜 <b>Hadiths:</b><br>
+                    • "hadith amor"<br>
+                    • "hadith caridade"<br><br>
+                    
+                    🤲 <b>Duãs:</b><br>
+                    • "dua proteção"<br>
+                    • "dua manhã"<br><br>
+                    
+                    💧 <b>Wudu:</b><br>
+                    • "wudu" - Passo a passo<br><br>
+                    
+                    🙏 <b>Como Orar:</b><br>
+                    • "como orar" - Guia completo<br><br>
+                    
+                    ❓ <b>Ajuda:</b><br>
+                    • "ajuda" ou "help" - Este menu
+                `;
+            },
+
+            // ============================================
+            // BUSCAR EM FAQ
+            // ============================================
+            searchFAQ(text) {
+                if (!this.knowledge.faq || !this.knowledge.faq.perguntas) return null;
+                
+                const perguntas = this.knowledge.faq.perguntas;
+                const lower = text.toLowerCase();
+                
+                const found = perguntas.find(p => 
+                    p.pergunta?.toLowerCase().includes(lower) ||
+                    p.palavras_chave?.some(k => lower.includes(k.toLowerCase()))
+                );
+                
+                return found ? found.resposta : null;
+            },
+
+            // ============================================
+            // BUSCAR EM TÓPICOS
+            // ============================================
+            searchTopics(text) {
+                if (!this.knowledge.topics || !this.knowledge.topics.topicos) return null;
+                
+                const topicos = this.knowledge.topics.topicos;
+                const lower = text.toLowerCase();
+                
+                const found = topicos.find(t => 
+                    t.titulo?.toLowerCase().includes(lower) ||
+                    t.tags?.some(tag => lower.includes(tag.toLowerCase())) ||
+                    t.conteudo?.toLowerCase().includes(lower)
+                );
+                
+                if (found) {
+                    return `<b>${found.titulo}</b><br><br>${found.conteudo}`;
+                }
+                return null;
             },
 
             sendQuick(query) {
