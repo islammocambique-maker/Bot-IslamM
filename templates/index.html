@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islam M Bot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f4c3f 0%, #1a5f4a 50%, #0d3b2e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #a8e6cf;
+            font-size: 1rem;
+        }
+
+        .chat-container {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            min-height: 400px;
+        }
+
+        .messages {
+            max-height: 500px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 15px;
+            line-height: 1.6;
+        }
+
+        .message.bot {
+            background: rgba(16, 185, 129, 0.2);
+            border-left: 4px solid #10b981;
+        }
+
+        .message.user {
+            background: rgba(59, 130, 246, 0.2);
+            border-left: 4px solid #3b82f6;
+            text-align: right;
+        }
+
+        .message .sender {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .message.bot .sender {
+            color: #10b981;
+        }
+
+        .message.user .sender {
+            color: #3b82f6;
+        }
+
+        .input-area {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .input-area input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        .input-area input::placeholder {
+            color: #a8e6cf;
+        }
+
+        .input-area button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            background: #10b981;
+            color: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .input-area button:hover {
+            background: #059669;
+            transform: scale(1.05);
+        }
+
+        .quick-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+
+        .quick-btn {
+            padding: 10px 20px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 25px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .quick-btn:hover {
+            background: rgba(16, 185, 129, 0.3);
+            border-color: #10b981;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #a8e6cf;
+            font-size: 0.9rem;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #a8e6cf;
+            margin: 10px 0;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        /* Scrollbar */
+        .messages::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .messages::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        .messages::-webkit-scrollbar-thumb {
+            background: #10b981;
+            border-radius: 4px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            .quick-buttons {
+                gap: 5px;
+            }
+            
+            .quick-btn {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">🌙</div>
+            <h1>Islam M Bot</h1>
+            <p class="subtitle">Assistente educacional sobre Islam</p>
+        </header>
+
+        <div class="chat-container">
+            <div class="messages" id="messages">
+                <div class="message bot">
+                    <div class="sender">🤖 Islam M Bot</div>
+                    <div class="content">
+                        <p><strong>Assalamu Alaikum!</strong></p>
+                        <p>Sou seu assistente educacional sobre Islam. Busco informações de fontes online confiáveis.</p>
+                        <p><strong>Comandos principais:</strong></p>
+                        <ul>
+                            <li><code>/quran [ref]</code> — Alcorão (ex: 2:255)</li>
+                            <li><code>/salat [cidade]</code> — Horários de oração</li>
+                            <li><code>/hadith</code> — Hadith aleatório</li>
+                            <li><code>/dua</code> — Súplica do dia</li>
+                            <li><code>/wudhu</code> — Como fazer ablução</li>
+                            <li><code>/ajuda</code> — Todos os comandos</li>
+                        </ul>
+                        <p>🤝 Respeito e paz para todos!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading" id="loading">🌙 Pensando...</div>
+
+            <div class="quick-buttons">
+                <button class="quick-btn" onclick="sendQuick('/quran 2:255')">📖 Alcorão 2:255</button>
+                <button class="quick-btn" onclick="sendQuick('/salat')">🕌 Salat</button>
+                <button class="quick-btn" onclick="sendQuick('/hadith')">📜 Hadith</button>
+                <button class="quick-btn" onclick="sendQuick('/dua')">🤲 Duã</button>
+                <button class="quick-btn" onclick="sendQuick('/wudhu')">💧 Wudhu</button>
+                <button class="quick-btn" onclick="sendQuick('/ajuda')">❓ Ajuda</button>
+            </div>
+
+            <div class="input-area">
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    placeholder="Digite sua pergunta ou comando..."
+                    onkeypress="if(event.key==='Enter') sendMessage()"
+                >
+                <button onclick="sendMessage()">Enviar</button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>🌐 Fontes: quran.com | aladhan.com | sunnah.com</p>
+            <p>📞 Suporte: 860407269</p>
+        </footer>
+    </div>
+
+    <script>
+        const messagesDiv = document.getElementById('messages');
+        const userInput = document.getElementById('userInput');
+        const loading = document.getElementById('loading');
+
+        function addMessage(sender, text, isBot) {
+            const div = document.createElement('div');
+            div.className = `message ${isBot ? 'bot' : 'user'}`;
+            div.innerHTML = `
+                <div class="sender">${sender}</div>
+                <div class="content">${formatText(text)}</div>
+            `;
+            messagesDiv.appendChild(div);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        function formatText(text) {
+            // Converte markdown simples para HTML
+            return text
+                .replace(/\n/g, '<br>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/`(.*?)`/g, '<code>$1</code>');
+        }
+
+        async function sendMessage() {
+            const text = userInput.value.trim();
+            if (!text) return;
+
+            addMessage('👤 Você', text, false);
+            userInput.value = '';
+            loading.classList.add('show');
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({message: text})
+                });
+                
+                const data = await response.json();
+                addMessage('🤖 Islam M Bot', data.response, true);
+            } catch (error) {
+                addMessage('🤖 Islam M Bot', '⚠️ Erro de conexão. Tente novamente.', true);
+            }
+
+            loading.classList.remove('show');
+        }
+
+        function sendQuick(text) {
+            userInput.value = text;
+            sendMessage();
+        }
+
+        // Foco automático no input
+        userInput.focus();
+    </script>
+</body>
+</html>
