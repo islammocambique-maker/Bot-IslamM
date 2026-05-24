@@ -2,66 +2,140 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Islam M Bot</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(180deg, #0d3b2e 0%, #1a5f4a 100%);
-            color: #fff;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
             height: 100vh;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
 
-        header {
-            text-align: center;
-            padding: 15px 0;
-            flex-shrink: 0;
+        /* Header estilo WhatsApp */
+        .header {
+            background: linear-gradient(135deg, #00bfa5 0%, #7c4dff 100%);
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            z-index: 10;
         }
 
-        .logo {
-            font-size: 2.5rem;
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        h1 {
-            font-size: 1.5rem;
-            margin: 5px 0;
+        .back-btn {
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 4px;
+            text-decoration: none;
         }
 
-        .status {
-            color: #10b981;
-            font-size: 0.85rem;
+        .bot-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .chat-box {
+        .bot-info h1 {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 16px;
+        }
+
+        .header-icon {
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        /* Chat Area - fundo estilo WhatsApp */
+        .chat-container {
             flex: 1;
-            background: rgba(255,255,255,0.08);
-            border-radius: 15px;
-            padding: 15px;
+            background: #e5ddd5;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d1c7bd' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
             overflow-y: auto;
-            margin: 10px 0;
+            padding: 16px;
+            position: relative;
         }
 
+        .date-label {
+            text-align: center;
+            margin: 8px 0 16px;
+        }
+
+        .date-label span {
+            background: #e1f2fb;
+            color: #54656f;
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        /* Botão flutuante Alcorão */
+        .floating-btn {
+            position: absolute;
+            bottom: 80px;
+            left: 16px;
+            background: #1b5e20;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border: none;
+            z-index: 5;
+            transition: all 0.2s;
+        }
+
+        .floating-btn:hover {
+            background: #2e7d32;
+            transform: scale(1.05);
+        }
+
+        .floating-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Mensagens */
         .message {
-            margin: 12px 0;
-            padding: 12px 15px;
+            margin: 8px 0;
+            padding: 10px 14px;
             border-radius: 12px;
             max-width: 85%;
-            line-height: 1.6;
+            line-height: 1.5;
             font-size: 0.95rem;
             animation: fadeIn 0.3s ease;
         }
@@ -72,150 +146,159 @@
         }
 
         .message.bot {
-            background: rgba(16, 185, 129, 0.2);
-            border-left: 3px solid #10b981;
+            background: white;
             margin-right: auto;
+            border-top-left-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+            color: #111b21;
         }
 
         .message.user {
-            background: rgba(59, 130, 246, 0.2);
-            border-right: 3px solid #3b82f6;
+            background: #d9fdd3;
             margin-left: auto;
             text-align: right;
+            border-top-right-radius: 2px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+            color: #111b21;
         }
 
         .message .time {
             font-size: 0.7rem;
-            color: #a8e6cf;
-            margin-top: 5px;
+            color: #667781;
+            margin-top: 4px;
+            text-align: right;
         }
 
         .verse-arabic {
             font-family: 'Traditional Arabic', 'Scheherazade', 'Arial', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             line-height: 2;
             text-align: right;
             direction: rtl;
-            margin: 10px 0;
-            padding: 15px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 10px;
-            color: #f0fdf4;
+            margin: 8px 0;
+            padding: 12px;
+            background: rgba(0,0,0,0.03);
+            border-radius: 8px;
+            color: #1a1a1a;
         }
 
         .verse-translation {
-            margin: 5px 0 20px 0;
-            padding-left: 12px;
-            border-left: 3px solid #10b981;
+            margin: 5px 0 12px 0;
+            padding-left: 10px;
+            border-left: 3px solid #00a884;
+            color: #111b21;
         }
 
         .surah-info {
-            background: rgba(16, 185, 129, 0.15);
-            padding: 10px 15px;
+            background: rgba(0, 168, 132, 0.1);
+            padding: 8px 12px;
             border-radius: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            color: #111b21;
+            font-weight: 500;
         }
 
-        .quick-buttons {
+        /* Input Area estilo WhatsApp */
+        .input-container {
+            background: #f0f2f5;
+            padding: 8px 12px;
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             gap: 8px;
-            margin: 10px 0;
-            flex-shrink: 0;
+            border-top: 1px solid #e0e0e0;
         }
 
-        .quick-btn {
-            padding: 8px 16px;
-            border: 1px solid rgba(16, 185, 129, 0.4);
-            border-radius: 20px;
-            background: rgba(16, 185, 129, 0.1);
-            color: #a8e6cf;
-            cursor: pointer;
-            font-size: 0.85rem;
-            transition: all 0.2s;
-        }
-
-        .quick-btn:hover {
-            background: rgba(16, 185, 129, 0.3);
-            color: #fff;
-        }
-
-        .input-area {
-            display: flex;
-            gap: 10px;
-            padding: 10px 0;
-            flex-shrink: 0;
-        }
-
-        .input-area input {
+        .input-wrapper {
             flex: 1;
-            padding: 14px 18px;
-            border: none;
-            border-radius: 25px;
-            background: rgba(255,255,255,0.12);
-            color: #fff;
-            font-size: 1rem;
-            outline: none;
+            background: white;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            gap: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
-        .input-area input::placeholder {
-            color: #a8e6cf;
-        }
-
-        .input-area button {
-            width: 50px;
-            height: 50px;
-            border: none;
-            border-radius: 50%;
-            background: #10b981;
-            color: #fff;
-            font-size: 1.3rem;
+        .emoji-btn, .attach-btn, .camera-btn {
+            color: #54656f;
+            font-size: 20px;
             cursor: pointer;
+            padding: 4px;
+            user-select: none;
+        }
+
+        .message-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            color: #111b21;
+            background: transparent;
+            font-family: inherit;
+        }
+
+        .message-input::placeholder {
+            color: #8696a0;
+        }
+
+        .send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #00a884;
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            font-size: 18px;
             transition: all 0.2s;
         }
 
-        .input-area button:hover {
-            background: #059669;
-            transform: scale(1.05);
+        .send-btn:hover {
+            background: #008f72;
         }
 
-        .input-area button:disabled {
+        .send-btn:active {
+            transform: scale(0.95);
+        }
+
+        .send-btn:disabled {
             background: #6b7280;
             cursor: not-allowed;
-            transform: none;
         }
 
+        /* Loading */
         .loading {
             display: none;
             text-align: center;
-            color: #a8e6cf;
+            color: #667781;
             padding: 10px;
+            font-size: 14px;
         }
 
         .loading.show {
             display: block;
         }
 
-        .chat-box::-webkit-scrollbar {
+        /* Scrollbar */
+        .chat-container::-webkit-scrollbar {
             width: 6px;
         }
 
-        .chat-box::-webkit-scrollbar-track {
+        .chat-container::-webkit-scrollbar-track {
             background: transparent;
         }
 
-        .chat-box::-webkit-scrollbar-thumb {
-            background: #10b981;
+        .chat-container::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.2);
             border-radius: 3px;
         }
 
+        /* Responsivo */
         @media (max-width: 600px) {
-            .container {
-                padding: 10px;
-            }
-            h1 {
-                font-size: 1.2rem;
-            }
             .message {
                 max-width: 95%;
                 font-size: 0.9rem;
@@ -223,41 +306,124 @@
             .verse-arabic {
                 font-size: 1.2rem;
             }
+            .bot-info h1 {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">🌙</div>
-            <h1>Islam M Bot</h1>
-            <p class="status" id="status">● Online</p>
-        </header>
 
-        <div class="chat-box" id="chatBox"></div>
-
-        <div class="loading" id="loading">🌙 Buscando na web...</div>
-
-        <div class="quick-buttons">
-            <button class="quick-btn" onclick="App.sendQuick('alcorão 1:1')">📖 Al-Fatiha</button>
-            <button class="quick-btn" onclick="App.sendQuick('alcorão 2:255')">🕌 Ayat al-Kursi</button>
-            <button class="quick-btn" onclick="App.sendQuick('alcorão 112:1-4')">☝️ Al-Ikhlas</button>
-            <button class="quick-btn" onclick="App.sendQuick('alcorão 36:1-5')">💚 Ya-Sin</button>
-            <button class="quick-btn" onclick="App.sendQuick('/salat')">🕋 Salat</button>
-            <button class="quick-btn" onclick="App.sendQuick('/ajuda')">❓ Ajuda</button>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <a href="#" class="back-btn">←</a>
+            <div class="bot-avatar">🤖</div>
+            <div class="bot-info">
+                <h1>ISLAM M Bot</h1>
+            </div>
         </div>
+        <div class="header-right">
+            <span class="header-icon">⋮⋮⋮</span>
+            <span class="header-icon">↓</span>
+            <span class="header-icon">↑</span>
+        </div>
+    </header>
 
-        <div class="input-area">
+    <!-- Chat Area -->
+    <div class="chat-container" id="chatBox">
+        <div class="date-label">
+            <span>Hoje</span>
+        </div>
+        
+        <!-- Botão flutuante Alcorão -->
+        <button class="floating-btn" onclick="App.sendQuick('alcorão 1:1')">Alcorão</button>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">🌙 Buscando na web...</div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-container">
+        <div class="input-wrapper">
+            <span class="emoji-btn">☺</span>
             <input 
                 type="text" 
                 id="userInput" 
-                placeholder="Ex: alcorão 2:255 ou surata 36"
+                class="message-input" 
+                placeholder="Mensagem"
                 onkeypress="if(event.key==='Enter') App.sendMessage()"
             >
-            <button onclick="App.sendMessage()" id="sendBtn">➤</button>
+            <span class="attach-btn">📎</span>
+            <span class="camera-btn">📷</span>
         </div>
+        <button class="send-btn" onclick="App.sendMessage()" id="sendBtn">↑</button>
     </div>
 
-    <script src="js/app.js"></script>
+    <script>
+        const App = {
+            chatBox: document.getElementById('chatBox'),
+            userInput: document.getElementById('userInput'),
+            sendBtn: document.getElementById('sendBtn'),
+            loading: document.getElementById('loading'),
+
+            init() {
+                this.userInput.focus();
+            },
+
+            getTime() {
+                const now = new Date();
+                return now.getHours().toString().padStart(2, '0') + ':' + 
+                       now.getMinutes().toString().padStart(2, '0');
+            },
+
+            addMessage(text, isUser = false, extraHTML = '') {
+                const div = document.createElement('div');
+                div.className = `message ${isUser ? 'user' : 'bot'}`;
+                div.innerHTML = text + `<div class="time">${this.getTime()}</div>` + extraHTML;
+                // Inserir antes do loading
+                this.chatBox.insertBefore(div, this.loading);
+                this.scrollToBottom();
+            },
+
+            scrollToBottom() {
+                this.chatBox.scrollTop = this.chatBox.scrollHeight;
+            },
+
+            async sendMessage() {
+                const text = this.userInput.value.trim();
+                if (!text) return;
+
+                this.addMessage(text, true);
+                this.userInput.value = '';
+                this.sendBtn.disabled = true;
+                this.loading.classList.add('show');
+
+                // Simular resposta do bot (substitua pela sua lógica real)
+                setTimeout(() => {
+                    this.loading.classList.remove('show');
+                    this.sendBtn.disabled = false;
+                    
+                    if (text.toLowerCase().includes('alcorão') || text.toLowerCase().includes('surat')) {
+                        this.addMessage(
+                            '<div class="surah-info">📖 Surata Al-Fatiha (1:1-7)</div>' +
+                            '<div class="verse-arabic" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>' +
+                            '<div class="verse-translation">Em nome de Allah, o Clemente, o Misericordioso.</div>'
+                        );
+                    } else {
+                        this.addMessage('🌙 Assalamu Alaikum! Como posso ajudar você hoje? Você pode me perguntar sobre:<br><br>• Versículos do Alcorão (ex: alcorão 2:255)<br>• Suratas completas (ex: surata 36)<br>• Orações e Duãs<br>• Informações sobre o Islam');
+                    }
+                }, 1500);
+            },
+
+            sendQuick(query) {
+                this.userInput.value = query;
+                this.sendMessage();
+            }
+        };
+
+        App.init();
+    </script>
+
 </body>
 </html>
