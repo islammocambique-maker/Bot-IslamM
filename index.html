@@ -395,7 +395,7 @@
 
     <script>
         // ============================================
-        // APP - INTEGRADO COM ESTRUTURA DO PROJETO
+        // APP - CORRIGIDO PARA RESPONDER TODOS OS TEMAS
         // ============================================
         const App = {
             chatBox: document.getElementById('chatBox'),
@@ -430,7 +430,6 @@
                 const div = document.createElement('div');
                 div.className = `message ${isUser ? 'user' : 'bot'}`;
                 div.innerHTML = text + `<div class="time">${this.getTime()}</div>` + extraHTML;
-                // Inserir antes do floating-btn-container
                 const floatingContainer = this.chatBox.querySelector('.floating-btn-container');
                 this.chatBox.insertBefore(div, floatingContainer);
                 this.scrollToBottom();
@@ -444,15 +443,25 @@
             // CARREGAR CONHECIMENTO DOS JSONs
             // ============================================
             async loadAllKnowledge() {
-                const files = ['faq', 'hadiths', 'duas', 'topics'];
+                const files = [
+                    { name: 'faq', path: 'knowledge/faq.json' },
+                    { name: 'hadiths', path: 'knowledge/hadiths.json' },
+                    { name: 'duas', path: 'knowledge/duas.json' },
+                    { name: 'topics', path: 'knowledge/topics.json' }
+                ];
+                
                 for (const file of files) {
                     try {
-                        const response = await fetch(`knowledge/${file}.json`);
+                        const response = await fetch(file.path);
                         if (response.ok) {
-                            this.knowledge[file] = await response.json();
+                            const data = await response.json();
+                            this.knowledge[file.name] = data;
+                            console.log(`✅ Carregado: ${file.name}.json`);
+                        } else {
+                            console.log(`❌ Não encontrado: ${file.path}`);
                         }
                     } catch (e) {
-                        console.log(`Não foi possível carregar ${file}.json`);
+                        console.log(`❌ Erro ao carregar ${file.path}:`, e.message);
                     }
                 }
             },
@@ -469,7 +478,9 @@
                 this.sendBtn.disabled = true;
                 this.loading.classList.add('show');
 
-                // Processar comando
+                // Pequeno delay para mostrar loading
+                await new Promise(r => setTimeout(r, 500));
+
                 const response = await this.processCommand(text);
 
                 this.loading.classList.remove('show');
@@ -478,93 +489,124 @@
             },
 
             async processCommand(text) {
-                const lower = text.toLowerCase();
+                const lower = text.toLowerCase().trim();
+                console.log('Comando recebido:', lower);
                 
-                // ALCORÃO - via API Quran.com
-                if (lower.includes('alcorão') || lower.includes('surat') || lower.includes('surah') || lower.includes('quran')) {
+                // AJUDA primeiro
+                if (lower === 'ajuda' || lower === 'help' || lower === '?' || lower === 'comandos') {
+                    return this.getHelp();
+                }
+                
+                // ALCORÃO
+                if (lower.includes('alcorão') || lower.includes('surat') || lower.includes('surah') || lower.includes('quran') || /^\d+:\d+$/.test(text)) {
                     return await this.getQuran(text);
                 }
                 
                 // HORÁRIOS DE SALAT
-                if (lower.includes('salat') || lower.includes('oração') || lower.includes('horário') || lower.includes('horario')) {
+                if (lower.includes('salat') || lower.includes('oração') || lower.includes('oracao') || lower.includes('horário') || lower.includes('horario') || lower.includes('rezar')) {
                     return await this.getPrayerTimes(text);
                 }
                 
                 // HADITHS
-                if (lower.includes('hadith') || lower.includes('hadis')) {
+                if (lower.includes('hadith') || lower.includes('hadis') || lower.includes('hádice')) {
                     return this.getHadith(text);
                 }
                 
                 // DUÃS
-                if (lower.includes('dua') || lower.includes('súplica') || lower.includes('supplica')) {
+                if (lower.includes('dua') || lower.includes('duã') || lower.includes('súplica') || lower.includes('supplica') || lower.includes('doa')) {
                     return this.getDua(text);
                 }
                 
                 // WUDU
-                if (lower.includes('wudu') || lower.includes('ablusão') || lower.includes('ablucao')) {
+                if (lower.includes('wudu') || lower.includes('ablusão') || lower.includes('ablucao') || lower.includes('ablucão')) {
                     return this.getWudu();
                 }
                 
                 // COMO ORAR
-                if (lower.includes('como orar') || lower.includes('rezar') || lower.includes('oração passo')) {
+                if (lower.includes('como orar') || lower.includes('como rezar') || lower.includes('passo a passo') || lower.includes('guia de oração')) {
                     return this.getHowToPray();
                 }
                 
-                // AJUDA
-                if (lower.includes('ajuda') || lower.includes('help') || lower.includes('/')) {
-                    return this.getHelp();
+                // ISLAM (pergunta geral)
+                if (lower.includes('islam') || lower.includes('muçulmano') || lower.includes('musulmano') || lower.includes('religião')) {
+                    return this.getIslamInfo();
                 }
                 
                 // Buscar em FAQ
                 const faqResponse = this.searchFAQ(text);
-                if (faqResponse) return faqResponse;
+                if (faqResponse) {
+                    console.log('✅ Resposta encontrada em FAQ');
+                    return faqResponse;
+                }
                 
-                // Buscar em tópicos
+                // Buscar em TÓPICOS
                 const topicResponse = this.searchTopics(text);
-                if (topicResponse) return topicResponse;
+                if (topicResponse) {
+                    console.log('✅ Resposta encontrada em Tópicos');
+                    return topicResponse;
+                }
+                
+                // Buscar em HADITHS (por palavra-chave)
+                const hadithResponse = this.searchHadiths(text);
+                if (hadithResponse) {
+                    console.log('✅ Resposta encontrada em Hadiths');
+                    return hadithResponse;
+                }
+                
+                // Buscar em DUÃS (por palavra-chave)
+                const duaResponse = this.searchDuas(text);
+                if (duaResponse) {
+                    console.log('✅ Resposta encontrada em Duãs');
+                    return duaResponse;
+                }
                 
                 // Resposta padrão
-                return 'Desculpe, não entendi bem. Tente:<br><br>• "alcorão 2:255"<br>• "hadith amor"<br>• "dua proteção"<br>• "salat Maputo"<br>• "wudu"<br>• "como orar"<br><br>Ou digite "ajuda" para ver todas as opções.';
+                return 'Desculpe, não entendi bem. Tente:<br><br>• "alcorão 2:255"<br>• "hadith amor"<br>• "dua proteção"<br>• "salat Maputo"<br>• "wudu"<br>• "como orar"<br>• "ajuda"';
             },
 
             // ============================================
-            // ALCORÃO - API Quran.com
+            // ALCORÃO
             // ============================================
             async getQuran(text) {
                 try {
-                    // Extrair referência (ex: "alcorão 2:255" ou "surat 1")
+                    let surah, ayah;
+                    
+                    // Tentar extrair "2:255" ou "surat 2"
                     const match = text.match(/(\d+)(?::(\d+))?/);
-                    if (!match) {
+                    if (match) {
+                        surah = match[1];
+                        ayah = match[2] || '1';
+                    } else {
                         return 'Use o formato: "alcorão 2:255" ou "surat 1"';
                     }
                     
-                    const surah = match[1];
-                    const ayah = match[2] || '1';
-                    
-                    const response = await fetch(`https://api.quran.com/api/v4/verses/by_key/${surah}:${ayah}?translations=131&words=true`);
+                    const response = await fetch(`https://api.quran.com/api/v4/verses/by_key/${surah}:${ayah}?translations=131`);
                     const data = await response.json();
                     
                     if (data.verse) {
                         const verse = data.verse;
+                        const arabic = verse.text_uthmani || '';
+                        const translation = verse.translations?.[0]?.text || 'Tradução não disponível';
+                        
                         return `
                             <div class="surah-info">📖 Surata ${surah}:${ayah}</div>
-                            <div class="verse-arabic" dir="rtl">${verse.text_uthmani || ''}</div>
-                            <div class="verse-translation">${verse.translations?.[0]?.text || 'Tradução não disponível'}</div>
+                            <div class="verse-arabic" dir="rtl">${arabic}</div>
+                            <div class="verse-translation">${translation}</div>
                         `;
                     }
                 } catch (e) {
-                    return '❌ Erro ao buscar Alcorão. Tente novamente mais tarde.';
+                    console.error('Erro Quran:', e);
+                    return '❌ Erro ao buscar Alcorão. Tente novamente.';
                 }
                 return '❌ Versículo não encontrado.';
             },
 
             // ============================================
-            // HORÁRIOS DE SALAT - API Aladhan
+            // SALAT
             // ============================================
             async getPrayerTimes(text) {
                 try {
-                    // Extrair cidade ou usar padrão
-                    const city = text.replace(/salat|hora|horário|horario|oração|oracao/gi, '').trim() || 'Maputo';
+                    const city = text.replace(/salat|hora|horário|horario|oração|oracao|rezar/gi, '').trim() || 'Maputo';
                     
                     const response = await fetch(`https://api.aladhan.com/v1/timingsByCity?city=${encodeURIComponent(city)}&country=Mozambique&method=3`);
                     const data = await response.json();
@@ -578,95 +620,191 @@
                             🌤️ Asr: ${t.Asr}<br>
                             🌇 Maghrib: ${t.Maghrib}<br>
                             🌙 Isha: ${t.Isha}<br><br>
-                            📅 Data Islâmica: ${data.data.date.hijri.date}
+                            📅 ${data.data.date.hijri.date} H
                         `;
                     }
                 } catch (e) {
+                    console.error('Erro Salat:', e);
                     return '❌ Erro ao buscar horários. Tente: "salat Maputo"';
                 }
                 return '❌ Cidade não encontrada.';
             },
 
             // ============================================
-            // HADITHS - do knowledge/hadiths.json
+            // HADITHS - do JSON
             // ============================================
             getHadith(text) {
-                if (!this.knowledge.hadiths || !this.knowledge.hadiths.hadiths) {
-                    return '⏳ Carregando hadiths... Tente novamente em instantes.';
+                const search = text.replace(/hadith|hadis|hádice/gi, '').trim().toLowerCase();
+                
+                if (!this.knowledge.hadiths) {
+                    return this.getHadithDefault(search);
                 }
                 
-                const search = text.replace(/hadith|hadis/gi, '').trim();
-                const hadiths = this.knowledge.hadiths.hadiths;
+                const hadiths = this.knowledge.hadiths.hadiths || this.knowledge.hadiths;
                 
-                // Buscar por tema
-                const found = hadiths.filter(h => 
-                    h.tema?.toLowerCase().includes(search) ||
-                    h.texto?.toLowerCase().includes(search) ||
-                    h.narrador?.toLowerCase().includes(search)
-                );
+                if (!Array.isArray(hadiths)) {
+                    return this.getHadithDefault(search);
+                }
+                
+                const found = hadiths.filter(h => {
+                    const tema = (h.tema || h.titulo || h.categoria || '').toLowerCase();
+                    const texto = (h.texto || h.hadith || h.conteudo || '').toLowerCase();
+                    const narrador = (h.narrador || h.narrated_by || '').toLowerCase();
+                    return tema.includes(search) || texto.includes(search) || narrador.includes(search);
+                });
                 
                 if (found.length > 0) {
                     const h = found[0];
                     return `
-                        📜 <b>${h.livro || 'Hadith'}</b><br>
-                        <i>${h.narrador || ''}</i><br><br>
-                        "${h.texto}"<<br><br>
-                        📚 ${h.referencia || ''}
+                        📜 <b>${h.tema || h.titulo || 'Hadith'}</b><br>
+                        <i>${h.narrador || h.narrated_by || ''}</i><br><br>
+                        "${h.texto || h.hadith || h.conteudo}"<<br><br>
+                        📚 ${h.referencia || h.source || h.livro || ''}
                     `;
                 }
                 
-                return 'Nenhum hadith encontrado para "' + search + '". Tente temas como: amor, paz, caridade, sabedoria.';
+                return this.getHadithDefault(search);
+            },
+
+            searchHadiths(text) {
+                if (!this.knowledge.hadiths) return null;
+                
+                const search = text.toLowerCase();
+                const hadiths = this.knowledge.hadiths.hadiths || this.knowledge.hadiths;
+                
+                if (!Array.isArray(hadiths)) return null;
+                
+                const found = hadiths.find(h => {
+                    const tema = (h.tema || h.titulo || h.categoria || '').toLowerCase();
+                    const texto = (h.texto || h.hadith || h.conteudo || '').toLowerCase();
+                    return tema.includes(search) || texto.includes(search);
+                });
+                
+                if (found) {
+                    return `
+                        📜 <b>${found.tema || found.titulo || 'Hadith'}</b><br>
+                        <i>${found.narrador || found.narrated_by || ''}</i><br><br>
+                        "${found.texto || found.hadith || found.conteudo}"<<br><br>
+                        📚 ${found.referencia || found.source || found.livro || ''}
+                    `;
+                }
+                return null;
+            },
+
+            getHadithDefault(search) {
+                const hadiths = {
+                    'amor': 'O Mensageiro de Allah (ﷺ) disse: "Não entrarão no Paraíso aqueles que não têm misericórdia com os outros."<<br><br>📚 Sahih Muslim',
+                    'caridade': 'O Mensageiro de Allah (ﷺ) disse: "A caridade não diminui a riqueza."<<br><br>📚 Sahih Muslim',
+                    'sabedoria': 'O Mensageiro de Allah (ﷺ) disse: "A busca do conhecimento é obrigatória para todo muçulmano."<<br><br>📚 Ibn Majah',
+                    'paciência': 'O Mensageiro de Allah (ﷺ) disse: "Nenhuma doença, cansaço, preocupação, tristeza ou dano atinge o muçulmano, nem mesmo uma espinha que o fira, sem que Allah expie alguns de seus pecados por isso."<<br><br>📚 Sahih Bukhari',
+                    'oração': 'O Mensageiro de Allah (ﷺ) disse: "A oração é a coluna do Islam."<<br><br>📚 Sahih Bukhari'
+                };
+                
+                for (const [key, value] of Object.entries(hadiths)) {
+                    if (search.includes(key) || key.includes(search)) {
+                        return value;
+                    }
+                }
+                
+                return 'Hadith não encontrado para "' + search + '". Tente: amor, caridade, sabedoria, paciência, oração.';
             },
 
             // ============================================
-            // DUÃS - do knowledge/duas.json
+            // DUÃS - do JSON
             // ============================================
             getDua(text) {
-                if (!this.knowledge.duas || !this.knowledge.duas.duas) {
-                    return '⏳ Carregando duãs... Tente novamente em instantes.';
+                const search = text.replace(/dua|duã|súplica|supplica|doa/gi, '').trim().toLowerCase();
+                
+                if (!this.knowledge.duas) {
+                    return this.getDuaDefault(search);
                 }
                 
-                const search = text.replace(/dua|súplica|supplica/gi, '').trim();
-                const duas = this.knowledge.duas.duas;
+                const duas = this.knowledge.duas.duas || this.knowledge.duas;
                 
-                const found = duas.filter(d => 
-                    d.titulo?.toLowerCase().includes(search) ||
-                    d.categoria?.toLowerCase().includes(search) ||
-                    d.arabe?.includes(search)
-                );
+                if (!Array.isArray(duas)) {
+                    return this.getDuaDefault(search);
+                }
+                
+                const found = duas.filter(d => {
+                    const titulo = (d.titulo || d.nome || d.title || '').toLowerCase();
+                    const categoria = (d.categoria || d.category || '').toLowerCase();
+                    return titulo.includes(search) || categoria.includes(search);
+                });
                 
                 if (found.length > 0) {
                     const d = found[0];
                     return `
-                        🤲 <b>${d.titulo}</b><br>
-                        <i>${d.categoria || ''}</i><br><br>
-                        <div class="verse-arabic" dir="rtl">${d.arabe || ''}</div>
-                        <div class="verse-translation">${d.transliteracao || ''}</div>
-                        <div class="verse-translation">${d.traducao || ''}</div>
+                        🤲 <b>${d.titulo || d.nome || d.title || 'Duã'}</b><br>
+                        <i>${d.categoria || d.category || ''}</i><br><br>
+                        <div class="verse-arabic" dir="rtl">${d.arabe || d.arabic || ''}</div>
+                        <div class="verse-translation">${d.transliteracao || d.transliteration || ''}</div>
+                        <div class="verse-translation">${d.traducao || d.translation || d.significado || ''}</div>
                     `;
                 }
                 
-                return 'Nenhuma duã encontrada para "' + search + '". Tente: proteção, manhã, viagem, doença.';
+                return this.getDuaDefault(search);
+            },
+
+            searchDuas(text) {
+                if (!this.knowledge.duas) return null;
+                
+                const search = text.toLowerCase();
+                const duas = this.knowledge.duas.duas || this.knowledge.duas;
+                
+                if (!Array.isArray(duas)) return null;
+                
+                const found = duas.find(d => {
+                    const titulo = (d.titulo || d.nome || d.title || '').toLowerCase();
+                    const categoria = (d.categoria || d.category || '').toLowerCase();
+                    return titulo.includes(search) || categoria.includes(search);
+                });
+                
+                if (found) {
+                    return `
+                        🤲 <b>${found.titulo || found.nome || found.title || 'Duã'}</b><br>
+                        <i>${found.categoria || found.category || ''}</i><br><br>
+                        <div class="verse-arabic" dir="rtl">${found.arabe || found.arabic || ''}</div>
+                        <div class="verse-translation">${found.transliteracao || found.transliteration || ''}</div>
+                        <div class="verse-translation">${found.traducao || found.translation || found.significado || ''}</div>
+                    `;
+                }
+                return null;
+            },
+
+            getDuaDefault(search) {
+                const duas = {
+                    'proteção': '<div class="verse-arabic" dir="rtl">بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ</div><div class="verse-translation">"Em nome de Allah, com cujo nome nada causa dano na terra nem nos céus."</div><br>📚 Recitar 3x ao amanhecer e ao anoitecer',
+                    'manhã': '<div class="verse-arabic" dir="rtl">اللَّهُمَّ بِكَ أَصْبَحْنَا وَبِكَ أَمْسَيْنَا وَبِكَ نَحْيَا وَبِكَ نَمُوتُ وَإِلَيْكَ النُّشُورُ</div><div class="verse-translation">"Ó Allah, por Ti amanhecemos e por Ti anoitecemos, por Ti vivemos e por Ti morremos, e a Ti retornaremos."</div>',
+                    'viagem': '<div class="verse-arabic" dir="rtl">سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ</div><div class="verse-translation">"Glorificado seja Aquele que submeteu isto a nós, pois não o teríamos dominado."</div><br>📚 Alcorão 43:13',
+                    'doença': '<div class="verse-arabic" dir="rtl">اللَّهُمَّ رَبَّ النَّاسِ أَذْهِبِ الْبَأْسَ اشْفِ أَنْتَ الشَّافِي لَا شِفَاءَ إِلَّا شِفَاؤُكَ</div><div class="verse-translation">"Ó Allah, Senhor da humanidade, remove o mal. Cura, pois Tu és o Curador. Não há cura exceto a Tua cura."</div>'
+                };
+                
+                for (const [key, value] of Object.entries(duas)) {
+                    if (search.includes(key) || key.includes(search)) {
+                        return value;
+                    }
+                }
+                
+                return 'Duã não encontrada para "' + search + '". Tente: proteção, manhã, viagem, doença.';
             },
 
             // ============================================
-            // WUDU - do knowledge/topics.json ou padrão
+            // WUDU
             // ============================================
             getWudu() {
                 return `
                     💧 <b>Como Fazer Wudu (Ablução)</b><br><br>
-                    1️⃣ <b>Niyyah (Intenção)</b> - Intencione purificar-se<br><br>
-                    2️⃣ <b>Lavar as mãos</b> - 3 vezes até os punhos<br><br>
-                    3️⃣ <b>Enxaguar a boca</b> - 3 vezes<br><br>
-                    4️⃣ <b>Lavar o nariz</b> - 3 vezes (inspirar água e expirar)<br><br>
-                    5️⃣ <b>Lavar o rosto</b> - 3 vezes (da testa ao queixo, de orelha a orelha)<br><br>
-                    6️⃣ <b>Lavar os braços</b> - 3 vezes, primeiro direito depois esquerdo, até os cotovelos<br><br>
-                    7️⃣ <b>Passar as mãos molhadas na cabeça</b> - 1 vez, da frente para trás<br><br>
-                    8️⃣ <b>Lavar os ouvidos</b> - com água nova, dentro e fora<br><br>
-                    9️⃣ <b>Lavar os pés</b> - 3 vezes, primeiro direito depois esquerdo, até os tornozelos<br><br>
-                    ✅ <b>Duã após Wudu:</b><br>
-                    "Ash-hadu an la ilaha illal-lahu wahdahu la sharika lahu, wa ash-hadu anna Muhammadan 'abduhu wa rasuluh"<br><br>
-                    <i>"Testemunho que não há deidade exceto Allah, Único, sem associados, e que Muhammad é Seu servo e Mensageiro."</i>
+                    1️⃣ <b>Niyyah</b> - Intencione purificar-se<br><br>
+                    2️⃣ <b>Lavar as mãos</b> - 3x até os punhos<br><br>
+                    3️⃣ <b>Enxaguar a boca</b> - 3x<br><br>
+                    4️⃣ <b>Lavar o nariz</b> - 3x<br><br>
+                    5️⃣ <b>Lavar o rosto</b> - 3x<br><br>
+                    6️⃣ <b>Lavar os braços</b> - 3x até cotovelos<br><br>
+                    7️⃣ <b>Passar mãos na cabeça</b> - 1x<br><br>
+                    8️⃣ <b>Lavar os ouvidos</b><br><br>
+                    9️⃣ <b>Lavar os pés</b> - 3x até tornozelos<br><br>
+                    ✅ <b>Duã:</b><br>
+                    "Ash-hadu an la ilaha illal-lahu wahdahu la sharika lahu..."
                 `;
             },
 
@@ -676,31 +814,43 @@
             getHowToPray() {
                 return `
                     🙏 <b>Como Orar (Salat)</b><br><br>
-                    <b>Requisitos:</b><br>
-                    • Wudu (ablusão)<br>
-                    • Vestes limpas e que cubram o awrah<br>
-                    • Lugar limpo<br>
-                    • Qibla (direção de Makkah)<br><br>
+                    <b>Requisitos:</b> Wudu, vestes limpas, lugar limpo, Qibla<br><br>
                     
                     <b>Passos de cada Raka'ah:</b><br><br>
-                    1️⃣ <b>Takbir</b> - "Allahu Akbar" (levantar as mãos)<br><br>
-                    2️⃣ <b>Qiyam</b> - Recitar Al-Fatiha + outra surata<br><br>
-                    3️⃣ <b>Ruku'</b> - Inclinar-se, mãos nos joelhos, 3x "Subhana Rabbiyal Adheem"<br><br>
-                    4️⃣ <b>Qawm</b> - Levantar: "Sami'Allahu liman hamidah"<br><br>
-                    5️⃣ <b>Sujud</b> - Prostrar-se: testa, nariz, mãos, joelhos e pés no chão<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;3x "Subhana Rabbiyal A'la"<br><br>
-                    6️⃣ <b>Julús</b> - Sentar entre os dois sujud<br><br>
-                    7️⃣ <b>Segundo Sujud</b> - Repetir passo 5<br><br>
-                    8️⃣ <b>Tashahhud</b> - Na última raka'ah, sentar e recitar:<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;"At-tahiyyatu lillahi..."<<br><br>
-                    9️⃣ <b>Salam</b> - "Assalamu alaikum wa rahmatullah" (virar para direita e esquerda)<br><br>
+                    1️⃣ <b>Takbir</b> - "Allahu Akbar"<br><br>
+                    2️⃣ <b>Qiyam</b> - Al-Fatiha + surata<br><br>
+                    3️⃣ <b>Ruku'</b> - Inclinar, 3x "Subhana Rabbiyal Adheem"<br><br>
+                    4️⃣ <b>Qawm</b> - Levantar<br><br>
+                    5️⃣ <b>Sujud</b> - Prostrar, 3x "Subhana Rabbiyal A'la"<br><br>
+                    6️⃣ <b>Julús</b> - Sentar entre sujud<br><br>
+                    7️⃣ <b>Segundo Sujud</b><br><br>
+                    8️⃣ <b>Tashahhud</b> - Na última raka'ah<br><br>
+                    9️⃣ <b>Salam</b> - "Assalamu alaikum"<br><br>
                     
-                    <b>Salats obrigatórias:</b><br>
-                    🌅 Fajr - 2 raka'ahs<br>
-                    ☀️ Dhuhr - 4 raka'ahs<br>
-                    🌤️ Asr - 4 raka'ahs<br>
-                    🌇 Maghrib - 3 raka'ahs<br>
-                    🌙 Isha - 4 raka'ahs
+                    <b>Salats:</b> Fajr (2), Dhuhr (4), Asr (4), Maghrib (3), Isha (4)
+                `;
+            },
+
+            // ============================================
+            // ISLAM INFO
+            // ============================================
+            getIslamInfo() {
+                return `
+                    🌙 <b>O que é o Islam?</b><br><br>
+                    O Islam é a religião monoteísta revelada pelo Profeta Muhammad (ﷺ), baseada em cinco pilares:<br><br>
+                    1️⃣ <b>Shahada</b> - Testemunho de fé<br>
+                    2️⃣ <b>Salat</b> - Oração 5x ao dia<br>
+                    3️⃣ <b>Zakat</b> - Caridade obrigatória<br>
+                    4️⃣ <b>Sawm</b> - Jejum no Ramadão<br>
+                    5️⃣ <b>Hajj</b> - Peregrinação a Makkah<br><br>
+                    <b>Crenças fundamentais:</b><br>
+                    • Allah é Único<br>
+                    • Os Anjos<br>
+                    • Os Livros Sagrados<br>
+                    • Os Profetas<br>
+                    • O Dia do Juízo<br>
+                    • O Destino (Qadar)<br><br>
+                    Quer saber mais sobre algum tema específico?
                 `;
             },
 
@@ -709,32 +859,16 @@
             // ============================================
             getHelp() {
                 return `
-                    🌙 <b>Islam M Bot - Comandos Disponíveis</b><br><br>
+                    🌙 <b>Islam M Bot - Comandos</b><br><br>
                     
-                    📖 <b>Alcorão:</b><br>
-                    • "alcorão 2:255" - Versículo específico<br>
-                    • "surat 1" - Surata completa<br><br>
-                    
-                    🕌 <b>Salat:</b><br>
-                    • "salat" - Horários padrão (Maputo)<br>
-                    • "salat Beira" - Horários de outra cidade<br><br>
-                    
-                    📜 <b>Hadiths:</b><br>
-                    • "hadith amor"<br>
-                    • "hadith caridade"<br><br>
-                    
-                    🤲 <b>Duãs:</b><br>
-                    • "dua proteção"<br>
-                    • "dua manhã"<br><br>
-                    
-                    💧 <b>Wudu:</b><br>
-                    • "wudu" - Passo a passo<br><br>
-                    
-                    🙏 <b>Como Orar:</b><br>
-                    • "como orar" - Guia completo<br><br>
-                    
-                    ❓ <b>Ajuda:</b><br>
-                    • "ajuda" ou "help" - Este menu
+                    📖 <b>Alcorão:</b> "alcorão 2:255"<br>
+                    🕌 <b>Salat:</b> "salat Maputo"<br>
+                    📜 <b>Hadiths:</b> "hadith amor"<br>
+                    🤲 <b>Duãs:</b> "dua proteção"<br>
+                    💧 <b>Wudu:</b> "wudu"<br>
+                    🙏 <b>Como Orar:</b> "como orar"<br>
+                    🌙 <b>Islam:</b> "o que é islam"<br><br>
+                    Ou pergunte sobre qualquer tema do Islam!
                 `;
             },
 
@@ -742,36 +876,49 @@
             // BUSCAR EM FAQ
             // ============================================
             searchFAQ(text) {
-                if (!this.knowledge.faq || !this.knowledge.faq.perguntas) return null;
+                if (!this.knowledge.faq) return null;
                 
-                const perguntas = this.knowledge.faq.perguntas;
+                const perguntas = this.knowledge.faq.perguntas || this.knowledge.faq;
+                if (!Array.isArray(perguntas)) return null;
+                
                 const lower = text.toLowerCase();
                 
-                const found = perguntas.find(p => 
-                    p.pergunta?.toLowerCase().includes(lower) ||
-                    p.palavras_chave?.some(k => lower.includes(k.toLowerCase()))
-                );
+                const found = perguntas.find(p => {
+                    const pergunta = (p.pergunta || p.question || '').toLowerCase();
+                    const palavras = p.palavras_chave || p.keywords || [];
+                    const resposta = (p.resposta || p.resposta || p.answer || '').toLowerCase();
+                    
+                    return pergunta.includes(lower) || 
+                           palavras.some(k => lower.includes(k.toLowerCase())) ||
+                           resposta.includes(lower);
+                });
                 
-                return found ? found.resposta : null;
+                return found ? (found.resposta || found.answer || found.response) : null;
             },
 
             // ============================================
             // BUSCAR EM TÓPICOS
             // ============================================
             searchTopics(text) {
-                if (!this.knowledge.topics || !this.knowledge.topics.topicos) return null;
+                if (!this.knowledge.topics) return null;
                 
-                const topicos = this.knowledge.topics.topicos;
+                const topicos = this.knowledge.topics.topicos || this.knowledge.topics;
+                if (!Array.isArray(topicos)) return null;
+                
                 const lower = text.toLowerCase();
                 
-                const found = topicos.find(t => 
-                    t.titulo?.toLowerCase().includes(lower) ||
-                    t.tags?.some(tag => lower.includes(tag.toLowerCase())) ||
-                    t.conteudo?.toLowerCase().includes(lower)
-                );
+                const found = topicos.find(t => {
+                    const titulo = (t.titulo || t.title || '').toLowerCase();
+                    const tags = t.tags || t.palavras_chave || [];
+                    const conteudo = (t.conteudo || t.content || '').toLowerCase();
+                    
+                    return titulo.includes(lower) || 
+                           tags.some(tag => lower.includes(tag.toLowerCase())) ||
+                           conteudo.includes(lower);
+                });
                 
                 if (found) {
-                    return `<b>${found.titulo}</b><br><br>${found.conteudo}`;
+                    return `<b>${found.titulo || found.title}</b><br><br>${found.conteudo || found.content}`;
                 }
                 return null;
             },
