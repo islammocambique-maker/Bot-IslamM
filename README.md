@@ -3,7 +3,7 @@
 Bot educacional sobre Islam hospedado no GitHub Pages.
 
 ## 🔗 Acesse
-[https://seu-usuario.github.io/islam_m_bot/](https://seu-usuario.github.io/islam_m_bot/)
+https://islammocambique-maker.github.io/Bot-IslamM/
 
 ## ✨ Funcionalidades
 - 📖 Alcorão (Quran.com API)
