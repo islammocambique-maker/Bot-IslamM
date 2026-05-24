@@ -21,7 +21,7 @@
             flex-direction: column;
         }
 
-        /* Header estilo WhatsApp */
+        /* Header */
         .header {
             background: linear-gradient(135deg, #00bfa5 0%, #7c4dff 100%);
             padding: 10px 16px;
@@ -77,7 +77,7 @@
             padding: 4px;
         }
 
-        /* Chat Area - fundo estilo WhatsApp */
+        /* Chat Area */
         .chat-container {
             flex: 1;
             background: #e5ddd5;
@@ -198,8 +198,10 @@
             font-weight: 500;
         }
 
-        /* Input Area estilo WhatsApp */
-        .input-container {
+        /* ============================================
+           INPUT AREA - SIMPLIFICADO IGUAL AO PRINT
+           ============================================ */
+        .input-area {
             background: #f0f2f5;
             padding: 8px 12px;
             display: flex;
@@ -214,17 +216,17 @@
             border-radius: 24px;
             display: flex;
             align-items: center;
-            padding: 8px 12px;
-            gap: 8px;
+            padding: 8px 14px;
+            gap: 10px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
 
-        .emoji-btn, .attach-btn, .camera-btn {
+        .emoji-btn {
             color: #54656f;
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
-            padding: 4px;
             user-select: none;
+            flex-shrink: 0;
         }
 
         .message-input {
@@ -235,15 +237,17 @@
             color: #111b21;
             background: transparent;
             font-family: inherit;
+            min-width: 0;
         }
 
         .message-input::placeholder {
             color: #8696a0;
         }
 
+        /* Botão ENVIAR verde - separado, depois do texto */
         .send-btn {
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             background: #00a884;
             color: white;
@@ -253,7 +257,8 @@
             justify-content: center;
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            font-size: 18px;
+            font-size: 20px;
+            flex-shrink: 0;
             transition: all 0.2s;
         }
 
@@ -309,6 +314,11 @@
             .bot-info h1 {
                 font-size: 16px;
             }
+            .send-btn {
+                width: 44px;
+                height: 44px;
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -343,10 +353,15 @@
         <div class="loading" id="loading">🌙 Buscando na web...</div>
     </div>
 
-    <!-- Input Area -->
-    <div class="input-container">
+    <!-- ============================================
+         INPUT AREA - SIMPLIFICADO: EMOJI + TEXTO + ENVIAR
+         ============================================ -->
+    <div class="input-area">
         <div class="input-wrapper">
-            <span class="emoji-btn">☺</span>
+            <!-- Emoji à esquerda -->
+            <span class="emoji-btn" onclick="App.toggleEmoji()">☺</span>
+            
+            <!-- Campo de texto -->
             <input 
                 type="text" 
                 id="userInput" 
@@ -354,9 +369,9 @@
                 placeholder="Mensagem"
                 onkeypress="if(event.key==='Enter') App.sendMessage()"
             >
-            <span class="attach-btn">📎</span>
-            <span class="camera-btn">📷</span>
         </div>
+        
+        <!-- Botão ENVIAR verde - depois do texto -->
         <button class="send-btn" onclick="App.sendMessage()" id="sendBtn">↑</button>
     </div>
 
@@ -381,7 +396,6 @@
                 const div = document.createElement('div');
                 div.className = `message ${isUser ? 'user' : 'bot'}`;
                 div.innerHTML = text + `<div class="time">${this.getTime()}</div>` + extraHTML;
-                // Inserir antes do loading
                 this.chatBox.insertBefore(div, this.loading);
                 this.scrollToBottom();
             },
@@ -399,7 +413,6 @@
                 this.sendBtn.disabled = true;
                 this.loading.classList.add('show');
 
-                // Simular resposta do bot (substitua pela sua lógica real)
                 setTimeout(() => {
                     this.loading.classList.remove('show');
                     this.sendBtn.disabled = false;
@@ -411,7 +424,7 @@
                             '<div class="verse-translation">Em nome de Allah, o Clemente, o Misericordioso.</div>'
                         );
                     } else {
-                        this.addMessage('🌙 Assalamu Alaikum! Como posso ajudar você hoje? Você pode me perguntar sobre:<br><br>• Versículos do Alcorão (ex: alcorão 2:255)<br>• Suratas completas (ex: surata 36)<br>• Orações e Duãs<br>• Informações sobre o Islam');
+                        this.addMessage('🌙 Assalamu Alaikum! Como posso ajudar você hoje?<br><br>• Versículos do Alcorão (ex: alcorão 2:255)<br>• Suratas completas<br>• Orações e Duãs');
                     }
                 }, 1500);
             },
@@ -419,6 +432,10 @@
             sendQuick(query) {
                 this.userInput.value = query;
                 this.sendMessage();
+            },
+
+            toggleEmoji() {
+                alert('Seletor de emoji em breve!');
             }
         };
 
