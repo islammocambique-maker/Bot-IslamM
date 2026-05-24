@@ -1,33 +1,33 @@
-# 🤖 Islam M Bot
+# 🌙 Islam M Bot
 
-Bot educacional sobre Islam para Telegram. Responde perguntas de muçulmanos e não-muçulmanos com respeito e base em fontes confiáveis.
+Bot educacional sobre Islam hospedado no GitHub Pages.
 
-## 🌐 Fontes Online
+## 🔗 Acesse
+[https://seu-usuario.github.io/islam_m_bot/](https://seu-usuario.github.io/islam_m_bot/)
 
-| Recurso | API |
-|---------|-----|
-| Alcorão | [Quran.com API](https://api.quran.com) |
-| Horários de Salat | [Aladhan API](https://aladhan.com/prayer-times-api) |
-| Hadiths | Coleção Sahih Bukhari & Muslim |
+## ✨ Funcionalidades
+- 📖 Alcorão (Quran.com API)
+- 🕌 Horários de Salat (Aladhan API)
+- 📜 Hadiths, 🤲 Duãs, 💧 Wudhu, 🙏 Como Orar
 
-## 🚀 Instalação
+## 📝 Adicionar Conhecimento
 
-```bash
-# Clone
-git clone https://github.com/seu-usuario/islam_m_bot.git
-cd islam_m_bot
+**Não edite código!** Apenas modifique JSON em `knowledge/`:
 
-# Ambiente virtual
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-venv\Scripts\activate     # Windows
+| Arquivo | Conteúdo |
+|---------|----------|
+| `faq.json` | Perguntas e respostas |
+| `hadiths.json` | Hadiths |
+| `duas.json` | Súplicas |
+| `topics.json` | Tópicos diversos |
+| `custom/*.json` | Seus arquivos extras |
 
-# Dependências
-pip install -r requirements.txt
+## 🚀 Hospedar
 
-# Configure
-cp config.py.example config.py
-# Edite config.py com seu TOKEN do Telegram
+1. Fork este repo
+2. Vá em **Settings → Pages**
+3. Source: **main** / **/(root)**
+4. Aguarde 2 minutos
 
-# Execute
-python main.py
+## 📞 Suporte: 860407269
+
