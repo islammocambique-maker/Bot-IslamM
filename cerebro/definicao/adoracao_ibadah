@@ -1,0 +1,74 @@
+[
+  {
+    "palavras_chave": ["Adoração", "Ibadah", "Culto", "Devoção"],
+    "resposta": "Ibadah (adoração) é todo ato de submissão e devoção a Allah, incluindo orações, jejum, caridade, peregrinação, dhikr e duas. O propósito da criação humana é adorar Allah: 'E eu não criei os gênios e os humanos senão para que Me adorassem' (Adh-Dhariyat 51:56). A adoração deve ser exclusiva para Allah, sincera (ikhlass) e conforme a Sunnah do Profeta ﷺ. Inclui adorações do coração (crença, esperança, amor), da língua (dhikr, recitação) e dos membros (salah, jejum, hajj).",
+    "fonte": "Alcorão (Adh-Dhariyat 51:56, Al-Bayyinah 98:5); Sahih Muslim (Livro 1, Hadith 47); Al-Qawa'id al-Arba' de Muhammad ibn Abdul-Wahhab",
+    "categoria": "Ibadah",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["Salah", "Oração", "Ritual", "Cinco"],
+    "resposta": "Salah (oração ritual) é o segundo pilar do Islam, obrigatória cinco vezes ao dia: Fajr (amanhecer), Dhuhr (meio-dia), Asr (tarde), Maghrib (pôr do sol), Isha (noite). Cada oração tem rak'ahs (unidades) específicas: Fajr 2, Dhuhr 4, Asr 4, Maghrib 3, Isha 4. Requisitos: wudu (ablution), horário correto, direção da Qibla (Makka), intenção (niyyah), recitação do Al-Fatiha, ruku' (inclinação), sujud (prostração). Allah diz: 'E estabelecei a oração, pois a oração preserva da obscenidade e do mal' (Al-Ankabut 29:45).",
+    "fonte": "Alcorão (Al-Baqarah 2:238, Al-Ankabut 29:45, An-Nisa 4:103); Sahih al-Bukhari (Livro 10, Hadith 505); Sahih Muslim (Livro 4, Hadith 162)",
+    "categoria": "Ibadah",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["Wudu", "Ablução", "Purificação", "Ritual"],
+    "resposta": "Wudu é a ablução ritual obrigatória antes da oração (Salah). Passos: (1) intenção (niyyah), (2) lavar as mãos 3x, (3) enxaguar a boca 3x, (4) lavar o nariz 3x, (5) lavar o rosto 3x, (6) lavar os braços até aos cotovelos 3x, (7) passar as mãos molhadas sobre a cabeça, (8) limpar as orelhas, (9) lavar os pés até aos tornozelos 3x. Invalida-se com: sono profundo, toque nos órgãos genitais, evacuação, urina, flatulência, sangue, vômito. Allah diz: 'Ó crentes! Quando vos levantardes para a oração, lavai os vossos rostos e as vossas mãos até aos cotovelos' (Al-Ma'idah 5:6).",
+    "fonte": "Alcorão (Al-Ma'idah 5:6); Sahih al-Bukhari (Livro 4, Hadith 159); Sahih Muslim (Livro 2, Hadith 462)",
+    "categoria": "Ibadah",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["Tayammum", "Ablução", "Seca", "Areia"],
+    "resposta": "Tayammum é a ablução seca com terra pura, usada quando não há água disponível ou quando a água prejudica a saúde. Passos: (1) intenção (niyyah), (2) bater as mãos na terra pura, (3) passar no rosto, (4) passar nas mãos até aos cotovelos. Invalida-se com a mesma coisa que invalida o wudu, e também quando a água se torna disponível. Allah diz: 'E se estiverdes doentes ou em viagem, ou se algum de vós vier da retrete, ou se tiverdes tocado nas mulheres e não achardes água, então fazei tayammum com terra pura' (Al-Ma'idah 5:6).",
+    "fonte": "Alcorão (Al-Ma'idah 5:6); Sahih al-Bukhari (Livro 7, Hadith 331); Sahih Muslim (Livro 3, Hadith 718)",
+    "categoria": "Ibadah",
+    "nivel": "Intermediário",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["Jejum", "Sawm", "Ramadan", "Pilar"],
+    "resposta": "Sawm (jejum) é o quarto pilar do Islam, obrigatório no mês de Ramadan (9º mês do calendário islâmico). Proíbe comer, beber, relações conjugais e comportamentos ruins desde o amanhecer (Fajr) até ao pôr do sol (Maghrib). Exceções: doentes, viajantes, grávidas, amamentando, idosos fracos, crianças. Quem não pode jejum deve fazer fidya (alimentar um pobre por cada dia) ou qada (compensar depois). Allah diz: 'Ó crentes! Prescreveu-vos o jejum como prescreveu-o aos que vos precederam, para que sejais piedosos' (Al-Baqarah 2:183).",
+    "fonte": "Alcorão (Al-Baqarah 2:183-185); Sahih al-Bukhari (Livro 30, Hadith 1); Sahih Muslim (Livro 6, Hadith 2636)",
+    "categoria": "Ibadah",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["Zakah", "Caridade", "Obrigatória", "Pobreza"],
+    "resposta": "Zakah é o terceiro pilar do Islam, caridade obrigatória de 2.5% sobre a riqueza acumulada (ouro, prata, dinheiro, mercadorias) que excede o nisab (limite mínimo) após um ano lunar. Destinada a oito categorias: pobres, necessitados, funcionários da zakah, aqueles cujos corações precisam ser conquistados, escravos/libertação, endividados, na causa de Allah, viajantes necessitados. Purifica a riqueza e o coração da avareza. Allah diz: 'E estabelecei a oração e pagai a zakah' (Al-Baqarah 2:110). Quem recusa pagar comete grande pecado.",
+    "fonte": "Alcorão (Al-Baqarah 2:110, 2:177, 9:60, At-Tawbah 9:103); Sahih al-Bukhari (Livro 24, Hadith 489); Sahih Muslim (Livro 5, Hadith 2161)",
+    "categoria": "Ibadah",
+    "nivel": "Intermediário",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["Hajj", "Peregrinação", "Makka", "Pilar"],
+    "resposta": "Hajj é a peregrinação a Makka, o quinto pilar do Islam, obrigatória uma vez na vida para quem tem saúde e meios financeiros. Realiza-se nos dias 8-12 de Dhul-Hijjah (12º mês). Rituais: Ihram (veste branca e intenção), Tawaf (circunvolução da Kaaba 7x), Sa'i (caminhada entre Safa e Marwa 7x), permanência em Mina, Dia de Arafat (9 Dhul-Hijjah — o pico do Hajj), arremessar pedras em Jamarat (três pilares simbolizando Satanás). Allah diz: 'E para Allah é incumbência aos homens a peregrinação à Casa, aqueles que puderem encontrar um meio' (Aal-E-Imran 3:97).",
+    "fonte": "Alcorão (Aal-E-Imran 3:97, Al-Hajj 22:27-28); Sahih al-Bukhari (Livro 25, Hadith 1); Sahih Muslim (Livro 7, Hadith 2719)",
+    "categoria": "Ibadah",
+    "nivel": "Avançado",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["Dhikr", "Lembraça", "Allah", "Tasbih"],
+    "resposta": "Dhikr é a lembrança de Allah através de palavras e frases específicas. Principais: Subhanallah (Glória a Allah), Alhamdulillah (Louvores a Allah), Allahu Akbar (Allah é Maior), La ilaha illallah (Não há deus senão Allah), Astaghfirullah (Peço perdão a Allah). Recomendado após cada oração, ao acordar, antes de dormir, ao comer, ao viajar. Allah diz: 'Ó crentes! Lembrai-vos de Allah abundantemente' (Al-Ahzab 33:41). O Profeta ﷺ disse: 'As palavras mais amadas por Allah são quatro: Subhanallah, Alhamdulillah, La ilaha illallah, Allahu Akbar' (Sahih Muslim).",
+    "fonte": "Alcorão (Al-Ahzab 33:41, Ar-Ra'd 13:28); Sahih Muslim (Livro 48, Hadith 147); Sunan Abu Dawud (Livro 16, Hadith 1501)",
+    "categoria": "Ibadah",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["Duas", "Supplicação", "Oração", "Pedido"],
+    "resposta": "Dua (supplicação) é a oração pessoal de pedido a Allah, diferente da Salah ritual. Pode ser feita em qualquer momento, em qualquer língua, sobre qualquer assunto. Allah promete responder: 'E quando Meus servos te perguntarem sobre Mim, diga que estou perto. Respondo ao apelo do suplicante quando ele Me invoca' (Al-Baqarah 2:186). Momentos preferidos: último terço da noite, entre o adhan e iqamah, após a oração obrigatória, na prostração, ao jejum, ao viajar, ao chover. Não se deve pedir algo proibido ou abandonar a esperança na resposta.",
+    "fonte": "Alcorão (Al-Baqarah 2:186, Ghafir 40:60); Sahih al-Bukhari (Livro 75, Hadith 318); Sahih Muslim (Livro 48, Hadith 147)",
+    "categoria": "Ibadah",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  }
+]
