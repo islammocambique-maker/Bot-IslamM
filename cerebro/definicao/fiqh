@@ -1,0 +1,58 @@
+[
+  {
+    "palavras_chave": ["Fiqh", "jurisprudência", "veredito islamico", "Jurisprudencia"],
+    "resposta": "FIQH (JURISPRUDÊNCIA ISLÂMICA)\n\nO Fiqh é o conhecimento dos regulamentos legais islâmicos derivados das fontes: Alcorão, Sunnah, Ijma (consenso dos estudiosos) e Qiyas (analogia). Divide-se em cinco categorias:\n\n1) FARD/WAJIB — Obrigatório (ex: Salah, Zakah)\n2) MUSTAHAB/SUNNAH — Recomendado (ex: Sunnah antes de Fajr)\n3) MUBAH — Permissível (ex: comer fruta)\n4) MAKRUH — Desaconselhado (ex: beber em pé)\n5) HARAM — Proibido (ex: álcool, adultério)\n\nHALAL = tudo o que Allah permitiu\nHARAM = tudo o que Allah proibiu\n\nPara continuar escreve: F.comercio",
+    "fonte": "Alcorão (Al-Baqarah 2:168-169, Al-Ma'idah 5:3); Sahih al-Bukhari (Livro 1, Hadith 1); Al-Risala de Imam Shafi'i",
+    "categoria": "Fiqh",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["F.comercio", "comércio", "Negócio", "usura", "comerciante", "justiça na balança", "Regra do negócio", "boladas","Riba", "Contrato"],
+    "resposta": "COMÉRCIO ISLÂMICO\n\nO comércio é halal desde que justo e honesto. Allah diz: 'E Allah permitiu a venda e proibiu a usura' (Al-Baqarah 2:275).\n\nPROIBIÇÕES:\n• RIBA (usura/juros): qualquer excesso no empréstimo. 'Quem devora a usura não se levantará senão como se levanta aquele que Satanás tocou com a loucura' (Al-Baqarah 2:275).\n• GHARAR (incerteza excessiva): contratos ambíguos ou com risco desconhecido.\n• MAISIR (jogos de azar): loteria, apostas.\n• FRAUDE: esconder defeitos, falsificar pesos.\n\nPERMITIDO:\n• Murabaha (venda com lucro declarado)\n• Mudarabah (parceria investidor/gerente)\n• Musharakah (sociedade)\n• Comércio de bens halal\n\nPara continuar escreve: F.casamento",
+    "fonte": "Alcorão (Al-Baqarah 2:275, 2:282, An-Nisa 4:29); Sahih al-Bukhari (Livro 34, Hadith 275); Sahih Muslim (Livro 10, Hadith 3846)",
+    "categoria": "Fiqh",
+    "nivel": "Intermediário",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["F.casamento", "Nikah", "quem pode casar", "casamento", "Esposa"],
+    "resposta": "CASAMENTO (NIKAH)\n\nO casamento é uma sunnah do Profeta ﷺ: 'Quem tem meios, case-se' (Sahih al-Bukhari).\n\nREQUISITOS:\n• Consentimento da noiva (obrigatório)\n• Mahr (dote) pago à noiva — valor acordado\n• Wali (tutor) da noiva (para mulheres nunca casadas)\n• Duas testemunhas justas\n• Khutbatul Nikah (sermão do casamento)\n\nPROIBIÇÕES:\n• Casar com mulher e sua tia/filha simultaneamente\n• Casar durante Iddah (período de espera)\n• Casar sem Mahr\n• Forçar alguém a casar\n\nDIREITOS DA ESPOSA:\n• Mahr, alimentação, vestuário, habitação\n• Tratamento digno e justo\n• Noites alternadas (em caso de poligamia)\n\nPara continuar escreve: F.divorcio",
+    "fonte": "Alcorão (An-Nisa 4:3-4, 4:19-21, 4:24-25, An-Nur 24:3); Sahih al-Bukhari (Livro 67, Hadith 4700); Sahih Muslim (Livro 8, Hadith 3233)",
+    "categoria": "Fiqh",
+    "nivel": "Intermediário",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["F.divorcio", "Talaq", "Iddah", "Separacao"],
+    "resposta": "DIVÓRCIO (TALAQ)\n\nO divórcio é halal mas detestável a Allah: 'Das coisas permitidas, a mais detestável a Allah é o divórcio' (Abu Dawud).\n\nTIPOS:\n• Talaq Raj'i (revogável): 1 ou 2 repúdios. A mulher fica em Iddah (3 ciclos menstruais) e o marido pode reconciliar.\n• Talaq Ba'in (irrevogável): 3º repúdio. Só pode voltar se ela casar com outro, consumar e divorciar (Halala).\n\nREGRAS:\n• Talaq só válido em estado de pureza (sem relação conjugal)\n• Não pode dar 3 talaqs de uma vez (inovação — Bid'ah)\n• Durante Iddah: não pode casar, deve observar luto\n• Manutenção durante Iddah\n\nPara continuar escreve: F.heranca",
+    "fonte": "Alcorão (Al-Baqarah 2:229-232, At-Talaq 65:1-7); Sahih al-Bukhari (Livro 68, Hadith 5251); Sunan Abu Dawud (Livro 13, Hadith 2176)",
+    "categoria": "Fiqh",
+    "nivel": "Avançado",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["F.heranca", "herança", "Mirath", "Testamento", "direito a herança"],
+    "resposta": "HERANÇA (MIRATH)\n\nA herança é obrigatória — não pode deixar de dividir. Allah diz: 'Para os homens há uma porção do que deixaram os pais e os parentes próximos, e para as mulheres há uma porção do que deixaram os pais e os parentes próximos' (An-Nisa 4:7).\n\nHERDEIROS OBRIGATÓRIOS (Ashab al-Fara'id):\n• Pai, mãe, filhos, cônjuge, irmãos, avós\n\nREGRAS PRINCIPAIS:\n• Filho recebe o dobro da filha\n• Sem filhos, irmão recebe o dobro da irmã\n• Esposa recebe 1/8 (se houver filhos) ou 1/4\n• Marido recebe 1/4 (se houver filhos) ou 1/2\n• Pai e mãe: 1/6 cada (se houver filhos)\n\nTESTAMENTO (Wasiyya): Máximo 1/3 do património para não-herdeiros.\n\nPara continuar escreve: F.vestimentas",
+    "fonte": "Alcorão (An-Nisa 4:7-12, 4:176); Sahih al-Bukhari (Livro 85, Hadith 6767); Sahih Muslim (Livro 11, Hadith 3936)",
+    "categoria": "Fiqh",
+    "nivel": "Avançado",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["F.vestimentas", "vestimenta", "Hijab", "baixar o olhar", "Awrah", "Roupa"],
+    "resposta": "VESTIMENTAS ISLÂMICAS\n\nO Islam exige pudor (haya) na vestimenta. Allah diz: 'Dize aos crentes que abaixem os seus olhares e guardem a sua castidade... E dize às crentes que abaixem os seus olhares e guardem a sua castidade, e não mostrem os seus adornos exceto o que aparece deles' (An-Nur 24:30-31).\n\nHOMEM:\n• Cobrir do umbigo aos joelhos (mínimo)\n• Não usar seda nem ouro\n• Não imitar mulheres\n\nMULHER:\n• Hijab: cobrir todo o corpo exceto rosto e mãos (opinião majoritária)\n• Não mostrar adornos (joias, maquilhagem) em público\n• Não usar perfume em público\n• Não imitar homens\n\nAWRAH (partes a cobrir):\n• Homem: umbigo a joelhos (perante homens e mahram)\n• Mulher: todo corpo exceto rosto e mãos (perante estranhos)\n\nPara continuar escreve: F.alimentacao",
+    "fonte": "Alcorão (An-Nur 24:30-31, Al-Ahzab 33:59); Sahih al-Bukhari (Livro 77, Hadith 5940); Sahih Muslim (Livro 24, Hadith 5310)",
+    "categoria": "Fiqh",
+    "nivel": "Intermediário",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["F.alimentacao", "alimentação ", "alimentos", "Comida halal", "Sustento de Allah", "carne de porco ", "comida Proibid"],
+    "resposta": "ALIMENTAÇÃO ISLÂMICA\n\nAllah diz: 'Ó crentes! Comei do que é bom do que vos sustentamos, e agradecei a Allah, se é Ele a quem adorais' (Al-Baqarah 2:172).\n\nHALAL (PERMITIDO):\n• Carnes de: vaca, carneiro, cabra, camelo, frango, peru, pato, coelho, peixe (com escamas)\n• Frutas, vegetais, cereais, leite, ovos, mel\n• Animal abatido com Bismillah e faca afiada (corte na garganta)\n\nHARAM (PROIBIDO):\n• Carne de porco (Al-Baqarah 2:173)\n• Sangue (Al-An'am 6:145)\n• Animal morto sem abate (Al-Ma'idah 5:3)\n• Animal sacrificado para outros deuses (Al-Ma'idah 5:3)\n• Álcool e drogas intoxicantes (Al-Ma'idah 5:90)\n• Carnívoros, aves de rapina, répteis\n\nDhabiha (abate islâmico): Bismillah, faca afiada, corte rápido na garganta (traqueia, esôfago, veias jugulares), deixar sangue escorrer.\n\n---\nFIM DO TUTORIAL DE FIQH. Que Allah guie-te na Sua lei! 🌙",
+    "fonte": "Alcorão (Al-Baqarah 2:172-173, Al-Ma'idah 5:3, 5:90, Al-An'am 6:145); Sahih al-Bukhari (Livro 70, Hadith 5479); Sahih Muslim (Livro 21, Hadith 4982)",
+    "categoria": "Fiqh",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  }
+]
