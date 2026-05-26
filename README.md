@@ -25,7 +25,7 @@ islam-m-bot/
 ### 1. Clone ou baixe os arquivos
 
 ```bash
-git clone https://github.com/seu-usuario/islam-m-bot.git
+git clone [https://github.com/seu-usuario/islam-m-bot.git](https://islammocambique-maker.github.io/Bot-IslamM/)
 cd islam-m-bot
 ```
 
