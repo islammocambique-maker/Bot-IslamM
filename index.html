@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Islam M Bot - Guia Islâmico</title>
+    <title>Islam M Bot - Guia Islamico</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -211,11 +211,6 @@
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         .support-info a { color: #d4af37; text-decoration: none; }
-        .error-msg {
-            background: rgba(231,76,60,0.2);
-            border: 1px solid rgba(231,76,60,0.5);
-            color: #ff9999;
-        }
         .quick-buttons {
             display: flex;
             gap: 8px;
@@ -241,17 +236,15 @@
             margin: 8px 0;
             border-right: 3px solid #d4af37;
         }
-        .loading-spinner {
-            display: inline-block;
-            width: 16px;
-            height: 16px;
-            border: 2px solid rgba(212,175,55,0.3);
-            border-top-color: #d4af37;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-            margin-left: 8px;
+        .status-bar {
+            text-align: center;
+            padding: 5px;
+            font-size: 0.75rem;
+            opacity: 0.6;
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        .status-bar.loaded { color: #2ecc71; }
+        .status-bar.loading { color: #f39c12; }
+        .status-bar.error { color: #e74c3c; }
         @media (max-width: 500px) {
             .header h1 { font-size: 1.5rem; }
             .message { max-width: 95%; font-size: 0.9rem; }
@@ -264,26 +257,27 @@
     <div class="container">
         <div class="header">
             <h1>🕌 Islam M Bot</h1>
-            <p>Seu guia islâmico inteligente - Pergunte sobre Islam, Alcorão, Salat e mais</p>
+            <p>Seu guia islamico inteligente - Pergunte sobre Islam, Alcorao, Salat e mais</p>
+            <div class="status-bar loading" id="statusBar">🔄 Carregando conhecimento...</div>
         </div>
 
         <div class="quick-buttons">
-            <button class="quick-btn" onclick="sendQuick('horario salat')">🕐 Horário Salat</button>
-            <button class="quick-btn" onclick="sendQuick('Alcorão 1:1')">📖 Alcorão 1:1</button>
-            <button class="quick-btn" onclick="sendQuick('Alcorão 2:255')">📖 Alcorão 2:255</button>
-            <button class="quick-btn" onclick="sendQuick('o que é islam')">☪️ O que é Islam?</button>
-            <button class="quick-btn" onclick="sendQuick('como orar')">🤲 Como Orar?</button>
+            <button class="quick-btn" onclick="sendQuick('horario salat')">🕐 Horario Salat</button>
+            <button class="quick-btn" onclick="sendQuick('Alcorao 1:1')">📖 Alcorao 1:1</button>
+            <button class="quick-btn" onclick="sendQuick('Alcorao 2:255')">📖 Alcorao 2:255</button>
+            <button class="quick-btn" onclick="sendQuick('o que e islam')">☪️ O que e Islam?</button>
+            <button class="quick-btn" onclick="sendQuick('como fazer wudu')">💧 Como fazer Wudu?</button>
         </div>
 
         <div class="chat-area" id="chatArea">
             <div class="message bot-msg">
                 <strong>As-salamu alaykum! 🌙</strong><br><br>
-                Sou o <strong>Islam M Bot</strong>, seu assistente islâmico. Posso ajudar com:<br>
-                • 📖 <strong>Versículos do Alcorão</strong> - Digite "Alcorão capítulo:versículo" (ex: Alcorão 2:255)<br>
-                • 🕐 <strong>Horários de Salat</strong> para Moçambique com alarme<br>
-                • ☪️ <strong>Perguntas sobre Islam</strong> - fé, prática, definições e mais<br>
-                • 📚 <strong>Conhecimento do Cérebro</strong> - prática, definição, mais e extra<br><br>
-                Como posso ajudar você hoje?
+                Sou o <strong>Islam M Bot</strong>, seu assistente islamico. Posso ajudar com:<br>
+                • 📖 <strong>Versiculos do Alcorao</strong> - Digite "Alcorao capitulo:versiculo" (ex: Alcorao 2:255)<br>
+                • 🕐 <strong>Horarios de Salat</strong> para Mocambique com alarme<br>
+                • ☪️ <strong>Perguntas sobre Islam</strong> - fe, pratica, definicoes e mais<br>
+                • 📚 <strong>Conhecimento do Cerebro</strong> - pratica, definicao, mais e extra<br><br>
+                Como posso ajudar voce hoje?
             </div>
         </div>
 
@@ -302,10 +296,21 @@
 
     <script>
         // ============================================================
-        // ISLAM M BOT - Sistema Completo
+        // ISLAM M BOT - Sistema Completo v2.0
         // ============================================================
 
-        // --- 1. NORMALIZAÇÃO DE TEXTO (case-insensitive, sem acento) ---
+        // --- CONFIGURACAO DO REPOSITORIO ---
+        const REPO_BASE = 'https://raw.githubusercontent.com/islammocambique-maker/Bot-IslamM/main';
+
+        // Lista de arquivos conhecidos no cerebro
+        const ARQUIVOS_CEREBRO = {
+            pratica: ['Wudhu'],
+            definicao: ['Janazah'],
+            mais: [],
+            extra: []
+        };
+
+        // --- 1. NORMALIZACAO DE TEXTO ---
         function normalizeText(text) {
             if (!text) return '';
             return text
@@ -318,214 +323,134 @@
         }
 
         function normalizeKeywords(keywords) {
-            return keywords.map(k => normalizeText(k)).filter(k => k.length > 0);
+            if (!Array.isArray(keywords)) return [];
+            return keywords.map(k => normalizeText(String(k))).filter(k => k.length > 0);
         }
 
-        // --- 2. BASE DE CONHECIMENTO (Cérebro) ---
-        // Carrega de arquivos externos ou usa fallback
+        // --- 2. BASE DE CONHECIMENTO ---
         let cerebroPratica = [];
         let cerebroDefinicao = [];
         let cerebroMais = [];
         let cerebroExtra = [];
+        let conhecimentoCarregado = false;
 
-        // Fallback inicial com dados básicos
         const fallbackData = {
             pratica: [
                 {
-                    palavras_chave: ["como orar", "salah", "salat", "oração", "rezar", "namaz"],
-                    resposta: "A oração (Salah) em Islam consiste em 5 orações diárias: Fajr (amanhecer), Dhuhr (meio-dia), Asr (tarde), Maghrib (pôr do sol) e Isha (noite). Cada oração tem rak'ahs específicas e deve ser feita voltado à Qibla (Meca). A ablução (Wudu) é necessária antes de cada oração.",
-                    fonte: "Alcorão 2:238, 4:103",
-                    categoria: "Prática",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["wudu", "ablucao", "abluição", "limpeza", "purificação"],
-                    resposta: "A ablução (Wudu) é a purificação ritual antes da oração. Passos: 1) Intenção (Niyyah), 2) Lavar as mãos 3 vezes, 3) Enxaguar a boca 3 vezes, 4) Lavar o nariz 3 vezes, 5) Lavar o rosto 3 vezes, 6) Lavar os braços até os cotovelos 3 vezes, 7) Passar as mãos molhadas sobre a cabeça, 8) Limpar as orelhas, 9) Lavar os pés até os tornozelos 3 vezes.",
-                    fonte: "Sahih al-Bukhari, Livro de Abluição",
-                    categoria: "Prática",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["jejum", "ramadan", "sawm", "ayuno", "fasting"],
-                    resposta: "O jejum (Sawm) no mês de Ramadan é um dos 5 pilares do Islam. Começa no amanhecer (Fajr) e termina no pôr do sol (Maghrib). É proibido comer, beber, e comportamentos inadequados durante o jejum. Exceções: doentes, viajantes, grávidas, idosos, crianças.",
-                    fonte: "Alcorão 2:183-185",
-                    categoria: "Prática",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["zakat", "zakah", "esmola", "caridade", "dízimo"],
-                    resposta: "Zakat é o imposto obrigatório de 2.5% sobre a riqueza acumulada que possui um ano lunar. Deve ser dado aos pobres, necessitados, devedores, viajantes, e outras 8 categorias mencionadas no Alcorão 9:60. É o 3º pilar do Islam.",
-                    fonte: "Alcorão 9:60, Sahih al-Bukhari",
-                    categoria: "Prática",
-                    nivel: "Intermediário",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["hajj", "peregrinação", "meca", "kaaba", "umrah"],
-                    resposta: "O Hajj é a peregrinação obrigatória à Meca pelo menos uma vez na vida, para quem tem condições físicas e financeiras. Realiza-se nos dias 8-13 de Dhul-Hijjah. Inclui Tawaf (circunvolução da Kaaba), Sa'i (caminhada entre Safa e Marwa), e permanência em Arafat.",
-                    fonte: "Alcorão 3:97, Sahih al-Bukhari",
-                    categoria: "Prática",
-                    nivel: "Avançado",
+                    palavras_chave: ["como orar", "salah", "salat", "oracao", "rezar", "namaz"],
+                    resposta: "A oracao (Salah) em Islam consiste em 5 oracoes diarias: Fajr (amanhecer), Dhuhr (meio-dia), Asr (tarde), Maghrib (por do sol) e Isha (noite). Cada oracao tem rakaahs especificas e deve ser feita voltado a Qibla (Meca). A ablucao (Wudu) e necessaria antes de cada oracao.",
+                    fonte: "Alcorao 2:238, 4:103",
+                    categoria: "Pratica",
+                    nivel: "Basico",
                     links: ["https://Facebook.com/Islamguia"]
                 }
             ],
             definicao: [
                 {
-                    palavras_chave: ["o que é islam", "islam", "religião", "muçulmano", "muslim"],
-                    resposta: "Islam significa 'submissão' à vontade de Allah. É uma religião monoteísta revelada ao Profeta Muhammad (S.A.W.) através do Alcorão. Os muçulmanos creem em: Allah (Deus Único), os Anjos, os Livros Revelados (Alcorão, Torá, Evangelho, Salmos), os Profetas, o Dia do Juízo Final, e o Destino (Qadar).",
-                    fonte: "Alcorão 3:19, 5:3",
-                    categoria: "Definição",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["allah", "deus", "divindade", "criador", "senhor"],
-                    resposta: "Allah é o nome próprio de Deus em árabe. Significa 'O Único Digno de Adoração'. Allah tem 99 nomes belos (Al-Asma ul-Husna) que descrevem Seus atributos: Ar-Rahman (O Misericordioso), Al-Malik (O Soberano), Al-Quddus (O Santo), entre outros. Allah não tem parceiros, filhos, nem semelhantes.",
-                    fonte: "Alcorão 112:1-4, 59:22-24",
-                    categoria: "Definição",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["profeta", "muhammad", "muhammed", "mensageiro", "rasul"],
-                    resposta: "Muhammad (S.A.W. - Sallallahu Alayhi Wa Sallam) é o último e final Profeta e Mensageiro de Allah. Nasceu em Meca em 570 d.C. e recebeu a primeira revelação aos 40 anos. O Alcorão foi revelado a ele ao longo de 23 anos. Ele é o modelo perfeito de conduta para todos os muçulmanos.",
-                    fonte: "Alcorão 33:21, 33:40",
-                    categoria: "Definição",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["alcorão", "quran", "corão", "livro sagrado", "revelação"],
-                    resposta: "O Alcorão (Qur'an) é a palavra literal de Allah revelada ao Profeta Muhammad (S.A.W.) através do Anjo Gabriel. Tem 114 suratas (capítulos) e aproximadamente 6.236 versículos (ayat). É o milagre eterno do Islam, preservado intacto desde sua revelação há mais de 1.400 anos.",
-                    fonte: "Alcorão 2:2, 15:9",
-                    categoria: "Definição",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["shahada", "crença", "fé", "testemunho", "pilares"],
-                    resposta: "A Shahada (Testemunho de Fé) é o primeiro e mais importante pilar do Islam: 'Ashhadu an la ilaha illallah, wa ashhadu anna Muhammadan rasulullah' (Testemunho que não há divindade digna de adoração exceto Allah, e que Muhammad é o Mensageiro de Allah). Dizê-la com convicção torna alguém muçulmano.",
-                    fonte: "Alcorão 3:18, Sahih Muslim",
-                    categoria: "Definição",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["jannah", "paraíso", "céu", "recompensa", "felicidade"],
-                    resposta: "Jannah (Paraíso) é o destino eterno dos crentes fiéis. É descrito no Alcorão como um lugar de jardins com rios de água pura, leite, vinho e mel. Os habitantes terão tudo o que desejarem, verão a face de Allah, e viverão em paz eterna. Os graus do Paraíso vão de Firdaws (o mais alto) em diante.",
-                    fonte: "Alcorão 9:72, 56:12-40",
-                    categoria: "Definição",
-                    nivel: "Intermediário",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["jahannam", "inferno", "fogo", "punição", "nar"],
-                    resposta: "Jahannam (Inferno) é o destino dos descrentes e pecadores que não se arrependeram. É um lugar de punição com fogo intenso, alimentação com árvore de Zaqqum, e bebida de água fervente. Allah é o mais Misericordioso e aceita o arrependimento sincero até o último momento.",
-                    fonte: "Alcorão 4:56, 56:42-44",
-                    categoria: "Definição",
-                    nivel: "Intermediário",
+                    palavras_chave: ["o que e islam", "islam", "religiao", "muculmano", "muslim"],
+                    resposta: "Islam significa submissao a vontade de Allah. E uma religiao monoteista revelada ao Profeta Muhammad (S.A.W.) atraves do Alcorao.",
+                    fonte: "Alcorao 3:19, 5:3",
+                    categoria: "Definicao",
+                    nivel: "Basico",
                     links: ["https://Facebook.com/Islamguia"]
                 }
             ],
-            mais: [
-                {
-                    palavras_chave: ["shahada", "conversão", "tornar muçulmano", "islam", "entrar no islam"],
-                    resposta: "Para se tornar muçulmano, basta pronunciar a Shahada com convicção e compreensão: 'Ashhadu an la ilaha illallah, wa ashhadu anna Muhammadan rasulullah'. Após isso, comece a aprender as 5 orações diárias, os pilares do Islam, e busque conhecimento em mesquitas e centros islâmicos. Todos os pecados anteriores são perdoados por Allah.",
-                    fonte: "Sahih al-Bukhari, Sahih Muslim",
-                    categoria: "Mais",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["dua", "oração", "supplicação", "pedido", "invocação"],
-                    resposta: "Dua (supplicação) é a essência da adoração em Islam. O Profeta disse: 'A dua é a essência da adoração' (Tirmidhi). Pode ser feita em qualquer língua, a qualquer momento, exceto durante a oração formal (Salah) que deve ser em árabe. Allah responde às duas de 3 formas: concede o que foi pedido, afasta um mal maior, ou acumula recompensa para o Além.",
-                    fonte: "Alcorão 40:60, Tirmidhi",
-                    categoria: "Mais",
-                    nivel: "Intermediário",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["sunnah", "hadith", "dizendo", "tradição", "prática do profeta"],
-                    resposta: "A Sunnah são as práticas, palavras e aprovações do Profeta Muhammad (S.A.W.). Os Hadiths são os relatos que preservam a Sunnah. As 6 coleções mais autênticas são: Sahih al-Bukhari, Sahih Muslim, Sunan Abu Dawud, Jami' at-Tirmidhi, Sunan an-Nasa'i, e Sunan Ibn Majah. A Sunnah explica e complementa o Alcorão.",
-                    fonte: "Sahih al-Bukhari, Introdução",
-                    categoria: "Mais",
-                    nivel: "Intermediário",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["halal", "haram", "permitido", "proibido", "lei islâmica"],
-                    resposta: "Halal significa 'permitido' e Haram significa 'proibido' em Islam. Alimentos Halal incluem: frutas, vegetais, grãos, peixes, e carne de animais abatidos segundo a lei islâmica (Zabiha). Haram inclui: carne de porco, sangue, animais mortos sem abate ritual, álcool, drogas, e tudo o que prejudica o corpo ou a alma.",
-                    fonte: "Alcorão 2:173, 5:3-5",
-                    categoria: "Mais",
-                    nivel: "Intermediário",
-                    links: ["https://Facebook.com/Islamguia"]
-                }
-            ],
-            extra: [
-                {
-                    palavras_chave: ["islam moçambique", "mozambique", "comunidade", "mesquita", "centro islâmico"],
-                    resposta: "A comunidade muçulmana em Moçambique é vibrante e crescente. Existem mesquitas e centros islâmicos em Maputo, Nampula, Beira, Tete e outras cidades. Para mais informações, apoio e orientação, entre em contato: Email: Islammocambique@gmail.com | WhatsApp: +258 86 040 7269 | Facebook: Islamguia",
-                    fonte: "Islam Moçambique",
-                    categoria: "Extra",
-                    nivel: "Básico",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["historia islam", "origem", "nascimento", "meca", "medina"],
-                    resposta: "O Islam nasceu em Meca (Arábia) em 610 d.C. quando o Profeta Muhammad (S.A.W.) recebeu a primeira revelação na Caverna de Hira. Após 13 anos de perseguição, migrou (Hijra) para Medina em 622 d.C. - marco do calendário islâmico. O Islam se espalhou pela Arábia e, após a morte do Profeta (632 d.C.), pelos continentes. Hoje são cerca de 1.9 bilhões de muçulmanos no mundo.",
-                    fonte: "Sahih al-Bukhari, Livro do Início da Revelação",
-                    categoria: "Extra",
-                    nivel: "Intermediário",
-                    links: ["https://Facebook.com/Islamguia"]
-                },
-                {
-                    palavras_chave: ["anjos", "anjo", "gabriel", "jibril", "malaika"],
-                    resposta: "Os anjos (Mala'ika) em Islam são seres de luz criados por Allah para cumprir Sua vontade. Não têm livre-arbítrio. Os anjos mais importantes são: Jibril (Gabriel) - trouxe revelações, Mikail (Miguel) - responsável pela provisão, Israfil - soprará a trombeta do Juízo, e Azrael - anjo da morte. Cada pessoa tem dois anjos que registram suas ações: um à direita (boas ações) e um à esquerda (más ações).",
-                    fonte: "Alcorão 2:97-98, 82:10-12",
-                    categoria: "Extra",
-                    nivel: "Intermediário",
-                    links: ["https://Facebook.com/Islamguia"]
-                }
-            ]
+            mais: [],
+            extra: []
         };
 
-        // Inicializa com fallback
-        cerebroPratica = fallbackData.pratica;
-        cerebroDefinicao = fallbackData.definicao;
-        cerebroMais = fallbackData.mais;
-        cerebroExtra = fallbackData.extra;
+        // --- 3. CARREGAMENTO DO CEREBRO ---
+        async function carregarArquivoCerebro(pasta, arquivo) {
+            const url = REPO_BASE + '/cerebro/' + pasta + '/' + arquivo;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    console.log('Nao encontrado: ' + url);
+                    return null;
+                }
+                const texto = await response.text();
 
-        // Tenta carregar arquivos externos
-        async function carregarCerebro() {
-            const arquivos = [
-                { nome: 'cerebro/pratica.json', destino: 'pratica' },
-                { nome: 'cerebro/definicao.json', destino: 'definicao' },
-                { nome: 'cerebro/mais.json', destino: 'mais' },
-                { nome: 'cerebro/extra.json', destino: 'extra' }
-            ];
-
-            for (let arq of arquivos) {
+                // Tenta parsear como JSON direto
                 try {
-                    const response = await fetch(arq.nome);
-                    if (response.ok) {
-                        const data = await response.json();
-                        if (Array.isArray(data) && data.length > 0) {
-                            if (arq.destino === 'pratica') cerebroPratica = data;
-                            if (arq.destino === 'definicao') cerebroDefinicao = data;
-                            if (arq.destino === 'mais') cerebroMais = data;
-                            if (arq.destino === 'extra') cerebroExtra = data;
-                        }
+                    const data = JSON.parse(texto);
+                    if (Array.isArray(data)) {
+                        console.log('Carregado: ' + pasta + '/' + arquivo + ' (' + data.length + ' entradas)');
+                        return data;
                     }
                 } catch (e) {
-                    console.log(`Arquivo ${arq.nome} não encontrado, usando fallback.`);
+                    // Tenta corrigir escapes duplos do GitHub raw
+                    try {
+                        const textoLimpo = texto
+                            .replace(/\\\\u/g, '\u')
+                            .replace(/\\\\n/g, '\n')
+                            .replace(/\\\\"/g, '"')
+                            .replace(/\\\\\[/g, '[')
+                            .replace(/\\\\\]/g, ']');
+                        const data = JSON.parse(textoLimpo);
+                        if (Array.isArray(data)) {
+                            console.log('Carregado (corrigido): ' + pasta + '/' + arquivo + ' (' + data.length + ' entradas)');
+                            return data;
+                        }
+                    } catch (e2) {
+                        console.log('Erro ao parsear ' + pasta + '/' + arquivo + ': ' + e2.message);
+                    }
                 }
+            } catch (e) {
+                console.log('Erro ao buscar ' + pasta + '/' + arquivo + ': ' + e.message);
             }
+            return null;
         }
 
-        // --- 3. FUNÇÃO DE BUSCA POR KEYWORDS ---
+        async function carregarCerebro() {
+            const statusBar = document.getElementById('statusBar');
+            statusBar.textContent = 'Carregando conhecimento...';
+            statusBar.className = 'status-bar loading';
+
+            let totalEntradas = 0;
+            const pastas = ['pratica', 'definicao', 'mais', 'extra'];
+
+            for (const pasta of pastas) {
+                const arquivos = ARQUIVOS_CEREBRO[pasta] || [];
+                let entradasPasta = [];
+
+                for (const arquivo of arquivos) {
+                    const dados = await carregarArquivoCerebro(pasta, arquivo);
+                    if (dados) {
+                        entradasPasta = entradasPasta.concat(dados);
+                    }
+                }
+
+                if (entradasPasta.length === 0 && fallbackData[pasta] && fallbackData[pasta].length > 0) {
+                    entradasPasta = fallbackData[pasta];
+                    console.log('Usando fallback para ' + pasta);
+                }
+
+                if (pasta === 'pratica') cerebroPratica = entradasPasta;
+                if (pasta === 'definicao') cerebroDefinicao = entradasPasta;
+                if (pasta === 'mais') cerebroMais = entradasPasta;
+                if (pasta === 'extra') cerebroExtra = entradasPasta;
+
+                totalEntradas += entradasPasta.length;
+            }
+
+            conhecimentoCarregado = true;
+
+            if (totalEntradas > 0) {
+                statusBar.textContent = 'Conhecimento carregado: ' + totalEntradas + ' entradas';
+                statusBar.className = 'status-bar loaded';
+            } else {
+                statusBar.textContent = 'Usando conhecimento basico (fallback)';
+                statusBar.className = 'status-bar error';
+            }
+
+            console.log('Resumo do Cerebro:');
+            console.log('  Pratica: ' + cerebroPratica.length);
+            console.log('  Definicao: ' + cerebroDefinicao.length);
+            console.log('  Mais: ' + cerebroMais.length);
+            console.log('  Extra: ' + cerebroExtra.length);
+        }
+
+        // --- 4. FUNCAO DE BUSCA POR KEYWORDS ---
         function buscarResposta(pergunta) {
             const perguntaNorm = normalizeText(pergunta);
             const palavrasPergunta = perguntaNorm.split(' ').filter(p => p.length > 1);
@@ -541,17 +466,20 @@
             let maxMatches = 0;
 
             for (let entrada of todasEntradas) {
-                let keywordsNorm = normalizeKeywords(entrada.palavras_chave);
+                let keywords = entrada.palavras_chave || entrada.palavras_chaves || [];
+                if (!Array.isArray(keywords)) continue;
+
+                let keywordsNorm = normalizeKeywords(keywords);
                 let matches = 0;
 
                 for (let kw of keywordsNorm) {
-                    // Verifica se a keyword está na pergunta OU se alguma palavra da pergunta está na keyword
-                    if (perguntaNorm.includes(kw) || kw.includes(perguntaNorm)) {
-                        matches++;
+                    if (perguntaNorm.includes(kw)) {
+                        matches += 1;
+                    } else if (kw.includes(perguntaNorm) && perguntaNorm.length > 2) {
+                        matches += 1;
                     } else {
-                        // Verifica palavra por palavra
                         for (let palavra of palavrasPergunta) {
-                            if (kw.includes(palavra) || palavra.includes(kw)) {
+                            if (palavra.length > 2 && (kw.includes(palavra) || palavra.includes(kw))) {
                                 matches += 0.5;
                                 break;
                             }
@@ -563,7 +491,7 @@
                     if (matches > maxMatches) {
                         maxMatches = matches;
                         melhores = [entrada];
-                    } else if (matches === maxMatches) {
+                    } else if (Math.abs(matches - maxMatches) < 0.01) {
                         melhores.push(entrada);
                     }
                 }
@@ -571,32 +499,29 @@
 
             if (melhores.length === 0) return null;
 
-            // Em caso de empate, escolhe uma aleatoriamente
             const escolhida = melhores[Math.floor(Math.random() * melhores.length)];
             return escolhida;
         }
 
-        // --- 4. API DO ALCORÃO (Online) ---
+        // --- 5. API DO ALCORAO ---
         async function buscarAlcorao(capitulo, versiculo) {
             try {
-                // API quran.com - versículo com tradução em português
                 const response = await fetch(
-                    `https://api.quran.com/api/v4/verses/by_key/${capitulo}:${versiculo}?translations=92&words=true&word_fields=text_uthmani`
+                    'https://api.quran.com/api/v4/verses/by_key/' + capitulo + ':' + versiculo + '?translations=92&words=true&word_fields=text_uthmani'
                 );
                 if (!response.ok) throw new Error('API error');
                 const data = await response.json();
 
-                if (!data.verse) throw new Error('Versículo não encontrado');
+                if (!data.verse) throw new Error('Versiculo nao encontrado');
 
-                // Busca nome da surata
-                const surahResponse = await fetch(`https://api.quran.com/api/v4/chapters/${capitulo}`);
+                const surahResponse = await fetch('https://api.quran.com/api/v4/chapters/' + capitulo);
                 const surahData = await surahResponse.json();
-                const surahName = surahData.chapter ? surahData.chapter.name_simple : `Surata ${capitulo}`;
+                const surahName = surahData.chapter ? surahData.chapter.name_simple : 'Surata ' + capitulo;
                 const surahNameAr = surahData.chapter ? surahData.chapter.name_arabic : '';
 
                 const verse = data.verse;
-                const arabicText = verse.text_uthmani || verse.words.map(w => w.text_uthmani).join(' ');
-                const translation = verse.translations && verse.translations[0] ? verse.translations[0].text : 'Tradução não disponível';
+                const arabicText = verse.text_uthmani || (verse.words ? verse.words.map(w => w.text_uthmani).join(' ') : '');
+                const translation = verse.translations && verse.translations[0] ? verse.translations[0].text : 'Traducao nao disponivel';
 
                 return {
                     surah: surahName,
@@ -606,27 +531,25 @@
                     portuguese: translation
                 };
             } catch (e) {
-                console.error('Erro API Alcorão:', e);
+                console.error('Erro API Alcorao:', e);
                 return null;
             }
         }
 
-        // --- 5. API DE HORÁRIO DE SALAT (Online - AlAdhan API) ---
+        // --- 6. API DE HORARIO DE SALAT ---
         async function buscarHorarioSalat() {
             try {
-                // Coordenadas de Maputo, Moçambique
                 const lat = -25.9653;
                 const lon = 32.5892;
-                const today = new Date().toISOString().split('T')[0];
                 const timestamp = Math.floor(Date.now() / 1000);
 
                 const response = await fetch(
-                    `https://api.aladhan.com/v1/timings/${timestamp}?latitude=${lat}&longitude=${lon}&method=3&school=0`
+                    'https://api.aladhan.com/v1/timings/' + timestamp + '?latitude=' + lat + '&longitude=' + lon + '&method=3&school=0'
                 );
                 if (!response.ok) throw new Error('API error');
                 const data = await response.json();
 
-                if (data.code !== 200 || !data.data) throw new Error('Dados não disponíveis');
+                if (data.code !== 200 || !data.data) throw new Error('Dados nao disponiveis');
 
                 const timings = data.data.timings;
                 const date = data.data.date;
@@ -647,7 +570,7 @@
             }
         }
 
-        // --- 6. SISTEMA DE ALARME ---
+        // --- 7. SISTEMA DE ALARME ---
         let alarmesAtivos = {};
 
         function toggleAlarme(prayerName, hora) {
@@ -657,13 +580,14 @@
                 return false;
             } else {
                 alarmesAtivos[key] = hora;
-                // Verifica alarme a cada minuto
-                setInterval(() => {
+                setInterval(function() {
                     if (alarmesAtivos[key]) {
                         const agora = new Date();
-                        const [h, m] = alarmesAtivos[key].split(':');
-                        if (agora.getHours() == h && agora.getMinutes() == m && agora.getSeconds() < 10) {
-                            mostrarNotificacao(`🕌 Hora do ${prayerName}!`, `É hora de realizar a oração de ${prayerName}.`);
+                        const partes = alarmesAtivos[key].split(':');
+                        const h = parseInt(partes[0]);
+                        const m = parseInt(partes[1]);
+                        if (agora.getHours() === h && agora.getMinutes() === m && agora.getSeconds() < 10) {
+                            mostrarNotificacao('Hora do ' + prayerName + '!', 'E hora de realizar a oracao de ' + prayerName + '.');
                         }
                     }
                 }, 60000);
@@ -673,9 +597,9 @@
 
         function mostrarNotificacao(titulo, corpo) {
             if ('Notification' in window && Notification.permission === 'granted') {
-                new Notification(titulo, { body: corpo, icon: '🕌' });
+                new Notification(titulo, { body: corpo });
             } else {
-                alert(`${titulo}\n${corpo}`);
+                alert(titulo + '\n' + corpo);
             }
         }
 
@@ -683,13 +607,13 @@
             Notification.requestPermission();
         }
 
-        // --- 7. INTERFACE DO CHAT ---
+        // --- 8. INTERFACE DO CHAT ---
         const chatArea = document.getElementById('chatArea');
         const userInput = document.getElementById('userInput');
 
-        function addMessage(text, isUser = false, isHTML = false) {
+        function addMessage(text, isUser, isHTML) {
             const div = document.createElement('div');
-            div.className = `message ${isUser ? 'user-msg' : 'bot-msg'}`;
+            div.className = 'message ' + (isUser ? 'user-msg' : 'bot-msg');
             if (isHTML) {
                 div.innerHTML = text;
             } else {
@@ -720,18 +644,18 @@
             sendMessage();
         }
 
-        // --- 8. PROCESSAMENTO PRINCIPAL ---
+        // --- 9. PROCESSAMENTO PRINCIPAL ---
         async function sendMessage() {
             const texto = userInput.value.trim();
             if (!texto) return;
 
-            addMessage(texto, true);
+            addMessage(texto, true, false);
             userInput.value = '';
             showTyping();
 
             const perguntaNorm = normalizeText(texto);
 
-            // Verifica se é pedido de Alcorão (formato: Alcorão X:Y ou Quran X:Y)
+            // Verifica Alcorao
             const quranMatch = texto.match(/(?:alcor[ãa]o|quran|cor[ãa]o|surata?)\s*(\d+)[\s:](\d+)/i);
             if (quranMatch) {
                 const cap = parseInt(quranMatch[1]);
@@ -739,7 +663,7 @@
 
                 if (cap < 1 || cap > 114 || ver < 1) {
                     removeTyping();
-                    addMessage('⚠️ Por favor, informe um capítulo entre 1-114 e um versículo válido. Exemplo: Alcorão 2:255');
+                    addMessage('Por favor, informe um capitulo entre 1-114 e um versiculo valido. Exemplo: Alcorao 2:255', false, false);
                     return;
                 }
 
@@ -747,110 +671,72 @@
                 removeTyping();
 
                 if (resultado) {
-                    const html = `
-                        <div class="surah-info">
-                            <strong>📖 ${resultado.surah} (${resultado.surahAr})</strong><br>
-                            <span class="category-tag">Versículo ${resultado.ayah}</span>
-                        </div>
-                        <div class="arabic-text">${resultado.arabic}</div>
-                        <div style="margin-top:10px; padding:10px; background:rgba(0,0,0,0.2); border-radius:8px;">
-                            <strong>Tradução (Português):</strong><br>
-                            ${resultado.portuguese}
-                        </div>
-                        <a href="https://quran.com/${cap}/${ver}" target="_blank" class="link-btn">📖 Ver no Quran.com</a>
-                    `;
+                    const html = '<div class="surah-info"><strong>📖 ' + resultado.surah + ' (' + resultado.surahAr + ')</strong><br><span class="category-tag">Versiculo ' + resultado.ayah + '</span></div>' +
+                        '<div class="arabic-text">' + resultado.arabic + '</div>' +
+                        '<div style="margin-top:10px; padding:10px; background:rgba(0,0,0,0.2); border-radius:8px;"><strong>Traducao (Portugues):</strong><br>' + resultado.portuguese + '</div>' +
+                        '<a href="https://quran.com/' + cap + '/' + ver + '" target="_blank" class="link-btn">📖 Ver no Quran.com</a>';
                     addMessage(html, false, true);
                 } else {
-                    addMessage('❌ Não foi possível buscar este versículo agora. Tente novamente ou acesse: https://quran.com');
+                    addMessage('Nao foi possivel buscar este versiculo agora. Tente novamente ou acesse: https://quran.com', false, false);
                 }
                 return;
             }
 
-            // Verifica se é pedido de horário de salat
+            // Verifica Salat
             const salatKeywords = ['salat', 'salah', 'oracao', 'orar', 'horario', 'hora', 'rezar', 'namaz', 'athan', 'adhan'];
-            const isSalatRequest = salatKeywords.some(kw => perguntaNorm.includes(kw));
+            const isSalatRequest = salatKeywords.some(function(kw) { return perguntaNorm.includes(kw); });
 
             if (isSalatRequest) {
                 const horarios = await buscarHorarioSalat();
                 removeTyping();
 
                 if (horarios) {
-                    const html = `
-                        <div class="prayer-card">
-                            <h3>🕐 Horários de Salat - Maputo, Moçambique</h3>
-                            <div style="font-size:0.85rem; opacity:0.8; margin-bottom:10px;">
-                                📅 ${horarios.date} | 🌙 ${horarios.hijri}
-                            </div>
-                            <div class="prayer-time">
-                                <span class="prayer-name">🌅 Fajr (Amanhecer)</span>
-                                <span><span class="prayer-hour">${horarios.fajr}</span> 
-                                <button class="alarm-btn" onclick="this.classList.toggle('active'); toggleAlarme('Fajr', '${horarios.fajr}'); this.textContent=this.classList.contains('active')?'🔔':'🔕';">🔕</button></span>
-                            </div>
-                            <div class="prayer-time">
-                                <span class="prayer-name">☀️ Nascer do Sol</span>
-                                <span><span class="prayer-hour">${horarios.sunrise}</span></span>
-                            </div>
-                            <div class="prayer-time">
-                                <span class="prayer-name">🌞 Dhuhr (Meio-dia)</span>
-                                <span><span class="prayer-hour">${horarios.dhuhr}</span>
-                                <button class="alarm-btn" onclick="this.classList.toggle('active'); toggleAlarme('Dhuhr', '${horarios.dhuhr}'); this.textContent=this.classList.contains('active')?'🔔':'🔕';">🔕</button></span>
-                            </div>
-                            <div class="prayer-time">
-                                <span class="prayer-name">🌤️ Asr (Tarde)</span>
-                                <span><span class="prayer-hour">${horarios.asr}</span>
-                                <button class="alarm-btn" onclick="this.classList.toggle('active'); toggleAlarme('Asr', '${horarios.asr}'); this.textContent=this.classList.contains('active')?'🔔':'🔕';">🔕</button></span>
-                            </div>
-                            <div class="prayer-time">
-                                <span class="prayer-name">🌅 Maghrib (Pôr do Sol)</span>
-                                <span><span class="prayer-hour">${horarios.maghrib}</span>
-                                <button class="alarm-btn" onclick="this.classList.toggle('active'); toggleAlarme('Maghrib', '${horarios.maghrib}'); this.textContent=this.classList.contains('active')?'🔔':'🔕';">🔕</button></span>
-                            </div>
-                            <div class="prayer-time">
-                                <span class="prayer-name">🌙 Isha (Noite)</span>
-                                <span><span class="prayer-hour">${horarios.isha}</span>
-                                <button class="alarm-btn" onclick="this.classList.toggle('active'); toggleAlarme('Isha', '${horarios.isha}'); this.textContent=this.classList.contains('active')?'🔔':'🔕';">🔕</button></span>
-                            </div>
-                        </div>
-                        <div style="font-size:0.8rem; opacity:0.7; margin-top:8px;">
-                            ℹ️ Clique no 🔕 para ativar o alarme de notificação para cada oração.
-                        </div>
-                    `;
+                    const html = '<div class="prayer-card"><h3>🕐 Horarios de Salat - Maputo, Mocambique</h3>' +
+                        '<div style="font-size:0.85rem; opacity:0.8; margin-bottom:10px;">📅 ' + horarios.date + ' | 🌙 ' + horarios.hijri + '</div>' +
+                        '<div class="prayer-time"><span class="prayer-name">🌅 Fajr (Amanhecer)</span><span><span class="prayer-hour">' + horarios.fajr + '</span> <button class="alarm-btn" onclick="this.classList.toggle(\'active\'); toggleAlarme(\'Fajr\', \'' + horarios.fajr + '\'); this.textContent=this.classList.contains(\'active\')?\'🔔\':\'🔕\';">🔕</button></span></div>' +
+                        '<div class="prayer-time"><span class="prayer-name">☀️ Nascer do Sol</span><span><span class="prayer-hour">' + horarios.sunrise + '</span></span></div>' +
+                        '<div class="prayer-time"><span class="prayer-name">🌞 Dhuhr (Meio-dia)</span><span><span class="prayer-hour">' + horarios.dhuhr + '</span> <button class="alarm-btn" onclick="this.classList.toggle(\'active\'); toggleAlarme(\'Dhuhr\', \'' + horarios.dhuhr + '\'); this.textContent=this.classList.contains(\'active\')?\'🔔\':\'🔕\';">🔕</button></span></div>' +
+                        '<div class="prayer-time"><span class="prayer-name">🌤️ Asr (Tarde)</span><span><span class="prayer-hour">' + horarios.asr + '</span> <button class="alarm-btn" onclick="this.classList.toggle(\'active\'); toggleAlarme(\'Asr\', \'' + horarios.asr + '\'); this.textContent=this.classList.contains(\'active\')?\'🔔\':\'🔕\';">🔕</button></span></div>' +
+                        '<div class="prayer-time"><span class="prayer-name">🌅 Maghrib (Por do Sol)</span><span><span class="prayer-hour">' + horarios.maghrib + '</span> <button class="alarm-btn" onclick="this.classList.toggle(\'active\'); toggleAlarme(\'Maghrib\', \'' + horarios.maghrib + '\'); this.textContent=this.classList.contains(\'active\')?\'🔔\':\'🔕\';">🔕</button></span></div>' +
+                        '<div class="prayer-time"><span class="prayer-name">🌙 Isha (Noite)</span><span><span class="prayer-hour">' + horarios.isha + '</span> <button class="alarm-btn" onclick="this.classList.toggle(\'active\'); toggleAlarme(\'Isha\', \'' + horarios.isha + '\'); this.textContent=this.classList.contains(\'active\')?\'🔔\':\'🔕\';">🔕</button></span></div></div>' +
+                        '<div style="font-size:0.8rem; opacity:0.7; margin-top:8px;">ℹ️ Clique no 🔕 para ativar o alarme de notificacao para cada oracao.</div>';
                     addMessage(html, false, true);
                 } else {
-                    addMessage('❌ Não foi possível buscar os horários de salat agora. Tente novamente mais tarde ou acesse: https://aladhan.com');
+                    addMessage('Nao foi possivel buscar os horarios de salat agora. Tente novamente mais tarde.', false, false);
                 }
                 return;
             }
 
-            // Busca no cérebro
+            // Busca no cerebro
             const resposta = buscarResposta(texto);
             removeTyping();
 
             if (resposta) {
-                let html = resposta.resposta;
-                html += `<br><br><span class="source-tag">📚 ${resposta.fonte}</span>`;
-                html += `<span class="category-tag">${resposta.categoria}</span>`;
-                html += `<span class="category-tag">Nível: ${resposta.nivel}</span>`;
+                let respostaTexto = resposta.resposta || resposta.respostas || 'Sem resposta';
+                respostaTexto = respostaTexto.replace(/\\\\n/g, '<br>');
+
+                let html = respostaTexto;
+                html += '<br><br><span class="source-tag">📚 ' + (resposta.fonte || 'Fonte nao informada') + '</span>';
+                html += '<span class="category-tag">' + (resposta.categoria || 'Geral') + '</span>';
+                html += '<span class="category-tag">Nivel: ' + (resposta.nivel || 'Basico') + '</span>';
                 if (resposta.links && resposta.links.length > 0) {
-                    html += `<br><a href="${resposta.links[0]}" target="_blank" class="link-btn">🔗 Saiba mais</a>`;
+                    html += '<br><a href="' + resposta.links[0] + '" target="_blank" class="link-btn">🔗 Saiba mais</a>';
                 }
                 addMessage(html, false, true);
             } else {
-                const html = `
-                    🤔 Não encontrei uma resposta específica para "<em>${texto}</em>" no meu conhecimento atual.<br><br>
-                    Tente perguntar sobre:<br>
-                    • 📖 <strong>Versículos do Alcorão</strong> - "Alcorão 2:255"<br>
-                    • 🕐 <strong>Horários de Salat</strong> - "horário salat"<br>
-                    • ☪️ <strong>Tópicos de Islam</strong> - "o que é islam", "como orar", "allah", "profeta"<br><br>
-                    Ou entre em contato com o suporte:<br>
-                    📧 <a href="mailto:Islammocambique@gmail.com">Islammocambique@gmail.com</a><br>
-                    📱 <a href="https://wa.me/258860407269">+258 86 040 7269</a>
-                `;
+                const html = '🤔 Nao encontrei uma resposta especifica para "<em>' + texto + '</em>" no meu conhecimento atual.<br><br>' +
+                    'Tente perguntar sobre:<br>' +
+                    '• 📖 <strong>Versiculos do Alcorao</strong> - "Alcorao 2:255"<br>' +
+                    '• 🕐 <strong>Horarios de Salat</strong> - "horario salat"<br>' +
+                    '• ☪️ <strong>Topicos de Islam</strong> - "o que e islam", "como orar", "wudu"<br><br>' +
+                    'Ou entre em contato com o suporte:<br>' +
+                    '📧 <a href="mailto:Islammocambique@gmail.com">Islammocambique@gmail.com</a><br>' +
+                    '📱 <a href="https://wa.me/258860407269">+258 86 040 7269</a>';
                 addMessage(html, false, true);
             }
         }
 
-        // Carrega o cérebro ao iniciar
+        // Carrega o cerebro ao iniciar
         carregarCerebro();
     </script>
 </body>
