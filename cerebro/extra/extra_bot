@@ -1,0 +1,66 @@
+[
+  {
+    "palavras_chave": ["Funções", "Extras", "Bot", "Comentários"],
+    "resposta": "FUNÇÕES EXTRAS DO BOT ISLÂMICO\n\nO bot Islam Guia tem múltiplas funções para servir os muçulmanos e interessados no Islam:\n\n1) RESPONDER COMENTÁRIOS — Interação automática com perguntas e comentários dos usuários\n2) DETETAR INSULTOS — Identificação e resposta educada a ataques ao Islam\n3) ENVIAR FONTES — Citação de Alcorão, Sunnah e estudiosos confiáveis\n4) CORRIGIR INFORMAÇÕES FALSAS — Desmistificação de mitos sobre o Islam\n5) MOSTRAR HADITHS AUTÊNTICOS — Apenas Sahih al-Bukhari, Sahih Muslim e coleções fiáveis\n6) EXPLICAR PALAVRAS ÁRABES — Transliteração e significado de termos islâmicos\n7) QUIZ ISLÂMICO — Perguntas e respostas para testar conhecimento\n8) SISTEMA DE BUSCA — Pesquisa por palavras-chave na base de dados\n\nPara continuar escreve: B.insultos",
+    "fonte": "Desenvolvimento interno do Islam Guia; Princípios de chatbots islâmicos",
+    "categoria": "Tecnologia",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["B.insultos", "Insultos", "Responder", "Ataques"],
+    "resposta": "DETETAR E RESPONDER A INSULTOS\n\nO bot identifica insultos ao Islam, ao Profeta ﷺ ou aos muçulmanos e responde com sabedoria e paciência.\n\nESTRATÉGIA:\n• Não responder com insulto — 'E não discutais com o Povo do Livro senão da melhor maneira' (Al-Ankabut 29:46)\n• Manter calma e educação\n• Corrigir com evidências\n• Não entrar em debates circulares\n• Bloquear apenas se necessário (spam, ódio extremo)\n\nEXEMPLOS DE RESPOSTA:\n'Pedimos desculpa se algo te ofendeu. O Islam ensina paz e respeito. Se tens dúvidas genuínas, estamos aqui para esclarecer com base no Alcorão e na Sunnah.'\n\n'O Profeta ﷺ enfrentou insultos com paciência. Seguimos o seu exemplo. Se queres conhecer o verdadeiro Islam, estamos à disposição.'\n\nPara continuar escreve: B.fontes",
+    "fonte": "Alcorão (Al-Ankabut 29:46, Fussilat 41:34); Sahih al-Bukhari (Livro 78, Hadith 6035); Sahih Muslim (Livro 32, Hadith 6307)",
+    "categoria": "Tecnologia",
+    "nivel": "Intermediário",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["B.fontes", "Fontes", "Autênticas", "Referências"],
+    "resposta": "ENVIAR FONTES AUTÊNTICAS\n\nO bot cita apenas fontes fiáveis e verificáveis:\n\nFONTES PRIMÁRIAS:\n• Alcorão — com referência de surah e versículo\n• Sunnah — Sahih al-Bukhari, Sahih Muslim, Sunan Abu Dawud, Jami' at-Tirmidhi, Sunan an-Nasa'i, Sunan Ibn Majah\n\nFONTES SECUNDÁRIAS:\n• Fatawa de estudiosos fiáveis: Ibn Baz, Ibn Uthaymin, Al-Albani, Comité Permanente\n• Livros de referência: Al-Raheeq al-Makhtum, Fiqh al-Sunnah, Al-Aqidah al-Tahawiyyah\n\nREGRAS:\n• Nunca inventar hadiths\n• Nunca citar fontes não verificáveis\n• Indicar grau de autenticidade (Sahih, Hasan, Da'if)\n• Corrigir quando um hadith é fraco\n\nEXEMPLO DE CITAÇÃO:\n'O Profeta ﷺ disse: ... (Sahih al-Bukhari, Livro X, Hadith Y)'\n\nPara continuar escreve: B.falsas",
+    "fonte": "Princípios de Hadith (Mustalah al-Hadith); Fatawa do Comité Permanente; Introdução de Ibn al-Salah",
+    "categoria": "Tecnologia",
+    "nivel": "Intermediário",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["B.falsas", "Falsas", "Corrigir", "Mitos"],
+    "resposta": "CORRIGIR INFORMAÇÕES FALSAS\n\nO bot identifica e corrige mitos comuns sobre o Islam:\n\nMITOS COMUNS:\n• 'O Islam foi espalado pela espada' → FALSO. Há evidências de paz e tratados. Muitos converteram-se voluntariamente.\n• 'O Islam oprime as mulheres' → FALSO. O Islam deu direitos às mulheres 1400 anos atrás.\n• 'Os muçulmanos adoram a Lua' → FALSO. Adoramos apenas Allah. A lua crescente é símbolo cultural.\n• 'Terrorismo é Islam' → FALSO. O Islam proíbe matar inocentes. Terroristas são criminosos, não representam o Islam.\n• 'Jesus não é reconhecido' → FALSO. Jesus (Isa) é um dos maiores profetas no Islam.\n\nMÉTODO:\n• Apresentar evidência do Alcorão e Sunnah\n• Citar estudiosos reconhecidos\n• Manter tom educado e informativo\n• Não atacar a pessoa, apenas a informação errada\n\nPara continuar escreve: B.hadiths",
+    "fonte": "Alcorão (Al-Baqarah 2:256, An-Nisa 4:93, Al-Ma'idah 5:32); Sahih al-Bukhari; Sahih Muslim",
+    "categoria": "Tecnologia",
+    "nivel": "Intermediário",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["B.hadiths", "Hadiths", "Autênticos", "Sahih"],
+    "resposta": "MOSTRAR HADITHS AUTÊNTICOS\n\nO bot apresenta hadiths apenas de coleções fiáveis, com classificação de autenticidade.\n\nCOLEÇÕES SAHIH (AUTÊNTICAS):\n• Sahih al-Bukhari — 7563 hadiths\n• Sahih Muslim — 9200 hadiths\n\nCOLEÇÕES SUNAN (TRADICIONAIS):\n• Sunan Abu Dawud\n• Jami' at-Tirmidhi\n• Sunan an-Nasa'i\n• Sunan Ibn Majah\n\nCLASSIFICAÇÃO:\n• Sahih — Autêntico (cadeia de narradores fiável, sem defeito)\n• Hasan — Bom (cadeia aceitável, conteúdo fiável)\n• Da'if — Fraco (cadeia com defeito, não usar para legislar)\n• Mawdu' — Fabricado (mentira atribuída ao Profeta ﷺ)\n\nREGRA DO BOT:\n• Apresentar Sahih e Hasan\n• Indicar quando é Da'if (para informação apenas)\n• Nunca apresentar Mawdu' como verdadeiro\n• Citar livro, capítulo e número do hadith\n\nPara continuar escreve: B.palavras",
+    "fonte": "Mustalah al-Hadith (Ciência do Hadith); Introdução de Ibn al-Salah; Al-Risala de Imam Shafi'i",
+    "categoria": "Tecnologia",
+    "nivel": "Intermediário",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["B.palavras", "Palavras", "Árabes", "Explicar"],
+    "resposta": "EXPLICAR PALAVRAS ÁRABES\n\nO bot traduz e explica termos árabes islâmicos com:\n\n• Transliteração (escrita em latim)\n• Escrita em árabe\n• Significado literal\n• Significado técnico no contexto islâmico\n• Uso comum\n\nEXEMPLOS:\n• Tawhid → توحيد → Fazer um → Crença na unicidade de Allah\n• Shirk → شرك → Associar → Pecado de associar parceiros a Allah\n• Sabr → صبر → Paciência → Perseverança na obediência e nas provações\n• Taqwa → تقوى → Proteção → Temor de Allah, consciência divina\n• Ikhlass → إخلاص → Pureza → Sinceridade na intenção\n• Barakah → بركة → Bênção → Aumento divino no tempo, riqueza, esforço\n\nFUNÇÃO:\n• Quando o usuário pergunta 'O que significa X?'\n• Quando um termo árabe aparece na resposta\n• Glossário automático de palavras frequentes\n\nPara continuar escreve: B.quiz",
+    "fonte": "Dicionário de Termos Islâmicos; Lisan al-Arab de Ibn Manzur",
+    "categoria": "Tecnologia",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["B.quiz", "Quiz", "Perguntas", "Teste"],
+    "resposta": "QUIZ ISLÂMICO\n\nO bot faz perguntas para testar e reforçar o conhecimento islâmico.\n\nFORMATO:\n• Pergunta de múltipla escolha (A, B, C, D)\n• Feedback imediato (correto/errado + explicação)\n• Pontuação acumulada\n• Níveis: Iniciante, Intermediário, Avançado\n\nEXEMPLOS DE PERGUNTAS:\n\n[Nível Iniciante]\n'Quantas vezes ao dia um muçulmano reza?'\nA) 3  B) 5  C) 7  D) 2\nResposta: B) 5 (Fajr, Dhuhr, Asr, Maghrib, Isha)\n\n[Nível Intermediário]\n'Qual é o primeiro pilar do Islam?'\nA) Jejum  B) Oração  C) Shahada  D) Caridade\nResposta: C) Shahada (testemunho de fé)\n\n[Nível Avançado]\n'Quem compilou o Sahih al-Bukhari?'\nA) Muslim ibn al-Hajjaj  B) Muhammad ibn Ismail al-Bukhari  C) Abu Dawud  D) Tirmidhi\nResposta: B) Muhammad ibn Ismail al-Bukhari\n\nPara continuar escreve: B.busca",
+    "fonte": "Desenvolvimento interno do Islam Guia",
+    "categoria": "Tecnologia",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["B.busca", "Busca", "Pesquisa", "Keywords"],
+    "resposta": "SISTEMA DE BUSCA POR PALAVRAS-CHAVE\n\nO bot permite pesquisar conhecimentos islâmicos por palavras-chave.\n\nCOMO FUNCIONA:\n• O usuário escreve uma palavra ou frase\n• O bot procura na base de dados de grelhas JSON\n• Retorna a grelha correspondente ou sugestões relacionadas\n\nEXEMPLOS DE BUSCA:\n• 'Wudu' → Retorna tutorial de ablução\n• 'Tawhid' → Retorna explicação de unicidade de Allah\n• 'Salat' → Retorna como fazer oração\n• 'Zakah' → Retorna regras de caridade\n• 'Ramadan' → Retorna regras do jejum\n• 'Jesus' → Retorna posição islâmica sobre Isa\n• 'Shahada' → Retorna como converter-se\n\nSE NÃO ENCONTRAR:\n• Sugere palavras relacionadas\n• Oferece contactar suporte humano\n• Indica fontes externas fiáveis\n\nENTIDADES RELEVANTES:\n• Alcorão → Fonte primária do Islam\n• Muhammad → Último profeta e mensageiro de Allah\n• Jesus (Isa) → Profeta importante, não divino\n\n---\nFIM DO TUTORIAL DE FUNÇÕES DO BOT. Que Allah abençoe este projeto! 🌙",
+    "fonte": "Desenvolvimento interno do Islam Guia",
+    "categoria": "Tecnologia",
+    "nivel": "Fundamental",
+    "links": ["https://Facebook.com/Islamguia"]
+  }
+]
