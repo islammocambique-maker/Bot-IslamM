@@ -13,26 +13,22 @@
             background: linear-gradient(135deg, #0d3b2e 0%, #1a5c47 50%, #0d3b2e 100%);
             min-height: 100vh;
             color: #fff;
-            overflow-x: hidden;
         }
 
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 15px;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
+            min-height: 100vh;
         }
 
         .header {
             text-align: center;
             padding: 20px 0;
             border-bottom: 2px solid rgba(212,175,55,0.5);
-            margin-bottom: 15px;
         }
-
-        .header h1 { font-size: 2rem; color: #d4af37; }
 
         .chat-area {
             flex: 1;
@@ -47,27 +43,23 @@
             max-width: 85%;
             padding: 12px 16px;
             border-radius: 18px;
-            line-height: 1.5;
         }
 
         .bot-msg {
             align-self: flex-start;
             background: rgba(255,255,255,0.12);
-            border: 1px solid rgba(212,175,55,0.3);
         }
 
         .user-msg {
             align-self: flex-end;
             background: #d4af37;
             color: #0d3b2e;
-            font-weight: 600;
         }
 
         .input-area {
             display: flex;
             gap: 10px;
             padding: 15px 0;
-            border-top: 2px solid rgba(212,175,55,0.3);
         }
 
         .input-area input {
@@ -82,12 +74,10 @@
 
         .send-btn {
             width: 50px;
-            height: 50px;
             border-radius: 50%;
             border: none;
-            background: linear-gradient(135deg, #d4af37, #c9a227);
+            background: #d4af37;
             cursor: pointer;
-            font-size: 1.2rem;
         }
 
         .quick-buttons {
@@ -110,11 +100,11 @@
 </head>
 
 <body>
+
 <div class="container">
 
     <div class="header">
         <h1>🕌 Islam M Bot</h1>
-        <p>Seu guia islâmico</p>
     </div>
 
     <div class="quick-buttons" id="quickButtons">
@@ -125,9 +115,7 @@
     </div>
 
     <div class="chat-area" id="chatArea">
-        <div class="message bot-msg">
-            As-salamu alaykum 🌙<br>Escreve uma pergunta abaixo.
-        </div>
+        <div class="message bot-msg">As-salamu alaykum 🌙</div>
     </div>
 
     <div class="input-area">
@@ -140,58 +128,123 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+    var REPO_BASE = "https://raw.githubusercontent.com/islammocambique-maker/Bot-IslamM/main";
+
+    var ARQUIVOS_CEREBRO = {
+        pratica: ["salat", "Wudhu"],
+        definicao: ["Janazah","adoracao_ibadah","comportamento","crenca_aquidah","crianca_educacao_bobecas","familia_direitos","fiqh","mulheres_do_profeta","palavras","perguntas_frequentes","ramadan"],
+        mais: ["mais_conhecimento"],
+        extra: ["extra_bot"]
+    };
+
+    var cerebroPratica = [];
+    var cerebroDefinicao = [];
+    var cerebroMais = [];
+    var cerebroExtra = [];
+
     const chatArea = document.getElementById("chatArea");
     const userInput = document.getElementById("userInput");
     const sendBtn = document.getElementById("sendBtn");
     const quickButtons = document.getElementById("quickButtons");
 
     function addMessage(text, isUser) {
-        const div = document.createElement("div");
+        var div = document.createElement("div");
         div.className = "message " + (isUser ? "user-msg" : "bot-msg");
-        div.textContent = text;
+        div.innerHTML = text;
         chatArea.appendChild(div);
         chatArea.scrollTop = chatArea.scrollHeight;
     }
 
-    function sendMessage() {
-        const text = userInput.value.trim();
-        if (!text) return;
-
-        addMessage(text, true);
-        userInput.value = "";
-
-        setTimeout(() => {
-            addMessage("Resposta automática: " + text, false);
-        }, 500);
+    function normalize(t){
+        return (t||"").toLowerCase().normalize('NFD')
+        .replace(/[\u0300-\u036f]/g,'')
+        .replace(/[^a-z0-9\s]/g,' ')
+        .replace(/\s+/g,' ')
+        .trim();
     }
 
-    // ✅ BOTÃO FUNCIONA AQUI (CORRIGIDO)
-    sendBtn.addEventListener("click", function () {
-        sendMessage();
+    function buscarResposta(texto){
+        var q = normalize(texto);
+        var all = cerebroPratica.concat(cerebroDefinicao,cerebroMais,cerebroExtra);
+
+        for(var i=0;i<all.length;i++){
+            var e = all[i];
+            var keys = e.palavras_chave || [];
+            for(var j=0;j<keys.length;j++){
+                if(q.indexOf(normalize(keys[j]))>=0){
+                    return e;
+                }
+            }
+        }
+        return null;
+    }
+
+    async function carregarArquivo(pasta,arquivo){
+        try{
+            var r = await fetch(REPO_BASE+"/cerebro/"+pasta+"/"+arquivo);
+            if(!r.ok) return null;
+            return await r.json();
+        }catch(e){ return null; }
+    }
+
+    async function carregarCerebro(){
+        for(var p in ARQUIVOS_CEREBRO){
+            var lista=[];
+            for(var a of ARQUIVOS_CEREBRO[p]){
+                var d = await carregarArquivo(p,a);
+                if(d) lista = lista.concat(d);
+            }
+            if(p==="pratica") cerebroPratica=lista;
+            if(p==="definicao") cerebroDefinicao=lista;
+            if(p==="mais") cerebroMais=lista;
+            if(p==="extra") cerebroExtra=lista;
+        }
+
+        addMessage("✅ Cérebro carregado", false);
+    }
+
+    function sendMessage(){
+        var t = userInput.value.trim();
+        if(!t) return;
+
+        addMessage(t,true);
+        userInput.value="";
+
+        var r = buscarResposta(t);
+
+        if(r){
+            addMessage(
+                "<b>"+(r.resposta||"Sem resposta")+"</b><br><br>📚 "+(r.fonte||""),
+                false
+            );
+        } else {
+            addMessage("🤔 Não encontrei resposta", false);
+        }
+    }
+
+    // ✅ BOTÃO FUNCIONA
+    sendBtn.addEventListener("click", sendMessage);
+
+    userInput.addEventListener("keydown", function(e){
+        if(e.key==="Enter") sendMessage();
     });
 
-    // Enter
-    userInput.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") sendMessage();
-    });
+    quickButtons.addEventListener("click", function(e){
+        var btn = e.target.closest(".quick-btn");
+        if(!btn) return;
 
-    // Quick buttons
-    quickButtons.addEventListener("click", function (e) {
-        const btn = e.target.closest(".quick-btn");
-        if (!btn) return;
-
-        const action = btn.dataset.action;
-
-        const map = {
-            salat: "horario salat",
-            quran1: "Alcorão 1:1",
-            islam: "o que é islam",
-            wudu: "como fazer wudu"
+        var map={
+            salat:"horario salat",
+            quran1:"Alcorão 1:1",
+            islam:"o que é islam",
+            wudu:"como fazer wudu"
         };
 
-        userInput.value = map[action] || "";
+        userInput.value = map[btn.dataset.action] || "";
         sendMessage();
     });
+
+    carregarCerebro();
 
 });
 </script>
