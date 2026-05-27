@@ -295,44 +295,43 @@
             border-color: var(--primary);
         }
 
-        .support-footer {
-            text-align: center;
-            padding: 20px;
+        /* ===== SUPORTE COMPACTO ===== */
+        .support-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 20px;
             background: var(--card);
             border-radius: 16px;
             box-shadow: var(--shadow);
         }
 
-        .support-footer h3 {
-            color: var(--primary);
-            margin-bottom: 12px;
-            font-size: 1.1rem;
+        .support-bar span {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
         }
 
-        .support-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .support-link {
+        .support-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            border-radius: 12px;
+            justify-content: center;
             text-decoration: none;
-            color: white;
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             transition: transform 0.2s;
+            color: white;
         }
 
-        .support-link:hover { transform: translateY(-2px); }
+        .support-icon:hover {
+            transform: scale(1.1);
+        }
 
-        .support-link.whatsapp { background: #25d366; }
-        .support-link.email { background: #ea4335; }
-        .support-link.facebook { background: #1877f2; }
+        .support-icon.whatsapp { background: #25d366; }
+        .support-icon.email { background: #ea4335; }
+        .support-icon.facebook { background: #1877f2; }
 
         .typing {
             display: flex;
@@ -366,8 +365,6 @@
             .header { padding: 20px 15px; }
             .header h1 { font-size: 1.5rem; }
             .message { max-width: 90%; }
-            .support-links { flex-direction: column; align-items: center; }
-            .support-link { width: 100%; max-width: 280px; justify-content: center; }
         }
     </style>
 <base target="_blank">
@@ -398,19 +395,12 @@
         </div>
     </div>
 
-    <div class="support-footer">
-        <h3>🤝 Precisa de ajuda?</h3>
-        <div class="support-links">
-            <a href="https://wa.me/258860407269" class="support-link whatsapp" target="_blank">
-                📱 WhatsApp: 860407269
-            </a>
-            <a href="mailto:Islammocambique@gmail.com" class="support-link email">
-                ✉️ Email
-            </a>
-            <a href="https://www.facebook.com/islamguia" class="support-link facebook" target="_blank">
-                📘 Facebook
-            </a>
-        </div>
+    <!-- SUPORTE COMPACTO -->
+    <div class="support-bar">
+        <span>🤝 Suporte:</span>
+        <a href="https://wa.me/258860407269" class="support-icon whatsapp" target="_blank" title="WhatsApp">📱</a>
+        <a href="mailto:Islammocambique@gmail.com" class="support-icon email" title="Email">✉️</a>
+        <a href="https://www.facebook.com/islamguia" class="support-icon facebook" target="_blank" title="Facebook">📘</a>
     </div>
 </div>
 
@@ -645,7 +635,6 @@ function parseCerebroTexto(texto, nomeFicheiro) {
         try {
             const json = JSON.parse(texto);
             if (Array.isArray(json)) {
-                // Normaliza palavras-chave para minúsculas
                 return json.map(entry => ({
                     ...entry,
                     palavras_chave: (entry.palavras_chave || []).map(k => String(k).toLowerCase().trim())
@@ -766,7 +755,6 @@ function sendMessage() {
 async function processarPergunta(texto) {
     esconderDigitando();
     
-    // NORMALIZA PARA MINÚSCULAS — tudo o que o utilizador escreve vira minúsculo
     const lower = texto.toLowerCase().trim();
     
     const quranMatch = detectarVersiculo(texto);
@@ -788,7 +776,6 @@ async function processarPergunta(texto) {
         return;
     }
     
-    // Palavras do utilizador já em minúsculas
     const palavras = lower.split(/\s+/).filter(p => p.length > 2);
     const entry = encontrarNoCerebro(palavras);
     
@@ -1020,33 +1007,60 @@ function toggleHistorico(btn) {
         : `📜 Ver respostas anteriores (${historicoRespostas.length})`;
 }
 
-// ==================== BUSCAR NO CÉREBRO — TUDO EM MINÚSCULAS ====================
+// ==================== BUSCAR NO CÉREBRO — AVALIA TODAS E ESCOLHE A MELHOR ====================
 function encontrarNoCerebro(palavras) {
-    let melhorMatch = null;
-    let melhorScore = 0;
+    // Guarda TODAS as entradas que fizeram match com score > 0
+    const todosMatches = [];
     
     for (const entry of cerebro) {
         let score = 0;
-        // Palavras-chave já estão em minúsculas (normalizadas no parse)
         const keywords = entry.palavras_chave || [];
+        let melhorKeyword = '';
         
-        // Palavras do utilizador já vêm em minúsculas
         for (const palavra of palavras) {
             for (const kw of keywords) {
                 // Comparação tudo em minúsculas
-                if (kw === palavra) score += 3;
-                else if (kw.includes(palavra)) score += 2;
-                else if (palavra.includes(kw)) score += 1;
+                if (kw === palavra) {
+                    score += 3;
+                    if (!melhorKeyword) melhorKeyword = kw;
+                }
+                else if (kw.includes(palavra)) {
+                    score += 2;
+                    if (!melhorKeyword) melhorKeyword = kw;
+                }
+                else if (palavra.includes(kw)) {
+                    score += 1;
+                    if (!melhorKeyword) melhorKeyword = kw;
+                }
             }
         }
         
-        if (score > melhorScore) {
-            melhorScore = score;
-            melhorMatch = entry;
+        if (score > 0) {
+            todosMatches.push({
+                entry: entry,
+                score: score,
+                melhorKeyword: melhorKeyword || entry.palavras_chave[0]
+            });
         }
     }
     
-    return melhorScore >= 2 ? melhorMatch : null;
+    // Se não encontrou nada
+    if (todosMatches.length === 0) return null;
+    
+    // Ordena por score (maior primeiro)
+    todosMatches.sort((a, b) => b.score - a.score);
+    
+    // Pega o melhor match
+    const melhor = todosMatches[0];
+    
+    // Se houver empate no score, escolhe o que tem a keyword mais específica (mais curta = mais precisa)
+    if (todosMatches.length > 1 && todosMatches[1].score === melhor.score) {
+        const empatados = todosMatches.filter(m => m.score === melhor.score);
+        empatados.sort((a, b) => a.melhorKeyword.length - b.melhorKeyword.length);
+        return empatados[0].entry;
+    }
+    
+    return melhor.entry;
 }
 
 // ==================== UI HELPERS ====================
