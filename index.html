@@ -417,15 +417,32 @@
 <script>
 // ==================== CONFIGURAÇÃO ====================
 const CONFIG = {
-    CEREBRO_URLS: [
-        'cerebro/pratica/',
-        'cerebro/definicao/',
-        'cerebro/mais/',
-        'cerebro/extra/'
+    // Lista de todos os ficheiros do cérebro (sem extensão)
+    CEREBRO_FICHEIROS: [
+        // cerebro/definicao/
+        { pasta: 'cerebro/definicao/', ficheiro: 'Janazah' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'adoracao_ibadah' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'comportamento' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'crenca_aquidah' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'crianca_educacao_bobecas' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'familia_direitos' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'fiqh' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'mulheres_do_profeta' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'palavras' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'perguntas_frequentes' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'ramadan' },
+        // cerebro/extra/
+        { pasta: 'cerebro/extra/', ficheiro: 'extra_bot' },
+        // cerebro/mais/
+        { pasta: 'cerebro/mais/', ficheiro: 'mais_conhecimento' },
+        // cerebro/pratica/
+        { pasta: 'cerebro/pratica/', ficheiro: 'salat' },
+        { pasta: 'cerebro/pratica/', ficheiro: 'Wudhu' }
     ],
+    // Fallback embutido caso nenhum ficheiro carregue
     CEREBRO_FALLBACK: [
         {
-            palavras_chave: ["wudu", "ablucao", "ablution", "limpeza"],
+            palavras_chave: ["wudu", "ablucao", "ablution", "limpeza", "wudhu"],
             resposta: "O Wudu (ablucão) é a purificação ritual obrigatória antes da oração. Passos: 1) Intenção (Niyyah), 2) Lavar as mãos 3x, 3) Enxaguar a boca 3x, 4) Lavar o nariz 3x, 5) Lavar o rosto 3x, 6) Lavar os braços até aos cotovelos 3x, 7) Passar as mãos molhadas sobre a cabeça, 8) Limpar as orelhas, 9) Lavar os pés até aos tornozelos 3x. Deve ser feito em ordem sequencial.",
             fonte: "Sahih al-Bukhari",
             categoria: "pratica",
@@ -503,6 +520,46 @@ const CONFIG = {
             categoria: "definicao",
             nivel: "intermediario",
             links: []
+        },
+        {
+            palavras_chave: ["janazah", "funeral", "morto", "morte"],
+            resposta: "Janazah é a oração funeral no Islam. É obrigatória (Fard Kifayah) e realizada em pé, sem Ruku nem Sujud. O corpo deve ser lavado (Ghusl), envolvido em panos brancos (Kafan), e enterrado voltado à Qibla. Recomenda-se apressar o enterro e fazer Dua pelo falecido.",
+            fonte: "Sahih al-Bukhari",
+            categoria: "definicao",
+            nivel: "intermediario",
+            links: []
+        },
+        {
+            palavras_chave: ["ibadah", "adoracao", "adoração", "culto"],
+            resposta: "Ibadah (Adoração) no Islam abrange todas as ações feitas para agradar Allah: oração (Salat), jejum (Sawm), zakat, hajj, leitura do Quran, Dua, Dhikr, e até trabalho honesto e trato bondoso com os pais quando feito com intenção correta (Niyyah).",
+            fonte: "Al-Quran 51:56",
+            categoria: "definicao",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["aquidah", "crenca", "credo", "tauhid"],
+            resposta: "Aqidah é a crença/fundamento do Islam baseado em seis pilares: 1) Crença em Allah, 2) Anjos (Malaika), 3) Livros revelados, 4) Profetas e Mensageiros, 5) Dia do Juízo Final, 6) Decreto Divino (Qadar). O centro é Tawhid (monoteísmo puro).",
+            fonte: "Sahih Muslim",
+            categoria: "definicao",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["fiqh", "jurisprudencia", "jurisprudência", "lei"],
+            resposta: "Fiqh é a jurisprudência islâmica - a compreensão prática da Sharia. Os quatro grandes madhabs (escolas) são: Hanafi, Maliki, Shafi'i e Hanbali. Baseia-se no Alcorão, Sunnah, Ijma (consenso) e Qiyas (analogia).",
+            fonte: "Introdução ao Fiqh",
+            categoria: "definicao",
+            nivel: "avancado",
+            links: []
+        },
+        {
+            palavras_chave: ["crianca", "criança", "educacao", "educação", "bebé", "bebe"],
+            resposta: "A educação islâmica da criança começa desde o nascimento: Adhan no ouvido direito, Iqamah no esquerdo, Aqiqah no 7º dia, ensino de Bismillah, boas maneiras (Adab), e gradualmente Salat aos 7 anos. Os pais são responsáveis pelo caráter moral e religioso dos filhos.",
+            fonte: "Sahih al-Bukhari, Abu Dawud",
+            categoria: "definicao",
+            nivel: "basico",
+            links: []
         }
     ],
     WHATSAPP: "258860407269",
@@ -525,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Sou o <strong>Islam M</strong>, seu assistente de conhecimento islâmico. Pergunte-me sobre:<br><br>
             • <strong>Alcorão</strong> (ex: <em>2:155</em>, <em>Al-Baqarah 155</em>)<br>
             • <strong>Práticas</strong> (wudu, salat, jejum, zakat, hajj)<br>
-            • <strong>Conceitos</strong> (halal, haram, sunnah, qibla)<br>
+            • <strong>Conceitos</strong> (halal, haram, sunnah, qibla, fiqh, aqidah)<br>
             • <strong>Suporte</strong> via WhatsApp, Email ou Facebook<br><br>
             Como posso ajudar?
         </div>
@@ -559,23 +616,137 @@ function setupEventos() {
 
 // ==================== CARREGAR CÉREBRO ====================
 async function carregarCerebro() {
+    // Começa com fallback
     cerebro = [...CONFIG.CEREBRO_FALLBACK];
     
-    for (const url of CONFIG.CEREBRO_URLS) {
+    // Tenta carregar cada ficheiro individualmente
+    for (const item of CONFIG.CEREBRO_FICHEIROS) {
         try {
-            const response = await fetch(`${url}data.json`);
+            const url = `${item.pasta}${item.ficheiro}`;
+            const response = await fetch(url);
+            
             if (response.ok) {
-                const dados = await response.json();
-                if (Array.isArray(dados)) {
+                const texto = await response.text();
+                const dados = parseCerebroTexto(texto, item.ficheiro);
+                
+                if (dados && dados.length > 0) {
                     cerebro = [...cerebro, ...dados];
+                    console.log(`✅ Carregado: ${url} (${dados.length} entradas)`);
                 }
+            } else {
+                console.log(`❌ Não encontrado: ${url}`);
             }
         } catch (e) {
-            console.log(`Pasta ${url} não acessível, usando fallback.`);
+            console.log(`❌ Erro ao carregar ${item.pasta}${item.ficheiro}:`, e.message);
         }
     }
     
-    console.log(`Cérebro carregado com ${cerebro.length} entradas.`);
+    console.log(`🧠 Cérebro total: ${cerebro.length} entradas`);
+}
+
+// ==================== PARSE DO FORMATO DO CÉREBRO ====================
+function parseCerebroTexto(texto, nomeFicheiro) {
+    const entradas = [];
+    
+    try {
+        // Tenta primeiro como JSON
+        try {
+            const json = JSON.parse(texto);
+            if (Array.isArray(json)) return json;
+            if (json.palavras_chave) return [json];
+            if (json.data && Array.isArray(json.data)) return json.data;
+        } catch (e) {
+            // Não é JSON, continua com parse manual
+        }
+        
+        // Parse de formato grid/texto
+        // Suporta formatos:
+        // 1. palavras_chave: a,b,c | resposta: texto | fonte: x
+        // 2. --- separador ---
+        // 3. palavra1,palavra2: resposta
+        
+        const blocos = texto.split(/\n---+\n|\n\n\n+/);
+        
+        for (const bloco of blocos) {
+            if (!bloco.trim()) continue;
+            
+            const linhas = bloco.trim().split('\n');
+            const entry = {
+                palavras_chave: [],
+                resposta: '',
+                fonte: nomeFicheiro,
+                categoria: detectarCategoria(nomeFicheiro),
+                nivel: 'basico',
+                links: []
+            };
+            
+            let modo = 'keywords';
+            
+            for (const linha of linhas) {
+                const trimmed = linha.trim();
+                if (!trimmed) continue;
+                
+                // Detecta palavras-chave (primeira linha ou linha com "palavras_chave:")
+                if (trimmed.toLowerCase().startsWith('palavras_chave:') || modo === 'keywords') {
+                    const textoKw = trimmed.replace(/palavras_chave:\s*/i, '');
+                    entry.palavras_chave = textoKw.split(/[,;|]/).map(k => k.trim().toLowerCase()).filter(k => k);
+                    modo = 'resposta';
+                }
+                // Detecta resposta
+                else if (trimmed.toLowerCase().startsWith('resposta:')) {
+                    entry.resposta = trimmed.replace(/resposta:\s*/i, '');
+                    modo = 'resposta';
+                }
+                // Detecta fonte
+                else if (trimmed.toLowerCase().startsWith('fonte:')) {
+                    entry.fonte = trimmed.replace(/fonte:\s*/i, '');
+                }
+                // Detecta categoria
+                else if (trimmed.toLowerCase().startsWith('categoria:')) {
+                    entry.categoria = trimmed.replace(/categoria:\s*/i, '');
+                }
+                // Acumula resposta
+                else if (modo === 'resposta') {
+                    entry.resposta += (entry.resposta ? '\n' : '') + trimmed;
+                }
+            }
+            
+            if (entry.palavras_chave.length > 0 && entry.resposta) {
+                entradas.push(entry);
+            }
+        }
+        
+        // Se não conseguiu parsear em blocos, tenta linha a linha
+        if (entradas.length === 0) {
+            const linhas = texto.split('\n').filter(l => l.trim());
+            for (const linha of linhas) {
+                // Formato: "palavra1,palavra2: resposta completa"
+                const match = linha.match(/^([^:]+):\s*(.+)$/);
+                if (match) {
+                    entradas.push({
+                        palavras_chave: match[1].split(/[,;]/).map(k => k.trim().toLowerCase()),
+                        resposta: match[2].trim(),
+                        fonte: nomeFicheiro,
+                        categoria: detectarCategoria(nomeFicheiro),
+                        nivel: 'basico',
+                        links: []
+                    });
+                }
+            }
+        }
+        
+    } catch (e) {
+        console.error(`Erro ao parsear ${nomeFicheiro}:`, e);
+    }
+    
+    return entradas;
+}
+
+function detectarCategoria(nomeFicheiro) {
+    if (nomeFicheiro.includes('pratica') || nomeFicheiro.includes('salat') || nomeFicheiro.includes('Wudhu') || nomeFicheiro.includes('wudu')) return 'pratica';
+    if (nomeFicheiro.includes('definicao') || nomeFicheiro.includes('crenca') || nomeFicheiro.includes('fiqh') || nomeFicheiro.includes('aqidah')) return 'definicao';
+    if (nomeFicheiro.includes('extra')) return 'extra';
+    return 'mais';
 }
 
 // ==================== ENVIO DE MENSAGEM ====================
@@ -612,8 +783,8 @@ async function processarPergunta(texto) {
         return;
     }
     
-    if (lower.includes('wudu') || lower.includes('ablucao') || lower.includes('ablution')) {
-        const entry = encontrarNoCerebro(['wudu', 'ablucao', 'ablution']);
+    if (lower.includes('wudu') || lower.includes('ablucao') || lower.includes('ablution') || lower.includes('wudhu')) {
+        const entry = encontrarNoCerebro(['wudu', 'ablucao', 'ablution', 'wudhu']);
         if (entry) {
             responderComFormato(entry, 'wudu');
         }
@@ -657,9 +828,8 @@ function detectarVersiculo(texto) {
 async function buscarVersiculoAPI(surah, ayah) {
     let arabicText = '';
     let translation = '';
-    let apiUsada = '';
     
-    // TENTATIVA 1: API QuranEnc (português Helmi Nasr - mais confiável)
+    // TENTATIVA 1: API QuranEnc (português Helmi Nasr)
     try {
         const response = await fetch(`https://quranenc.com/api/v1/translation/aya/portuguese_nasr/${surah}/${ayah}`);
         if (response.ok) {
@@ -667,14 +837,13 @@ async function buscarVersiculoAPI(surah, ayah) {
             if (data && data.result) {
                 arabicText = data.result.arabic_text || '';
                 translation = data.result.translation || '';
-                apiUsada = 'QuranEnc';
             }
         }
     } catch (e) {
         console.log('QuranEnc falhou, tentando alternativa...');
     }
     
-    // TENTATIVA 2: API Al-Quran (fallback)
+    // TENTATIVA 2: API Al-Quran Cloud
     if (!translation) {
         try {
             const response = await fetch(`https://api.alquran.cloud/v1/ayah/${surah}:${ayah}/editions/quran-uthmani,pt.hamidullah`);
@@ -683,7 +852,6 @@ async function buscarVersiculoAPI(surah, ayah) {
                 if (data.data && data.data.length >= 2) {
                     arabicText = data.data[0].text || '';
                     translation = data.data[1].text || '';
-                    apiUsada = 'Al-Quran Cloud';
                 }
             }
         } catch (e) {
@@ -691,10 +859,9 @@ async function buscarVersiculoAPI(surah, ayah) {
         }
     }
     
-    // TENTATIVA 3: API Quran.com v4 com tradução portuguesa correta
+    // TENTATIVA 3: API Quran.com v4
     if (!translation) {
         try {
-            // ID 92 = português (Helmi Nasr) na API v4 do Quran.com
             const response = await fetch(`https://api.quran.com/api/v4/verses/by_key/${surah}:${ayah}?translations=92&fields=text_uthmani`);
             if (response.ok) {
                 const data = await response.json();
@@ -704,7 +871,6 @@ async function buscarVersiculoAPI(surah, ayah) {
                     if (verse.translations && verse.translations.length > 0) {
                         translation = verse.translations[0].text || '';
                     }
-                    apiUsada = 'Quran.com';
                 }
             }
         } catch (e) {
@@ -712,7 +878,7 @@ async function buscarVersiculoAPI(surah, ayah) {
         }
     }
     
-    // Se nenhuma API funcionou, mostra link direto
+    // Se nenhuma API funcionou
     if (!translation && !arabicText) {
         adicionarMensagemBotHTML(`
             <span class="greeting">⚠️ Erro de conexão</span>
@@ -726,12 +892,10 @@ async function buscarVersiculoAPI(surah, ayah) {
         return;
     }
     
-    // Se temos árabe mas não tradução
     if (!translation) {
         translation = 'Tradução em português temporariamente indisponível. Consulte quran.com/pt/' + surah + '/' + ayah;
     }
     
-    // Se temos tradução mas não árabe
     if (!arabicText) {
         arabicText = '〔Texto em árabe não disponível〕';
     }
@@ -810,7 +974,7 @@ function responderNaoEncontrado(texto) {
             <ul style="margin-top: 6px; padding-left: 20px; line-height: 1.8;">
                 <li>Versículos do Alcorão (ex: <em>2:155</em>)</li>
                 <li>Práticas islâmicas (wudu, salat, jejum, zakat, hajj)</li>
-                <li>Conceitos (halal, haram, shahada, qibla)</li>
+                <li>Conceitos (halal, haram, shahada, qibla, fiqh, aqidah)</li>
             </ul>
             <p style="margin-top: 10px;">Ou contacte o nosso suporte para mais ajuda! 📞</p>
         </div>
