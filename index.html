@@ -417,9 +417,7 @@
 <script>
 // ==================== CONFIGURAÇÃO ====================
 const CONFIG = {
-    // Lista de todos os ficheiros do cérebro (sem extensão)
     CEREBRO_FICHEIROS: [
-        // cerebro/definicao/
         { pasta: 'cerebro/definicao/', ficheiro: 'Janazah' },
         { pasta: 'cerebro/definicao/', ficheiro: 'adoracao_ibadah' },
         { pasta: 'cerebro/definicao/', ficheiro: 'comportamento' },
@@ -431,15 +429,11 @@ const CONFIG = {
         { pasta: 'cerebro/definicao/', ficheiro: 'palavras' },
         { pasta: 'cerebro/definicao/', ficheiro: 'perguntas_frequentes' },
         { pasta: 'cerebro/definicao/', ficheiro: 'ramadan' },
-        // cerebro/extra/
         { pasta: 'cerebro/extra/', ficheiro: 'extra_bot' },
-        // cerebro/mais/
         { pasta: 'cerebro/mais/', ficheiro: 'mais_conhecimento' },
-        // cerebro/pratica/
         { pasta: 'cerebro/pratica/', ficheiro: 'salat' },
         { pasta: 'cerebro/pratica/', ficheiro: 'Wudhu' }
     ],
-    // Fallback embutido caso nenhum ficheiro carregue
     CEREBRO_FALLBACK: [
         {
             palavras_chave: ["wudu", "ablucao", "ablution", "limpeza", "wudhu"],
@@ -616,10 +610,8 @@ function setupEventos() {
 
 // ==================== CARREGAR CÉREBRO ====================
 async function carregarCerebro() {
-    // Começa com fallback
     cerebro = [...CONFIG.CEREBRO_FALLBACK];
     
-    // Tenta carregar cada ficheiro individualmente
     for (const item of CONFIG.CEREBRO_FICHEIROS) {
         try {
             const url = `${item.pasta}${item.ficheiro}`;
@@ -652,19 +644,28 @@ function parseCerebroTexto(texto, nomeFicheiro) {
         // Tenta primeiro como JSON
         try {
             const json = JSON.parse(texto);
-            if (Array.isArray(json)) return json;
-            if (json.palavras_chave) return [json];
-            if (json.data && Array.isArray(json.data)) return json.data;
+            if (Array.isArray(json)) {
+                // Normaliza palavras-chave para minúsculas
+                return json.map(entry => ({
+                    ...entry,
+                    palavras_chave: (entry.palavras_chave || []).map(k => String(k).toLowerCase().trim())
+                }));
+            }
+            if (json.palavras_chave) {
+                json.palavras_chave = (json.palavras_chave || []).map(k => String(k).toLowerCase().trim());
+                return [json];
+            }
+            if (json.data && Array.isArray(json.data)) {
+                return json.data.map(entry => ({
+                    ...entry,
+                    palavras_chave: (entry.palavras_chave || []).map(k => String(k).toLowerCase().trim())
+                }));
+            }
         } catch (e) {
             // Não é JSON, continua com parse manual
         }
         
         // Parse de formato grid/texto
-        // Suporta formatos:
-        // 1. palavras_chave: a,b,c | resposta: texto | fonte: x
-        // 2. --- separador ---
-        // 3. palavra1,palavra2: resposta
-        
         const blocos = texto.split(/\n---+\n|\n\n\n+/);
         
         for (const bloco of blocos) {
@@ -686,26 +687,21 @@ function parseCerebroTexto(texto, nomeFicheiro) {
                 const trimmed = linha.trim();
                 if (!trimmed) continue;
                 
-                // Detecta palavras-chave (primeira linha ou linha com "palavras_chave:")
                 if (trimmed.toLowerCase().startsWith('palavras_chave:') || modo === 'keywords') {
                     const textoKw = trimmed.replace(/palavras_chave:\s*/i, '');
                     entry.palavras_chave = textoKw.split(/[,;|]/).map(k => k.trim().toLowerCase()).filter(k => k);
                     modo = 'resposta';
                 }
-                // Detecta resposta
                 else if (trimmed.toLowerCase().startsWith('resposta:')) {
                     entry.resposta = trimmed.replace(/resposta:\s*/i, '');
                     modo = 'resposta';
                 }
-                // Detecta fonte
                 else if (trimmed.toLowerCase().startsWith('fonte:')) {
                     entry.fonte = trimmed.replace(/fonte:\s*/i, '');
                 }
-                // Detecta categoria
                 else if (trimmed.toLowerCase().startsWith('categoria:')) {
                     entry.categoria = trimmed.replace(/categoria:\s*/i, '');
                 }
-                // Acumula resposta
                 else if (modo === 'resposta') {
                     entry.resposta += (entry.resposta ? '\n' : '') + trimmed;
                 }
@@ -720,7 +716,6 @@ function parseCerebroTexto(texto, nomeFicheiro) {
         if (entradas.length === 0) {
             const linhas = texto.split('\n').filter(l => l.trim());
             for (const linha of linhas) {
-                // Formato: "palavra1,palavra2: resposta completa"
                 const match = linha.match(/^([^:]+):\s*(.+)$/);
                 if (match) {
                     entradas.push({
@@ -743,9 +738,10 @@ function parseCerebroTexto(texto, nomeFicheiro) {
 }
 
 function detectarCategoria(nomeFicheiro) {
-    if (nomeFicheiro.includes('pratica') || nomeFicheiro.includes('salat') || nomeFicheiro.includes('Wudhu') || nomeFicheiro.includes('wudu')) return 'pratica';
-    if (nomeFicheiro.includes('definicao') || nomeFicheiro.includes('crenca') || nomeFicheiro.includes('fiqh') || nomeFicheiro.includes('aqidah')) return 'definicao';
-    if (nomeFicheiro.includes('extra')) return 'extra';
+    const lower = nomeFicheiro.toLowerCase();
+    if (lower.includes('pratica') || lower.includes('salat') || lower.includes('wudhu') || lower.includes('wudu')) return 'pratica';
+    if (lower.includes('definicao') || lower.includes('crenca') || lower.includes('fiqh') || lower.includes('aqidah')) return 'definicao';
+    if (lower.includes('extra')) return 'extra';
     return 'mais';
 }
 
@@ -770,6 +766,7 @@ function sendMessage() {
 async function processarPergunta(texto) {
     esconderDigitando();
     
+    // NORMALIZA PARA MINÚSCULAS — tudo o que o utilizador escreve vira minúsculo
     const lower = texto.toLowerCase().trim();
     
     const quranMatch = detectarVersiculo(texto);
@@ -791,6 +788,7 @@ async function processarPergunta(texto) {
         return;
     }
     
+    // Palavras do utilizador já em minúsculas
     const palavras = lower.split(/\s+/).filter(p => p.length > 2);
     const entry = encontrarNoCerebro(palavras);
     
@@ -878,7 +876,6 @@ async function buscarVersiculoAPI(surah, ayah) {
         }
     }
     
-    // Se nenhuma API funcionou
     if (!translation && !arabicText) {
         adicionarMensagemBotHTML(`
             <span class="greeting">⚠️ Erro de conexão</span>
@@ -1023,17 +1020,20 @@ function toggleHistorico(btn) {
         : `📜 Ver respostas anteriores (${historicoRespostas.length})`;
 }
 
-// ==================== BUSCAR NO CÉREBRO ====================
+// ==================== BUSCAR NO CÉREBRO — TUDO EM MINÚSCULAS ====================
 function encontrarNoCerebro(palavras) {
     let melhorMatch = null;
     let melhorScore = 0;
     
     for (const entry of cerebro) {
         let score = 0;
-        const keywords = entry.palavras_chave.map(k => k.toLowerCase());
+        // Palavras-chave já estão em minúsculas (normalizadas no parse)
+        const keywords = entry.palavras_chave || [];
         
+        // Palavras do utilizador já vêm em minúsculas
         for (const palavra of palavras) {
             for (const kw of keywords) {
+                // Comparação tudo em minúsculas
                 if (kw === palavra) score += 3;
                 else if (kw.includes(palavra)) score += 2;
                 else if (palavra.includes(kw)) score += 1;
