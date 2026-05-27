@@ -2,251 +2,926 @@
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Islam M Bot - Guia Islamico</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Islam M - Assistente Islâmico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        :root {
+            --primary: #1a5f4a;
+            --primary-light: #2d8a6e;
+            --primary-dark: #0d3d2e;
+            --gold: #c9a227;
+            --gold-light: #e8d5a3;
+            --bg: #f0f4f1;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --text-secondary: #666;
+            --border: #d4ddd8;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0d3b2e 0%, #1a5c47 50%, #0d3b2e 100%);
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
             min-height: 100vh;
-            color: #fff;
+            color: var(--text);
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 15px;
+            padding: 20px;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
         .header {
             text-align: center;
-            padding: 20px 0;
-            border-bottom: 2px solid rgba(212,175,55,0.5);
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            border-radius: 20px;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
 
-        .chat-area {
+        .header::before {
+            content: '☪';
+            position: absolute;
+            font-size: 150px;
+            opacity: 0.05;
+            top: -30px;
+            right: -20px;
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .chat-container {
             flex: 1;
-            overflow-y: auto;
-            padding: 10px;
+            background: var(--card);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-height: 60vh;
         }
 
         .message {
             max-width: 85%;
-            padding: 12px 16px;
+            padding: 14px 18px;
             border-radius: 18px;
+            line-height: 1.6;
+            animation: fadeIn 0.3s ease;
+            word-wrap: break-word;
         }
 
-        .bot-msg {
-            align-self: flex-start;
-            background: rgba(255,255,255,0.12);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .user-msg {
+        .message.user {
             align-self: flex-end;
-            background: #d4af37;
-            color: #0d3b2e;
+            background: var(--primary);
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.bot {
+            align-self: flex-start;
+            background: #f5f7f6;
+            color: var(--text);
+            border-bottom-left-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .message.bot .greeting {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .message.bot .keyword {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .message.bot strong, .message.bot b {
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .quran-result {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 12px;
+            border-right: 4px solid var(--gold);
+        }
+
+        .quran-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.6rem;
+            text-align: right;
+            direction: rtl;
+            color: var(--primary-dark);
+            line-height: 2;
+            margin-bottom: 12px;
+        }
+
+        .quran-translation {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        .quran-ref {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .previous-answers {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px dashed var(--border);
+        }
+
+        .prev-btn {
+            background: transparent;
+            border: 1px solid var(--primary-light);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .prev-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .prev-list {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+
+        .prev-list.show { display: block; }
+
+        .prev-item {
+            padding: 8px;
+            margin-bottom: 6px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .prev-item small {
+            color: var(--text-secondary);
+            display: block;
+            margin-top: 4px;
         }
 
         .input-area {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid var(--border);
             display: flex;
-            gap: 10px;
-            padding: 15px 0;
+            gap: 12px;
+            align-items: center;
         }
 
-        .input-area input {
+        .input-wrapper {
             flex: 1;
-            padding: 14px;
-            border-radius: 25px;
-            border: 2px solid rgba(212,175,55,0.4);
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            outline: none;
+            position: relative;
         }
 
-        .send-btn {
+        #userInput {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--border);
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #userInput:focus {
+            border-color: var(--primary-light);
+        }
+
+        #sendBtn {
             width: 50px;
+            height: 50px;
             border-radius: 50%;
             border: none;
-            background: #d4af37;
+            background: var(--primary);
+            color: white;
+            font-size: 1.3rem;
             cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
-        .quick-buttons {
+        #sendBtn:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .quick-actions {
             display: flex;
-            gap: 8px;
+            gap: 10px;
+            padding: 0 20px 15px;
             flex-wrap: wrap;
-            justify-content: center;
-            padding: 10px 0;
+            background: white;
         }
 
         .quick-btn {
-            background: rgba(212,175,55,0.15);
-            border: 1px solid rgba(212,175,55,0.3);
-            color: #d4af37;
-            padding: 8px 12px;
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            background: #f8f9fa;
             border-radius: 20px;
+            font-size: 0.85rem;
             cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text);
+        }
+
+        .quick-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .support-footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--card);
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+        }
+
+        .support-footer h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+        .support-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .support-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
+        }
+
+        .support-link:hover { transform: translateY(-2px); }
+
+        .support-link.whatsapp { background: #25d366; }
+        .support-link.email { background: #ea4335; }
+        .support-link.facebook { background: #1877f2; }
+
+        .typing {
+            display: flex;
+            gap: 4px;
+            padding: 12px 18px;
+        }
+
+        .typing span {
+            width: 8px;
+            height: 8px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out;
+        }
+
+        .typing span:nth-child(1) { animation-delay: 0s; }
+        .typing span:nth-child(2) { animation-delay: 0.2s; }
+        .typing span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        .messages::-webkit-scrollbar { width: 6px; }
+        .messages::-webkit-scrollbar-track { background: transparent; }
+        .messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+        @media (max-width: 600px) {
+            .container { padding: 10px; }
+            .header { padding: 20px 15px; }
+            .header h1 { font-size: 1.5rem; }
+            .message { max-width: 90%; }
+            .support-links { flex-direction: column; align-items: center; }
+            .support-link { width: 100%; max-width: 280px; justify-content: center; }
         }
     </style>
+<base target="_blank">
 </head>
-
 <body>
 
 <div class="container">
-
     <div class="header">
-        <h1>🕌 Islam M Bot</h1>
+        <h1>☪ Islam M</h1>
+        <p>Seu assistente de conhecimento islâmico</p>
     </div>
 
-    <div class="quick-buttons" id="quickButtons">
-        <button class="quick-btn" data-action="salat">🕐 Salat</button>
-        <button class="quick-btn" data-action="quran1">📖 1:1</button>
-        <button class="quick-btn" data-action="islam">☪️ Islam</button>
-        <button class="quick-btn" data-action="wudu">💧 Wudu</button>
+    <div class="chat-container">
+        <div class="messages" id="messages"></div>
+        
+        <div class="quick-actions" id="quickActions">
+            <button class="quick-btn" data-action="wudu">🧼 Como fazer Wudu</button>
+            <button class="quick-btn" data-action="salat">🙏 Horários de Salat</button>
+            <button class="quick-btn" data-action="quran">📖 Quran 2:155</button>
+            <button class="quick-btn" data-action="support">📞 Suporte</button>
+        </div>
+
+        <div class="input-area">
+            <div class="input-wrapper">
+                <input type="text" id="userInput" placeholder="Pergunte sobre Islam, Quran, práticas..." autocomplete="off">
+            </div>
+            <button id="sendBtn">➤</button>
+        </div>
     </div>
 
-    <div class="chat-area" id="chatArea">
-        <div class="message bot-msg">As-salamu alaykum 🌙</div>
+    <div class="support-footer">
+        <h3>🤝 Precisa de ajuda?</h3>
+        <div class="support-links">
+            <a href="https://wa.me/258860407269" class="support-link whatsapp" target="_blank">
+                📱 WhatsApp: 860407269
+            </a>
+            <a href="mailto:Islammocambique@gmail.com" class="support-link email">
+                ✉️ Email
+            </a>
+            <a href="https://www.facebook.com/islamguia" class="support-link facebook" target="_blank">
+                📘 Facebook
+            </a>
+        </div>
     </div>
-
-    <div class="input-area">
-        <input type="text" id="userInput" placeholder="Digite sua pergunta...">
-        <button class="send-btn" id="sendBtn">➤</button>
-    </div>
-
 </div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+// ==================== CONFIGURAÇÃO ====================
+const CONFIG = {
+    CEREBRO_URLS: [
+        'cerebro/pratica/',
+        'cerebro/definicao/',
+        'cerebro/mais/',
+        'cerebro/extra/'
+    ],
+    CEREBRO_FALLBACK: [
+        {
+            palavras_chave: ["wudu", "ablucao", "ablution", "limpeza"],
+            resposta: "O Wudu (ablucão) é a purificação ritual obrigatória antes da oração. Passos: 1) Intenção (Niyyah), 2) Lavar as mãos 3x, 3) Enxaguar a boca 3x, 4) Lavar o nariz 3x, 5) Lavar o rosto 3x, 6) Lavar os braços até aos cotovelos 3x, 7) Passar as mãos molhadas sobre a cabeça, 8) Limpar as orelhas, 9) Lavar os pés até aos tornozelos 3x. Deve ser feito em ordem sequencial.",
+            fonte: "Sahih al-Bukhari",
+            categoria: "pratica",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["salat", "oracao", "oração", "namaz", "rezar"],
+            resposta: "A Salat (oração) é um dos Cinco Pilares do Islam. São obrigatórias 5 orações diárias: Fajr (aurora), Dhuhr (meio-dia), Asr (tarde), Maghrib (pôr do sol) e Isha (noite). Cada oração tem rak'ahs (unidades) específicas e deve ser feita voltado à Qibla (Meca).",
+            fonte: "Al-Quran 2:238",
+            categoria: "pratica",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["zakat", "almoco", "caridade", "pobres"],
+            resposta: "Zakat é a caridade obrigatória de 2.5% sobre a riqueza acumulada que atinge o Nisab (mínimo) durante um ano lunar. Deve ser dada aos 8 grupos mencionados no Quran 9:60: pobres, necessitados, administradores, corações a serem reconciliados, escravos, endividados, na causa de Allah, e viajantes necessitados.",
+            fonte: "Al-Quran 9:60",
+            categoria: "pratica",
+            nivel: "intermediario",
+            links: []
+        },
+        {
+            palavras_chave: ["jejum", "ramadan", "sawm", "ayuno"],
+            resposta: "O jejum (Sawm) no mês de Ramadan é obrigatório para todos os muçulmanos adultos e saudáveis. Abster-se de comida, bebida e relações conjugais desde o amanhecer (Fajr) até ao pôr do sol (Maghrib). Exceções: doentes, viajantes, grávidas, amamentando, idosos frágeis.",
+            fonte: "Al-Quran 2:183-185",
+            categoria: "pratica",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["hajj", "peregrinacao", "peregrinação", "meca"],
+            resposta: "O Hajj é a peregrinação obrigatória à Meca pelo menos uma vez na vida, para quem tem condições físicas e financeiras. Realiza-se nos dias 8-13 de Dhul-Hijjah. Inclui Tawaf (circunvalação da Kaaba), Sa'i (caminhada entre Safa e Marwa), e permanência em Arafat no dia 9.",
+            fonte: "Al-Quran 3:97",
+            categoria: "pratica",
+            nivel: "avancado",
+            links: []
+        },
+        {
+            palavras_chave: ["shahada", "profissao", "profissão", "fé", "crenca"],
+            resposta: "A Shahada (Profissão de Fé) é o primeiro pilar do Islam e a chave para se tornar muçulmano: 'Ashhadu an la ilaha illallah, wa ashhadu anna Muhammadur Rasulullah' (Testemunho que não há divindade digna de adoração exceto Allah, e que Muhammad é o Mensageiro de Allah).",
+            fonte: "Sahih Muslim",
+            categoria: "definicao",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["halal", "permitido", "licito"],
+            resposta: "Halal significa 'permitido' ou 'lícito' em árabe. Refere-se a tudo o que é permitido pela Sharia (lei islâmica). Inclui alimentos preparados segundo regras islâmicas (sem porco, sem álcool, animal abatido com Bismillah), comportamentos éticos e negócios justos.",
+            fonte: "Al-Quran 5:4-5",
+            categoria: "definicao",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["haram", "proibido", "ilícito"],
+            resposta: "Haram significa 'proibido' ou 'ilícito'. São ações e substâncias estritamente proibidas no Islam: consumo de álcool e drogas, porco e seus derivados, juro (Riba), adultério, roubo, assassinato, magia, e associação de parceiros a Allah (Shirk).",
+            fonte: "Al-Quran 5:90, 2:275",
+            categoria: "definicao",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["qibla", "direcao", "direção", "meca"],
+            resposta: "A Qibla é a direção sagrada para Meca (Kaaba) que todos os muçulmanos devem enfrentar durante a oração (Salat). Em Moçambique, a Qibla fica aproximadamente a Nordeste (cerca de 25-30° NE). Pode usar a bússola do telefone ou apps como Muslim Pro.",
+            fonte: "Al-Quran 2:144",
+            categoria: "pratica",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["sunnah", "suna", "exemplo", "profeta"],
+            resposta: "A Sunnah são as práticas, palavras e aprovações do Profeta Muhammad (SAAW). É a segunda fonte de legislação islâmica depois do Alcorão. Inclui hadiths (narrativas) autênticos compilados por estudiosos como al-Bukhari e Muslim.",
+            fonte: "Sahih al-Bukhari",
+            categoria: "definicao",
+            nivel: "intermediario",
+            links: []
+        }
+    ],
+    WHATSAPP: "258860407269",
+    EMAIL: "Islammocambique@gmail.com",
+    FACEBOOK: "https://www.facebook.com/islamguia"
+};
 
-    var REPO_BASE = "https://raw.githubusercontent.com/islammocambique-maker/Bot-IslamM/main";
+// ==================== ESTADO ====================
+let cerebro = [];
+let historicoRespostas = [];
+let respostaAtual = null;
 
-    var ARQUIVOS_CEREBRO = {
-        pratica: ["salat", "Wudhu"],
-        definicao: ["Janazah","adoracao_ibadah","comportamento","crenca_aquidah","crianca_educacao_bobecas","familia_direitos","fiqh","mulheres_do_profeta","palavras","perguntas_frequentes","ramadan"],
-        mais: ["mais_conhecimento"],
-        extra: ["extra_bot"]
-    };
+// ==================== INICIALIZAÇÃO ====================
+document.addEventListener('DOMContentLoaded', () => {
+    carregarCerebro();
+    
+    adicionarMensagemBotHTML(`
+        <span class="greeting">Assalamu Alaikum! ☪️</span>
+        <div style="margin-top: 8px; line-height: 1.8;">
+            Sou o <strong>Islam M</strong>, seu assistente de conhecimento islâmico. Pergunte-me sobre:<br><br>
+            • <strong>Alcorão</strong> (ex: <em>2:155</em>, <em>Al-Baqarah 155</em>)<br>
+            • <strong>Práticas</strong> (wudu, salat, jejum, zakat, hajj)<br>
+            • <strong>Conceitos</strong> (halal, haram, sunnah, qibla)<br>
+            • <strong>Suporte</strong> via WhatsApp, Email ou Facebook<br><br>
+            Como posso ajudar?
+        </div>
+    `);
+    
+    setupEventos();
+});
 
-    var cerebroPratica = [];
-    var cerebroDefinicao = [];
-    var cerebroMais = [];
-    var cerebroExtra = [];
+function setupEventos() {
+    const input = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    
+    sendBtn.addEventListener('click', sendMessage);
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+    
+    document.querySelectorAll('.quick-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const map = {
+                wudu: "como fazer wudu",
+                salat: "horarios de oracao",
+                quran: "2:155",
+                support: "suporte"
+            };
+            input.value = map[btn.dataset.action] || "";
+            sendMessage();
+        });
+    });
+}
 
-    const chatArea = document.getElementById("chatArea");
-    const userInput = document.getElementById("userInput");
-    const sendBtn = document.getElementById("sendBtn");
-    const quickButtons = document.getElementById("quickButtons");
-
-    function addMessage(text, isUser) {
-        var div = document.createElement("div");
-        div.className = "message " + (isUser ? "user-msg" : "bot-msg");
-        div.innerHTML = text;
-        chatArea.appendChild(div);
-        chatArea.scrollTop = chatArea.scrollHeight;
-    }
-
-    function normalize(t){
-        return (t||"").toLowerCase().normalize('NFD')
-        .replace(/[\u0300-\u036f]/g,'')
-        .replace(/[^a-z0-9\s]/g,' ')
-        .replace(/\s+/g,' ')
-        .trim();
-    }
-
-    function buscarResposta(texto){
-        var q = normalize(texto);
-        var all = cerebroPratica.concat(cerebroDefinicao,cerebroMais,cerebroExtra);
-
-        for(var i=0;i<all.length;i++){
-            var e = all[i];
-            var keys = e.palavras_chave || [];
-            for(var j=0;j<keys.length;j++){
-                if(q.indexOf(normalize(keys[j]))>=0){
-                    return e;
+// ==================== CARREGAR CÉREBRO ====================
+async function carregarCerebro() {
+    cerebro = [...CONFIG.CEREBRO_FALLBACK];
+    
+    for (const url of CONFIG.CEREBRO_URLS) {
+        try {
+            const response = await fetch(`${url}data.json`);
+            if (response.ok) {
+                const dados = await response.json();
+                if (Array.isArray(dados)) {
+                    cerebro = [...cerebro, ...dados];
                 }
             }
+        } catch (e) {
+            console.log(`Pasta ${url} não acessível, usando fallback.`);
         }
-        return null;
     }
+    
+    console.log(`Cérebro carregado com ${cerebro.length} entradas.`);
+}
 
-    async function carregarArquivo(pasta,arquivo){
-        try{
-            var r = await fetch(REPO_BASE+"/cerebro/"+pasta+"/"+arquivo);
-            if(!r.ok) return null;
-            return await r.json();
-        }catch(e){ return null; }
+// ==================== ENVIO DE MENSAGEM ====================
+function sendMessage() {
+    const input = document.getElementById('userInput');
+    const texto = input.value.trim();
+    
+    if (!texto) return;
+    
+    adicionarMensagemUsuario(texto);
+    input.value = '';
+    
+    mostrarDigitando();
+    
+    setTimeout(() => {
+        processarPergunta(texto);
+    }, 800);
+}
+
+// ==================== PROCESSAMENTO ====================
+async function processarPergunta(texto) {
+    esconderDigitando();
+    
+    const lower = texto.toLowerCase().trim();
+    
+    const quranMatch = detectarVersiculo(texto);
+    if (quranMatch) {
+        await buscarVersiculoAPI(quranMatch.surah, quranMatch.ayah);
+        return;
     }
+    
+    if (lower.includes('suporte') || lower.includes('ajuda') || lower.includes('contacto') || lower.includes('contato')) {
+        responderSuporte();
+        return;
+    }
+    
+    if (lower.includes('wudu') || lower.includes('ablucao') || lower.includes('ablution')) {
+        const entry = encontrarNoCerebro(['wudu', 'ablucao', 'ablution']);
+        if (entry) {
+            responderComFormato(entry, 'wudu');
+        }
+        return;
+    }
+    
+    const palavras = lower.split(/\s+/).filter(p => p.length > 2);
+    const entry = encontrarNoCerebro(palavras);
+    
+    if (entry) {
+        responderComFormato(entry, entry.palavras_chave[0]);
+    } else {
+        responderNaoEncontrado(texto);
+    }
+}
 
-    async function carregarCerebro(){
-        for(var p in ARQUIVOS_CEREBRO){
-            var lista=[];
-            for(var a of ARQUIVOS_CEREBRO[p]){
-                var d = await carregarArquivo(p,a);
-                if(d) lista = lista.concat(d);
+// ==================== DETECTAR VERSÍCULO ====================
+function detectarVersiculo(texto) {
+    const padroes = [
+        /(\d+)[:\/](\d+)/,
+        /surah?\s+(\d+).*?ayah?\s+(\d+)/i,
+        /capitulo?\s+(\d+).*?versiculo?\s+(\d+)/i,
+        /(\d+)\s+(\d+)/
+    ];
+    
+    for (const padrao of padroes) {
+        const match = texto.match(padrao);
+        if (match) {
+            const surah = parseInt(match[1]);
+            const ayah = parseInt(match[2]);
+            if (surah >= 1 && surah <= 114 && ayah >= 1) {
+                return { surah, ayah };
             }
-            if(p==="pratica") cerebroPratica=lista;
-            if(p==="definicao") cerebroDefinicao=lista;
-            if(p==="mais") cerebroMais=lista;
-            if(p==="extra") cerebroExtra=lista;
         }
-
-        addMessage("✅ Cérebro carregado", false);
     }
+    
+    return null;
+}
 
-    function sendMessage(){
-        var t = userInput.value.trim();
-        if(!t) return;
+// ==================== BUSCAR VERSÍCULO - API CORRIGIDA ====================
+async function buscarVersiculoAPI(surah, ayah) {
+    let arabicText = '';
+    let translation = '';
+    let apiUsada = '';
+    
+    // TENTATIVA 1: API QuranEnc (português Helmi Nasr - mais confiável)
+    try {
+        const response = await fetch(`https://quranenc.com/api/v1/translation/aya/portuguese_nasr/${surah}/${ayah}`);
+        if (response.ok) {
+            const data = await response.json();
+            if (data && data.result) {
+                arabicText = data.result.arabic_text || '';
+                translation = data.result.translation || '';
+                apiUsada = 'QuranEnc';
+            }
+        }
+    } catch (e) {
+        console.log('QuranEnc falhou, tentando alternativa...');
+    }
+    
+    // TENTATIVA 2: API Al-Quran (fallback)
+    if (!translation) {
+        try {
+            const response = await fetch(`https://api.alquran.cloud/v1/ayah/${surah}:${ayah}/editions/quran-uthmani,pt.hamidullah`);
+            if (response.ok) {
+                const data = await response.json();
+                if (data.data && data.data.length >= 2) {
+                    arabicText = data.data[0].text || '';
+                    translation = data.data[1].text || '';
+                    apiUsada = 'Al-Quran Cloud';
+                }
+            }
+        } catch (e) {
+            console.log('Al-Quran Cloud falhou...');
+        }
+    }
+    
+    // TENTATIVA 3: API Quran.com v4 com tradução portuguesa correta
+    if (!translation) {
+        try {
+            // ID 92 = português (Helmi Nasr) na API v4 do Quran.com
+            const response = await fetch(`https://api.quran.com/api/v4/verses/by_key/${surah}:${ayah}?translations=92&fields=text_uthmani`);
+            if (response.ok) {
+                const data = await response.json();
+                const verse = data.verse;
+                if (verse) {
+                    arabicText = verse.text_uthmani || '';
+                    if (verse.translations && verse.translations.length > 0) {
+                        translation = verse.translations[0].text || '';
+                    }
+                    apiUsada = 'Quran.com';
+                }
+            }
+        } catch (e) {
+            console.log('Quran.com v4 falhou...');
+        }
+    }
+    
+    // Se nenhuma API funcionou, mostra link direto
+    if (!translation && !arabicText) {
+        adicionarMensagemBotHTML(`
+            <span class="greeting">⚠️ Erro de conexão</span>
+            <div style="margin-top: 8px; line-height: 1.8;">
+                Não foi possível carregar o versículo <strong>${surah}:${ayah}</strong> agora. As APIs podem estar temporariamente indisponíveis.<br><br>
+                Você pode consultar diretamente em:<br>
+                <a href="https://quran.com/pt/${surah}/${ayah}" target="_blank" style="color: var(--primary);">🔗 quran.com/pt/${surah}/${ayah}</a><br><br>
+                Ou tente novamente em alguns instantes.
+            </div>
+        `);
+        return;
+    }
+    
+    // Se temos árabe mas não tradução
+    if (!translation) {
+        translation = 'Tradução em português temporariamente indisponível. Consulte quran.com/pt/' + surah + '/' + ayah;
+    }
+    
+    // Se temos tradução mas não árabe
+    if (!arabicText) {
+        arabicText = '〔Texto em árabe não disponível〕';
+    }
+    
+    salvarNoHistorico();
+    
+    respostaAtual = {
+        tipo: 'quran',
+        surah: surah,
+        ayah: ayah,
+        arabic: arabicText,
+        translation: translation
+    };
+    
+    const html = `
+        <span class="greeting">ótima pergunta! Aqui vai uma resposta sobre <span class="keyword">Alcorão ${surah}:${ayah}</span></span>
+        <div class="quran-result">
+            <span class="quran-ref">📖 Surah ${surah} : ${ayah}</span>
+            <div class="quran-arabic">${arabicText}</div>
+            <div class="quran-translation"><strong>Significado em Português:</strong><br>${translation}</div>
+        </div>
+        ${renderizarHistorico()}
+    `;
+    
+    adicionarMensagemBotHTML(html);
+}
 
-        addMessage(t,true);
-        userInput.value="";
+// ==================== RESPONDER COM FORMATO ====================
+function responderComFormato(entry, keyword) {
+    salvarNoHistorico();
+    
+    respostaAtual = {
+        tipo: 'cerebro',
+        keyword: keyword,
+        resposta: entry.resposta,
+        fonte: entry.fonte
+    };
+    
+    const respostaFormatada = entry.resposta.replace(/\n/g, '<br>');
+    
+    const html = `
+        <span class="greeting">ótima pergunta! Aqui vai uma resposta sobre <span class="keyword">${keyword}</span></span>
+        <div style="margin-top: 10px; line-height: 1.8;">
+            ${respostaFormatada}
+        </div>
+        ${entry.fonte ? `<div style="margin-top: 12px; font-size: 0.85rem; color: var(--text-secondary); border-top: 1px solid var(--border); padding-top: 8px;">📚 Fonte: ${entry.fonte}</div>` : ''}
+        ${renderizarHistorico()}
+    `;
+    
+    adicionarMensagemBotHTML(html);
+}
 
-        var r = buscarResposta(t);
+// ==================== RESPONDER SUPORTE ====================
+function responderSuporte() {
+    const html = `
+        <span class="greeting">ótima pergunta! Aqui vai uma resposta sobre <span class="keyword">suporte</span></span>
+        <div style="margin-top: 10px; line-height: 1.8;">
+            <p>Estamos aqui para ajudar! Entre em contacto connosco:</p>
+            <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
+                <a href="https://wa.me/${CONFIG.WHATSAPP}" target="_blank" style="color: var(--primary); text-decoration: none;">📱 WhatsApp: ${CONFIG.WHATSAPP}</a>
+                <a href="mailto:${CONFIG.EMAIL}" style="color: var(--primary); text-decoration: none;">✉️ Email: ${CONFIG.EMAIL}</a>
+                <a href="${CONFIG.FACEBOOK}" target="_blank" style="color: var(--primary); text-decoration: none;">📘 Facebook: Islam Guia</a>
+            </div>
+        </div>
+    `;
+    adicionarMensagemBotHTML(html);
+}
 
-        if(r){
-            addMessage(
-                "<b>"+(r.resposta||"Sem resposta")+"</b><br><br>📚 "+(r.fonte||""),
-                false
-            );
+// ==================== RESPONDER NÃO ENCONTRADO ====================
+function responderNaoEncontrado(texto) {
+    const html = `
+        <span class="greeting">ótima pergunta! Aqui vai uma resposta sobre <span class="keyword">"${texto}"</span></span>
+        <div style="margin-top: 10px; line-height: 1.8;">
+            <p>Ainda não tenho informações específicas sobre <strong>"${texto}"</strong> no meu cérebro.</p>
+            <p style="margin-top: 8px;">Tente perguntar sobre:</p>
+            <ul style="margin-top: 6px; padding-left: 20px; line-height: 1.8;">
+                <li>Versículos do Alcorão (ex: <em>2:155</em>)</li>
+                <li>Práticas islâmicas (wudu, salat, jejum, zakat, hajj)</li>
+                <li>Conceitos (halal, haram, shahada, qibla)</li>
+            </ul>
+            <p style="margin-top: 10px;">Ou contacte o nosso suporte para mais ajuda! 📞</p>
+        </div>
+    `;
+    adicionarMensagemBotHTML(html);
+}
+
+// ==================== HISTÓRICO ====================
+function salvarNoHistorico() {
+    if (respostaAtual) {
+        historicoRespostas.unshift({
+            ...respostaAtual,
+            timestamp: new Date().toLocaleString('pt-MZ')
+        });
+        if (historicoRespostas.length > 10) historicoRespostas.pop();
+    }
+}
+
+function renderizarHistorico() {
+    if (historicoRespostas.length === 0) return '';
+    
+    let html = '<div class="previous-answers">';
+    html += `<button class="prev-btn" onclick="toggleHistorico(this)">📜 Ver respostas anteriores (${historicoRespostas.length})</button>`;
+    html += '<div class="prev-list">';
+    
+    historicoRespostas.forEach((item) => {
+        html += `<div class="prev-item">`;
+        if (item.tipo === 'quran') {
+            html += `<strong>Alcorão ${item.surah}:${item.ayah}</strong>`;
         } else {
-            addMessage("🤔 Não encontrei resposta", false);
+            html += `<strong>${item.keyword}</strong>`;
+        }
+        html += `<small>${item.timestamp}</small>`;
+        html += `</div>`;
+    });
+    
+    html += '</div></div>';
+    return html;
+}
+
+function toggleHistorico(btn) {
+    const list = btn.nextElementSibling;
+    list.classList.toggle('show');
+    btn.textContent = list.classList.contains('show') 
+        ? '🔼 Ocultar respostas anteriores' 
+        : `📜 Ver respostas anteriores (${historicoRespostas.length})`;
+}
+
+// ==================== BUSCAR NO CÉREBRO ====================
+function encontrarNoCerebro(palavras) {
+    let melhorMatch = null;
+    let melhorScore = 0;
+    
+    for (const entry of cerebro) {
+        let score = 0;
+        const keywords = entry.palavras_chave.map(k => k.toLowerCase());
+        
+        for (const palavra of palavras) {
+            for (const kw of keywords) {
+                if (kw === palavra) score += 3;
+                else if (kw.includes(palavra)) score += 2;
+                else if (palavra.includes(kw)) score += 1;
+            }
+        }
+        
+        if (score > melhorScore) {
+            melhorScore = score;
+            melhorMatch = entry;
         }
     }
+    
+    return melhorScore >= 2 ? melhorMatch : null;
+}
 
-    // ✅ BOTÃO FUNCIONA
-    sendBtn.addEventListener("click", sendMessage);
+// ==================== UI HELPERS ====================
+function adicionarMensagemUsuario(texto) {
+    const div = document.createElement('div');
+    div.className = 'message user';
+    div.textContent = texto;
+    document.getElementById('messages').appendChild(div);
+    scrollToBottom();
+}
 
-    userInput.addEventListener("keydown", function(e){
-        if(e.key==="Enter") sendMessage();
-    });
+function adicionarMensagemBotHTML(html) {
+    const div = document.createElement('div');
+    div.className = 'message bot';
+    div.innerHTML = html;
+    document.getElementById('messages').appendChild(div);
+    scrollToBottom();
+}
 
-    quickButtons.addEventListener("click", function(e){
-        var btn = e.target.closest(".quick-btn");
-        if(!btn) return;
+function mostrarDigitando() {
+    const div = document.createElement('div');
+    div.className = 'message bot typing';
+    div.id = 'typingIndicator';
+    div.innerHTML = '<span></span><span></span><span></span>';
+    document.getElementById('messages').appendChild(div);
+    scrollToBottom();
+}
 
-        var map={
-            salat:"horario salat",
-            quran1:"Alcorão 1:1",
-            islam:"o que é islam",
-            wudu:"como fazer wudu"
-        };
+function esconderDigitando() {
+    const el = document.getElementById('typingIndicator');
+    if (el) el.remove();
+}
 
-        userInput.value = map[btn.dataset.action] || "";
-        sendMessage();
-    });
+function scrollToBottom() {
+    const messages = document.getElementById('messages');
+    messages.scrollTop = messages.scrollHeight;
+}
 
-    carregarCerebro();
-
-});
+window.toggleHistorico = toggleHistorico;
 </script>
 
 </body>
