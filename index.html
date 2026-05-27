@@ -368,7 +368,9 @@
 <script>
 // ==================== CONFIGURAÇÃO ====================
 const CONFIG = {
+    // TODOS os ficheiros do cérebro (incluindo historia_islamica que faltava)
     CEREBRO_FICHEIROS: [
+        // cerebro/definicao/
         { pasta: 'cerebro/definicao/', ficheiro: 'Janazah' },
         { pasta: 'cerebro/definicao/', ficheiro: 'adoracao_ibadah' },
         { pasta: 'cerebro/definicao/', ficheiro: 'comportamento' },
@@ -376,12 +378,16 @@ const CONFIG = {
         { pasta: 'cerebro/definicao/', ficheiro: 'crianca_educacao_bobecas' },
         { pasta: 'cerebro/definicao/', ficheiro: 'familia_direitos' },
         { pasta: 'cerebro/definicao/', ficheiro: 'fiqh' },
+        { pasta: 'cerebro/definicao/', ficheiro: 'historia_islamica' },
         { pasta: 'cerebro/definicao/', ficheiro: 'mulheres_do_profeta' },
         { pasta: 'cerebro/definicao/', ficheiro: 'palavras' },
         { pasta: 'cerebro/definicao/', ficheiro: 'perguntas_frequentes' },
         { pasta: 'cerebro/definicao/', ficheiro: 'ramadan' },
+        // cerebro/extra/
         { pasta: 'cerebro/extra/', ficheiro: 'extra_bot' },
+        // cerebro/mais/
         { pasta: 'cerebro/mais/', ficheiro: 'mais_conhecimento' },
+        // cerebro/pratica/
         { pasta: 'cerebro/pratica/', ficheiro: 'salat' },
         { pasta: 'cerebro/pratica/', ficheiro: 'Wudhu' }
     ],
@@ -499,9 +505,17 @@ const CONFIG = {
             links: []
         },
         {
-            palavras_chave: ["crianca", "criança", "educacao", "educação", "bebé", "bebe"],
+            palavras_chave: ["crianca", "criança", "educacao", "educação", "bebé", "bebe", "bobecas"],
             resposta: "A educação islâmica da criança começa desde o nascimento: Adhan no ouvido direito, Iqamah no esquerdo, Aqiqah no 7º dia, ensino de Bismillah, boas maneiras (Adab), e gradualmente Salat aos 7 anos. Os pais são responsáveis pelo caráter moral e religioso dos filhos.",
             fonte: "Sahih al-Bukhari, Abu Dawud",
+            categoria: "definicao",
+            nivel: "basico",
+            links: []
+        },
+        {
+            palavras_chave: ["historia", "história", "islamica", "islâmica", "passado", "profetas"],
+            resposta: "A História Islâmica começa com a criação de Adão (AS) e inclui todos os profetas enviados por Allah. O Islam como religião final foi revelado ao Profeta Muhammad (SAAW) em Meca no século VII d.C. Eventos-chave: Hijrah (622), conquista de Meca (630), e a expansão islâmica que seguiu.",
+            fonte: "Al-Quran, Sira",
             categoria: "definicao",
             nivel: "basico",
             links: []
@@ -597,17 +611,17 @@ function parseCerebroTexto(texto, nomeFicheiro) {
             if (Array.isArray(json)) {
                 return json.map(entry => ({
                     ...entry,
-                    palavras_chave: (entry.palavras_chave || []).map(k => String(k).toLowerCase().trim())
+                    palavras_chave: (entry.palavras_chave || []).map(k => String(k).toLowerCase().trim()).filter(k => k)
                 }));
             }
             if (json.palavras_chave) {
-                json.palavras_chave = (json.palavras_chave || []).map(k => String(k).toLowerCase().trim());
+                json.palavras_chave = (json.palavras_chave || []).map(k => String(k).toLowerCase().trim()).filter(k => k);
                 return [json];
             }
             if (json.data && Array.isArray(json.data)) {
                 return json.data.map(entry => ({
                     ...entry,
-                    palavras_chave: (entry.palavras_chave || []).map(k => String(k).toLowerCase().trim())
+                    palavras_chave: (entry.palavras_chave || []).map(k => String(k).toLowerCase().trim()).filter(k => k)
                 }));
             }
         } catch (e) {
@@ -668,7 +682,7 @@ function parseCerebroTexto(texto, nomeFicheiro) {
                 const match = linha.match(/^([^:]+):\s*(.+)$/);
                 if (match) {
                     entradas.push({
-                        palavras_chave: match[1].split(/[,;]/).map(k => k.trim().toLowerCase()),
+                        palavras_chave: match[1].split(/[,;]/).map(k => k.trim().toLowerCase()).filter(k => k),
                         resposta: match[2].trim(),
                         fonte: nomeFicheiro,
                         categoria: detectarCategoria(nomeFicheiro),
@@ -732,7 +746,11 @@ async function processarPergunta(texto) {
     const entry = encontrarNoCerebro(palavras);
     
     if (entry) {
-        responderComFormato(entry, entry.palavras_chave[0]);
+        // USA A PRIMEIRA PALAVRA-CHAVE COMO TÍTULO (sempre existe porque fez match)
+        const keywordDisplay = entry.palavras_chave && entry.palavras_chave.length > 0 
+            ? entry.palavras_chave[0] 
+            : 'tema';
+        responderComFormato(entry, keywordDisplay);
     } else {
         responderNaoEncontrado(texto);
     }
@@ -865,8 +883,11 @@ function responderComFormato(entry, keyword) {
     
     const respostaFormatada = entry.resposta.replace(/\n/g, '<br>');
     
+    // Fallback seguro para keyword
+    const safeKeyword = keyword || 'tema';
+    
     const html = `
-        <span class="greeting">ótima pergunta! Aqui vai uma resposta sobre <span class="keyword">${keyword}</span></span>
+        <span class="greeting">ótima pergunta! Aqui vai uma resposta sobre <span class="keyword">${safeKeyword}</span></span>
         <div style="margin-top: 8px; line-height: 1.7;">
             ${respostaFormatada}
         </div>
@@ -933,7 +954,7 @@ function renderizarHistorico() {
         if (item.tipo === 'quran') {
             html += `<strong>Alcorão ${item.surah}:${item.ayah}</strong>`;
         } else {
-            html += `<strong>${item.keyword}</strong>`;
+            html += `<strong>${item.keyword || 'tema'}</strong>`;
         }
         html += `<small>${item.timestamp}</small>`;
         html += `</div>`;
@@ -951,7 +972,7 @@ function toggleHistorico(btn) {
         : `📜 Ver anteriores (${historicoRespostas.length})`;
 }
 
-// ==================== BUSCAR NO CÉREBRO — TUDO EM MINÚSCULAS ====================
+// ==================== BUSCAR NO CÉREBRO ====================
 function encontrarNoCerebro(palavras) {
     const todosMatches = [];
     
@@ -960,8 +981,12 @@ function encontrarNoCerebro(palavras) {
         const keywords = entry.palavras_chave || [];
         let melhorKeyword = '';
         
+        // Verifica se a entrada tem palavras-chave válidas
+        if (!keywords.length) continue;
+        
         for (const palavra of palavras) {
             for (const kw of keywords) {
+                if (!kw) continue;
                 if (kw === palavra) {
                     score += 3;
                     if (!melhorKeyword) melhorKeyword = kw;
@@ -981,7 +1006,7 @@ function encontrarNoCerebro(palavras) {
             todosMatches.push({
                 entry: entry,
                 score: score,
-                melhorKeyword: melhorKeyword || entry.palavras_chave[0]
+                melhorKeyword: melhorKeyword || keywords[0]
             });
         }
     }
