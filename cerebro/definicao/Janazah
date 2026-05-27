@@ -1,58 +1,78 @@
 [
   {
-    "palavras_chave": ["toda alma", "a morte", "morte", "mait",  "janaiza"],
-    "resposta": "FUNERAL ISLÂMICO — RITUAIS DA MORTE\n\nO Islam ensina que a morte é transição para a vida eterna.\n\n<br>🔰 Allah diz: 'Toda alma provará o sabor da morte' (Ali 'Imran 3:185).",
-    "fonte": "Alcorão (Ali 'Imran 3:185, Al-Anbiya 21:35, Al-Waqi'ah 56:60-61); Sahih al-Bukhari (Livro 23, Hadith 1240); Sahih Muslim (Livro 11, Hadith 2181)",
+    "palavras_chave": ["toda alma", "a morte", "morte", "mait", "janaiza", "janazah", "funeral"],
+    "resposta": "✨ *FUNERAL ISLÂMICO — RITUAIS DA MORTE*\n\nO Islam ensina que a morte é apenas uma transição para a vida eterna.\n\n📖 *No Alcorão, Allah diz:*\n'Toda alma provará o sabor da morte.'\n_(Surata Ali 'Imran, 3:185)_\n\nO funeral islâmico é composto por etapas de purificação e respeito ao falecido. Vamos conhecê-las?",
+    "fonte": "Alcorão (3:185, 21:35, 56:60-61); Sahih al-Bukhari (1240); Sahih Muslim (2181)",
     "categoria": "Fiqh",
     "nivel": "Intermediário",
-    "links": ["https://Facebook.com/Islamguia"]
+    "botoes": [
+      { "texto": "📌 Ver as 5 Etapas", "proximo_passo": "F.etapas" }
+    ]
   },
- {
-  "palavras_chave": ["lavar o mait", "como lavar o", "lavar o morto", "preparar o corpo", "lavar o cadáver", "preparação do mait", "preparar o mait", "oração fúnebre", "salat jazakah", "limpar o morto",  "Ghusul al janaiza"],
- "resposta: "DO FUNERAL ISLÂMICO:\n1) <br>GHUSL — Banho ritual do morto\n2) <br>KAFAN — Envolvimento no sudário\n3) <br>SALAT AL-JANAZAH — Oração funeral\n4) <br>DAFN — Enterro\n5) TA'ZIA — <br>Condolências\n\nO Profeta ﷺ disse: 'Acompanhai os funerais, pois acompanhar o funeral é um direito do muçulmano sobre o muçulmano' (Sahih Muslim).\n\nPara continuar escreve: F.ghusl",
- "fonte": "Alcorão (Ali 'Imran 3:185, Al-Anbiya 21:35, Al-Waqi'ah 56:60-61); Sahih al-Bukhari (Livro 23, Hadith 1240); Sahih Muslim (Livro 11, Hadith 2181)",
+  {
+    "palavras_chave": ["F.etapas", "lavar o mait", "como lavar o", "lavar o morto", "preparar o corpo", "lavar o cadáver", "preparação do mait", "preparar o mait", "oração fúnebre", "salat jazakah", "limpar o morto", "Ghusul al janaiza"],
+    "resposta": "🕌 *AS 5 ETAPAS DO FUNERAL ISLÂMICO:*\n\n1️⃣ *GHUSL* — O banho ritual de purificação.\n2️⃣ *KAFAN* — O envolvimento no sudário branco.\n3️⃣ *SALAT AL-JANAZAH* — A oração funeral.\n4️⃣ *DAFN* — O sepultamento rápido.\n5️⃣ *TA'ZIA* — As condolências à família.\n\n» _O Profeta ﷺ disse: 'Acompanhar o funeral é um direito do muçulmano sobre o muçulmano.' (Sahih Muslim)_\n\nEscolha o que deseja detalhar abaixo:",
+    "fonte": "Sahih Muslim (Livro 11, Hadith 2181)",
     "categoria": "Fiqh",
     "nivel": "Intermediário",
-    "links": ["https://Facebook.com/Islamguia"]
+    "botoes": [
+      { "texto": "🧼 1. Ghusl (Banho)", "proximo_passo": "F.ghusl" },
+      { "texto": "🔙 Voltar", "proximo_passo": "inicio" }
+    ]
   },
   {
     "palavras_chave": ["F.ghusl", "Ghusl mait", "Banho ao morto", "Morto"],
-    "resposta": "GHUSL (BANHO RITUAL DO MORTO)\n\nO Ghusl do morto é obrigatório para purificar o corpo antes do enterro. Deve ser feito por muçulmanos do mesmo sexo.\n\nREGRAS:\n• 3 lavagens com água, sidr (lótus) e camphor (última)\n• Começar pelo lado direito\n• Cobrir awrah com pano durante o banho\n• Não expor o corpo desnecessariamente\n• Não cortar unhas nem cabelo\n\nPASSOS:\n1) Intenção (niyyah)\n2) Lavar mãos 3x\n3) Lavar órgãos genitais com pano\n4) Fazer wudu no morto (sem enxaguar boca nem nariz)\n5) 1ª lavagem com água e sidr\n6) 2ª lavagem com água limpa\n7) 3ª lavagem com água e camphor\n\nPara continuar escreve: F.kafan",
-    "fonte": "Sahih al-Bukhari (Livro 23, Hadith 1241-1245); Sahih Muslim (Livro 11, Hadith 2182-2186); Sunan Abu Dawud (Livro 20, Hadith 3130)",
+    "resposta": "🧼 *1. GHUSL (O BANHO RITUAL)*\n\nÉ obrigatório purificar o corpo antes do enterro. Deve ser feito por muçulmanos do mesmo sexo que o falecido.\n\n📋 *Regras Principais:*\n• O corpo é lavado 3 vezes (com água, lótus e cânfora na última).\n• Começa-se sempre pelo lado direito.\n• A privacidade (_awrah_) é coberta com um pano o tempo todo.\n• Não se cortam unhas nem os cabelos.\n\n🛠 *Passo a Passo:*\n1. Intenção (*Niyyah*) e lavar as mãos 3x.\n2. Lavar as partes íntimas com um pano.\n3. Fazer a ablução (*Wudu*) no morto (sem pôr água na boca/nariz).\n4. Lavar com água e lótus, depois água limpa, e finalizar com cânfora.",
+    "fonte": "Sahih al-Bukhari (1241-1245); Sahih Muslim (2182-2186)",
     "categoria": "Fiqh",
     "nivel": "Intermediário",
-    "links": ["https://Facebook.com/Islamguia"]
+    "botoes": [
+      { "texto": "🧣 2. Kafan (Sudário)", "proximo_passo": "F.kafan" },
+      { "texto": "🔙 Menu", "proximo_passo": "F.etapas" }
+    ]
   },
   {
     "palavras_chave": ["F.kafan", "Kafan", "Sudário", "pano branco", "Envolver"],
-    "resposta": "KAFAN (SUDÁRIO FUNERAL)\n\nO corpo é envolvido em panos brancos simples — igualdade perante Allah, rico ou pobre.\n\nHOMEM: 3 panos\n• Izar (pano inferior)\n• Qamis (camisa)\n• Lifafa (lençol exterior)\n\nMULHER: 5 panos\n• Izar (pano inferior)\n• Dir' (camisa)\n• Khimar (véu da cabeça)\n• Lifaza (lençol exterior)\n• Extra para cobrir o corpo\n\nREGRAS:\n• Pano branco, simples, não seda\n• Perfumar o corpo (recomendado)\n• Colocar algo perfumado na axila\n• Não joias, não maquilhagem\n\nPara continuar escreve: F.janazah",
-    "fonte": "Sahih al-Bukhari (Livro 23, Hadith 1246-1250); Sahih Muslim (Livro 11, Hadith 2187-2191); Sunan an-Nasa'i (Livro 21, Hadith 1841)",
+    "resposta": "🧣 *2. KAFAN (O SUDÁRIO FUNERAL)*\n\nO corpo é envolvido em panos brancos e simples de algodão. É um símbolo de que todos somos iguais perante Allah, ricos ou pobres.\n\n🧔 *Homens (3 panos):*\n• Pano inferior, camisa simples e lençol exterior.\n\n🧕 *Mulheres (5 panos):*\n• Pano inferior, camisa, véu para a cabeça, lençol exterior e uma faixa extra para garantir a modéstia.\n\n⚠️ *Atenção:* O pano deve ser simples (proibido usar seda). É recomendado perfumar o sudário com essências sem álcool (como almíscar).",
+    "fonte": "Sahih al-Bukhari (1246-1250); Sahih Muslim (2187-2191)",
     "categoria": "Fiqh",
     "nivel": "Intermediário",
-    "links": ["https://Facebook.com/Islamguia"]
+    "botoes": [
+      { "texto": "🕌 3. Oração Funeral", "proximo_passo": "F.janazah" },
+      { "texto": "🔙 Voltar", "proximo_passo": "F.etapas" }
+    ]
   },
   {
     "palavras_chave": ["F.janazah", "fazer salat Janazah", "Oração para o falecido", "oração Funeral"],
-    "resposta": "SALAT AL-JANAZAH (ORAÇÃO FUNERAL)\n\nA oração funeral é obrigatória para toda a comunidade. Não tem ruku' nem sujud — é toda em pé.\n\nREGRAS:\n• Mínimo 1 pessoa, recomendado em congregação\n• Sem adhan nem iqamah\n• 4 takbirs\n• Corpo colocado à frente do imam\n\nPASSOS:\n1) 1º Takbir + recitar Al-Fatiha\n2) 2º Takbir + recitar Tashahhud\n3) 3º Takbir + fazer dua pelo morto\n4) 4º Takbir + fazer dua\n5) Taslim (virar cabeça para direita e esquerda)\n\nDUA RECOMENDADA:\n'Allahummaghfir lihayyina wa mayyitina...'\n(Ó Allah, perdoa os nossos vivos e mortos...)\n\nPara continuar escreve: F.enterro",
-    "fonte": "Sahih al-Bukhari (Livro 23, Hadith 1251-1260); Sahih Muslim (Livro 11, Hadith 2192-2200); Sunan Abu Dawud (Livro 20, Hadith 3181)",
+    "resposta": "🕌 *3. SALAT AL-JANAZAH (ORAÇÃO FUNERAL)*\n\nUma prece coletiva obrigatória. Ela tem uma particularidade: *não tem inclinação (ruku') nem prostração (sujud)*. É feita inteiramente de pé.\n\n📋 *Como funciona:*\n• É feita em congregação, sem chamamento (_adhan_).\n• O corpo fica posicionado à frente do Imam.\n\n🔢 *Os 4 Takbirs (Passos):*\n1️⃣ *1º Takbir:* Recita-se a Surata Al-Fatiha.\n2️⃣ *2º Takbir:* Recita-se as bênçãos ao Profeta (Tashahhud).\n3️⃣ *3º Takbir:* Faz-se uma súplica (_dua_) sincera pelo falecido.\n4️⃣ *4º Takbir:* Breve súplica por todos e encerra-se com o _Taslim_ (saudação de paz para os lados).",
+    "fonte": "Sahih al-Bukhari (1251-1260); Sahih Muslim (2192-2200)",
     "categoria": "Fiqh",
     "nivel": "Intermediário",
-    "links": ["https://Facebook.com/Islamguia"]
+    "botoes": [
+      { "texto": "🪦 4. Dafn (Enterro)", "proximo_passo": "F.enterro" },
+      { "texto": "🔙 Voltar", "proximo_passo": "F.etapas" }
+    ]
   },
   {
     "palavras_chave": ["F.enterro", "Enterro", "Túmulo", "Cemitério"],
-    "resposta": "ENTERRO (DAFN)\n\nO corpo é enterrado de imediato — o Islam não permite embalsamar nem cremação.\n\nREGRAS:\n• Enterro no dia da morte, se possível\n• Túmulo voltado para Qibla (Makka)\n• Corpo colocado de lado direito, rosto virado para Qibla\n• Profundidade mínima: altura de uma pessoa\n• Não caixão (exceto necessidade médica ou lei local)\n• Não monumentos extravagantes\n• Terra colocada com as mãos, não com pá\n\nO Profeta ﷺ disse: 'Escavem para os vossos mortos e façam-no bom' (Abu Dawud).\n\nAPÓS O ENTERRO:\n• Recitar Alcorão no túmulo (recomendado)\n• Fazer dua pelo morto\n• Dar caridade em nome do morto\n• Não lamentação excessiva (chorar é permitido, bater no peito não)\n\nPara continuar escreve: F.condolencias",
-    "fonte": "Alcorão (Al-Ma'idah 5:31); Sahih al-Bukhari (Livro 23, Hadith 1261-1270); Sahih Muslim (Livro 11, Hadith 2201-2210); Sunan Abu Dawud (Livro 20, Hadith 3201)",
+    "resposta": "🪦 *4. DAFN (O SEPULTAMENTO)*\n\nO Islam determina que o sepultamento seja feito o mais rápido possível. *A cremação e o embalsamamento são proibidos.*\n\n📋 *Regras do Sepultamento:*\n• O corpo é colocado no túmulo deitado sobre o **lado direito**, com o rosto voltado para a direção de Meca (_Qibla_).\n• Não se utilizam caixões, exceto por exigência da lei local.\n• Evitam-se lápides ou monumentos grandes e extravagantes.\n• Quem está presente ajuda a cobrir jogando terra com as mãos.\n\n🤲 Após o enterro, é recomendado ficar junto ao túmulo por um tempo fazendo preces pelo perdão do falecido.",
+    "fonte": "Alcorão (5:31); Sahih al-Bukhari (1261-1270); Sunan Abu Dawud (3201)",
     "categoria": "Fiqh",
     "nivel": "Intermediário",
-    "links": ["https://Facebook.com/Islamguia"]
+    "botoes": [
+      { "texto": "🤝 5. Condolências", "proximo_passo": "F.condolencias" },
+      { "texto": "🔙 Voltar", "proximo_passo": "F.etapas" }
+    ]
   },
   {
     "palavras_chave": ["F.condolencias", "Condolências", "Ta'zia", "Luto"],
-    "resposta": "CONDOLÊNCIAS (TA'ZIA)\n\nO Islam ensina a consolar a família enlutada com palavras de paciência e esperança.\n\nO QUE DIZER:\n• 'Inna lillahi wa inna ilayhi raji'un' (De Allah viemos e a Ele retornamos)\n• 'Allah yajziikum sabran' (Que Allah vos recompense com paciência)\n• 'Allah yaghfir lahu/la-ha' (Que Allah perdoe-o/a)\n• 'Nos unimos a vós na vossa perda'\n\nO QUE NÃO DIZER:\n• Não lamentação excessiva (wailing)\n• Não bater no peito nem rasgar roupas\n• Não maldições ao destino\n• Não comemorações extravagantes\n\nPERÍODO DE LUTO (Iddah para viúvas):\n• 4 meses e 10 dias\n• Sem adornos, perfume, maquilhagem\n• Sem sair de casa sem necessidade\n\nVISITAR TÚMULOS:\n• Permitido para homens\n• Recomendado fazer dua\n• Lembrar a morte e preparar-se\n• Não pedir aos mortos\n\nPara continuar escreve: E.tawakkul",
-    "fonte": "Alcorão (Al-Baqarah 2:156, 2:240); Sahih al-Bukhari (Livro 23, Hadith 1271-1280); Sahih Muslim (Livro 11, Hadith 2211-2220); Jami' at-Tirmidhi (Hadith 1009)",
+    "resposta": "🤝 *5. TA'ZIA (CONDOLÊNCIAS E LUTO)*\n\nConsolar os que perderam alguém é um ato nobre que incentiva a paciência (_sabr_).\n\n💬 *O que dizer:*\n_\"Inna lillahi wa inna ilayhi raji'un\"_\n(Certamente somos de Allah e a Ele retornamos).\n\n⚠️ *O que evitar:* O Islam proíbe o desespero extremo, como gritar, lamentar-se em voz alta, rasgar roupas ou questionar o decreto de Deus.\n\n⏱ *Período de Luto:* O luto geral dura 3 dias. Para a viúva (*Iddah*), o resguardo é de 4 meses e 10 dias, período em que ela evita o uso de maquiagem, perfumes e adornos.",
+    "fonte": "Alcorão (2:156); Sahih al-Bukhari (1271-1280); Jami' at-Tirmidhi (1009)",
     "categoria": "Fiqh",
     "nivel": "Intermediário",
-    "links": ["https://Facebook.com/Islamguia"]
+    "botoes": [
+      { "texto": "🔄 Recomeçar Guia", "proximo_passo": "F.etapas" },
+      { "texto": "🔚 Sair", "proximo_passo": "menu_principal" }
+    ]
   }
 ]
