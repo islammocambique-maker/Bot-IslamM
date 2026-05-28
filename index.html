@@ -44,29 +44,10 @@
             border-radius: 16px;
             margin-bottom: 10px;
             color: white;
-            position: relative;
-            overflow: hidden;
         }
 
-        .header::before {
-            content: '☪';
-            position: absolute;
-            font-size: 100px;
-            opacity: 0.05;
-            top: -20px;
-            right: -10px;
-        }
-
-        .header h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .header p {
-            opacity: 0.9;
-            font-size: 0.85rem;
-        }
+        .header h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 4px; }
+        .header p { opacity: 0.9; font-size: 0.85rem; }
 
         .chat-container {
             flex: 1;
@@ -256,10 +237,7 @@
             align-items: center;
         }
 
-        .input-wrapper {
-            flex: 1;
-            position: relative;
-        }
+        .input-wrapper { flex: 1; position: relative; }
 
         #userInput {
             width: 100%;
@@ -272,9 +250,7 @@
             font-family: 'Inter', sans-serif;
         }
 
-        #userInput:focus {
-            border-color: var(--primary-light);
-        }
+        #userInput:focus { border-color: var(--primary-light); }
 
         #sendBtn {
             width: 44px;
@@ -334,7 +310,6 @@
             .quick-btn { padding: 5px 12px; font-size: 0.8rem; }
         }
     </style>
-<base target="_blank">
 </head>
 <body>
 
@@ -365,7 +340,6 @@
 
 <script>
 // ==================== UTILITÁRIOS ====================
-// Remove acentos para comparação
 function removerAcentos(str) {
     return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
@@ -390,136 +364,6 @@ const CONFIG = {
         { pasta: 'cerebro/pratica/', ficheiro: 'salat' },
         { pasta: 'cerebro/pratica/', ficheiro: 'Wudhu' }
     ],
-    CEREBRO_FALLBACK: [
-        {
-            palavras_chave: ["wudu", "ablucao", "ablution", "limpeza", "wudhu"],
-            resposta: "O Wudu (ablucão) é a purificação ritual obrigatória antes da oração. Passos: 1) Intenção (Niyyah), 2) Lavar as mãos 3x, 3) Enxaguar a boca 3x, 4) Lavar o nariz 3x, 5) Lavar o rosto 3x, 6) Lavar os braços até aos cotovelos 3x, 7) Passar as mãos molhadas sobre a cabeça, 8) Limpar as orelhas, 9) Lavar os pés até aos tornozelos 3x. Deve ser feito em ordem sequencial.",
-            fonte: "Sahih al-Bukhari",
-            categoria: "pratica",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["salat", "oracao", "oração", "namaz", "rezar"],
-            resposta: "A Salat (oração) é um dos Cinco Pilares do Islam. São obrigatórias 5 orações diárias: Fajr (aurora), Dhuhr (meio-dia), Asr (tarde), Maghrib (pôr do sol) e Isha (noite). Cada oração tem rak'ahs (unidades) específicas e deve ser feita voltado à Qibla (Meca).",
-            fonte: "Al-Quran 2:238",
-            categoria: "pratica",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["zakat", "almoco", "caridade", "pobres"],
-            resposta: "Zakat é a caridade obrigatória de 2.5% sobre a riqueza acumulada que atinge o Nisab (mínimo) durante um ano lunar. Deve ser dada aos 8 grupos mencionados no Quran 9:60: pobres, necessitados, administradores, corações a serem reconciliados, escravos, endividados, na causa de Allah, e viajantes necessitados.",
-            fonte: "Al-Quran 9:60",
-            categoria: "pratica",
-            nivel: "intermediario",
-            links: []
-        },
-        {
-            palavras_chave: ["jejum", "ramadan", "sawm", "ayuno"],
-            resposta: "O jejum (Sawm) no mês de Ramadan é obrigatório para todos os muçulmanos adultos e saudáveis. Abster-se de comida, bebida e relações conjugais desde o amanhecer (Fajr) até ao pôr do sol (Maghrib). Exceções: doentes, viajantes, grávidas, amamentando, idosos frágeis.",
-            fonte: "Al-Quran 2:183-185",
-            categoria: "pratica",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["hajj", "peregrinacao", "peregrinação", "meca"],
-            resposta: "O Hajj é a peregrinação obrigatória à Meca pelo menos uma vez na vida, para quem tem condições físicas e financeiras. Realiza-se nos dias 8-13 de Dhul-Hijjah. Inclui Tawaf (circunvalação da Kaaba), Sa'i (caminhada entre Safa e Marwa), e permanência em Arafat no dia 9.",
-            fonte: "Al-Quran 3:97",
-            categoria: "pratica",
-            nivel: "avancado",
-            links: []
-        },
-        {
-            palavras_chave: ["shahada", "profissao", "profissão", "fé", "crenca"],
-            resposta: "A Shahada (Profissão de Fé) é o primeiro pilar do Islam e a chave para se tornar muçulmano: 'Ashhadu an la ilaha illallah, wa ashhadu anna Muhammadur Rasulullah' (Testemunho que não há divindade digna de adoração exceto Allah, e que Muhammad é o Mensageiro de Allah).",
-            fonte: "Sahih Muslim",
-            categoria: "definicao",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["halal", "permitido", "licito"],
-            resposta: "Halal significa 'permitido' ou 'lícito' em árabe. Refere-se a tudo o que é permitido pela Sharia (lei islâmica). Inclui alimentos preparados segundo regras islâmicas (sem porco, sem álcool, animal abatido com Bismillah), comportamentos éticos e negócios justos.",
-            fonte: "Al-Quran 5:4-5",
-            categoria: "definicao",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["haram", "proibido", "ilícito"],
-            resposta: "Haram significa 'proibido' ou 'ilícito'. São ações e substâncias estritamente proibidas no Islam: consumo de álcool e drogas, porco e seus derivados, juro (Riba), adultério, roubo, assassinato, magia, e associação de parceiros a Allah (Shirk).",
-            fonte: "Al-Quran 5:90, 2:275",
-            categoria: "definicao",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["qibla", "direcao", "direção", "meca"],
-            resposta: "A Qibla é a direção sagrada para Meca (Kaaba) que todos os muçulmanos devem enfrentar durante a oração (Salat). Em Moçambique, a Qibla fica aproximadamente a Nordeste (cerca de 25-30° NE). Pode usar a bússola do telefone ou apps como Muslim Pro.",
-            fonte: "Al-Quran 2:144",
-            categoria: "pratica",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["sunnah", "suna", "exemplo", "profeta"],
-            resposta: "A Sunnah são as práticas, palavras e aprovações do Profeta Muhammad (SAAW). É a segunda fonte de legislação islâmica depois do Alcorão. Inclui hadiths (narrativas) autênticos compilados por estudiosos como al-Bukhari e Muslim.",
-            fonte: "Sahih al-Bukhari",
-            categoria: "definicao",
-            nivel: "intermediario",
-            links: []
-        },
-        {
-            palavras_chave: ["janazah", "funeral", "morto", "morte"],
-            resposta: "Janazah é a oração funeral no Islam. É obrigatória (Fard Kifayah) e realizada em pé, sem Ruku nem Sujud. O corpo deve ser lavado (Ghusl), envolvido em panos brancos (Kafan), e enterrado voltado à Qibla. Recomenda-se apressar o enterro e fazer Dua pelo falecido.",
-            fonte: "Sahih al-Bukhari",
-            categoria: "definicao",
-            nivel: "intermediario",
-            links: []
-        },
-        {
-            palavras_chave: ["ibadah", "adoracao", "adoração", "culto"],
-            resposta: "Ibadah (Adoração) no Islam abrange todas as ações feitas para agradar Allah: oração (Salat), jejum (Sawm), zakat, hajj, leitura do Quran, Dua, Dhikr, e até trabalho honesto e trato bondoso com os pais quando feito com intenção correta (Niyyah).",
-            fonte: "Al-Quran 51:56",
-            categoria: "definicao",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["aquidah", "crenca", "credo", "tauhid"],
-            resposta: "Aqidah é a crença/fundamento do Islam baseado em seis pilares: 1) Crença em Allah, 2) Anjos (Malaika), 3) Livros revelados, 4) Profetas e Mensageiros, 5) Dia do Juízo Final, 6) Decreto Divino (Qadar). O centro é Tawhid (monoteísmo puro).",
-            fonte: "Sahih Muslim",
-            categoria: "definicao",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["fiqh", "jurisprudencia", "jurisprudência", "lei"],
-            resposta: "Fiqh é a jurisprudência islâmica - a compreensão prática da Sharia. Os quatro grandes madhabs (escolas) são: Hanafi, Maliki, Shafi'i e Hanbali. Baseia-se no Alcorão, Sunnah, Ijma (consenso) e Qiyas (analogia).",
-            fonte: "Introdução ao Fiqh",
-            categoria: "definicao",
-            nivel: "avancado",
-            links: []
-        },
-        {
-            palavras_chave: ["crianca", "criança", "educacao", "educação", "bebé", "bebe", "bobecas"],
-            resposta: "A educação islâmica da criança começa desde o nascimento: Adhan no ouvido direito, Iqamah no esquerdo, Aqiqah no 7º dia, ensino de Bismillah, boas maneiras (Adab), e gradualmente Salat aos 7 anos. Os pais são responsáveis pelo caráter moral e religioso dos filhos.",
-            fonte: "Sahih al-Bukhari, Abu Dawud",
-            categoria: "definicao",
-            nivel: "basico",
-            links: []
-        },
-        {
-            palavras_chave: ["historia", "história", "islamica", "islâmica", "passado", "profetas"],
-            resposta: "A História Islâmica começa com a criação de Adão (AS) e inclui todos os profetas enviados por Allah. O Islam como religião final foi revelado ao Profeta Muhammad (SAAW) em Meca no século VII d.C. Eventos-chave: Hijrah (622), conquista de Meca (630), e a expansão islâmica que seguiu.",
-            fonte: "Al-Quran, Sira",
-            categoria: "definicao",
-            nivel: "basico",
-            links: []
-        }
-    ],
     WHATSAPP: "258860407269",
     EMAIL: "Islammocambique@gmail.com",
     FACEBOOK: "https://www.facebook.com/islamguia"
@@ -537,11 +381,12 @@ document.addEventListener('DOMContentLoaded', () => {
     adicionarMensagemBotHTML(`
         <span class="greeting">Assalamu Alaikum! ☪️</span>
         <div style="margin-top: 6px; line-height: 1.7;">
-            Sou o <strong>Islam M</strong>, seu assistente de conhecimento islâmico. Pergunte-me sobre:<br>
-            • <strong>Alcorão</strong> (ex: <em>2:155</em>)<br>
-            • <strong>Práticas</strong> (wudu, salat, jejum, zakat, hajj)<br>
-            • <strong>Conceitos</strong> (halal, haram, sunnah, qibla, fiqh, aqidah)<br>
-            • <strong>Suporte</strong> via WhatsApp, Email ou Facebook
+            Sou o <strong>Islam M</strong>, seu assistente de conhecimento islâmico.<br><br>
+            <strong>Como perguntar:</strong><br>
+            • Digite uma ou mais palavras-chave do tema<br>
+            • Ex: <em>crianças educação</em> ou <em>imagens proibição</em> ou <em>respeito pais</em><br>
+            • Ou versículos: <em>2:155</em><br><br>
+            O bot encontra a resposta que tem <strong>mais palavras em comum</strong> com a sua pergunta.
         </div>
     `);
     
@@ -573,7 +418,7 @@ function setupEventos() {
 
 // ==================== CARREGAR CÉREBRO ====================
 async function carregarCerebro() {
-    cerebro = [...CONFIG.CEREBRO_FALLBACK];
+    cerebro = [];
     
     for (const item of CONFIG.CEREBRO_FICHEIROS) {
         try {
@@ -586,22 +431,25 @@ async function carregarCerebro() {
                 
                 if (dados && dados.length > 0) {
                     cerebro = [...cerebro, ...dados];
-                    console.log(`✅ Carregado: ${url} (${dados.length} entradas)`);
+                    console.log(`✅ ${item.ficheiro}: ${dados.length} entradas`);
+                } else {
+                    console.log(`⚠️ ${item.ficheiro}: 0 entradas válidas`);
                 }
             } else {
-                console.log(`❌ Não encontrado: ${url} (status: ${response.status})`);
+                console.log(`❌ ${item.ficheiro}: HTTP ${response.status}`);
             }
         } catch (e) {
-            console.log(`❌ Erro ao carregar ${item.pasta}${item.ficheiro}:`, e.message);
+            console.log(`❌ ${item.ficheiro}: ${e.message}`);
         }
     }
     
-    console.log(`🧠 Cérebro total: ${cerebro.length} entradas`);
+    console.log(`🧠 Total: ${cerebro.length} entradas`);
     
-    // DEBUG: mostra todas as palavras-chave carregadas
-    console.log('📋 Todas as keywords carregadas:');
+    // Debug: mostra as primeiras 3 entradas de cada ficheiro
     cerebro.forEach((entry, i) => {
-        console.log(`  [${i}] ${entry.palavras_chave?.join(', ') || 'SEM KEYWORDS'} | resposta: ${entry.resposta ? 'SIM' : 'NÃO'}`);
+        if (i < 5 || entry.fonte === 'crianca_educacao_bobecas') {
+            console.log(`[${entry.fonte}] keywords: [${entry.palavras_chave?.join(', ')}]`);
+        }
     });
 }
 
@@ -609,104 +457,95 @@ async function carregarCerebro() {
 function parseCerebroTexto(texto, nomeFicheiro) {
     const entradas = [];
     
+    // Tenta JSON primeiro
     try {
-        // Tenta primeiro como JSON
-        try {
-            const json = JSON.parse(texto);
-            if (Array.isArray(json)) {
-                const parsed = json.map(entry => normalizarEntrada(entry, nomeFicheiro)).filter(e => e);
-                console.log(`📄 JSON array: ${parsed.length} entradas válidas de ${json.length}`);
-                return parsed;
-            }
-            if (json.palavras_chave || json.resposta) {
-                const parsed = normalizarEntrada(json, nomeFicheiro);
-                return parsed ? [parsed] : [];
-            }
-            if (json.data && Array.isArray(json.data)) {
-                const parsed = json.data.map(entry => normalizarEntrada(entry, nomeFicheiro)).filter(e => e);
-                return parsed;
-            }
-        } catch (e) {
-            // Não é JSON, continua com parse manual
+        const json = JSON.parse(texto);
+        
+        if (Array.isArray(json)) {
+            return json.map(entry => normalizarEntrada(entry, nomeFicheiro)).filter(e => e);
         }
         
-        // Parse de formato grid/texto
-        const blocos = texto.split(/\n---+\n|\n\n\n+/);
-        
-        for (const bloco of blocos) {
-            if (!bloco.trim()) continue;
-            
-            const linhas = bloco.trim().split('\n');
-            const entry = {
-                palavras_chave: [],
-                resposta: '',
-                fonte: nomeFicheiro,
-                categoria: detectarCategoria(nomeFicheiro),
-                nivel: 'basico',
-                links: []
-            };
-            
-            let modo = 'keywords';
-            
-            for (const linha of linhas) {
-                const trimmed = linha.trim();
-                if (!trimmed) continue;
-                
-                if (trimmed.toLowerCase().startsWith('palavras_chave:') || modo === 'keywords') {
-                    const textoKw = trimmed.replace(/palavras_chave:\s*/i, '');
-                    entry.palavras_chave = textoKw.split(/[,;|]/).map(k => k.trim().toLowerCase()).filter(k => k);
-                    modo = 'resposta';
-                }
-                else if (trimmed.toLowerCase().startsWith('resposta:')) {
-                    entry.resposta = trimmed.replace(/resposta:\s*/i, '');
-                    modo = 'resposta';
-                }
-                else if (trimmed.toLowerCase().startsWith('fonte:')) {
-                    entry.fonte = trimmed.replace(/fonte:\s*/i, '');
-                }
-                else if (trimmed.toLowerCase().startsWith('categoria:')) {
-                    entry.categoria = trimmed.replace(/categoria:\s*/i, '');
-                }
-                else if (modo === 'resposta') {
-                    entry.resposta += (entry.resposta ? '\n' : '') + trimmed;
-                }
-            }
-            
-            if (entry.palavras_chave.length > 0 && entry.resposta) {
-                entradas.push(entry);
-            }
+        if (json.palavras_chave || json.resposta || json.resposta) {
+            const parsed = normalizarEntrada(json, nomeFicheiro);
+            return parsed ? [parsed] : [];
         }
         
-        // Se não conseguiu parsear em blocos, tenta linha a linha
-        if (entradas.length === 0) {
-            const linhas = texto.split('\n').filter(l => l.trim());
-            for (const linha of linhas) {
-                const match = linha.match(/^([^:]+):\s*(.+)$/);
-                if (match) {
-                    entradas.push({
-                        palavras_chave: match[1].split(/[,;]/).map(k => k.trim().toLowerCase()).filter(k => k),
-                        resposta: match[2].trim(),
-                        fonte: nomeFicheiro,
-                        categoria: detectarCategoria(nomeFicheiro),
-                        nivel: 'basico',
-                        links: []
-                    });
-                }
-            }
+        if (json.data && Array.isArray(json.data)) {
+            return json.data.map(entry => normalizarEntrada(entry, nomeFicheiro)).filter(e => e);
         }
-        
     } catch (e) {
-        console.error(`Erro ao parsear ${nomeFicheiro}:`, e);
+        // Não é JSON, parse como texto
+    }
+    
+    // Parse de formato texto/blocos
+    const blocos = texto.split(/\n---+\n|\n\n\n+/);
+    
+    for (const bloco of blocos) {
+        if (!bloco.trim()) continue;
+        
+        const linhas = bloco.trim().split('\n');
+        const entry = {
+            palavras_chave: [],
+            resposta: '',
+            fonte: nomeFicheiro,
+            categoria: detectarCategoria(nomeFicheiro),
+            nivel: 'basico',
+            links: []
+        };
+        
+        let modo = 'keywords';
+        
+        for (const linha of linhas) {
+            const trimmed = linha.trim();
+            if (!trimmed) continue;
+            
+            if (trimmed.toLowerCase().startsWith('palavras_chave:') || modo === 'keywords') {
+                const textoKw = trimmed.replace(/palavras_chave:\s*/i, '');
+                entry.palavras_chave = textoKw.split(/[,;|]/).map(k => k.trim().toLowerCase()).filter(k => k);
+                modo = 'resposta';
+            }
+            else if (trimmed.toLowerCase().startsWith('resposta:')) {
+                entry.resposta = trimmed.replace(/resposta:\s*/i, '');
+                modo = 'resposta';
+            }
+            else if (trimmed.toLowerCase().startsWith('fonte:')) {
+                entry.fonte = trimmed.replace(/fonte:\s*/i, '');
+            }
+            else if (modo === 'resposta') {
+                entry.resposta += (entry.resposta ? '\n' : '') + trimmed;
+            }
+        }
+        
+        if (entry.palavras_chave.length > 0 && entry.resposta) {
+            entradas.push(entry);
+        }
+    }
+    
+    // Fallback: linha a linha
+    if (entradas.length === 0) {
+        const linhas = texto.split('\n').filter(l => l.trim());
+        for (const linha of linhas) {
+            const match = linha.match(/^([^:]+):\s*(.+)$/);
+            if (match) {
+                entradas.push({
+                    palavras_chave: match[1].split(/[,;]/).map(k => k.trim().toLowerCase()).filter(k => k),
+                    resposta: match[2].trim(),
+                    fonte: nomeFicheiro,
+                    categoria: detectarCategoria(nomeFicheiro),
+                    nivel: 'basico',
+                    links: []
+                });
+            }
+        }
     }
     
     return entradas;
 }
 
-// Normaliza uma entrada do JSON para garantir compatibilidade
 function normalizarEntrada(entry, nomeFicheiro) {
     if (!entry) return null;
     
-    // Pega palavras-chave (pode ser array ou string)
+    // Pega palavras-chave
     let keywords = [];
     if (Array.isArray(entry.palavras_chave)) {
         keywords = entry.palavras_chave;
@@ -718,14 +557,12 @@ function normalizarEntrada(entry, nomeFicheiro) {
     keywords = keywords
         .map(k => String(k).toLowerCase().trim())
         .map(k => removerAcentos(k))
-        .filter(k => k && k.length > 0);
+        .filter(k => k.length > 0);
     
-    // Pega resposta (pode ser "resposta" ou "resposta")
+    // Pega resposta (aceita "resposta" ou "resposta")
     let resposta = entry.resposta || entry.resposta || '';
     
-    // Se não tiver palavras-chave ou resposta, ignora
     if (keywords.length === 0 || !resposta) {
-        console.log(`⚠️ Entrada ignorada em ${nomeFicheiro}: keywords=${keywords.length}, resposta=${resposta ? 'SIM' : 'NÃO'}`);
         return null;
     }
     
@@ -741,7 +578,7 @@ function normalizarEntrada(entry, nomeFicheiro) {
 
 function detectarCategoria(nomeFicheiro) {
     const lower = nomeFicheiro.toLowerCase();
-    if (lower.includes('pratica') || lower.includes('salat') || lower.includes('wudhu') || lower.includes('wudu')) return 'pratica';
+    if (lower.includes('pratica') || lower.includes('salat') || lower.includes('wudhu')) return 'pratica';
     if (lower.includes('definicao') || lower.includes('crenca') || lower.includes('fiqh') || lower.includes('aqidah')) return 'definicao';
     if (lower.includes('extra')) return 'extra';
     return 'mais';
@@ -770,24 +607,25 @@ async function processarPergunta(texto) {
     
     const lower = texto.toLowerCase().trim();
     
+    // Quran primeiro
     const quranMatch = detectarVersiculo(texto);
     if (quranMatch) {
         await buscarVersiculoAPI(quranMatch.surah, quranMatch.ayah);
         return;
     }
     
+    // Suporte
     if (lower.includes('suporte') || lower.includes('ajuda') || lower.includes('contacto') || lower.includes('contato')) {
         responderSuporte();
         return;
     }
     
-    const palavras = lower.split(/\s+/).filter(p => p.length > 2);
-    const entry = encontrarNoCerebro(palavras);
+    // Busca no cérebro
+    const entry = encontrarMelhorEntrada(texto);
     
     if (entry) {
-        const keywordDisplay = entry.palavras_chave && entry.palavras_chave.length > 0 
-            ? entry.palavras_chave[0] 
-            : 'tema';
+        // Escolhe a keyword que melhor representa o match
+        const keywordDisplay = entry.keywordMatch || entry.palavras_chave[0];
         responderComFormato(entry, keywordDisplay);
     } else {
         responderNaoEncontrado(texto);
@@ -817,12 +655,94 @@ function detectarVersiculo(texto) {
     return null;
 }
 
-// ==================== BUSCAR VERSÍCULO - API CORRIGIDA ====================
+// ==================== BUSCAR NO CÉREBRO — AVALIA TODAS AS KEYWORDS JUNTAS ====================
+function encontrarMelhorEntrada(texto) {
+    // Normaliza a pergunta do utilizador
+    const palavrasUsuario = texto.toLowerCase()
+        .replace(/[^\w\s]/g, ' ') // remove pontuação
+        .split(/\s+/)
+        .map(p => removerAcentos(p.trim()))
+        .filter(p => p.length >= 2); // palavras com 2+ letras
+    
+    console.log('🔍 Palavras do utilizador:', palavrasUsuario);
+    
+    if (palavrasUsuario.length === 0) return null;
+    
+    let melhorEntrada = null;
+    let melhorScore = 0;
+    let melhorKeywordMatch = '';
+    
+    for (const entry of cerebro) {
+        const keywords = entry.palavras_chave || [];
+        if (keywords.length === 0) continue;
+        
+        let score = 0;
+        let keywordsEncontradas = [];
+        let matchExato = false;
+        
+        for (const palavraUser of palavrasUsuario) {
+            for (const kw of keywords) {
+                const kwNormalizada = removerAcentos(kw);
+                
+                // Match exato (maior pontuação)
+                if (kwNormalizada === palavraUser) {
+                    score += 10;
+                    keywordsEncontradas.push(kw);
+                    if (!matchExato) matchExato = true;
+                }
+                // Keyword contém a palavra do user (ex: "proibicao" em "proibicao_imagens")
+                else if (kwNormalizada.includes(palavraUser) && palavraUser.length >= 3) {
+                    score += 5;
+                    keywordsEncontradas.push(kw);
+                }
+                // Palavra do user contém a keyword (ex: "proibicoes" contém "proib")
+                else if (palavraUser.includes(kwNormalizada) && kwNormalizada.length >= 3) {
+                    score += 3;
+                    keywordsEncontradas.push(kw);
+                }
+            }
+        }
+        
+        // Bônus se encontrou múltiplas keywords da MESMA entrada
+        const keywordsUnicas = [...new Set(keywordsEncontradas)];
+        if (keywordsUnicas.length > 1) {
+            score += keywordsUnicas.length * 2; // +2 por cada keyword extra
+        }
+        
+        // Penalidade se a entrada tem MUITAS keywords mas poucas deram match
+        // (evita escolher entradas genéricas)
+        const ratioMatch = keywordsUnicas.length / keywords.length;
+        if (ratioMatch < 0.3 && keywords.length > 5) {
+            score *= 0.5; // penaliza se match < 30% em entradas grandes
+        }
+        
+        console.log(`  📊 ${entry.fonte}: score=${score}, matches=[${keywordsUnicas.join(', ')}]`);
+        
+        if (score > melhorScore) {
+            melhorScore = score;
+            melhorEntrada = entry;
+            melhorKeywordMatch = keywordsUnicas[0] || entry.palavras_chave[0];
+        }
+    }
+    
+    // Só responde se tiver score mínimo (evita matches fracos)
+    const SCORE_MINIMO = 3;
+    
+    console.log('🏆 Melhor:', melhorEntrada?.fonte, 'score:', melhorScore, 'keyword:', melhorKeywordMatch);
+    
+    if (melhorScore >= SCORE_MINIMO && melhorEntrada) {
+        melhorEntrada.keywordMatch = melhorKeywordMatch;
+        return melhorEntrada;
+    }
+    
+    return null;
+}
+
+// ==================== BUSCAR VERSÍCULO ====================
 async function buscarVersiculoAPI(surah, ayah) {
     let arabicText = '';
     let translation = '';
     
-    // TENTATIVA 1: API QuranEnc (português Helmi Nasr)
     try {
         const response = await fetch(`https://quranenc.com/api/v1/translation/aya/portuguese_nasr/${surah}/${ayah}`);
         if (response.ok) {
@@ -832,11 +752,8 @@ async function buscarVersiculoAPI(surah, ayah) {
                 translation = data.result.translation || '';
             }
         }
-    } catch (e) {
-        console.log('QuranEnc falhou, tentando alternativa...');
-    }
+    } catch (e) {}
     
-    // TENTATIVA 2: API Al-Quran Cloud
     if (!translation) {
         try {
             const response = await fetch(`https://api.alquran.cloud/v1/ayah/${surah}:${ayah}/editions/quran-uthmani,pt.hamidullah`);
@@ -847,53 +764,25 @@ async function buscarVersiculoAPI(surah, ayah) {
                     translation = data.data[1].text || '';
                 }
             }
-        } catch (e) {
-            console.log('Al-Quran Cloud falhou...');
-        }
-    }
-    
-    // TENTATIVA 3: API Quran.com v4
-    if (!translation) {
-        try {
-            const response = await fetch(`https://api.quran.com/api/v4/verses/by_key/${surah}:${ayah}?translations=92&fields=text_uthmani`);
-            if (response.ok) {
-                const data = await response.json();
-                const verse = data.verse;
-                if (verse) {
-                    arabicText = verse.text_uthmani || '';
-                    if (verse.translations && verse.translations.length > 0) {
-                        translation = verse.translations[0].text || '';
-                    }
-                }
-            }
-        } catch (e) {
-            console.log('Quran.com v4 falhou...');
-        }
+        } catch (e) {}
     }
     
     if (!translation && !arabicText) {
         adicionarMensagemBotHTML(`
             <span class="greeting">⚠️ Erro de conexão</span>
-            <div style="margin-top: 6px; line-height: 1.7;">
-                Não foi possível carregar o versículo <strong>${surah}:${ayah}</strong>.<br>
+            <div style="margin-top: 6px;">
+                Não foi possível carregar <strong>${surah}:${ayah}</strong>.<<br>
                 <a href="https://quran.com/pt/${surah}/${ayah}" target="_blank" style="color: var(--primary);">🔗 quran.com/pt/${surah}/${ayah}</a>
             </div>
         `);
         return;
     }
     
-    if (!translation) translation = 'Tradução em português indisponível.';
-    if (!arabicText) arabicText = '〔Texto em árabe não disponível〕';
+    if (!translation) translation = 'Tradução indisponível.';
+    if (!arabicText) arabicText = '〔Árabe não disponível〕';
     
     salvarNoHistorico();
-    
-    respostaAtual = {
-        tipo: 'quran',
-        surah: surah,
-        ayah: ayah,
-        arabic: arabicText,
-        translation: translation
-    };
+    respostaAtual = { tipo: 'quran', surah, ayah, arabic: arabicText, translation };
     
     const html = `
         <span class="greeting">ótima pergunta! Aqui vai uma resposta sobre <span class="keyword">Alcorão ${surah}:${ayah}</span></span>
@@ -956,11 +845,12 @@ function responderNaoEncontrado(texto) {
         <span class="greeting">ótima pergunta! Aqui vai uma resposta sobre <span class="keyword">"${texto}"</span></span>
         <div style="margin-top: 8px; line-height: 1.7;">
             <p>Ainda não tenho informações sobre <strong>"${texto}"</strong>.</p>
-            <p style="margin-top: 6px;">Tente:</p>
+            <p style="margin-top: 6px;">Tente perguntar com palavras-chave do tema, por exemplo:</p>
             <ul style="margin-top: 4px; padding-left: 18px; line-height: 1.7;">
-                <li>Versículos do Alcorão (ex: <em>2:155</em>)</li>
-                <li>Práticas (wudu, salat, jejum, zakat, hajj)</li>
-                <li>Conceitos (halal, haram, sunnah, qibla, fiqh, aqidah)</li>
+                <li><em>crianças educação</em> (para educação infantil)</li>
+                <li><em>imagens proibição</em> (para regras sobre imagens)</li>
+                <li><em>respeito pais</em> (para deveres com os pais)</li>
+                <li>Versículos: <em>2:155</em></li>
             </ul>
         </div>
     `;
@@ -1006,66 +896,6 @@ function toggleHistorico(btn) {
     btn.textContent = list.classList.contains('show') 
         ? '🔼 Ocultar' 
         : `📜 Ver anteriores (${historicoRespostas.length})`;
-}
-
-// ==================== BUSCAR NO CÉREBRO — COM REMOÇÃO DE ACENTOS ====================
-function encontrarNoCerebro(palavras) {
-    const todosMatches = [];
-    
-    // Normaliza palavras do utilizador (remove acentos)
-    const palavrasNormalizadas = palavras.map(p => removerAcentos(p));
-    
-    for (const entry of cerebro) {
-        let score = 0;
-        const keywords = entry.palavras_chave || [];
-        let melhorKeyword = '';
-        
-        if (!keywords.length) continue;
-        
-        for (const palavra of palavrasNormalizadas) {
-            for (const kw of keywords) {
-                if (!kw) continue;
-                
-                // Compara com acentos removidos em ambos os lados
-                const kwNormalizada = removerAcentos(kw);
-                
-                if (kwNormalizada === palavra) {
-                    score += 3;
-                    if (!melhorKeyword) melhorKeyword = kw;
-                }
-                else if (kwNormalizada.includes(palavra)) {
-                    score += 2;
-                    if (!melhorKeyword) melhorKeyword = kw;
-                }
-                else if (palavra.includes(kwNormalizada)) {
-                    score += 1;
-                    if (!melhorKeyword) melhorKeyword = kw;
-                }
-            }
-        }
-        
-        if (score > 0) {
-            todosMatches.push({
-                entry: entry,
-                score: score,
-                melhorKeyword: melhorKeyword || keywords[0]
-            });
-        }
-    }
-    
-    if (todosMatches.length === 0) return null;
-    
-    todosMatches.sort((a, b) => b.score - a.score);
-    
-    const melhor = todosMatches[0];
-    
-    if (todosMatches.length > 1 && todosMatches[1].score === melhor.score) {
-        const empatados = todosMatches.filter(m => m.score === melhor.score);
-        empatados.sort((a, b) => a.melhorKeyword.length - b.melhorKeyword.length);
-        return empatados[0].entry;
-    }
-    
-    return melhor.entry;
 }
 
 // ==================== UI HELPERS ====================
