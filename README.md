@@ -1,166 +1,206 @@
 
-readme = """# 🤖 Islam M Bot
+readme_content = """# ☪ Islam M Bot
 
-> **Seu guia islâmico inteligente** — Responde perguntas sobre Islam, busca versículos do Alcorão em árabe/português e informa horários de Salat para Moçambique.
+**Assistente de Conhecimento Islâmico Inteligente** — Um chatbot web que responde perguntas sobre o Islam, Alcorão, práticas religiosas e conceitos islâmicos, com suporte a múltiplas fontes de conhecimento.
+
+---
+
+## 🚀 Funcionalidades
+
+- **🤖 Chatbot Inteligente** — Responde perguntas sobre Islam usando um "cérebro" de conhecimento modular
+- **📖 Versículos do Alcorão** — Busca textos em árabe e tradução em português via API (QuranEnc, Al-Quran Cloud, Quran.com)
+- **🧠 Cérebro Modular** — Carrega conhecimento de pastas externas em formato JSON ou texto
+- **🔍 Busca Inteligente** — Encontra a melhor resposta avaliando múltiplas palavras-chave simultaneamente
+- **📜 Histórico de Respostas** — Botão "Ver anteriores" para consultar respostas passadas
+- **📱 Responsivo** — Funciona perfeitamente em mobile e desktop
+- **🌐 Suporte Multilingue** — Keywords com ou sem acentos, maiúsculas/minúsculas
 
 ---
 
 ## 📁 Estrutura do Projeto
 
 ```
-islam-m-bot/
-├── index.html              ← Página principal do chatbot
-├── cerebro/
-│   ├── pratica.json        ← Conhecimento sobre práticas islâmicas
-│   ├── definicao.json      ← Definições e conceitos do Islam
-│   ├── mais.json           ← Informações adicionais
-│   └── extra.json          ← Conteúdo extra e curiosidades
-└── README.md               ← Este arquivo
+📦 Bot-IslamM/
+├── 📄 index.html          # Página principal do chatbot
+├── 📁 cerebro/            # Base de conhecimento (cérebro)
+│   ├── 📁 definicao/      # Conceitos e definições islâmicas
+│   │   ├── Janazah
+│   │   ├── adoracao_ibadah
+│   │   ├── comportamento
+│   │   ├── crenca_aquidah
+│   │   ├── crianca_educacao_bobecas
+│   │   ├── familia_direitos
+│   │   ├── fiqh
+│   │   ├── historia_islamica
+│   │   ├── mulheres_do_profeta
+│   │   ├── palavras
+│   │   ├── perguntas_frequentes
+│   │   └── ramadan
+│   ├── 📁 extra/
+│   │   └── extra_bot
+│   ├── 📁 mais/
+│   │   └── mais_conhecimento
+│   └── 📁 pratica/        # Práticas religiosas
+│       ├── salat
+│       └── Wudhu
+└── 📄 README.md           # Este ficheiro
 ```
 
 ---
 
-## 🚀 Como Usar
+## 🧠 Formato do Cérebro
 
-### 1. Clone ou baixe os arquivos
+Os ficheiros do cérebro aceitam **dois formatos**:
 
-```bash
-git clone [https://github.com/seu-usuario/islam-m-bot.git](https://islammocambique-maker.github.io/Bot-IslamM/)
-cd islam-m-bot
-```
-
-### 2. Configure o Cérebro (opcional)
-
-Crie a pasta `cerebro/` e adicione os arquivos JSON no formato da **Grelha Jos**:
+### 1. JSON (Recomendado)
 
 ```json
 [
   {
-    "palavras_chave": ["como orar", "salah", "salat", "oração"],
-    "resposta": "A oração (Salah) em Islam consiste em 5 orações diárias...",
-    "fonte": "Alcorão 2:238",
-    "categoria": "Prática",
-    "nivel": "Básico",
-    "links": ["https://Facebook.com/Islamguia"]
+    "palavras_chave": ["crianças", "jovens", "aqiqah", "nasce com", "fitrah"],
+    "resposta": "O Islam dá grande importância à educação desde o berço...",
+    "fonte": "Alcorão (96:1-5); Sahih al-Bukhari (5150)",
+    "categoria": "Educação",
+    "nivel": "Fundamental",
+    "links": ["https://facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["fotos", "imagens", "quadros", "retratos", "proibição"],
+    "resposta": "O Islam traça limites claros na criação de imagens...",
+    "fonte": "Alcorão (5941-5950); Sahih Muslim (5268-5272)",
+    "categoria": "Fiqh",
+    "nivel": "Intermediário",
+    "links": ["https://facebook.com/Islamguia"]
   }
 ]
 ```
 
-> 💡 **Dica:** Se os arquivos não existirem, o bot usa dados **fallback** embutidos.
+### 2. Texto Simples
 
-### 3. Abra no navegador
+```
+palavras_chave: wudu, ablucao, limpeza
+resposta: O Wudu é a purificação ritual obrigatória antes da oração...
+fonte: Sahih al-Bukhari
+---
+palavras_chave: salat, oracao, namaz
+resposta: A Salat é um dos Cinco Pilares do Islam...
+fonte: Al-Quran 2:238
+```
 
-Basta abrir o arquivo `index.html` em qualquer navegador moderno:
+---
+
+## 🎯 Como Funciona a Busca
+
+O bot usa um algoritmo de **matching inteligente**:
+
+1. **Normalização** — Remove acentos e converte tudo para minúsculas
+2. **Avaliação por entrada** — Compara TODAS as palavras da pergunta com TODAS as keywords de cada entrada
+3. **Pontuação**:
+   - Match exato: **+10 pontos**
+   - Keyword contém palavra: **+5 pontos**
+   - Palavra contém keyword: **+3 pontos**
+   - Bônus por múltiplas matches na mesma entrada: **+2 por keyword extra**
+4. **Seleção** — Escolhe a entrada com maior score (mínimo: 3 pontos)
+
+### Exemplos de Perguntas
+
+| Pergunta | Resposta Esperada |
+|---|---|
+| `2:155` | Versículo do Alcorão com árabe + português |
+| `crianças educação` | Educação islâmica infantil |
+| `imagens proibição` | Regras sobre criação de imagens |
+| `respeito pais` | Deveres com os pais no Islam |
+| `wudhu` | Como fazer a ablução |
+| `salat` | Horários e regras da oração |
+
+---
+
+## 🛠️ Como Usar
+
+### 1. Clonar o Repositório
 
 ```bash
-# No Windows
-start index.html
-
-# No Linux
-xdg-open index.html
-
-# No macOS
-open index.html
+git clone https://github.com/islammocambique-maker/Bot-IslamM.git
+cd Bot-IslamM
 ```
 
-Ou hospede em qualquer servidor web estático (GitHub Pages, Netlify, Vercel, Firebase Hosting, etc.).
+### 2. Adicionar Conhecimento
 
----
+Crie ou edite ficheiros em `cerebro/` seguindo o formato JSON ou texto.
 
-## ✨ Funcionalidades
+### 3. Abrir no Navegador
 
-| Recurso | Descrição |
-|---------|-----------|
-| 🔍 **Busca Inteligente** | Keywords com suporte a **maiúsculas/minúsculas**, **acentos/sem acentos** |
-| 📖 **Alcorão Online** | Digite `Alcorão 2:255` → recebe texto em **árabe** + **tradução em português** |
-| 🕐 **Horários de Salat** | Horários atualizados online para **Maputo, Moçambique** com alarme de notificação |
-| 🧠 **Cérebro Externo** | Carrega conhecimento de arquivos JSON externos na pasta `cerebro/` |
-| 🔔 **Alarme de Oração** | Clique no sino para ativar notificação no horário da oração |
-| 📱 **Responsivo** | Funciona em desktop, tablet e celular |
+Abra o ficheiro `index.html` diretamente no navegador ou hospede em qualquer servidor web:
 
----
+```bash
+# Opção 1: Python
+python -m http.server 8000
 
-## 📝 Comandos de Exemplo
+# Opção 2: Node.js
+npx serve .
 
-Digite no chat:
-
-| Comando | Resposta |
-|---------|----------|
-| `Alcorão 1:1` | Surata Al-Fatiha, versículo 1 em árabe + português |
-| `Alcorão 2:255` | Ayat al-Kursi em árabe + português |
-| `horário salat` | Horários de Fajr, Dhuhr, Asr, Maghrib, Isha para hoje |
-| `o que é islam` | Definição completa do Islam |
-| `como orar` | Passo a passo da oração (Salah) |
-| `allah` | Quem é Allah e Seus 99 nomes |
-| `profeta muhammad` | Biografia do Profeta Muhammad (S.A.W.) |
-| `wudu` | Como fazer a ablução ritual |
-| `jejum ramadan` | Regras do jejum no Ramadan |
-| `shahada` | Testemunho de fé e conversão |
-
----
-
-## 🧩 Formato da Grelha Jos
-
-Cada entrada no cérebro deve seguir este formato:
-
-```json
-{
-  "palavras_chave": ["palavra1", "palavra2", "sinonimo", "variacao"],
-  "resposta": "Texto completo da resposta que o bot vai mostrar...",
-  "fonte": "Alcorão X:Y ou Hadith X",
-  "categoria": "Prática | Definição | Mais | Extra",
-  "nivel": "Básico | Intermediário | Avançado",
-  "links": ["https://Facebook.com/Islamguia"]
-}
+# Opção 3: PHP
+php -S localhost:8000
 ```
 
-### Regras de Busca:
-- ✅ **Case-insensitive**: `Islam` = `islam` = `ISLAM`
-- ✅ **Sem acentos**: `oração` = `oracao` = `oraçao`
-- ✅ **Empate**: Se múltiplas respostas tiverem o mesmo score, o bot **escolhe uma aleatoriamente**
+Acesse: `http://localhost:8000`
 
 ---
 
-## 🌐 APIs Utilizadas
+## 🌐 Deploy no GitHub Pages
 
-| API | Uso | Documentação |
-|-----|-----|--------------|
-| **Quran.com API** | Versículos do Alcorão (árabe + tradução) | https://api.quran.com |
-| **AlAdhan API** | Horários de oração baseados em localização | https://aladhan.com/prayer-times-api |
+1. Faça push do projeto para um repositório GitHub
+2. Vá em **Settings → Pages**
+3. Selecione a branch `main` e pasta `/ (root)`
+4. O bot estará disponível em: `https://seuusuario.github.io/Bot-IslamM/`
 
 ---
 
 ## 📞 Suporte
 
-| Canal | Contato |
-|-------|---------|
-| 📧 Email | [Islammocambique@gmail.com](mailto:Islammocambique@gmail.com) |
-| 📱 WhatsApp | [+258 86 040 7269](https://wa.me/258860407269) |
-| 🌐 Facebook | [facebook.com/Islamguia](https://Facebook.com/Islamguia) |
+| Canal | Contacto |
+|---|---|
+| 📱 WhatsApp | [+258 860407269](https://wa.me/258860407269) |
+| ✉️ Email | [Islammocambique@gmail.com](mailto:Islammocambique@gmail.com) |
+| 📘 Facebook | [Islam Guia](https://www.facebook.com/islamguia) |
 
 ---
 
-## 🛠️ Tecnologias
+## 📝 APIs Utilizadas
 
-- **HTML5** — Estrutura semântica
-- **CSS3** — Design responsivo com gradientes e animações
-- **JavaScript (Vanilla)** — Lógica do bot, APIs e interatividade
-- **Fetch API** — Comunicação com APIs externas
-- **Web Notifications API** — Alarmes de oração
+| API | Função |
+|---|---|
+| [QuranEnc](https://quranenc.com) | Tradução português (Helmi Nasr) |
+| [Al-Quran Cloud](https://alquran.cloud) | Texto árabe + tradução alternativa |
+| [Quran.com API v4](https://api.quran.com) | Fallback para versículos |
+
+---
+
+## 🤝 Contribuir
+
+1. Fork o projeto
+2. Crie uma branch: `git checkout -b minha-feature`
+3. Commit suas mudanças: `git commit -m 'Adiciona novo tema'`
+4. Push: `git push origin minha-feature`
+5. Abra um Pull Request
 
 ---
 
 ## 📄 Licença
 
-Este projeto é de código aberto para uso educacional e religioso islâmico.
+Este projeto é de código aberto para uso educativo e religioso.
 
-**Feito com ❤️ para a comunidade muçulmana de Moçambique.**
+---
 
-🕌 *As-salamu alaykum wa rahmatullahi wa barakatuh*
+<p align="center">
+  <strong>☪ Islam M Bot</strong><br>
+  <em>"E buscai conhecimento desde o berço até à tumba"</em><br>
+  <small>— Profeta Muhammad (SAAW)</small>
+</p>
 """
 
 with open('/mnt/agents/output/README.md', 'w', encoding='utf-8') as f:
-    f.write(readme)
+    f.write(readme_content)
 
-print("✅ README.md criado com sucesso!")
-print(f"📁 Tamanho: {len(readme)} caracteres")
+print("README.md criado com sucesso!")
+print(f"Tamanho: {len(readme_content)} caracteres")
