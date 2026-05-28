@@ -11,14 +11,12 @@
             --primary-light: #2d8a6e;
             --primary-dark: #0d3d2e;
             --gold: #c9a227;
-            --gold-light: #e8d5a3;
             --bg: #f0f4f1;
             --card: #ffffff;
             --text: #1a1a1a;
             --text-secondary: #666;
             --border: #d4ddd8;
             --shadow: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -366,11 +364,15 @@
 </div>
 
 <script>
+// ==================== UTILITÁRIOS ====================
+// Remove acentos para comparação
+function removerAcentos(str) {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
 // ==================== CONFIGURAÇÃO ====================
 const CONFIG = {
-    // TODOS os ficheiros do cérebro (incluindo historia_islamica que faltava)
     CEREBRO_FICHEIROS: [
-        // cerebro/definicao/
         { pasta: 'cerebro/definicao/', ficheiro: 'Janazah' },
         { pasta: 'cerebro/definicao/', ficheiro: 'adoracao_ibadah' },
         { pasta: 'cerebro/definicao/', ficheiro: 'comportamento' },
@@ -383,11 +385,8 @@ const CONFIG = {
         { pasta: 'cerebro/definicao/', ficheiro: 'palavras' },
         { pasta: 'cerebro/definicao/', ficheiro: 'perguntas_frequentes' },
         { pasta: 'cerebro/definicao/', ficheiro: 'ramadan' },
-        // cerebro/extra/
         { pasta: 'cerebro/extra/', ficheiro: 'extra_bot' },
-        // cerebro/mais/
         { pasta: 'cerebro/mais/', ficheiro: 'mais_conhecimento' },
-        // cerebro/pratica/
         { pasta: 'cerebro/pratica/', ficheiro: 'salat' },
         { pasta: 'cerebro/pratica/', ficheiro: 'Wudhu' }
     ],
@@ -590,7 +589,7 @@ async function carregarCerebro() {
                     console.log(`✅ Carregado: ${url} (${dados.length} entradas)`);
                 }
             } else {
-                console.log(`❌ Não encontrado: ${url}`);
+                console.log(`❌ Não encontrado: ${url} (status: ${response.status})`);
             }
         } catch (e) {
             console.log(`❌ Erro ao carregar ${item.pasta}${item.ficheiro}:`, e.message);
@@ -598,6 +597,12 @@ async function carregarCerebro() {
     }
     
     console.log(`🧠 Cérebro total: ${cerebro.length} entradas`);
+    
+    // DEBUG: mostra todas as palavras-chave carregadas
+    console.log('📋 Todas as keywords carregadas:');
+    cerebro.forEach((entry, i) => {
+        console.log(`  [${i}] ${entry.palavras_chave?.join(', ') || 'SEM KEYWORDS'} | resposta: ${entry.resposta ? 'SIM' : 'NÃO'}`);
+    });
 }
 
 // ==================== PARSE DO FORMATO DO CÉREBRO ====================
@@ -609,20 +614,17 @@ function parseCerebroTexto(texto, nomeFicheiro) {
         try {
             const json = JSON.parse(texto);
             if (Array.isArray(json)) {
-                return json.map(entry => ({
-                    ...entry,
-                    palavras_chave: (entry.palavras_chave || []).map(k => String(k).toLowerCase().trim()).filter(k => k)
-                }));
+                const parsed = json.map(entry => normalizarEntrada(entry, nomeFicheiro)).filter(e => e);
+                console.log(`📄 JSON array: ${parsed.length} entradas válidas de ${json.length}`);
+                return parsed;
             }
-            if (json.palavras_chave) {
-                json.palavras_chave = (json.palavras_chave || []).map(k => String(k).toLowerCase().trim()).filter(k => k);
-                return [json];
+            if (json.palavras_chave || json.resposta) {
+                const parsed = normalizarEntrada(json, nomeFicheiro);
+                return parsed ? [parsed] : [];
             }
             if (json.data && Array.isArray(json.data)) {
-                return json.data.map(entry => ({
-                    ...entry,
-                    palavras_chave: (entry.palavras_chave || []).map(k => String(k).toLowerCase().trim()).filter(k => k)
-                }));
+                const parsed = json.data.map(entry => normalizarEntrada(entry, nomeFicheiro)).filter(e => e);
+                return parsed;
             }
         } catch (e) {
             // Não é JSON, continua com parse manual
@@ -700,6 +702,43 @@ function parseCerebroTexto(texto, nomeFicheiro) {
     return entradas;
 }
 
+// Normaliza uma entrada do JSON para garantir compatibilidade
+function normalizarEntrada(entry, nomeFicheiro) {
+    if (!entry) return null;
+    
+    // Pega palavras-chave (pode ser array ou string)
+    let keywords = [];
+    if (Array.isArray(entry.palavras_chave)) {
+        keywords = entry.palavras_chave;
+    } else if (typeof entry.palavras_chave === 'string') {
+        keywords = entry.palavras_chave.split(/[,;|]/);
+    }
+    
+    // Normaliza: minúsculas, sem acentos, trim, remove vazios
+    keywords = keywords
+        .map(k => String(k).toLowerCase().trim())
+        .map(k => removerAcentos(k))
+        .filter(k => k && k.length > 0);
+    
+    // Pega resposta (pode ser "resposta" ou "resposta")
+    let resposta = entry.resposta || entry.resposta || '';
+    
+    // Se não tiver palavras-chave ou resposta, ignora
+    if (keywords.length === 0 || !resposta) {
+        console.log(`⚠️ Entrada ignorada em ${nomeFicheiro}: keywords=${keywords.length}, resposta=${resposta ? 'SIM' : 'NÃO'}`);
+        return null;
+    }
+    
+    return {
+        palavras_chave: keywords,
+        resposta: resposta,
+        fonte: entry.fonte || nomeFicheiro,
+        categoria: entry.categoria || detectarCategoria(nomeFicheiro),
+        nivel: entry.nivel || 'basico',
+        links: entry.links || []
+    };
+}
+
 function detectarCategoria(nomeFicheiro) {
     const lower = nomeFicheiro.toLowerCase();
     if (lower.includes('pratica') || lower.includes('salat') || lower.includes('wudhu') || lower.includes('wudu')) return 'pratica';
@@ -746,7 +785,6 @@ async function processarPergunta(texto) {
     const entry = encontrarNoCerebro(palavras);
     
     if (entry) {
-        // USA A PRIMEIRA PALAVRA-CHAVE COMO TÍTULO (sempre existe porque fez match)
         const keywordDisplay = entry.palavras_chave && entry.palavras_chave.length > 0 
             ? entry.palavras_chave[0] 
             : 'tema';
@@ -882,8 +920,6 @@ function responderComFormato(entry, keyword) {
     };
     
     const respostaFormatada = entry.resposta.replace(/\n/g, '<br>');
-    
-    // Fallback seguro para keyword
     const safeKeyword = keyword || 'tema';
     
     const html = `
@@ -972,30 +1008,36 @@ function toggleHistorico(btn) {
         : `📜 Ver anteriores (${historicoRespostas.length})`;
 }
 
-// ==================== BUSCAR NO CÉREBRO ====================
+// ==================== BUSCAR NO CÉREBRO — COM REMOÇÃO DE ACENTOS ====================
 function encontrarNoCerebro(palavras) {
     const todosMatches = [];
+    
+    // Normaliza palavras do utilizador (remove acentos)
+    const palavrasNormalizadas = palavras.map(p => removerAcentos(p));
     
     for (const entry of cerebro) {
         let score = 0;
         const keywords = entry.palavras_chave || [];
         let melhorKeyword = '';
         
-        // Verifica se a entrada tem palavras-chave válidas
         if (!keywords.length) continue;
         
-        for (const palavra of palavras) {
+        for (const palavra of palavrasNormalizadas) {
             for (const kw of keywords) {
                 if (!kw) continue;
-                if (kw === palavra) {
+                
+                // Compara com acentos removidos em ambos os lados
+                const kwNormalizada = removerAcentos(kw);
+                
+                if (kwNormalizada === palavra) {
                     score += 3;
                     if (!melhorKeyword) melhorKeyword = kw;
                 }
-                else if (kw.includes(palavra)) {
+                else if (kwNormalizada.includes(palavra)) {
                     score += 2;
                     if (!melhorKeyword) melhorKeyword = kw;
                 }
-                else if (palavra.includes(kw)) {
+                else if (palavra.includes(kwNormalizada)) {
                     score += 1;
                     if (!melhorKeyword) melhorKeyword = kw;
                 }
