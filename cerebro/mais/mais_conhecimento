@@ -1,28 +1,10 @@
 [
-  {
-    "palavras_chave": ["", "", "", ""],
-    "resposta": "",
-    "fonte": "",
-    "categoria": "",
-    "nivel": "",
-    "links": ["https://Facebook.com/Islamguia"]
-  },
-  {
-    "palavras_chave": ["", "", "", ""],
-    "resposta": "",
-    "fonte": "",
-    "categoria": "",
-    "nivel": "",
-    "links": ["https://Facebook.com/Islamguia"]
-  },
-  {
-    "palavras_chave": ["", "", "", ""],
-    "resposta": "",
-    "fonte": "",
-    "categoria": "",
-    "nivel": "",
+{
+    "palavras_chave": ["o que e islam", "islão", "islã", "islam"],
+    "resposta": "O Islam\n  \n é uma palavra árabe que provém da palavra salam, que significa paz. O Islam como religião significa submissão ao Deus único em árabe Allah. o Islam segue o monoteismo puro adoração de um Deus sem parceiros, apenas um único Deus sem associação",
+    "fonte": "Islam Moçambique",
+    "categoria": "difinição",
+    "nivel": "iniciante",
     "links": ["https://Facebook.com/Islamguia"]
   }
- ]
- 
-  
+]
