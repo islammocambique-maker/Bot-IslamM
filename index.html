@@ -309,7 +309,46 @@
             .quick-actions { gap: 6px; padding: 8px 10px; }
             .quick-btn { padding: 5px 12px; font-size: 0.8rem; }
         }
+    
+        .scroll-fab {
+            position: absolute;
+            right: 8px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.8;
+            transition: opacity 0.2s;
+        }
+        .scroll-fab:active {
+            opacity: 1;
+            background: var(--primary-dark);
+        }
+        .scroll-fab.hidden {
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        #fabUp {
+            top: 10px;
+        }
+        #fabDown {
+            bottom: 10px;
+        }
+
     </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -320,7 +359,10 @@
     </div>
 
     <div class="chat-container">
-        <div class="messages" id="messages"></div>
+        <div class="messages" id="messages">
+            <button id="fabUp" class="scroll-fab" aria-label="Subir">▲</button>
+            <button id="fabDown" class="scroll-fab" aria-label="Descer">▼</button>
+</div>
         
         <div class="quick-actions" id="quickActions">
             <button class="quick-btn" data-action="wudu">🧼 Wudhu</button>
@@ -935,6 +977,41 @@ function scrollToBottom() {
 }
 
 window.toggleHistorico = toggleHistorico;
+
+
+// ==================== SCROLL FABs ====================
+(function() {
+    var msgs = document.getElementById('messages');
+    var fabUp = document.getElementById('fabUp');
+    var fabDown = document.getElementById('fabDown');
+    if (!msgs || !fabUp || !fabDown) return;
+
+    var STEP = 250;
+
+    function scrollUp() { msgs.scrollTop -= STEP; }
+    function scrollDown() { msgs.scrollTop += STEP; }
+
+    // Use onclick for maximum compatibility (preview iframe, mobile, desktop)
+    fabUp.onclick = scrollUp;
+    fabDown.onclick = scrollDown;
+
+    // Also bind touchstart for instant response on mobile
+    fabUp.ontouchstart = function(e) { e.preventDefault(); scrollUp(); };
+    fabDown.ontouchstart = function(e) { e.preventDefault(); scrollDown(); };
+
+    function updateState() {
+        var st = msgs.scrollTop;
+        var sh = msgs.scrollHeight;
+        var ch = msgs.clientHeight;
+        fabUp.classList.toggle('hidden', st <= 2);
+        fabDown.classList.toggle('hidden', st + ch >= sh - 2);
+    }
+
+    msgs.onscroll = updateState;
+    new MutationObserver(updateState).observe(msgs, { childList: true });
+    setTimeout(updateState, 300);
+})();
+
 </script>
 
 </body>
