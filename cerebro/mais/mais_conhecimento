@@ -78,5 +78,85 @@
     "categoria": "interpretacao_academica",
     "nivel": "intermedio",
     "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["islam mocambique", "quem criou islam mocambique", "historia islam mocambique", "islam mozambique"],
+    "resposta": "🌍 *A HISTÓRIA DA ISLAM MOÇAMBIQUE*\n⠀\nA Islam Moçambique foi fundada em 2018 por Anacleto Bebane, um moçambicano nascido em 1987 na cidade de Maputo.\n⠀\nO projeto surgiu após vários anos de trabalho na Dawah, com o objetivo de divulgar o conhecimento islâmico autêntico para muçulmanos e não muçulmanos.\n⠀\n👉 Para conhecer o início desta jornada, escreva: *im.origem*",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "historia_institucional",
+    "nivel": "basico",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["im.origem", "inicio dawah", "como tudo comecou"],
+    "resposta": "📚 *O INÍCIO DA DAWAH*\n⠀\nA jornada começou em 2011 através dos debates inter-religiosos. Foi neste período que Anacleto Bebane desenvolveu um forte interesse pela divulgação do Islam e pelo esclarecimento de dúvidas sobre a religião.\n⠀\nCom a permissão de Allah, muitas pessoas passaram a conhecer melhor o Islam através deste trabalho.\n⠀\n👉 Para saber sobre os revertidos ao Islam, escreva: *im.revertidos*",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "historia_institucional",
+    "nivel": "basico",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["im.revertidos", "revertidos islam", "pessoas aceitaram islam"],
+    "resposta": "🤝 *REVERTEDOS AO ISLAM*\n⠀\nAo longo dos anos de Dawah, muitas pessoas tiveram contacto com a mensagem islâmica e várias delas aceitaram o Islam pela graça e misericórdia de Allah.\n⠀\nEmbora a orientação pertença apenas a Allah, a Islam Moçambique considera uma grande honra ter participado no esclarecimento que ajudou diversos irmãos e irmãs a conhecerem a verdade sobre o Islam.\n⠀\n👉 Para saber sobre o Núcleo Islâmico, escreva: *im.nucleo*",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "dawah",
+    "nivel": "intermedio",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["im.nucleo", "nucleo islamico", "abdul rahman bin said"],
+    "resposta": "🏛️ *O NÚCLEO ISLÂMICO*\n⠀\nEm 2013, Anacleto Bebane conheceu Abdul Rahman bin Said e juntou-se ao projeto denominado Núcleo Islâmico.\n⠀\nO foco principal era formar jovens muçulmanos para compreenderem melhor os debates inter-religiosos e aprenderem a apresentar o Islam com conhecimento e sabedoria.\n⠀\nPela misericórdia de Allah, muitos jovens beneficiaram deste trabalho.\n⠀\n👉 Para conhecer os irmãos que fizeram parte desta história, escreva: *im.irmaos*",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "historia_institucional",
+    "nivel": "intermedio",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["im.irmaos", "irmao abdullah", "dawah changana"],
+    "resposta": "👥 *IRMÃOS E PROJETOS*\n⠀\nFoi no Núcleo Islâmico que surgiram amizades e colaborações importantes.\n⠀\nEntre elas destaca-se o irmão Abdullah, que atualmente participa na Madrassa Online Islam Moçambique.\n⠀\nApós o encerramento do Núcleo Islâmico, surgiram diversos projetos independentes. Entre eles estão a Caravana de Dawah, Dawah em Changana e a própria Islam Moçambique.\n⠀\n👉 Para saber como nasceu a Islam Moçambique, escreva: *im.fundacao*",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "historia_institucional",
+    "nivel": "intermedio",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["im.fundacao", "fundacao islam mocambique", "fundacao islam moz", "islam moz"],
+    "resposta": "🚀 *A FUNDAÇÃO DA ISLAM MOÇAMBIQUE*\n⠀\nApós o encerramento do Núcleo Islâmico, Anacleto Bebane fundou a ISLAM MOZ, projeto que mais tarde passou a ser conhecido como Islam Moçambique.\n⠀\nO objetivo inicial era levar o conhecimento islâmico aos não muçulmanos e esclarecer dúvidas sobre a religião.\n⠀\n👉 Para conhecer a missão atual, escreva: *im.missao*",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "historia_institucional",
+    "nivel": "basico",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["im.missao", "missao islam mocambique", "objetivo islam mocambique"],
+    "resposta": "🎯 *A MISSÃO ATUAL*\n⠀\nCom o crescimento do projeto, a missão expandiu-se para levar conhecimento islâmico a todas as pessoas de Moçambique e, através da internet, alcançar pessoas em diferentes partes do mundo.\n⠀\nAtualmente a Islam Moçambique produz conteúdos educativos, promove aulas islâmicas e desenvolve ferramentas digitais para aprendizagem.\n⠀\n👉 Para conhecer a Madrassa Online, escreva: *im.madrassa*",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "missao",
+    "nivel": "basico",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["im.madrassa", "madrassa online", "aulas islam"],
+    "resposta": "🎓 *MADRASSA ONLINE ISLAM MOÇAMBIQUE*\n⠀\nA Madrassa Online foi criada para facilitar o acesso ao conhecimento islâmico através da internet.\n⠀\nO projeto permite que estudantes aprendam temas essenciais do Islam independentemente da sua localização.\n⠀\n👉 Para conhecer o Bot Islam M, escreva: *im.bot*",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "educacao",
+    "nivel": "basico",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["im.bot", "bot islam m", "inteligencia artificial islam"],
+    "resposta": "🤖 *BOT ISLAM M*\n⠀\nEntre os projetos mais recentes destaca-se o Bot Islam M.\n⠀\nEsta ferramenta foi desenvolvida para responder perguntas sobre o Islam, fornecer referências, ensinar temas islâmicos e facilitar o acesso ao conhecimento de forma rápida e acessível.\n⠀\nO objetivo é utilizar a tecnologia para aproximar mais pessoas do conhecimento autêntico.\n⠀\n👉 Para ver um resumo completo da Islam Moçambique, escreva: *im.resumo*",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "tecnologia",
+    "nivel": "intermedio",
+    "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["im.resumo", "resumo islam mocambique"],
+    "resposta": "📖 *RESUMO DA HISTÓRIA*\n⠀\nDesde 2011, a jornada começou com a Dawah através dos debates inter-religiosos. Em 2013 houve participação no Núcleo Islâmico. Em 2018 nasceu a Islam Moçambique. Pela graça de Allah, muitos irmãos e irmãs conheceram o Islam e vários aceitaram a religião.\n⠀\nHoje o projeto atua na educação islâmica, Madrassa Online, produção de conteúdos e desenvolvimento do Bot Islam M.\n⠀\nPedimos a Allah que aceite este esforço e o torne um benefício para Moçambique e para o mundo. Ameen.",
+    "fonte": "Arquivo institucional Islam Moçambique",
+    "categoria": "historia_institucional",
+    "nivel": "basico",
+    "links": ["https://Facebook.com/Islamguia"]
   }
 ]
