@@ -158,5 +158,69 @@
     "categoria": "historia_institucional",
     "nivel": "basico",
     "links": ["https://Facebook.com/Islamguia"]
+  },
+  {
+    "palavras_chave": ["jesus no islam", "isa no islam", "profeta isa", "jesus muculmano", "ulul azm"],
+    "resposta": "Na teologia islâmica, Jesus é reconhecido pelo nome de Isa ibn Maryam (Jesus, filho de Maria) e possui o estatuto de um dos cinco maiores profetas da história humana, uma categoria conhecida como Ulul Azm (os Profetas de Firme Resolução), ao lado de Noé, Abraão, Moisés e Muhammad. O Alcorão confere-lhe uma posição de altíssima reverência, mencionando o seu nome diretamente em vinte e cinco ocasiões diferentes ao longo do texto sagrado. A doutrina islâmica estabelece que a sua missão foi divinamente decretada para orientar os Filhos de Israel, reafirmando a linhagem profética monoteísta.",
+    "fonte": "Alcorão 2:87, 3:45, 46:35",
+    "categoria": "seerah_isa",
+    "nivel": "todos",
+    "links": ["https://quran.com/pt/2/87", "https://quran.com/pt/3/45"]
+  },
+  {
+    "palavras_chave": ["kalimatullah", "ruhullah", "palavra de deus", "espirito de deus", "jesus e deus"],
+    "resposta": "O Alcorão atribui a Jesus títulos honoríficos de elevada importância espiritual, tais como Kalimatullah (A Palavra de Deus) e Ruhullah (O Espírito de Deus). Na hermenêutica islâmica, estes títulos são interpretados estritamente como símbolos de honra e da criação direta por decreto divino, não implicando qualquer natureza divina ou coeternidade com o Criador. O Islam defende o monoteísmo absoluto (Tawhid), no qual Deus é único, não gera e não foi gerado, posicionando Jesus como um servo e mensageiro humano, desprovido de atributos divinos.",
+    "fonte": "Alcorão 4:171, 112:1-4",
+    "categoria": "aqidah",
+    "nivel": "todos",
+    "links": ["https://quran.com/pt/4/171"]
+  },
+  {
+    "palavras_chave": ["nascimento de jesus", "maria no alcorao", "mariam", "virgem maria", "concepcao milagrosa"],
+    "resposta": "A narrativa alcorânica valida explicitamente a concepção virginal de Jesus. Sua mãe, Maria (Mariam), é descrita como uma mulher puríssima, devota e escolhida por Deus acima das mulheres da humanidade. O relato textual indica que o anjo Gabriel anunciou a concessão de um filho puro por decreto divino. Diante do questionamento de Maria sobre a viabilidade da gestação sem intervenção masculina, a revelação estabelece o princípio da criação volitiva: Deus cria o que deseja através do comando verbal 'Seja' (Kun), manifestando o Seu poder absoluto.",
+    "fonte": "Alcorão 3:42-47, 19:16-21",
+    "categoria": "quranic_narrative",
+    "nivel": "todos",
+    "links": ["https://quran.com/pt/3/47", "https://quran.com/pt/19/21"]
+  },
+  {
+    "palavras_chave": ["jesus falou no berco", "primeiro milagre de jesus", "defesa de maria"],
+    "resposta": "De acordo com a narrativa do Alcorão, o primeiro milagre de Jesus ocorreu logo após o seu nascimento, ainda na condição de recém-nascido. Quando Maria foi interpelada e criticada pela sua comunidade por trazer uma criança fora do matrimónio, o bebé Jesus falou publicamente a partir do berço para defender a honra e a castidade da sua mãe. Nesse discurso inicial, ele declarou-se explicitamente como um servo de Deus, anunciou que receberia a escritura do Evangelho (Injil) e que fora designado como um profeta abençoado.",
+    "fonte": "Alcorão 19:29-33",
+    "categoria": "quranic_narrative",
+    "nivel": "todos",
+    "links": ["https://quran.com/pt/19/29"]
+  },
+  {
+    "palavras_chave": ["milagres de jesus", "passaros de barro", "curas de jesus", "ressuscitou mortos"],
+    "resposta": "A teologia islâmica reconhece que Jesus realizou múltiplos milagres de caráter extraordinário durante o seu ministério terreno. O texto alcorânico detalha que ele curava os cegos de nascença, os leprosos e ressuscitava os mortos. Adicionalmente, regista o milagre de moldar pássaros de barro e transformá-los em seres vivos através do seu sopro. A doutrina enfatiza de forma rigorosa que todos estes prodígios foram executados estritamente 'Bi-idhni-Allah' (com a permissão e o poder outorgados por Deus), servindo como sinais de legitimação da sua missão profética.",
+    "fonte": "Alcorão 3:49, 5:110",
+    "categoria": "seerah_isa",
+    "nivel": "todos",
+    "links": ["https://quran.com/pt/3/49", "https://quran.com/pt/5/110"]
+  },
+  {
+    "palavras_chave": ["crucificacao", "jesus morreu na cruz", "jesus foi crucificado", "morte de jesus"],
+    "resposta": "A perspetiva islâmica sobre o término do ministério terreno de Jesus diverge centralmente da narrativa tradicional cristã. O Alcorão afirma explicitamente que Jesus não foi crucificado nem morto pelos seus opositores, estabelecendo que o evento foi uma ilusão visual gerada para os perseguidores. A doutrina oficial dita que Deus salvou o Seu profeta da humilhação da cruz, elevando-o vivo fisicamente aos céus. Essa intervenção é interpretada no Islam como o amparo e a máxima proteção divina concedida a um dos Seus mensageiros mais amados.",
+    "fonte": "Alcorão 4:157-158",
+    "categoria": "aqidah",
+    "nivel": "todos",
+    "links": ["https://quran.com/pt/4/157"]
+  },
+  {
+    "palavras_chave": ["retorno de jesus", "segunda vinda", "dajjal", "anticristo", "escatologia islamica"],
+    "resposta": "Na escatologia islâmica, o retorno físico de Jesus à Terra é um dos grandes sinais determinantes que precedem o Dia do Juízo Final. Com base na tradição profética (Hadith), Jesus descerá dos céus no oriente de Damasco, neutralizará a figura do Dajjal (o Anti-Cristo) e estabelecerá um governo de justiça universal baseado na lei islâmica. A teologia aponta que ele viverá um período na Terra, constituirá família e falecerá de forma natural, sendo sepultado como um muçulmano, simbolizando a consumação final da sua missão terrena.",
+    "fonte": "Sahih al-Bukhari 3448, Sahih Muslim 2937a",
+    "categoria": "aqidah",
+    "nivel": "todos",
+    "links": ["https://sunnah.com/bukhari:3448", "https://sunnah.com/muslim:2937a"]
+  },
+  {
+    "palavras_chave": ["harmonia profetica", "ahmad", "cristaos e muculmanos", "dialogo fraterno", "coacao na religiao"],
+    "resposta": "O Islam posiciona a mensagem de Jesus em perfeita continuidade e harmonia com a corrente profética monoteísta que se estende de Adão a Muhammad. O Alcorão relata que Jesus confirmou a Torá e anunciou a vinda subsequente de um mensageiro chamado Ahmad (um dos nomes de Muhammad). O arcabouço teológico islâmico exige o respeito obrigatório a Jesus e a Maria, estipulando o diálogo fraterno e o respeito à liberdade de consciência, fundamentado no princípio alcorânico de que não há coação na aceitação da religião.",
+    "fonte": "Alcorão 2:256, 61:6",
+    "categoria": "comparative_religion",
+    "nivel": "todos",
+    "links": ["https://quran.com/pt/2/256", "https://quran.com/pt/61/6"]
   }
 ]
